@@ -130,3 +130,23 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/index.php/link/img/favicons/favicon.ico
 ---
+2014/07/21 19:06:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('site/img/favico...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/img/favicons/favicon.ico
+---
+2014/07/21 19:06:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('site/img/favico...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/img/favicons/favicon.ico
+---
