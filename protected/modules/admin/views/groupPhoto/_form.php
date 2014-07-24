@@ -32,9 +32,21 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'parent_id'); ?>
-		<?php echo $form->textField($model,'parent_id',array('size'=>10,'maxlength'=>10)); ?>
-		<?php echo $form->error($model,'parent_id'); ?>
+            <?php 
+//
+//print_r("<pre>");
+//print_r($model->getAllParentGroupName());
+//print_r("<pre>");
+
+
+echo CHtml::dropDownList('parent_id', $model, 
+              $model->getAllParentGroupName(),
+              array('1' => 'ALL'));
+
+?>
+		<?php // echo $form->labelEx($model,'parent_id'); ?>
+		<?php // echo $form->textField($model,'parent_id',array('size'=>10,'maxlength'=>10)); ?>
+		<?php // echo $form->error($model,'parent_id'); ?>
 	</div>
 
 	<div class="row buttons">

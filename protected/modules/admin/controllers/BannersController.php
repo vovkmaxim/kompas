@@ -77,9 +77,9 @@ class BannersController extends AdminController
                         $model->path=CUploadedFile::getInstance($model,'path');
                         if($model->save()){                            
 //                                $file = './assortiment_img/'.$model->id.'_assortiment.jpg';
-                                $file = '../o-kompas/themes/banners/' . $model->id.'_assortiment.jpg';
-                                @mkdir('../o-kompas/themes/banners/',0777,TRUE);
-                                @chmod('../o-kompas/themes/banners/', 0777);
+                                $file = '../kompas/themes/banners/' . $model->id.'_assortiment.jpg';
+                                @mkdir('../kompas/themes/banners/',0777,TRUE);
+                                @chmod('../kompas/themes/banners/', 0777);
 //                                print_r($file);
 //                                die();
                                 
@@ -123,9 +123,9 @@ class BannersController extends AdminController
                             $model->path=CUploadedFile::getInstance($model,'path');
                         }                        
 			if($model->save()){
-                             $file = '../o-kompas/themes/banners/' . $model->id.'_assortiment.jpg';
-                             @mkdir('../o-kompas/themes/banners/',0777,TRUE);
-                             @chmod('../o-kompas/themes/banners/', 0777);
+                             $file = '../kompas/themes/banners/' . $model->id.'_assortiment.jpg';
+                             @mkdir('../kompas/themes/banners/',0777,TRUE);
+                             @chmod('../kompas/themes/banners/', 0777);
                              $model->path->saveAs($file);
                              $model->path = '/themes/banners/' . $model->id.'_assortiment.jpg';;
                              $model->save();

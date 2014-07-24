@@ -70,6 +70,7 @@ class GroupController extends AdminController
 		if(isset($_POST['Group']))
 		{
 			$model->attributes=$_POST['Group'];
+                        $model->parent_id = $_POST['parent_id'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -94,6 +95,7 @@ class GroupController extends AdminController
 		if(isset($_POST['Group']))
 		{
 			$model->attributes=$_POST['Group'];
+                        $model->parent_id = $_POST['parent_id'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

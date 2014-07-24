@@ -32,7 +32,7 @@ class Group extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, parent_id', 'required'),
+			array('name', 'required'),
 			array('name', 'length', 'max'=>255),
 			array('parent_id', 'length', 'max'=>10),
 			// The following rule is used by search().
@@ -105,4 +105,19 @@ class Group extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+                
+        public function getParentGroupName($id){
+            $name = Group::model()->findAllByPk($id);
+            $name = Group::model()->findAllByPk($name[0]->parent_id);
+            return $name[0]->name;
+        }
+        
+        public function getAllParentGroupName(){
+            $name = Group::model()->findAll();
+            foreach ($name as $names){
+                $all_names[$names->id] = $names->name;
+            }            
+            return $all_names;
+        }
+        
 }

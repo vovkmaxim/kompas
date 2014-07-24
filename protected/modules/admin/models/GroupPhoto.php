@@ -32,7 +32,7 @@ class GroupPhoto extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('parent_id, title, description', 'required'),
+			array('title, description', 'required'),
 			array('title, description', 'length', 'max'=>255),
 			array('parent_id', 'length', 'max'=>10),
 			// The following rule is used by search().
@@ -106,4 +106,19 @@ class GroupPhoto extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        public function getParentGroupName($id){
+            $title = GroupPhoto::model()->findAllByPk($id);
+            $title = GroupPhoto::model()->findAllByPk($title[0]->parent_id);
+            return $title[0]->title;
+        }
+        
+        public function getAllParentGroupName(){
+            $title = GroupPhoto::model()->findAll();
+            foreach ($title as $titles){
+                $all_titles[$titles->id] = $titles->title;
+            }            
+            return $all_titles;
+        }
+        
 }
