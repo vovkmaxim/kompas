@@ -19,7 +19,11 @@ class AdminController extends Controller {
     
     public function __construct($id, $module = null) {
         parent::__construct($id, $module);
-        $this->layout = 'application.modules.admin.views.layouts.main';
+        if(Yii::app()->user->getRole() !== "administrator" && Yii::app()->user->getRole() !== "manager" && Yii::app()->user->getRole() !== "editor" && Yii::app()->user->getRole() !== "moderator"){
+            throw new CHttpException(404,'У вас нет прав для входа в адменистрирование сайта! Обратитесь к администратору.');
+        } else {
+            $this->layout = 'application.modules.admin.views.layouts.main';
+        }
     }
     
     private function mailsend($to, $from, $subject, $message) {

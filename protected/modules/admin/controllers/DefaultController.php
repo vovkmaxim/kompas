@@ -4,12 +4,12 @@ class DefaultController extends AdminController
 {
 	public function actionIndex()
 	{
-            if(Yii::app()->user->getRole() !== "administrator"){
-                $this->actionLogin();
-            }else{
+//            if(Yii::app()->user->getRole() !== "administrator"){
+//                $this->actionLogin();
+//            }else{
 //                $this->layout='application.modules.admin.views.layouts.main';
                 $this->render('index');
-            }    
+//            }    
 //            $this->render('index');
 	}
         /**

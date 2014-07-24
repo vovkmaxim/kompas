@@ -147,12 +147,16 @@ class UserController extends AdminController
 	 * @param integer $id the ID of the model to be deleted
 	 */
 	public function actionDelete($id)
-	{
-		$this->loadModel($id)->delete();
+	{   
+            if(Yii::app()->user->getRole() !== "administrator"){
+                throw new CHttpException(404,'У вас нет ПРАВ на это действие! Обратитесь к администратору.');
+            } else {
+                $this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));   
+            }		
 	}
 
 	/**

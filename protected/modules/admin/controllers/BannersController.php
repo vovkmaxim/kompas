@@ -75,16 +75,17 @@ class BannersController extends AdminController
 		{
                         $model->attributes=$_POST['Banners'];
                         $model->path=CUploadedFile::getInstance($model,'path');
-                        if($model->save()){                            
+                        if($model->save()){            
+//                            Yii::app()->params['addBaners']
 //                                $file = './assortiment_img/'.$model->id.'_assortiment.jpg';
-                                $file = '../kompas/themes/banners/' . $model->id.'_assortiment.jpg';
-                                @mkdir('../kompas/themes/banners/',0777,TRUE);
-                                @chmod('../kompas/themes/banners/', 0777);
+                                $file = Yii::app()->params['addBaners'] . $model->id.'_assortiment.jpg';
+                                @mkdir(Yii::app()->params['addBaners'],0777,TRUE);
+                                @chmod(Yii::app()->params['addBaners'], 0777);
 //                                print_r($file);
 //                                die();
                                 
                                 $model->path->saveAs($file);
-                                $model->path = '/themes/banners/' . $model->id.'_assortiment.jpg';;
+                                $model->path = Yii::app()->params['bannersPath'] . $model->id.'_assortiment.jpg';;
                                 $model->save();
 //                                print_r("<pre>");
 //                                print_r($model);
@@ -123,11 +124,11 @@ class BannersController extends AdminController
                             $model->path=CUploadedFile::getInstance($model,'path');
                         }                        
 			if($model->save()){
-                             $file = '../kompas/themes/banners/' . $model->id.'_assortiment.jpg';
-                             @mkdir('../kompas/themes/banners/',0777,TRUE);
-                             @chmod('../kompas/themes/banners/', 0777);
+                             $file = Yii::app()->params['addBaners'] . $model->id.'_assortiment.jpg';
+                             @mkdir(Yii::app()->params['addBaners'],0777,TRUE);
+                             @chmod(Yii::app()->params['addBaners'], 0777);
                              $model->path->saveAs($file);
-                             $model->path = '/themes/banners/' . $model->id.'_assortiment.jpg';;
+                             $model->path = Yii::app()->params['bannersPath'] . $model->id.'_assortiment.jpg';;
                              $model->save();
                              $this->redirect(array('view','id'=>$model->id));
                         }
@@ -146,7 +147,7 @@ class BannersController extends AdminController
 	 */
 	public function actionDelete($id)
 	{
-                @unlink('../o-kompas/themes/banners/' . $id . '_assortiment.jpg');
+                @unlink(Yii::app()->params['addBaners'] . $id . '_assortiment.jpg');
 		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
