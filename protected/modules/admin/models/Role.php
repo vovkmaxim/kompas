@@ -96,4 +96,12 @@ class Role extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        public static function getAllRolle(){
+            $all_role = Role::model()->findAll();
+            foreach ($all_role as $role){
+                $list[$role->id] = $role->role;
+            }
+            return $list;
+        }
 }

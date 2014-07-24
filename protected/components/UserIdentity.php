@@ -25,7 +25,9 @@ class UserIdentity extends CUserIdentity {
 
         if ($record === NULL) {
             $this->errorCode = self::ERROR_USERNAME_INVALID;
-        } elseif ( $record->password !== md5($this->password) ) {
+        } elseif ( !$record->status ){
+            throw new CHttpException(404,'Ваша учётная запись не активирована.');
+        }  elseif ( $record->password !== md5($this->password) )  {
             $this->errorCode = self::ERROR_PASSWORD_INVALID;
         } else {
             $this->_id=$record->id;

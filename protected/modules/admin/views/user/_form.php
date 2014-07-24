@@ -101,8 +101,17 @@
                           '1' => 'Член клуба', ),
                     array('0' => 'Не член клуба', ));            
                 ?>
-		
-                <?php // echo $form->textField($model,'member'); ?>
+		<?php echo $form->error($model,'member'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo "User Role"; ?>
+		<?php
+                    $selekl_list = new Role();
+                    echo $form->dropDownList($selekl_list,'role',
+                    Role::getAllRolle(),
+                    array('0000000004' => 'guest', 'multiple' => 'multiple'));            
+                ?>
 		<?php echo $form->error($model,'member'); ?>
 	</div>
 

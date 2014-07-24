@@ -17,6 +17,7 @@
  * @property string $club
  * @property integer $status
  * @property integer $member
+ * @property integer $role
  *
  * The followings are the available model relations:
  * @property KmComments[] $kmComments
@@ -44,9 +45,11 @@ class User extends CActiveRecord
 		return array(
 			array('status, member', 'numerical', 'integerOnly'=>true),
 			array('email, username, password, name, lastname, phone, sity, coutry, club', 'length', 'max'=>255),
-			array('data_birth', 'safe'),
+			array('data_birth,role', 'safe'),
+//			array('email', 'email'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
+//			array('id, email, username, password, name, lastname, data_birth, phone, sity, coutry, club, status, member',  'required'),
 			array('id, email, username, password, name, lastname, data_birth, phone, sity, coutry, club, status, member', 'safe', 'on'=>'search'),
 		);
 	}
@@ -116,6 +119,7 @@ class User extends CActiveRecord
 			'club' => 'Club',
 			'status' => 'Status',
 			'member' => 'Member',
+			'role' => 'Role',
 		);
 	}
 
@@ -186,16 +190,5 @@ class User extends CActiveRecord
                 return "<span style='color:red'>Не член клуба</span>";
             }
         }
-        
-        public function getMemberColor($id){
-            $member = User::model()->findByPk($id);
-            if($member->member){
-                return "red";
-//                return "#00FF66";
-            } else {
-                return "red";
-            }
-        }
-        
-        
+                
 }

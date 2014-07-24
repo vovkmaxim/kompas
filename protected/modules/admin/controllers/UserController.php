@@ -70,8 +70,24 @@ class UserController extends AdminController
 		if(isset($_POST['User']))
 		{
 			$model->attributes=$_POST['User'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+                        if($model->save()){
+                            $model->password = md5($model->password);
+                            $model->save();
+                            if(isset($_POST['Role']['role']) && !empty($_POST['Role']['role'])){
+                                foreach ($_POST['Role']['role'] as $roles){
+                                    $roleMode = new KmRoleHasKmUser();
+                                    $roleMode->user_id = $model->id;
+                                    $roleMode->role_id = $roles;
+                                    $roleMode->save();
+                                }
+                            } else {
+                                    $roleMode = new KmRoleHasKmUser();
+                                    $roleMode->user_id = $model->id;
+                                    $roleMode->role_id = 5;
+                                    $roleMode->save();
+                            }                            
+                            $this->redirect(array('view','id'=>$model->id));
+                        }
 		}
 
 		$this->render('create',array(
@@ -93,9 +109,31 @@ class UserController extends AdminController
 
 		if(isset($_POST['User']))
 		{
+//                    $delete_role = KmRoleHasKmUser::model()->findAll("user_id=:user_id",array(":user_id" => $model->id));
+//                    
+//                    print_r("<pre>");
+//                    print_r($delete_role);
+//                    print_r("<pre>");
+//                    die();
 			$model->attributes=$_POST['User'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()){
+                            $model->password = md5($model->password);
+                            $model->save();
+                            if(isset($_POST['Role']['role']) && !empty($_POST['Role']['role'])){
+                                $delete_role = KmRoleHasKmUser::model()->findAll("user_id=:user_id",array(":user_id" => $model->id));
+                                foreach ($delete_role as $delete){
+                                    $delete->delete();
+                                }
+                                foreach ($_POST['Role']['role'] as $roles){
+                                    $roleMode = new KmRoleHasKmUser();
+                                    $roleMode->user_id = $model->id;
+                                    $roleMode->role_id = $roles;
+                                    $roleMode->save();
+                                }
+                                $this->redirect(array('view','id'=>$model->id));
+                            }                     
+                            $this->redirect(array('view','id'=>$model->id));
+                        }
 		}
 
 		$this->render('update',array(
