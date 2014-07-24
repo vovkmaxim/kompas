@@ -48,18 +48,32 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'id',
 		'email',
 		'username',
-		'password',
+//		'password',
 		'name',
 		'lastname',
-		/*
 		'data_birth',
 		'phone',
 		'sity',
 		'coutry',
 		'club',
-		'status',
-		'member',
-		*/
+                array(
+                    'name' => 'status',
+                    'type' => 'raw',
+                    'value' => '$data->getUserStatus($data->id)',
+                    'filter' => false,
+                    'htmlOptions' => array(
+                        "width" => 128,
+                    ),
+                ),
+                array(
+                    'name' => 'member',
+                    'type' => 'raw',
+                    'value' => '$data->getUserMember($data->id)',
+                    'filter' => false,
+//                    'htmlOptions' => array(
+//                        "bgcolor" => '$data->getMemberColor($data->id)',
+//                    ),
+                ),
 		array(
 			'class'=>'CButtonColumn',
 		),

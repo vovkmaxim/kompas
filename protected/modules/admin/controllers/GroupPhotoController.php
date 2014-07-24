@@ -70,12 +70,9 @@ class GroupPhotoController extends AdminController
 		if(isset($_POST['GroupPhoto']))
 		{
                     	$model->attributes=$_POST['GroupPhoto'];
-//                        print_r("<pre>");
-//                    print_r($model);
-//                    print_r("<pre>");
-//                    die();
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+                        $model->parent_id = $_POST['parent_id'];
+                        if($model->save())
+                                $this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
@@ -98,6 +95,13 @@ class GroupPhotoController extends AdminController
 		if(isset($_POST['GroupPhoto']))
 		{
 			$model->attributes=$_POST['GroupPhoto'];
+                        $model->parent_id = $_POST['parent_id'];
+//                        print_r("<pre>");
+//                        print_r($model);
+//                        print_r("<pre>");
+//                        die();
+                        
+                        
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
