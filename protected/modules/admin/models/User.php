@@ -66,6 +66,37 @@ class User extends CActiveRecord
 		);
 	}
 
+        public function getRoleUser(){
+            $role_id = KmRoleHasKmUser::model()->findAll('user_id=:user_id',array(
+                                                            ':user_id'=>  $this->id,
+                                                          ));
+            if(!empty($role_id)){
+                    foreach ($role_id as $roles){
+                              $res_role_id[]=$roles->role_id;
+                      }    
+                      foreach($res_role_id as $id){
+                          $role = Role::model()->findByPk($id);
+                          $role_name[] = $role->role;
+                      }            
+                  return $role_name;  
+            } else {
+                return FALSE;
+            } 
+                
+        }
+        
+        public function getRoleUserForAdmins(){
+            $role_name = $this->getRoleUser();
+            if($role_name){
+                $return_str = "";
+                    foreach($role_name as $name){
+                        $return_str .= " - " . $name . ",<br>";
+                    }            
+                return $return_str;    
+            }            
+        }
+        
+        
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */

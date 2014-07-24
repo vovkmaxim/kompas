@@ -61,18 +61,21 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
                     'type' => 'raw',
                     'value' => '$data->getUserStatus($data->id)',
                     'filter' => false,
-                    'htmlOptions' => array(
-                        "width" => 128,
-                    ),
                 ),
                 array(
                     'name' => 'member',
                     'type' => 'raw',
                     'value' => '$data->getUserMember($data->id)',
                     'filter' => false,
-//                    'htmlOptions' => array(
-//                        "bgcolor" => '$data->getMemberColor($data->id)',
-//                    ),
+                ),
+                array(
+                    'name' => 'Role',
+                    'type' => 'raw',
+                    'value' => '$data->getRoleUserForAdmins()',
+                    'filter' => false,
+                    'htmlOptions' => array(
+                        "width" => 128,
+                    ),
                 ),
 		array(
 			'class'=>'CButtonColumn',
