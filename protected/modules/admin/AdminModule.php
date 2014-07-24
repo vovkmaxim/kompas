@@ -6,7 +6,10 @@ class AdminModule extends CWebModule
 	{
 		// this method is called when the module is being created
 		// you may place code here to customize the module or the application
-
+//                $this->layoutPath = Yii::getPathOfAlias('admin.views.layouts');
+//                // set the layout
+//                $this->layout = 'main';
+                $this->layout = 'application.modules.admin.views.layouts.main';
 		// import the module-level models and components
 		$this->setImport(array(
 			'admin.models.*',

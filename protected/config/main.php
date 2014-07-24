@@ -6,6 +6,8 @@
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 return array(
+        'sourceLanguage' => 'en',
+        'language' => 'ru',
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'My Web Application',
 
@@ -20,7 +22,11 @@ return array(
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		'admin',
+		'admin' => array(
+                    'layoutPath' => 'protected/modules/admin/views/layouts',
+                    'layout' => 'main',
+//                    'layout' => 'application.modules.admin.views.layouts.main',
+                ),
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'123',
@@ -33,19 +39,23 @@ return array(
 	// application components
 	'components'=>array(
 		'user'=>array(
+                        'class' => 'WebUser',
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
 		// uncomment the following to enable URLs in path-format
-		
-		'urlManager'=>array(
-			'urlFormat'=>'path',
-			'rules'=>array(
-				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
-				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
-			),
-		),
+		'authManager' => array(
+                    'class' => 'PhpAuthManager',
+                    'defaultRole' => array('guest'),
+                ),
+//		'urlManager'=>array(
+//			'urlFormat'=>'path',
+//			'rules'=>array(
+//				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
+//				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+//				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+//			),
+//		),
 		
 //		'db'=>array(
 //			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
