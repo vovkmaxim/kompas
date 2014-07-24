@@ -2683,3 +2683,11 @@ in /home/max/public_html/o-kompas/index.php (13)
 2014/07/23 19:06:49 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
 in /home/max/public_html/o-kompas/protected/modules/admin/controllers/BannersController.php (120)
 in /home/max/public_html/o-kompas/index.php (13)
+2014/07/24 11:28:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "admion".' in /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admion')
+#1 /home/php/public_html/o-kompas/kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/php/public_html/o-kompas/kompas/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=admion
+---
