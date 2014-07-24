@@ -135,4 +135,36 @@ class User extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+                
+        public function getUserStatus($id){
+            $status = User::model()->findByPk($id);
+            if($status->status){
+                return "<h4><span  style='color:#00FF66'>Активен</span></h4>";
+            } else {
+                return "<span style='color:red'>Не активирован</span>";
+            }
+        }
+        
+                
+        public function getUserMember($id){
+            $member = User::model()->findByPk($id);
+            if($member->member){
+                return "<h4><span  style='color:#00FF66'>Член клуба</span></h4>";
+            } else {
+                return "<span style='color:red'>Не член клуба</span>";
+            }
+        }
+        
+        public function getMemberColor($id){
+            $member = User::model()->findByPk($id);
+            if($member->member){
+                return "red";
+//                return "#00FF66";
+            } else {
+                return "red";
+            }
+        }
+        
+        
 }
