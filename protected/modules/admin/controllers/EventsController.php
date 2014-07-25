@@ -112,6 +112,7 @@ class EventsController extends AdminController
 
 		if(isset($_POST['Events']))
 		{
+                        $model->logo_path = $_FILES['Events']['name']['logo_path'];
 			$model->attributes=$_POST['Events'];
                         $model->type = $_POST['type'];
                         $model->status = $_POST['status'];
