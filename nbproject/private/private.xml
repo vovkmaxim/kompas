@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/views/groupPhoto/_form.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/GroupPhotoController.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/controllers/SiteController.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/components/UserIdentity.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/views/groupPhoto/admin.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/models/GroupPhoto.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/components/AdminController.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/models/Role.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/views/group/_form.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/models/KmRoleHasKmUser.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/UserController.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/config/main.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/DefaultController.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/views/groupPhoto/_search.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/models/Group.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/views/group/admin.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/models/User.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/views/groupPhoto/update.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/views/user/_form.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/views/user/admin.php</file>
+        </group>
+    </open-files>
 </project-private>

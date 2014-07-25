@@ -47,6 +47,7 @@
                                 array('label'=>'Role', 'url'=>array('role/index')),
                                 array('label'=>'Ranks', 'url'=>array('rank/index')),
                                 array('label'=>'Group Photo', 'url'=>array('groupPhoto/index')),
+                                array('label'=>'Events', 'url'=>array('events/index')),
 			),
 		)); ?>
 	</div><!-- mainmenu -->

@@ -98,5 +98,7 @@ return array(
 		'adminEmail' => 'mvovk90@ukr.net',
 		'addBaners' => '../kompas/themes/banners/',
 		'bannersPath' => '/themes/banners/',
+		'addLogoEvents' => '../kompas/themes/events_logo/',
+		'LogoEventsPath' => '/themes/events_logo/',
 	),
 );

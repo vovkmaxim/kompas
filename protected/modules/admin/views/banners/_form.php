@@ -8,10 +8,6 @@
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'banners-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// There is a call to performAjaxValidation() commented in generated controller code.
-	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>true,
         'htmlOptions' => array(
             'enctype' => 'multipart/form-data',
@@ -42,8 +38,7 @@
 
 	<div class="row">
 		<?php
-                if(empty($model->path)){
-                 
+                if(empty($model->path)){                 
                     echo $form->labelEx($model,'path'); 
                     echo CHtml::activeFileField($model,'path'); 
                     echo $form->error($model,'path');
