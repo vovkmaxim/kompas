@@ -100,5 +100,7 @@ return array(
 		'bannersPath' => '/themes/banners/',
 		'addLogoEvents' => '../kompas/themes/events_logo/',
 		'LogoEventsPath' => '/themes/events_logo/',
+		'GroupPhotoPath' => '/themes/photo/',
+                'addGroupPhotoPath' => '../kompas/themes/photo/',
 	),
 );

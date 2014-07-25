@@ -19,31 +19,6 @@ class GroupPhotoController extends AdminController
 		);
 	}
 
-	/**
-	 * Specifies the access control rules.
-	 * This method is used by the 'accessControl' filter.
-	 * @return array access control rules
-	 */
-//	public function accessRules()
-//	{
-//		return array(
-//			array('allow',  // allow all users to perform 'index' and 'view' actions
-//				'actions'=>array('index','view'),
-//				'users'=>array('*'),
-//			),
-//			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-//				'actions'=>array('create','update'),
-//				'users'=>array('@'),
-//			),
-//			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-//				'actions'=>array('admin','delete'),
-//				'users'=>array('admin'),
-//			),
-//			array('deny',  // deny all users
-//				'users'=>array('*'),
-//			),
-//		);
-//	}
 
 	/**
 	 * Displays a particular model.
@@ -71,8 +46,14 @@ class GroupPhotoController extends AdminController
 		{
                     	$model->attributes=$_POST['GroupPhoto'];
                         $model->parent_id = $_POST['parent_id'];
-                        if($model->save())
+                        if($model->save()){
+                            $addGroupPhotoPath = Yii::app()->params['addGroupPhotoPath'] . $model->parent_id . "/" . $model->id . "/";
+                            @chmod(Yii::app()->params['addGroupPhotoPath'] . $model->parent_id . "/", 0777);
+                            @chmod(Yii::app()->params['addGroupPhotoPath'], 0777);
+                            @mkdir($addGroupPhotoPath,0777,TRUE);
+                            @chmod($addGroupPhotoPath, 0777);
                                 $this->redirect(array('view','id'=>$model->id));
+                        }
 		}
 
 		$this->render('create',array(
@@ -94,15 +75,15 @@ class GroupPhotoController extends AdminController
 
 		if(isset($_POST['GroupPhoto']))
 		{
+                        @unlink(Yii::app()->params['addGroupPhotoPath'] . $model->parent_id . "/" . $model->id . "/");
 			$model->attributes=$_POST['GroupPhoto'];
                         $model->parent_id = $_POST['parent_id'];
-//                        print_r("<pre>");
-//                        print_r($model);
-//                        print_r("<pre>");
-//                        die();
-                        
-                        
-			if($model->save())
+                        if($model->save())
+                            $addGroupPhotoPath = Yii::app()->params['addGroupPhotoPath'] . $model->parent_id . "/" . $model->id . "/";
+                            @chmod(Yii::app()->params['addGroupPhotoPath'] . $model->parent_id . "/", 0777);
+                            @chmod(Yii::app()->params['addGroupPhotoPath'], 0777);
+                            @mkdir($addGroupPhotoPath,0777,TRUE);
+                            @chmod($addGroupPhotoPath, 0777);
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
@@ -117,9 +98,9 @@ class GroupPhotoController extends AdminController
 	 * @param integer $id the ID of the model to be deleted
 	 */
 	public function actionDelete($id)
-	{
+	{       
+                @unlink(Yii::app()->params['addGroupPhotoPath'] . $this->id . "/");
 		$this->loadModel($id)->delete();
-
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
