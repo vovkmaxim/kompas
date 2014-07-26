@@ -26,8 +26,14 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'description'); ?>
+		<?php echo $form->textField($model,'description',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'description'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'parent_id'); ?>
-		<?php echo $form->textField($model,'parent_id',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->textField($model,'parent_id'); ?>
 		<?php echo $form->error($model,'parent_id'); ?>
 	</div>
 

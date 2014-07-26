@@ -1,0 +1,92 @@
+                
+        public function getParentGroupName($id){
+                $name = Group::model()->findAllByPk($id);
+                $name = Group::model()->findAllByPk($name[0]->parent_id);
+                if($name != NULL){
+                    return $name[0]->name;   
+                } else {
+                    return "NONE";
+                }
+        }
+        
+        public function getAllParentGroupName(){
+            $name = Group::model()->findAll();
+            $all_names = array();
+            $all_names[0] = "";
+            foreach ($name as $names){
+                $all_names[$names->id] = $names->name;
+            } 
+            return $all_names;
+        }
+
+
+
+
+--------------------------------------------------------------------------------------
+admin
+
+
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+	'id'=>'group-grid',
+	'dataProvider'=>$model->search(),
+	'filter'=>$model,
+	'columns'=>array(
+		'id',
+		'name',
+//		'description',
+		array(
+                    'name' => 'parent_id',
+                    'type' => 'raw',
+                    'value' => '$data->getParentGroupName($data->id)',
+                    'filter' => false,
+                    'htmlOptions' => array(
+                        "width" => 128,
+                    ),
+                ),
+		array(
+			'class'=>'CButtonColumn',
+		),
+	),
+)); ?>
+
+
+----------------------------------------------------------------------------------
+
+form
+
+
+	<div class="row">
+                <?php 
+                    echo CHtml::dropDownList('parent_id', $model, 
+                              $model->getAllParentGroupName(),
+                              array('1' => 'test'));
+                ?>
+        </div>  
+----------------------------------------------------------------------------------------
+
+Controler  -> actionCreate & Update
+
+
+$model->attributes=$_POST['Group'];
+                        if(isset($_POST['parent_id']) && !empty($_POST['parent_id'])){
+                          $model->parent_id = $_POST['parent_id'];   
+                        } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

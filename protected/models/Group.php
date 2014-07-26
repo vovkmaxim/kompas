@@ -6,13 +6,12 @@
  * The followings are the available columns in table 'km_group':
  * @property string $id
  * @property string $name
- * @property string $parent_id
+ * @property string $description
+ * @property integer $parent_id
  *
  * The followings are the available model relations:
  * @property KmCompetition[] $kmCompetitions
  * @property KmCompetitionRequest[] $kmCompetitionRequests
- * @property Group $parent
- * @property Group[] $kmGroups
  */
 class Group extends CActiveRecord
 {
@@ -32,12 +31,12 @@ class Group extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('parent_id', 'required'),
-			array('name', 'length', 'max'=>255),
-			array('parent_id', 'length', 'max'=>10),
+			array('description', 'required'),
+			array('parent_id', 'numerical', 'integerOnly'=>true),
+			array('name, description', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, parent_id', 'safe', 'on'=>'search'),
+			array('id, name, description, parent_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -51,8 +50,6 @@ class Group extends CActiveRecord
 		return array(
 			'kmCompetitions' => array(self::MANY_MANY, 'KmCompetition', 'km_competition_group_refs(km_group_id, km_competition_id)'),
 			'kmCompetitionRequests' => array(self::HAS_MANY, 'KmCompetitionRequest', 'group_id'),
-			'parent' => array(self::BELONGS_TO, 'Group', 'parent_id'),
-			'kmGroups' => array(self::HAS_MANY, 'Group', 'parent_id'),
 		);
 	}
 
@@ -64,6 +61,7 @@ class Group extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'name' => 'Name',
+			'description' => 'Description',
 			'parent_id' => 'Parent',
 		);
 	}
@@ -88,7 +86,8 @@ class Group extends CActiveRecord
 
 		$criteria->compare('id',$this->id,true);
 		$criteria->compare('name',$this->name,true);
-		$criteria->compare('parent_id',$this->parent_id,true);
+		$criteria->compare('description',$this->description,true);
+		$criteria->compare('parent_id',$this->parent_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

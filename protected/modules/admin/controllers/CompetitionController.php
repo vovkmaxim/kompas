@@ -44,10 +44,6 @@ class CompetitionController extends AdminController
 
 		if(isset($_POST['Competition']))
 		{
-//                    print_r("<pre>");
-//                    print_r($_POST);
-//                    print_r("<pre>");
-//                    die();
 			$model->type = $_POST['type'];
 			$model->start_data = $_POST['year_start_data'] . '-' . $_POST['monts_start_data'] . '-' . $_POST['day_start_data'];
 			$model->start_time = $_POST['hour_start_time'] . ':00:00';
@@ -121,10 +117,7 @@ class CompetitionController extends AdminController
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Competition');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
+		$this->actionAdmin();
 	}
 
 	/**
