@@ -55,15 +55,37 @@ class CompetitionController extends AdminController
 			$model->archive = $_POST['archive'];
 			$model->position = 0;
 			$model->attributes = $_POST['Competition'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()){
+                            $this->setCompetitionGroupRefs($_POST, $model->id);
+                            $this->redirect(array('view','id'=>$model->id));
+                        }
 		}
-
 		$this->render('create',array(
 			'model'=>$model,
 		));
 	}
 
+        private function setCompetitionGroupRefs($_POST, $km_competition_id){
+            $all_group = Group::model()->findAll();
+            if($all_group != NULL){                
+                    foreach($all_group as $all_groups){
+                        $CompetitionGroupRefs = CompetitionGroupRefs::model()->find("km_group_id=:find_id_in_post1 AND km_competition_id=:km_competition_id", array(":find_id_in_post1" => $all_groups->id, ":km_competition_id" => $km_competition_id));
+                        if($CompetitionGroupRefs != NULL){
+                            $CompetitionGroupRefs->delete();
+                        }            
+                    }
+                    foreach($all_group as $all_groups){
+                        $find_id_in_post = "grop_" . $all_groups->id . "";
+                        if(isset($_POST[$find_id_in_post])){                        
+                                $competition_group_refs = new CompetitionGroupRefs();
+                                $competition_group_refs->km_group_id = $_POST[$find_id_in_post];
+                                $competition_group_refs->km_competition_id = $km_competition_id;
+                                $competition_group_refs->save();                        
+                        }
+                     }                
+            }
+        }
+        
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
@@ -78,6 +100,7 @@ class CompetitionController extends AdminController
 
 		if(isset($_POST['Competition']))
 		{
+                                       
                         $model->type = $_POST['type'];
 			$model->start_data = $_POST['year_start_data'] . '-' . $_POST['monts_start_data'] . '-' . $_POST['day_start_data'];
 			$model->start_time = $_POST['hour_start_time'] . ':00:00';
@@ -89,8 +112,10 @@ class CompetitionController extends AdminController
 			$model->archive = $_POST['archive'];
 			$model->position = 0;
 			$model->attributes=$_POST['Competition'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()){
+                            $this->setCompetitionGroupRefs($_POST, $model->id);
+                            $this->redirect(array('view','id'=>$model->id));
+                        }				
 		}
 
 		$this->render('update',array(

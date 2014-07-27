@@ -4294,3 +4294,369 @@ Stack trace:
 REQUEST_URI=/index.php?r=admin/group/create
 HTTP_REFERER=http://o-kompas.com.local/index.php?r=admin/group/admin
 ---
+2014/07/27 12:53:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'У вас нет прав для входа в адменистрирование сайта! Обратитесь к администратору.' in /home/max/public_html/o-kompas/protected/modules/admin/components/AdminController.php:23
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(359): AdminController->__construct('competition', Object(AdminModule))
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(338): CWebApplication->createController('competition/ind...', Object(AdminModule))
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(276): CWebApplication->createController('admin/competiti...')
+#3 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/competiti...')
+#4 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/index.php?r=admin/competition/index
+HTTP_REFERER=http://o-kompas.com.local/index.php?r=admin/competition/create
+---
+2014/07/27 13:24:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'У вас нет прав для входа в адменистрирование сайта! Обратитесь к администратору.' in /home/max/public_html/o-kompas/protected/modules/admin/components/AdminController.php:23
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(359): AdminController->__construct('group', Object(AdminModule))
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(338): CWebApplication->createController('group/admin/', Object(AdminModule))
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(276): CWebApplication->createController('admin/group/adm...')
+#3 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/group/adm...')
+#4 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/index.php?r=admin/group/admin
+---
+2014/07/27 13:56:49 [error] [php] Undefined variable: model (/home/max/public_html/o-kompas/protected/modules/admin/models/Competition.php:269)
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CBaseController.php(95): CompetitionController->renderInternal()
+#1 /home/max/public_html/o-kompas/framework/web/CController.php(869): CompetitionController->renderFile()
+#2 /home/max/public_html/o-kompas/protected/modules/admin/views/competition/create.php(18): CompetitionController->renderPartial()
+#3 /home/max/public_html/o-kompas/framework/web/CBaseController.php(126): require()
+#4 /home/max/public_html/o-kompas/framework/web/CBaseController.php(95): CompetitionController->renderInternal()
+#5 /home/max/public_html/o-kompas/framework/web/CController.php(869): CompetitionController->renderFile()
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(782): CompetitionController->renderPartial()
+#7 /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php(64): CompetitionController->render()
+#8 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(49): CompetitionController->actionCreate()
+#9 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams()
+#10 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CompetitionController->runAction()
+#11 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#13 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CompetitionController->filterAccessControl()
+#14 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#15 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#16 /home/max/public_html/o-kompas/framework/web/CController.php(265): CompetitionController->runActionWithFilters()
+#17 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CompetitionController->run()
+#18 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#19 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#20 /home/max/public_html/o-kompas/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=admin/competition/create
+in /home/max/public_html/o-kompas/protected/modules/admin/models/Competition.php (269)
+in /home/max/public_html/o-kompas/protected/modules/admin/views/competition/_form.php (228)
+in /home/max/public_html/o-kompas/protected/modules/admin/views/competition/create.php (18)
+2014/07/27 14:53:29 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "Competition.Group".' in /home/max/public_html/o-kompas/framework/base/CComponent.php:130
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(145): CComponent->__get('Group')
+#1 /home/max/public_html/o-kompas/protected/modules/admin/models/Competition.php(271): CActiveRecord->__get('Group')
+#2 /home/max/public_html/o-kompas/protected/modules/admin/views/competition/_form.php(229): Competition->getGroupCompetitionFormCheckbox()
+#3 /home/max/public_html/o-kompas/framework/web/CBaseController.php(126): require('/home/max/publi...')
+#4 /home/max/public_html/o-kompas/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/max/publi...', Array, true)
+#5 /home/max/public_html/o-kompas/framework/web/CController.php(869): CBaseController->renderFile('/home/max/publi...', Array, true)
+#6 /home/max/public_html/o-kompas/protected/modules/admin/views/competition/update.php(21): CController->renderPartial('_form', Array)
+#7 /home/max/public_html/o-kompas/framework/web/CBaseController.php(126): require('/home/max/publi...')
+#8 /home/max/public_html/o-kompas/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/max/publi...', Array, true)
+#9 /home/max/public_html/o-kompas/framework/web/CController.php(869): CBaseController->renderFile('/home/max/publi...', Array, true)
+#10 /home/max/public_html/o-kompas/framework/web/CController.php(782): CController->renderPartial('update', Array, true)
+#11 /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php(98): CController->render('update', Array)
+#12 [internal function]: CompetitionController->actionUpdate('1')
+#13 /home/max/public_html/o-kompas/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CompetitionController), Array)
+#14 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CompetitionController), Object(ReflectionMethod), Array)
+#15 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#16 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#17 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#18 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#19 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#20 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#21 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#22 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#23 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('update')
+#24 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/competiti...')
+#25 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#26 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#27 {main}
+REQUEST_URI=/index.php?r=admin/competition/update&id=1
+HTTP_REFERER=http://o-kompas.com.local/index.php?r=admin/competition/index
+---
+2014/07/27 14:54:00 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "Competition.Group".' in /home/max/public_html/o-kompas/framework/base/CComponent.php:130
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(145): CComponent->__get('Group')
+#1 /home/max/public_html/o-kompas/protected/modules/admin/models/Competition.php(296): CActiveRecord->__get('Group')
+#2 /home/max/public_html/o-kompas/protected/modules/admin/models/Competition.php(275): Competition->chekGroupForCompetition('3')
+#3 /home/max/public_html/o-kompas/protected/modules/admin/views/competition/_form.php(229): Competition->getGroupCompetitionFormCheckbox()
+#4 /home/max/public_html/o-kompas/framework/web/CBaseController.php(126): require('/home/max/publi...')
+#5 /home/max/public_html/o-kompas/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/max/publi...', Array, true)
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(869): CBaseController->renderFile('/home/max/publi...', Array, true)
+#7 /home/max/public_html/o-kompas/protected/modules/admin/views/competition/update.php(21): CController->renderPartial('_form', Array)
+#8 /home/max/public_html/o-kompas/framework/web/CBaseController.php(126): require('/home/max/publi...')
+#9 /home/max/public_html/o-kompas/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/max/publi...', Array, true)
+#10 /home/max/public_html/o-kompas/framework/web/CController.php(869): CBaseController->renderFile('/home/max/publi...', Array, true)
+#11 /home/max/public_html/o-kompas/framework/web/CController.php(782): CController->renderPartial('update', Array, true)
+#12 /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php(98): CController->render('update', Array)
+#13 [internal function]: CompetitionController->actionUpdate('1')
+#14 /home/max/public_html/o-kompas/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CompetitionController), Array)
+#15 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CompetitionController), Object(ReflectionMethod), Array)
+#16 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#17 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#18 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#19 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#20 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#21 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#22 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#23 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('update')
+#25 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/competiti...')
+#26 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#27 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/index.php?r=admin/competition/update&id=1
+HTTP_REFERER=http://o-kompas.com.local/index.php?r=admin/competition/index
+---
+2014/07/27 15:37:52 [error] [php] Undefined index: "group_3" (/home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php:53)
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CompetitionController->runAction()
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#3 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CompetitionController->filterAccessControl()
+#4 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(265): CompetitionController->runActionWithFilters()
+#7 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CompetitionController->run()
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /home/max/public_html/o-kompas/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=admin/competition/create
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (53)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/27 16:01:31 [error] [php] Undefined index: 'group_3' (/home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php:53)
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CompetitionController->runAction()
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#3 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CompetitionController->filterAccessControl()
+#4 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(265): CompetitionController->runActionWithFilters()
+#7 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CompetitionController->run()
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /home/max/public_html/o-kompas/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=admin/competition/create
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (53)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/27 16:01:51 [error] [php] Undefined index: group_6 (/home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php:53)
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CompetitionController->runAction()
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#3 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CompetitionController->filterAccessControl()
+#4 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(265): CompetitionController->runActionWithFilters()
+#7 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CompetitionController->run()
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /home/max/public_html/o-kompas/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=admin/competition/create
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (53)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/27 16:11:38 [error] [php] Undefined index: 'grop_3" (/home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php:103)
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CompetitionController->runAction()
+#3 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CompetitionController->filterAccessControl()
+#6 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#8 /home/max/public_html/o-kompas/framework/web/CController.php(265): CompetitionController->runActionWithFilters()
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CompetitionController->run()
+#10 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /home/max/public_html/o-kompas/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=admin/competition/update&id=3
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (103)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/27 16:11:53 [error] [php] Undefined index: 'grop_3' (/home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php:103)
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CompetitionController->runAction()
+#3 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CompetitionController->filterAccessControl()
+#6 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#8 /home/max/public_html/o-kompas/framework/web/CController.php(265): CompetitionController->runActionWithFilters()
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CompetitionController->run()
+#10 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /home/max/public_html/o-kompas/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=admin/competition/update&id=3
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (103)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/27 16:12:20 [error] [php] Undefined index: 'grop_3' (/home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php:103)
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CompetitionController->runAction()
+#3 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CompetitionController->filterAccessControl()
+#6 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#8 /home/max/public_html/o-kompas/framework/web/CController.php(265): CompetitionController->runActionWithFilters()
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CompetitionController->run()
+#10 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /home/max/public_html/o-kompas/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=admin/competition/update&id=3
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (103)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/27 16:14:04 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('update')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/competiti...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=admin/competition/update
+---
+2014/07/27 16:15:09 [error] [system.db.CDbCommand] Не удалось выполнить CDbCommand::execute(): SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '4-34' for key 'PRIMARY'. Выполнявшийся SQL-запрос: INSERT INTO `km_competition_group_refs` (`km_group_id`, `km_competition_id`) VALUES (:yp0, :yp1).
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (77)
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (110)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/27 16:15:09 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand не удалось исполнить SQL-запрос: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '4-34' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `km_competition_group_refs` (`km_group_id`, `km_competition_id`) VALUES (:yp0, :yp1)' in /home/max/public_html/o-kompas/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php(77): CActiveRecord->save()
+#3 /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php(110): CompetitionController->setCompetitionGroupRefs(Array, '4')
+#4 [internal function]: CompetitionController->actionUpdate('4')
+#5 /home/max/public_html/o-kompas/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CompetitionController), Array)
+#6 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CompetitionController), Object(ReflectionMethod), Array)
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#10 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#14 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('update')
+#16 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/competiti...')
+#17 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=admin/competition/update&id=4
+HTTP_REFERER=http://o-kompas.com.local/index.php?r=admin/competition/update&id=4
+---
+2014/07/27 16:35:57 [error] [system.db.CDbCommand] Не удалось выполнить CDbCommand::execute(): SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '4-7' for key 'PRIMARY'. Выполнявшийся SQL-запрос: INSERT INTO `km_competition_group_refs` (`km_group_id`, `km_competition_id`) VALUES (:yp0, :yp1).
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (81)
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (120)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/27 16:35:57 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand не удалось исполнить SQL-запрос: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '4-7' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `km_competition_group_refs` (`km_group_id`, `km_competition_id`) VALUES (:yp0, :yp1)' in /home/max/public_html/o-kompas/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php(81): CActiveRecord->save()
+#3 /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php(120): CompetitionController->setCompetitionGroupRefs(Array, '4')
+#4 [internal function]: CompetitionController->actionUpdate('4')
+#5 /home/max/public_html/o-kompas/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CompetitionController), Array)
+#6 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CompetitionController), Object(ReflectionMethod), Array)
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#10 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#14 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('update')
+#16 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/competiti...')
+#17 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=admin/competition/update&id=4
+HTTP_REFERER=http://o-kompas.com.local/index.php?r=admin/competition/update&id=4
+---
+2014/07/27 17:18:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'У вас нет прав для входа в адменистрирование сайта! Обратитесь к администратору.' in /home/max/public_html/o-kompas/protected/modules/admin/components/AdminController.php:23
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(359): AdminController->__construct('competition', Object(AdminModule))
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(338): CWebApplication->createController('competition/upd...', Object(AdminModule))
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(276): CWebApplication->createController('admin/competiti...')
+#3 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/competiti...')
+#4 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/index.php?r=admin/competition/update&id=4
+HTTP_REFERER=http://o-kompas.com.local/index.php?r=admin/competition/update&id=4
+---
+2014/07/27 17:27:07 [error] [php] Undefined variable: find_id_in_post (/home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php:71)
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CompetitionController->runAction()
+#4 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#6 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CompetitionController->filterAccessControl()
+#7 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#8 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#9 /home/max/public_html/o-kompas/framework/web/CController.php(265): CompetitionController->runActionWithFilters()
+#10 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CompetitionController->run()
+#11 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /home/max/public_html/o-kompas/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=admin/competition/update&id=4
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (71)
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (118)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/27 17:33:39 [error] [system.db.CDbCommand] Не удалось выполнить CDbCommand::execute(): SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '4-6' for key 'PRIMARY'. Выполнявшийся SQL-запрос: INSERT INTO `km_competition_group_refs` (`km_group_id`, `km_competition_id`) VALUES (:yp0, :yp1).
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (83)
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (116)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/27 17:33:39 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand не удалось исполнить SQL-запрос: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '4-6' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `km_competition_group_refs` (`km_group_id`, `km_competition_id`) VALUES (:yp0, :yp1)' in /home/max/public_html/o-kompas/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php(83): CActiveRecord->save()
+#3 /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php(116): CompetitionController->setCompetitionGroupRefs(Array, '4')
+#4 [internal function]: CompetitionController->actionUpdate('4')
+#5 /home/max/public_html/o-kompas/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CompetitionController), Array)
+#6 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CompetitionController), Object(ReflectionMethod), Array)
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#10 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#14 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('update')
+#16 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/competiti...')
+#17 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=admin/competition/update&id=4
+HTTP_REFERER=http://o-kompas.com.local/index.php?r=admin/competition/update&id=4
+---
+2014/07/27 17:51:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'У вас нет прав для входа в адменистрирование сайта! Обратитесь к администратору.' in /home/max/public_html/o-kompas/protected/modules/admin/components/AdminController.php:23
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(359): AdminController->__construct('competition', Object(AdminModule))
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(338): CWebApplication->createController('competition/cre...', Object(AdminModule))
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(276): CWebApplication->createController('admin/competiti...')
+#3 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/competiti...')
+#4 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/index.php?r=admin/competition/create
+---

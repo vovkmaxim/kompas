@@ -18,6 +18,17 @@
         ),
 )); ?>
 
+    <?php
+    
+//    print_r("<pre>");
+//    print_r($model->Groups);
+//    print_r("<pre>");
+//    die();
+    ?>
+    
+    
+    
+    
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
@@ -212,7 +223,14 @@
                 ?>
 		<?php echo $form->error($model,'archive'); ?>
 	</div>
+	<div class="row">
+            <p>Группы учасники:</p>
+            <p>
+                <?php echo $model->getGroupCompetitionFormCheckbox(); ?>
+            </p>
 
+        </div>
+        
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
