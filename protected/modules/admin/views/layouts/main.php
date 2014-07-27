@@ -49,6 +49,7 @@
                                 array('label'=>'Group Photo', 'url'=>array('groupPhoto/index')),
                                 array('label'=>'Events', 'url'=>array('events/index')),
                                 array('label'=>'Competition', 'url'=>array('competition/index')),
+                                array('label'=>'File', 'url'=>array('file/index')),
 			),
 		)); ?>
 	</div><!-- mainmenu -->

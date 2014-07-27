@@ -1,18 +1,18 @@
 <?php
-/* @var $this GroupController */
+/* @var $this FileController */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Groups',
+	'Files',
 );
 
 $this->menu=array(
-	array('label'=>'Create Group', 'url'=>array('create')),
-	array('label'=>'Manage Group', 'url'=>array('admin')),
+	array('label'=>'Create File', 'url'=>array('create')),
+	array('label'=>'Manage File', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Groups</h1>
+<h1>Files</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

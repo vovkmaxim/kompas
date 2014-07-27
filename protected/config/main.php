@@ -102,5 +102,7 @@ return array(
 		'LogoEventsPath' => '/themes/events_logo/',
 		'GroupPhotoPath' => '/themes/photo/',
                 'addGroupPhotoPath' => '../o-kompas/themes/photo/',
+		'filePath' => '/themes/file/',
+                'addFile' => '../o-kompas/themes/file/',
 	),
 );
