@@ -128,7 +128,7 @@ class Photo extends CActiveRecord
 
                 $this->path=$document;
                 $this->path->saveAs(
-                    Yii::getPathOfAlias('webroot.photo').DIRECTORY_SEPARATOR.$this->path);
+                    Yii::getPathOfAlias('webroot.photo') . DIRECTORY_SEPARATOR . $this->path);
             }
             return true;
         }
@@ -142,7 +142,7 @@ class Photo extends CActiveRecord
         }
         
         public function deleteDocument(){
-            $documentPath=Yii::getPathOfAlias('webroot.photo').DIRECTORY_SEPARATOR.
+            $documentPath=Yii::getPathOfAlias('webroot.photo') . DIRECTORY_SEPARATOR .
                 $this->path;
             if(is_file($documentPath))
                 unlink($documentPath);
@@ -167,5 +167,4 @@ class Photo extends CActiveRecord
             }
             return $return_list;
         }
-//        group_photo_id
 }
