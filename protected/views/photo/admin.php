@@ -1,15 +1,15 @@
 <?php
-/* @var $this BannersController */
-/* @var $model Banners */
+/* @var $this PhotoController */
+/* @var $model Photo */
 
 $this->breadcrumbs=array(
-	'Banners'=>array('index'),
+	'Photos'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List Banners', 'url'=>array('index')),
-	array('label'=>'Create Banners', 'url'=>array('create')),
+	array('label'=>'List Photo', 'url'=>array('index')),
+	array('label'=>'Create Photo', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -18,7 +18,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#banners-grid').yiiGridView('update', {
+	$('#photo-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Banners</h1>
+<h1>Manage Photos</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -39,33 +39,20 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'model'=>$model,
 )); ?>
 </div><!-- search-form -->
-<img >
-<?php 
 
-$this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'banners-grid',
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+	'id'=>'photo-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'name',
-		'position',
-		'link',
-                    array(
-                    'name' => 'baners',
-                    'type' => 'raw',
-                    'value' => '$data->getBannerImage()',
-                    'filter' => false,
-                    'htmlOptions' => array(
-                        "width" => 128,
-                    ),
-                ),
+		'title',
+		'description',
 		'path',
+		'group_photo_id',
+		'user_id',
 		array(
 			'class'=>'CButtonColumn',
-                        'htmlOptions' => array(
-                                "width" => 80,
-                            ),
 		),
 	),
 )); ?>

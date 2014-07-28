@@ -36,10 +36,12 @@ class File extends CActiveRecord
 			array('type', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>255),
 			array('events_id, competition_id', 'length', 'max'=>10),
-			array('path', 'safe'),
+//			array('path', 'safe'),
+                        array('path','file','types'=>'doc,docx,xls,xlsx,odt,pdf',
+                                'allowEmpty'=>true,'on'=>'insert,update'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, path, type, events_id, competition_id', 'safe', 'on'=>'search'),
+			array('id, name, type, events_id, competition_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -111,4 +113,88 @@ class File extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        
+        protected function beforeSave(){
+            if(!parent::beforeSave())
+                return false;
+            if(($this->scenario=='insert' || $this->scenario=='update') &&
+                ($document=CUploadedFile::getInstance($this,'path'))){
+                $this->deleteDocument(); // старый документ удалим, потому что загружаем новый
+
+                $this->path=$document;
+                $this->path->saveAs(
+                    Yii::getPathOfAlias('webroot.media').DIRECTORY_SEPARATOR.$this->path);
+            }
+            return true;
+        }
+        
+        
+        protected function beforeDelete(){
+            if(!parent::beforeDelete())
+                return false;
+            $this->deleteDocument(); // удалили модель? удаляем и файл
+            return true;
+        }
+        
+        public function deleteDocument(){
+            $documentPath=Yii::getPathOfAlias('webroot.media').DIRECTORY_SEPARATOR.
+                $this->path;
+            if(is_file($documentPath))
+                unlink($documentPath);
+        }
+        
+        public function viewsFile(){
+            return "<a href='media/" . $this->path . "' target='_blank' >" . $this->path  . "</a>";
+        }
+        
+        public function getAllEventsList(){
+            $events = Events::model()->findAll();
+            $return_list = array();
+            $return_list[0] = "";
+            foreach($events as $event){
+                $return_list[$event->id] = $event->title;
+            }
+            
+            return $return_list;
+        }
+        
+        public function getNameEvents(){
+            $events = Events::model()->find("id=:events_id", array(":events_id" => $this->events_id));
+            if($events != NULL){
+                return $events->title;
+            } else {
+                return "NONE";
+            }
+        }
+        
+        public function getAllCompetitionList(){
+            $competitions = Competition::model()->findAll();
+            $return_list = array();
+            $return_list[0] = "";
+            foreach($competitions as $competition){
+                $return_list[$competition->id] = $competition->title;
+            }
+            
+            return $return_list;
+        }
+        
+        public function getNameCompetition(){
+            $competitions = Competition::model()->find("id=:competition_id", array(":competition_id" => $this->competition_id));
+            if($competitions != NULL){
+                return $competitions->title;
+            } else {
+                return "NONE";
+            }
+        }
+        
+        public function getType(){
+            if($this->type == 1){
+                return "Результаты";
+            } else {
+                return "Пояснения";
+            }
+        }
+        
+        
 }

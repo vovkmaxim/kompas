@@ -28,36 +28,42 @@
 		<?php echo $form->error($model,'name'); ?>
 	</div>
 
-	<div class="row">
-           <?php
-                if(empty($model->path)){                 
-                    echo $form->labelEx($model,'path'); 
-                    echo CHtml::activeFileField($model,'path'); 
-                    echo $form->error($model,'path');                   
-                } else {
-                    echo $model->getFile();
-                    echo $form->labelEx($model,'path'); 
-                    echo CHtml::activeFileField($model,'path'); 
-                    echo $form->error($model,'path');
-                }
-           ?>
-	</div>
+         <div class="field">
+            <?php if($model->path): ?>
+                <p><?php echo CHtml::encode($model->path); ?></p>
+            <?php endif; ?>
+            <?php echo $form->labelEx($model,'path'); ?>
+            <?php echo $form->fileField($model,'path'); ?>
+            <?php echo $form->error($model,'path'); ?>
+        </div>        
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'type'); ?>
-		<?php echo $form->textField($model,'type'); ?>
+		<?php 
+                    echo CHtml::dropDownList('type', $model, 
+                              array('0' => ' ', '1' => 'Результаты', '2' => 'Пояснения'),
+                              array('2' => 'Пояснения'));
+                ?>
 		<?php echo $form->error($model,'type'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'events_id'); ?>
-		<?php echo $form->textField($model,'events_id',array('size'=>10,'maxlength'=>10)); ?>
+		<?php 
+                    echo CHtml::dropDownList('events_id', $model, 
+                              $model->getAllEventsList(),
+                              array('0' => ''));
+                ?>
 		<?php echo $form->error($model,'events_id'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'competition_id'); ?>
-		<?php echo $form->textField($model,'competition_id',array('size'=>10,'maxlength'=>10)); ?>
+		<?php 
+                    echo CHtml::dropDownList('competition_id', $model, 
+                              $model->getAllCompetitionList(),
+                              array('0' => ''));
+                ?>
 		<?php echo $form->error($model,'competition_id'); ?>
 	</div>
 

@@ -47,12 +47,47 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'id',
 		'name',
-		'path',
-		'type',
-		'events_id',
-		'competition_id',
+                array(
+                    'name' => 'path',
+                    'type' => 'raw',
+                    'value' => '$data->viewsFile()',
+                    'filter' => true,
+                    'htmlOptions' => array(
+                        "width" => 128,
+                    ),
+                ),
+                array(
+                    'name' => 'type',
+                    'type' => 'raw',
+                    'value' => '$data->getType()',
+                    'filter' => true,
+                    'htmlOptions' => array(
+                        "width" => 128,
+                    ),
+                ),
+                array(
+                    'name' => 'events_id',
+                    'type' => 'raw',
+                    'value' => '$data->getNameEvents()',
+                    'filter' => true,
+                    'htmlOptions' => array(
+                        "width" => 128,
+                    ),
+                ),
+                array(
+                    'name' => 'competition_id',
+                    'type' => 'raw',
+                    'value' => '$data->getNameCompetition()',
+                    'filter' => true,
+                    'htmlOptions' => array(
+                        "width" => 128,
+                    ),
+                ),
 		array(
 			'class'=>'CButtonColumn',
+                        'htmlOptions' => array(
+                                "width" => 80,
+                            ),
 		),
 	),
 )); ?>

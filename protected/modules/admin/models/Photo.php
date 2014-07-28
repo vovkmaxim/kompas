@@ -1,26 +1,28 @@
 <?php
 
 /**
- * This is the model class for table "km_banners".
+ * This is the model class for table "km_photo".
  *
- * The followings are the available columns in table 'km_banners':
+ * The followings are the available columns in table 'km_photo':
  * @property string $id
- * @property string $name
- * @property string $position
- * @property string $link
+ * @property string $title
+ * @property string $description
  * @property string $path
+ * @property string $group_photo_id
+ * @property string $user_id
+ *
+ * The followings are the available model relations:
+ * @property KmGroupPhoto $groupPhoto
+ * @property KmUser $user
  */
-class Banners extends CActiveRecord
+class Photo extends CActiveRecord
 {
-    public $path;
-
-
-    /**
+	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'km_banners';
+		return 'km_photo';
 	}
 
 	/**
@@ -31,13 +33,14 @@ class Banners extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name', 'length', 'max'=>255),
-			array('position', 'length', 'max'=>10),
-                        array('path','file','types'=>'jpg, jpeg, gif, png', 'allowEmpty'=>true,'on'=>'insert,update'),
-			array('link', 'safe'),
+			array('group_photo_id, user_id', 'required'),
+			array('title, description', 'length', 'max'=>255),
+			array('group_photo_id, user_id', 'length', 'max'=>10),
+//			array('path', 'safe'),
+			array('path','file','types'=>'jpg, jpeg, gif, png', 'allowEmpty'=>true,'on'=>'insert,update'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, position, link, path', 'safe', 'on'=>'search'),
+			array('id, title, description, path, group_photo_id, user_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -49,6 +52,8 @@ class Banners extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'groupPhoto' => array(self::BELONGS_TO, 'KmGroupPhoto', 'group_photo_id'),
+			'user' => array(self::BELONGS_TO, 'KmUser', 'user_id'),
 		);
 	}
 
@@ -59,10 +64,11 @@ class Banners extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
-			'position' => 'Position',
-			'link' => 'Link',
+			'title' => 'Title',
+			'description' => 'Description',
 			'path' => 'Path',
+			'group_photo_id' => 'Group Photo',
+			'user_id' => 'User',
 		);
 	}
 
@@ -85,10 +91,11 @@ class Banners extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
-		$criteria->compare('name',$this->name,true);
-		$criteria->compare('position',$this->position,true);
-		$criteria->compare('link',$this->link,true);
+		$criteria->compare('title',$this->title,true);
+		$criteria->compare('description',$this->description,true);
 		$criteria->compare('path',$this->path,true);
+		$criteria->compare('group_photo_id',$this->group_photo_id,true);
+		$criteria->compare('user_id',$this->user_id,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -99,16 +106,17 @@ class Banners extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Banners the static model class
+	 * @return Photo the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
 	}
         
-        public function getBannerImage(){    
+                
+        public function getPhoto(){    
 //            return '<img src="'.Yii::app()->basePath. '/banners/' . $this->id . '_assortiment.jpg"  width="147" height="115" alt="' . $this->name . '">';
-            return '<img src="baners/' . $this->path . '"  width="147" height="115" alt="' . $this->name . '">';
+            return '<img src="photo/' . $this->path . '"  width="147" height="115" alt="' . $this->title . '">';
         }
                 
         protected function beforeSave(){
@@ -120,7 +128,7 @@ class Banners extends CActiveRecord
 
                 $this->path=$document;
                 $this->path->saveAs(
-                    Yii::getPathOfAlias('webroot.baners').DIRECTORY_SEPARATOR.$this->path);
+                    Yii::getPathOfAlias('webroot.photo') . DIRECTORY_SEPARATOR . $this->path);
             }
             return true;
         }
@@ -134,10 +142,29 @@ class Banners extends CActiveRecord
         }
         
         public function deleteDocument(){
-            $documentPath=Yii::getPathOfAlias('webroot.baners').DIRECTORY_SEPARATOR.
+            $documentPath=Yii::getPathOfAlias('webroot.photo') . DIRECTORY_SEPARATOR .
                 $this->path;
             if(is_file($documentPath))
                 unlink($documentPath);
         }
         
+        public function getUserName(){
+            $user = User::model()->find("id=:user_id", array(":user_id" => $this->user_id));
+            return $user->username;
+        }
+        
+        public function getGroupPhotoName(){
+            $group_photo = GroupPhoto::model()->find("id=:group_photo_id", array(":group_photo_id" => $this->group_photo_id));
+            return $group_photo->title;
+        }
+        
+        public function getAllGroupPhotoList(){
+            $group_photo = GroupPhoto::model()->findAll();
+            $return_list = array();
+            $return_list[0] = "";
+            foreach($group_photo as $group_photos){
+                $return_list[$group_photos->id] = $group_photos->title;
+            }
+            return $return_list;
+        }
 }

@@ -50,6 +50,7 @@
                                 array('label'=>'Events', 'url'=>array('events/index')),
                                 array('label'=>'Competition', 'url'=>array('competition/index')),
                                 array('label'=>'File', 'url'=>array('file/index')),
+                                array('label'=>'Photo', 'url'=>array('photo/index')),
 			),
 		)); ?>
 	</div><!-- mainmenu -->

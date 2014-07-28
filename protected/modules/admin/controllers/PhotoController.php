@@ -1,6 +1,6 @@
 <?php
 
-class FileController extends AdminController
+class PhotoController extends AdminController
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -19,7 +19,6 @@ class FileController extends AdminController
 		);
 	}
 
-
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -37,20 +36,17 @@ class FileController extends AdminController
 	 */
 	public function actionCreate()
 	{
-		$model=new File;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['File']))
+		$model=new Photo;
+		if(isset($_POST['Photo']))
 		{
-			$model->type=$_POST['type'];
-			$model->events_id=$_POST['events_id'];
-			$model->competition_id=$_POST['competition_id'];
-			$model->attributes=$_POST['File'];
-                        if($model->save()){            
-                            $this->redirect(array('view','id'=>$model->id));
-                        }
+//                    print_r("<pre>");
+//                    print_r($_POST);
+//                    print_r("<pre>");
+//                    die();
+			$model->group_photo_id=$_POST['group_photo_id'];
+			$model->attributes=$_POST['Photo'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
@@ -66,16 +62,10 @@ class FileController extends AdminController
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['File']))
+		if(isset($_POST['Photo']))
 		{
-                        $model->type=$_POST['type'];
-			$model->events_id=$_POST['events_id'];
-			$model->competition_id=$_POST['competition_id'];
-			$model->attributes=$_POST['File'];
+                        $model->group_photo_id=$_POST['group_photo_id'];
+			$model->attributes=$_POST['Photo'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -93,8 +83,6 @@ class FileController extends AdminController
 	public function actionDelete($id)
 	{
 		$this->loadModel($id)->delete();
-
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
@@ -112,10 +100,10 @@ class FileController extends AdminController
 	 */
 	public function actionAdmin()
 	{
-		$model=new File('search');
+		$model=new Photo('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['File']))
-			$model->attributes=$_GET['File'];
+		if(isset($_GET['Photo']))
+			$model->attributes=$_GET['Photo'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -126,12 +114,12 @@ class FileController extends AdminController
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return File the loaded model
+	 * @return Photo the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=File::model()->findByPk($id);
+		$model=Photo::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -139,11 +127,11 @@ class FileController extends AdminController
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param File $model the model to be validated
+	 * @param Photo $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='file-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='photo-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

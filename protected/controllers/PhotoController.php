@@ -1,6 +1,6 @@
 <?php
 
-class FileController extends AdminController
+class PhotoController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -19,6 +19,31 @@ class FileController extends AdminController
 		);
 	}
 
+	/**
+	 * Specifies the access control rules.
+	 * This method is used by the 'accessControl' filter.
+	 * @return array access control rules
+	 */
+	public function accessRules()
+	{
+		return array(
+			array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('index','view'),
+				'users'=>array('*'),
+			),
+			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('create','update'),
+				'users'=>array('@'),
+			),
+			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+				'actions'=>array('admin','delete'),
+				'users'=>array('admin'),
+			),
+			array('deny',  // deny all users
+				'users'=>array('*'),
+			),
+		);
+	}
 
 	/**
 	 * Displays a particular model.
@@ -37,20 +62,16 @@ class FileController extends AdminController
 	 */
 	public function actionCreate()
 	{
-		$model=new File;
+		$model=new Photo;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['File']))
+		if(isset($_POST['Photo']))
 		{
-			$model->type=$_POST['type'];
-			$model->events_id=$_POST['events_id'];
-			$model->competition_id=$_POST['competition_id'];
-			$model->attributes=$_POST['File'];
-                        if($model->save()){            
-                            $this->redirect(array('view','id'=>$model->id));
-                        }
+			$model->attributes=$_POST['Photo'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
@@ -70,12 +91,9 @@ class FileController extends AdminController
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['File']))
+		if(isset($_POST['Photo']))
 		{
-                        $model->type=$_POST['type'];
-			$model->events_id=$_POST['events_id'];
-			$model->competition_id=$_POST['competition_id'];
-			$model->attributes=$_POST['File'];
+			$model->attributes=$_POST['Photo'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -104,7 +122,10 @@ class FileController extends AdminController
 	 */
 	public function actionIndex()
 	{
-		$this->actionAdmin();
+		$dataProvider=new CActiveDataProvider('Photo');
+		$this->render('index',array(
+			'dataProvider'=>$dataProvider,
+		));
 	}
 
 	/**
@@ -112,10 +133,10 @@ class FileController extends AdminController
 	 */
 	public function actionAdmin()
 	{
-		$model=new File('search');
+		$model=new Photo('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['File']))
-			$model->attributes=$_GET['File'];
+		if(isset($_GET['Photo']))
+			$model->attributes=$_GET['Photo'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -126,12 +147,12 @@ class FileController extends AdminController
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return File the loaded model
+	 * @return Photo the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=File::model()->findByPk($id);
+		$model=Photo::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -139,11 +160,11 @@ class FileController extends AdminController
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param File $model the model to be validated
+	 * @param Photo $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='file-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='photo-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

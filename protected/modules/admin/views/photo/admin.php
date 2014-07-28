@@ -1,15 +1,15 @@
 <?php
-/* @var $this UserController */
-/* @var $model User */
+/* @var $this PhotoController */
+/* @var $model Photo */
 
 $this->breadcrumbs=array(
-	'Users'=>array('index'),
+	'Photos'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List User', 'url'=>array('index')),
-	array('label'=>'Create User', 'url'=>array('create')),
+	array('label'=>'List Photo', 'url'=>array('index')),
+	array('label'=>'Create Photo', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -18,7 +18,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#user-grid').yiiGridView('update', {
+	$('#photo-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Users</h1>
+<h1>Manage Photos</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -41,38 +41,36 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'user-grid',
+	'id'=>'photo-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'email',
-		'username',
-//		'password',
-		'name',
-		'lastname',
-		'data_birth',
-		'phone',
-		'sity',
-		'coutry',
-		'club',
-                array(
-                    'name' => 'status',
+		'title',
+		'description',
+		array(
+                    'name' => 'path',
                     'type' => 'raw',
-                    'value' => '$data->getUserStatus($data->id)',
-                    'filter' => false,
+                    'value' => '$data->getPhoto()',
+                    'filter' => true,
+                    'htmlOptions' => array(
+                        "width" => 128,
+                    ),
                 ),
-                array(
-                    'name' => 'member',
+		array(
+                    'name' => 'user_id',
                     'type' => 'raw',
-                    'value' => '$data->getUserMember($data->id)',
-                    'filter' => false,
+                    'value' => '$data->getUserName()',
+                    'filter' => true,
+                    'htmlOptions' => array(
+                        "width" => 128,
+                    ),
                 ),
-                array(
-                    'name' => 'Role',
+		array(
+                    'name' => 'group_photo_id',
                     'type' => 'raw',
-                    'value' => '$data->getRoleUserForAdmins()',
-                    'filter' => false,
+                    'value' => '$data->getGroupPhotoName()',
+                    'filter' => true,
                     'htmlOptions' => array(
                         "width" => 128,
                     ),
@@ -80,8 +78,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		array(
 			'class'=>'CButtonColumn',
                         'htmlOptions' => array(
-                                "width" => 80,
-                            ),
+                            "width" => 80,
+                        ),
 		),
 	),
 )); ?>
