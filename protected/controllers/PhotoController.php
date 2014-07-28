@@ -1,6 +1,6 @@
 <?php
 
-class GroupPhotoController extends AdminController
+class PhotoController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -19,6 +19,31 @@ class GroupPhotoController extends AdminController
 		);
 	}
 
+	/**
+	 * Specifies the access control rules.
+	 * This method is used by the 'accessControl' filter.
+	 * @return array access control rules
+	 */
+	public function accessRules()
+	{
+		return array(
+			array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('index','view'),
+				'users'=>array('*'),
+			),
+			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('create','update'),
+				'users'=>array('@'),
+			),
+			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+				'actions'=>array('admin','delete'),
+				'users'=>array('admin'),
+			),
+			array('deny',  // deny all users
+				'users'=>array('*'),
+			),
+		);
+	}
 
 	/**
 	 * Displays a particular model.
@@ -37,23 +62,16 @@ class GroupPhotoController extends AdminController
 	 */
 	public function actionCreate()
 	{
-		$model=new GroupPhoto;
+		$model=new Photo;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['GroupPhoto']))
+		if(isset($_POST['Photo']))
 		{
-                    	$model->attributes=$_POST['GroupPhoto'];
-                        $model->parent_id = $_POST['parent_id'];
-                        if($model->save()){
-//                            $addGroupPhotoPath = Yii::app()->params['addGroupPhotoPath'] . $model->parent_id . "/" . $model->id . "/";
-//                            @chmod(Yii::app()->params['addGroupPhotoPath'] . $model->parent_id . "/", 0777);
-//                            @chmod(Yii::app()->params['addGroupPhotoPath'], 0777);
-//                            @mkdir($addGroupPhotoPath,0777,TRUE);
-//                            @chmod($addGroupPhotoPath, 0777);
-                                $this->redirect(array('view','id'=>$model->id));
-                        }
+			$model->attributes=$_POST['Photo'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
@@ -73,17 +91,10 @@ class GroupPhotoController extends AdminController
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['GroupPhoto']))
+		if(isset($_POST['Photo']))
 		{
-//                        @unlink(Yii::app()->params['addGroupPhotoPath'] . $model->parent_id . "/" . $model->id . "/");
-			$model->attributes=$_POST['GroupPhoto'];
-                        $model->parent_id = $_POST['parent_id'];
-                        if($model->save())
-//                            $addGroupPhotoPath = Yii::app()->params['addGroupPhotoPath'] . $model->parent_id . "/" . $model->id . "/";
-//                            @chmod(Yii::app()->params['addGroupPhotoPath'] . $model->parent_id . "/", 0777);
-//                            @chmod(Yii::app()->params['addGroupPhotoPath'], 0777);
-//                            @mkdir($addGroupPhotoPath,0777,TRUE);
-//                            @chmod($addGroupPhotoPath, 0777);
+			$model->attributes=$_POST['Photo'];
+			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
@@ -98,9 +109,9 @@ class GroupPhotoController extends AdminController
 	 * @param integer $id the ID of the model to be deleted
 	 */
 	public function actionDelete($id)
-	{       
-//                @unlink(Yii::app()->params['addGroupPhotoPath'] . $this->id . "/");
+	{
 		$this->loadModel($id)->delete();
+
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
@@ -111,7 +122,10 @@ class GroupPhotoController extends AdminController
 	 */
 	public function actionIndex()
 	{
-		$this->actionAdmin();
+		$dataProvider=new CActiveDataProvider('Photo');
+		$this->render('index',array(
+			'dataProvider'=>$dataProvider,
+		));
 	}
 
 	/**
@@ -119,10 +133,10 @@ class GroupPhotoController extends AdminController
 	 */
 	public function actionAdmin()
 	{
-		$model=new GroupPhoto('search');
+		$model=new Photo('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['GroupPhoto']))
-			$model->attributes=$_GET['GroupPhoto'];
+		if(isset($_GET['Photo']))
+			$model->attributes=$_GET['Photo'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -133,12 +147,12 @@ class GroupPhotoController extends AdminController
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return GroupPhoto the loaded model
+	 * @return Photo the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=GroupPhoto::model()->findByPk($id);
+		$model=Photo::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -146,11 +160,11 @@ class GroupPhotoController extends AdminController
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param GroupPhoto $model the model to be validated
+	 * @param Photo $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='group-photo-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='photo-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
