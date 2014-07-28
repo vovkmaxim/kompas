@@ -66,7 +66,7 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=kompas',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => '12345',
+			'password' => 'root',
 			'charset' => 'utf8',
 		),
 		
@@ -96,11 +96,13 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail' => 'mvovk90@ukr.net',
-		'addBaners' => '../kompas/themes/banners/',
+		'addBaners' => '../o-kompas/themes/banners/',
 		'bannersPath' => '/themes/banners/',
-		'addLogoEvents' => '../kompas/themes/events_logo/',
+		'addLogoEvents' => '../o-kompas/themes/events_logo/',
 		'LogoEventsPath' => '/themes/events_logo/',
 		'GroupPhotoPath' => '/themes/photo/',
-                'addGroupPhotoPath' => '../kompas/themes/photo/',
+                'addGroupPhotoPath' => '../o-kompas/themes/photo/',
+		'filePath' => '/themes/file/',
+                'addFile' => '../o-kompas/themes/file/',
 	),
 );

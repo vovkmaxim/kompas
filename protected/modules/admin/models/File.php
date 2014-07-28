@@ -1,26 +1,28 @@
 <?php
 
 /**
- * This is the model class for table "km_group".
+ * This is the model class for table "km_file".
  *
- * The followings are the available columns in table 'km_group':
+ * The followings are the available columns in table 'km_file':
  * @property string $id
  * @property string $name
- * @property string $description
- * @property integer $parent_id
+ * @property string $path
+ * @property integer $type
+ * @property string $events_id
+ * @property string $competition_id
  *
  * The followings are the available model relations:
- * @property KmCompetition[] $kmCompetitions
- * @property KmCompetitionRequest[] $kmCompetitionRequests
+ * @property KmEvents $events
+ * @property KmCompetition $competition
  */
-class Group extends CActiveRecord
+class File extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'km_group';
+		return 'km_file';
 	}
 
 	/**
@@ -31,12 +33,13 @@ class Group extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('description', 'required'),
-			array('parent_id', 'numerical', 'integerOnly'=>true),
-			array('name, description', 'length', 'max'=>255),
+			array('type', 'numerical', 'integerOnly'=>true),
+			array('name', 'length', 'max'=>255),
+			array('events_id, competition_id', 'length', 'max'=>10),
+			array('path', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, description, parent_id', 'safe', 'on'=>'search'),
+			array('id, name, path, type, events_id, competition_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -48,8 +51,8 @@ class Group extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'kmCompetitions' => array(self::MANY_MANY, 'KmCompetition', 'km_competition_group_refs(km_group_id, km_competition_id)'),
-			'kmCompetitionRequests' => array(self::HAS_MANY, 'KmCompetitionRequest', 'group_id'),
+			'events' => array(self::BELONGS_TO, 'KmEvents', 'events_id'),
+			'competition' => array(self::BELONGS_TO, 'KmCompetition', 'competition_id'),
 		);
 	}
 
@@ -61,8 +64,10 @@ class Group extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'name' => 'Name',
-			'description' => 'Description',
-			'parent_id' => 'Parent',
+			'path' => 'Path',
+			'type' => 'Type',
+			'events_id' => 'Events',
+			'competition_id' => 'Competition',
 		);
 	}
 
@@ -86,8 +91,10 @@ class Group extends CActiveRecord
 
 		$criteria->compare('id',$this->id,true);
 		$criteria->compare('name',$this->name,true);
-		$criteria->compare('description',$this->description,true);
-		$criteria->compare('parent_id',$this->parent_id);
+		$criteria->compare('path',$this->path,true);
+		$criteria->compare('type',$this->type);
+		$criteria->compare('events_id',$this->events_id,true);
+		$criteria->compare('competition_id',$this->competition_id,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -98,7 +105,7 @@ class Group extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Group the static model class
+	 * @return File the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

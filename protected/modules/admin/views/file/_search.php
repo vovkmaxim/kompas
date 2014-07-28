@@ -1,6 +1,6 @@
 <?php
-/* @var $this GroupController */
-/* @var $model Group */
+/* @var $this FileController */
+/* @var $model File */
 /* @var $form CActiveForm */
 ?>
 
@@ -22,13 +22,23 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'description'); ?>
-		<?php echo $form->textField($model,'description',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->label($model,'path'); ?>
+		<?php echo $form->textArea($model,'path',array('rows'=>6, 'cols'=>50)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'parent_id'); ?>
-		<?php echo $form->textField($model,'parent_id'); ?>
+		<?php echo $form->label($model,'type'); ?>
+		<?php echo $form->textField($model,'type'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'events_id'); ?>
+		<?php echo $form->textField($model,'events_id',array('size'=>10,'maxlength'=>10)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'competition_id'); ?>
+		<?php echo $form->textField($model,'competition_id',array('size'=>10,'maxlength'=>10)); ?>
 	</div>
 
 	<div class="row buttons">

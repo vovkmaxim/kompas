@@ -97,10 +97,10 @@ class Competition extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'kmComments' => array(self::HAS_MANY, 'KmComments', 'competition_id'),
-			'kmGroups' => array(self::MANY_MANY, 'KmGroup', 'km_competition_group_refs(km_competition_id, km_group_id)'),
-			'kmCompetitionRequests' => array(self::HAS_MANY, 'KmCompetitionRequest', 'competition_id'),
-			'kmFiles' => array(self::HAS_MANY, 'KmFile', 'competition_id'),
+			'Comments' => array(self::HAS_MANY, 'Comments', 'competition_id'),
+			'Groups' => array(self::MANY_MANY, 'Group', 'km_competition_group_refs(km_competition_id, km_group_id)'),
+			'CompetitionRequests' => array(self::HAS_MANY, 'CompetitionRequest', 'competition_id'),
+			'Files' => array(self::HAS_MANY, 'File', 'competition_id'),
 		);
 	}
 
@@ -260,6 +260,54 @@ class Competition extends CActiveRecord
                 $hourList .= '</select>';
                 return $hourList; 
             }
+        }
+        
+        
+        public function getGroupCompetitionFormCheckbox(){
+            $group = Group::model()->findAll();
+            if($group != NULL){
+                $COUNT_GROUP = count($group);
+                $group_string = '';
+                if(!empty($this->Groups)){
+                    for( $i=0; $i < $COUNT_GROUP; $i++ ){
+                        if($this->chekGroupForCompetition($group[$i]->id)){
+                            $group_string .= '<input type="checkbox" name="grop_' . $group[$i]->id . '" value="' . $group[$i]->id . '" checked  >' . $group[$i]->name . '<br>';
+                        } else {
+                            $group_string .= '<input type="checkbox" name="grop_' . $group[$i]->id . '" value="' . $group[$i]->id . '">' . $group[$i]->name . '<br>';
+                        }                        
+                    }
+                    return $group_string;                    
+                } else {                    
+                    for( $i=0; $i < $COUNT_GROUP; $i++ ){
+                        $group_string .= '<input type="checkbox" name="grop_' . $group[$i]->id . '" value="' . $group[$i]->id . '">' . $group[$i]->name . '<br>';
+                    }
+                    return $group_string;
+                }                
+            } else {
+                return 0;
+            }
+        }
+        
+        private function chekGroupForCompetition($grop_id){
+            $THIS_GROUP = $this->Groups;
+            $lenght_this_group = count($THIS_GROUP);
+            for( $i=0; $i < $lenght_this_group; $i++ ){
+                if($THIS_GROUP[$i]->id == $grop_id){
+                    return TRUE;
+                }
+            }
+            return FALSE;
+        }
+        
+        public function getTypeList(){
+            if($this->type == 1){
+                return "<h4><span  style='color:#0000CD'>Тренеровка</span></h4>";
+            } 
+            
+            if($this->type == 2){
+                return "<h4><span  style='color:#FF0000'>Соревнования</span></h4>";    
+            } 
+            
         }
         
 }
