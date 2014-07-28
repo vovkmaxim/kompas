@@ -148,5 +148,53 @@ class File extends CActiveRecord
             return "<a href='media/" . $this->path . "' target='_blank' >" . $this->path  . "</a>";
         }
         
+        public function getAllEventsList(){
+            $events = Events::model()->findAll();
+            $return_list = array();
+            $return_list[0] = "";
+            foreach($events as $event){
+                $return_list[$event->id] = $event->title;
+            }
+            
+            return $return_list;
+        }
+        
+        public function getNameEvents(){
+            $events = Events::model()->find("id=:events_id", array(":events_id" => $this->events_id));
+            if($events != NULL){
+                return $events->title;
+            } else {
+                return "NONE";
+            }
+        }
+        
+        public function getAllCompetitionList(){
+            $competitions = Competition::model()->findAll();
+            $return_list = array();
+            $return_list[0] = "";
+            foreach($competitions as $competition){
+                $return_list[$competition->id] = $competition->title;
+            }
+            
+            return $return_list;
+        }
+        
+        public function getNameCompetition(){
+            $competitions = Competition::model()->find("id=:competition_id", array(":competition_id" => $this->competition_id));
+            if($competitions != NULL){
+                return $competitions->title;
+            } else {
+                return "NONE";
+            }
+        }
+        
+        public function getType(){
+            if($this->type == 1){
+                return "Результаты";
+            } else {
+                return "Пояснения";
+            }
+        }
+        
         
 }

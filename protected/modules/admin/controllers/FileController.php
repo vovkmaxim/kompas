@@ -44,24 +44,13 @@ class FileController extends AdminController
 
 		if(isset($_POST['File']))
 		{
-//                    $documentPath=Yii::getPathOfAlias('webroot.media').DIRECTORY_SEPARATOR;
-//                    print_r("<pre>");
-//                    print_r($documentPath);
-//                    print_r("<pre>");
-//                    die();
+			$model->type=$_POST['type'];
+			$model->events_id=$_POST['events_id'];
+			$model->competition_id=$_POST['competition_id'];
 			$model->attributes=$_POST['File'];
                         if($model->save()){            
-//                                $file = Yii::app()->params['addFile'] . $model->id.'_assortiment.jpg';
-//                                @mkdir(Yii::app()->params['addFile'],0777,TRUE);
-//                                @chmod(Yii::app()->params['addFile'], 0777);
-//
-//                                $model->path->saveAs($file);
-//                                $model->path = Yii::app()->params['filePath'] . $model->id.'_assortiment.jpg';;
-//                                $model->save();
                             $this->redirect(array('view','id'=>$model->id));
                         }
-//			if($model->save())
-//				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
@@ -83,6 +72,9 @@ class FileController extends AdminController
 
 		if(isset($_POST['File']))
 		{
+                        $model->type=$_POST['type'];
+			$model->events_id=$_POST['events_id'];
+			$model->competition_id=$_POST['competition_id'];
 			$model->attributes=$_POST['File'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));

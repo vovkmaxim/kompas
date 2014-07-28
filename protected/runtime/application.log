@@ -5005,3 +5005,15 @@ in /home/php/public_html/o-kompas/kompas/index.php (13)
 2014/07/28 14:51:38 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
 in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (49)
 in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 15:19:34 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "File".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/FileController.php (50)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 15:24:50 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "File".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/FileController.php (78)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 15:25:09 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "File".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/FileController.php (78)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 15:25:23 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "File".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/FileController.php (78)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
