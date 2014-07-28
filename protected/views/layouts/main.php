@@ -156,12 +156,18 @@
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Главная', 'url'=>array('/site/index')),
-				array('label'=>'Онас', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Контакты', 'url'=>array('/site/contact')),
 				array('label'=>'Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Выйти ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+                                array('label'=>'Новости', 'url'=>array('/events/news')),
+                                array('label'=>'Соревнования', 'url'=>array('/link/index')),
+                                array('label'=>'Тренировки', 'url'=>array('/link/index')),
+                                array('label'=>'Статьи', 'url'=>array('/link/index')),
+                                array('label'=>'Члены клуба', 'url'=>array('/link/index')),
                                 array('label'=>'Ссылки', 'url'=>array('/link/index')),
                                 array('label'=>'Регистрация', 'url'=>array('/user/registration')),
+                                array('label'=>'Фото-галерея', 'url'=>array('/photo/index')),
+				array('label'=>'Онас', 'url'=>array('/site/page', 'view'=>'about')),
+				array('label'=>'Контакты', 'url'=>array('/site/contact')),
 			),
 		)); ?>
 	</div><!-- mainmenu -->
