@@ -8,7 +8,7 @@
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'banners-form',
-	'enableAjaxValidation'=>true,
+	'enableAjaxValidation'=>false,
         'htmlOptions' => array(
             'enctype' => 'multipart/form-data',
         ),
@@ -35,21 +35,30 @@
 		<?php echo $form->textArea($model,'link',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'link'); ?>
 	</div>
-
+ <div class="field">
+            <?php if($model->path): ?>
+                <p><?php echo CHtml::encode($model->path); ?></p>
+                <?php echo $model->getBannerImage(); ?>
+                
+            <?php endif; ?>
+            <?php echo $form->labelEx($model,'path'); ?>
+            <?php echo $form->fileField($model,'path'); ?>
+            <?php echo $form->error($model,'path'); ?>
+        </div>
 	<div class="row">
 		<?php
-                if(empty($model->path)){                 
-                    echo $form->labelEx($model,'path'); 
-                    echo CHtml::activeFileField($model,'path'); 
-                    echo $form->error($model,'path');
-                   
-                } else {
-                    echo $model->getBannerImage();
-                    echo $form->labelEx($model,'path'); 
-                    echo CHtml::activeFileField($model,'path'); 
-                    echo $form->error($model,'path');
-                }
-                
+//                if(empty($model->path)){                 
+//                    echo $form->labelEx($model,'path'); 
+//                    echo CHtml::activeFileField($model,'path'); 
+//                    echo $form->error($model,'path');
+//                   
+//                } else {
+//                    echo $model->getBannerImage();
+//                    echo $form->labelEx($model,'path'); 
+//                    echo CHtml::activeFileField($model,'path'); 
+//                    echo $form->error($model,'path');
+//                }
+//                
                 ?>
 	</div>
 

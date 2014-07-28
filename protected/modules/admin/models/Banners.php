@@ -33,8 +33,7 @@ class Banners extends CActiveRecord
 		return array(
 			array('name', 'length', 'max'=>255),
 			array('position', 'length', 'max'=>10),
-			array('path', 'file', 'types'=>'jpg, gif, png', 'allowEmpty'=>true, 'on'=>'update'),
-                        array('path', 'file', 'types'=>'jpg, gif, png', 'allowEmpty'=>false, 'on'=>'insert'),
+                        array('path','file','types'=>'jpg, jpeg, gif, png', 'allowEmpty'=>true,'on'=>'insert,update'),
 			array('link', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -109,6 +108,36 @@ class Banners extends CActiveRecord
         
         public function getBannerImage(){    
 //            return '<img src="'.Yii::app()->basePath. '/banners/' . $this->id . '_assortiment.jpg"  width="147" height="115" alt="' . $this->name . '">';
-            return '<img src="' . $this->path . '"  width="147" height="115" alt="' . $this->name . '">';
+            return '<img src="baners/' . $this->path . '"  width="147" height="115" alt="' . $this->name . '">';
         }
+                
+        protected function beforeSave(){
+            if(!parent::beforeSave())
+                return false;
+            if(($this->scenario=='insert' || $this->scenario=='update') &&
+                ($document=CUploadedFile::getInstance($this,'path'))){
+                $this->deleteDocument(); // старый документ удалим, потому что загружаем новый
+
+                $this->path=$document;
+                $this->path->saveAs(
+                    Yii::getPathOfAlias('webroot.baners').DIRECTORY_SEPARATOR.$this->path);
+            }
+            return true;
+        }
+        
+        
+        protected function beforeDelete(){
+            if(!parent::beforeDelete())
+                return false;
+            $this->deleteDocument(); // удалили модель? удаляем и файл
+            return true;
+        }
+        
+        public function deleteDocument(){
+            $documentPath=Yii::getPathOfAlias('webroot.baners').DIRECTORY_SEPARATOR.
+                $this->path;
+            if(is_file($documentPath))
+                unlink($documentPath);
+        }
+        
 }

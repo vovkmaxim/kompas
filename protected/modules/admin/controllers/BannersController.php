@@ -7,7 +7,6 @@ class BannersController extends AdminController
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
-//	public $layout='//modules/admin/views/layouts/main';
 
 	/**
 	 * @return array action filters
@@ -48,15 +47,15 @@ class BannersController extends AdminController
 		if(isset($_POST['Banners']))
 		{
                         $model->attributes=$_POST['Banners'];
-                        $model->path=CUploadedFile::getInstance($model,'path');
+//                        $model->path=CUploadedFile::getInstance($model,'path');
                         if($model->save()){            
-                                $file = Yii::app()->params['addBaners'] . $model->id.'_assortiment.jpg';
-                                @mkdir(Yii::app()->params['addBaners'],0777,TRUE);
-                                @chmod(Yii::app()->params['addBaners'], 0777);
-
-                                $model->path->saveAs($file);
-                                $model->path = Yii::app()->params['bannersPath'] . $model->id.'_assortiment.jpg';;
-                                $model->save();
+//                                $file = Yii::app()->params['addBaners'] . $model->id.'_assortiment.jpg';
+//                                @mkdir(Yii::app()->params['addBaners'],0777,TRUE);
+//                                @chmod(Yii::app()->params['addBaners'], 0777);
+//
+//                                $model->path->saveAs($file);
+//                                $model->path = Yii::app()->params['bannersPath'] . $model->id.'_assortiment.jpg';;
+//                                $model->save();
                             $this->redirect(array('view','id'=>$model->id));
                         }
 //			if($model->save())				
@@ -82,17 +81,17 @@ class BannersController extends AdminController
 		if(isset($_POST['Banners']))
 		{
 			$model->attributes=$_POST['Banners'];
-                        if($model->path){
+//                        if($model->path){
                             //@unlink('../o-kompas/themes/banners/' . $model->id . '_assortiment.jpg');
-                            $model->path=CUploadedFile::getInstance($model,'path');
-                        }                        
+//                            $model->path=CUploadedFile::getInstance($model,'path');
+//                        }                        
 			if($model->save()){
-                             $file = Yii::app()->params['addBaners'] . $model->id.'_assortiment.jpg';
-                             @mkdir(Yii::app()->params['addBaners'],0777,TRUE);
-                             @chmod(Yii::app()->params['addBaners'], 0777);
-                             $model->path->saveAs($file);
-                             $model->path = Yii::app()->params['bannersPath'] . $model->id.'_assortiment.jpg';;
-                             $model->save();
+//                             $file = Yii::app()->params['addBaners'] . $model->id.'_assortiment.jpg';
+//                             @mkdir(Yii::app()->params['addBaners'],0777,TRUE);
+//                             @chmod(Yii::app()->params['addBaners'], 0777);
+//                             $model->path->saveAs($file);
+//                             $model->path = Yii::app()->params['bannersPath'] . $model->id.'_assortiment.jpg';;
+//                             $model->save();
                              $this->redirect(array('view','id'=>$model->id));
                         }
 				
@@ -110,7 +109,7 @@ class BannersController extends AdminController
 	 */
 	public function actionDelete($id)
 	{
-                @unlink(Yii::app()->params['addBaners'] . $id . '_assortiment.jpg');
+//                @unlink(Yii::app()->params['addBaners'] . $id . '_assortiment.jpg');
 		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
@@ -124,10 +123,6 @@ class BannersController extends AdminController
 	public function actionIndex()
 	{
             $this->actionAdmin();
-//		$dataProvider=new CActiveDataProvider('Banners');
-//		$this->render('index',array(
-//			'dataProvider'=>$dataProvider,
-//		));
 	}
 
 	/**

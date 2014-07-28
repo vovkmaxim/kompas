@@ -4942,3 +4942,66 @@ HTTP_REFERER=http://o-kompas.local/index.php?r=admin/file/admin
 2014/07/28 14:04:21 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "File".
 in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/FileController.php (86)
 in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 14:41:17 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (50)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 14:41:21 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (50)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 14:41:23 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (50)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 14:41:24 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (50)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 14:41:26 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (50)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 14:41:26 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (50)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 14:43:15 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (84)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 14:43:17 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (84)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 14:45:07 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (50)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 14:45:07 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (50)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 14:45:08 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (50)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 14:45:09 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (50)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 14:45:12 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (50)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 14:45:13 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (50)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 14:48:59 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (83)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 14:49:00 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (83)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 14:49:09 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (83)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 14:49:10 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (83)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 14:49:36 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (83)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 14:49:37 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (83)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 14:51:38 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (49)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
