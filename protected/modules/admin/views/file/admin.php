@@ -47,7 +47,15 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'id',
 		'name',
-		'path',
+                array(
+                    'name' => 'path',
+                    'type' => 'raw',
+                    'value' => '$data->viewsFile()',
+                    'filter' => false,
+                    'htmlOptions' => array(
+                        "width" => 128,
+                    ),
+                ),
 		'type',
 		'events_id',
 		'competition_id',

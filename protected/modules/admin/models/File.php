@@ -144,5 +144,9 @@ class File extends CActiveRecord
                 unlink($documentPath);
         }
         
+        public function viewsFile(){
+            return "<a href='media/" . $this->path . "' target='_blank' >" . $this->path  . "</a>";
+        }
+        
         
 }
