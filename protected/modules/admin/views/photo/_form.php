@@ -5,13 +5,6 @@
 ?>
 
 <div class="form">
-
-    <?php
-    print_r(Yii::app()->user->id);
-    
-    ?>
-    
-    
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'photo-form',
 	// Please note: When you enable ajax validation, make sure the corresponding

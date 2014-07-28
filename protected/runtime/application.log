@@ -5116,3 +5116,12 @@ in /home/php/public_html/o-kompas/kompas/index.php (13)
 2014/07/28 16:52:31 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
 in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/PhotoController.php (68)
 in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 17:02:42 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 17:03:19 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/28 17:03:50 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
