@@ -145,14 +145,11 @@ class EventsController extends Controller
         
 	public function actionNews()
 	{
-		$model = Events::model()->findAll("status=:status AND type=:type", array(":status" => 1,":type" => 1));
-//                print_r("<pre>");
-//                print_r($model);
-//                print_r("<pre>");
-//                die();
+                $dataProvider=new CActiveDataProvider('Events');
 		$this->render('news',array(
-			'model'=>$model,
+			'dataProvider'=>$dataProvider,
 		));
+                
 	}
 
 	/**
