@@ -7,30 +7,46 @@ $this->breadcrumbs=array(
 	$model->title,
 );
 
-$this->menu=array(
-	array('label'=>'List Events', 'url'=>array('index')),
-	array('label'=>'Create Events', 'url'=>array('create')),
-	array('label'=>'Update Events', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Events', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Events', 'url'=>array('admin')),
-);
 ?>
 
-<h1>View Events #<?php echo $model->id; ?></h1>
+<h1><?php echo $model->title; ?></h1>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'type',
-		'title',
-		'description',
-		'author',
-		'create_date',
-		'update_date',
-		'position',
-		'text',
-		'logo_title',
-		'logo_path',
-	),
-)); ?>
+
+
+        <?php echo CHtml::encode($model->description); ?>
+	<br />
+       
+        <?php echo CHtml::encode($model->author); ?>
+	<br />
+        
+        <?php echo CHtml::encode($model->create_date); ?>
+	<br />
+        
+        <?php echo CHtml::encode($model->update_date); ?>
+	<br />
+        
+        <?php echo CHtml::encode($model->text); ?>
+	<br />
+        
+        <?php echo $model->getEventsImage(); ?>
+	<br />
+
+
+<?php 
+
+//$this->widget('zii.widgets.CDetailView', array(
+//	'data'=>$model,
+//	'attributes'=>array(
+//		'title',
+//		'description',
+//		'author',
+//		'create_date',
+//		'update_date',
+//		'text',
+//		'logo_path',
+//	),
+//)); 
+
+
+
+?>
