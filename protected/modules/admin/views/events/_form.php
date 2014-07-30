@@ -72,21 +72,14 @@
 	</div>
 
 	<div class="row">
-            <?php
-                if(empty($model->logo_path)){
-                 
-                    echo $form->labelEx($model,'logo_path'); 
-                    echo CHtml::activeFileField($model,'logo_path'); 
-                    echo $form->error($model,'logo_path');
-                   
-                } else {
-                    echo $model->getEventsImage();
-                    echo $form->labelEx($model,'logo_path'); 
-                    echo CHtml::activeFileField($model,'logo_path'); 
-                    echo $form->error($model,'logo_path');
-                }
+            <?php if($model->logo_path): ?>
+                <p><?php echo CHtml::encode($model->logo_path); ?></p>
+                <?php echo $model->getEventsImage(); ?>
                 
-                ?>
+            <?php endif; ?>
+            <?php echo $form->labelEx($model,'logo_path'); ?>
+            <?php echo $form->fileField($model,'logo_path'); ?>
+            <?php echo $form->error($model,'logo_path'); ?>  
 	</div>
 
 	<div class="row buttons">

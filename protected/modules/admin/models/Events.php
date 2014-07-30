@@ -41,7 +41,7 @@ class Events extends CActiveRecord
 		return array(
 			array('type', 'length', 'max'=>10),
 			array('title, description, author, logo_title', 'length', 'max'=>255),
-                        array('logo_path', 'file', 'types'=>'jpg, gif, png'),
+                        array('logo_path', 'file', 'types'=>'jpg, jpeg, gif, png', 'allowEmpty'=>true,'on'=>'insert,update'),
 			array('text', 'safe'),
 			array('id, type, title, description, author, create_date, update_date, position, text, logo_title, logo_path', 'safe', 'on'=>'search'),
 		);
@@ -127,6 +127,17 @@ class Events extends CActiveRecord
         
                 
         public function beforeSave() {
+            if(!parent::beforeSave())
+                return false;
+            if(($this->scenario=='insert' || $this->scenario=='update') &&
+                ($document=CUploadedFile::getInstance($this,'logo_path'))){
+                $this->deleteDocument(); // старый документ удалим, потому что загружаем новый
+
+                $this->logo_path=$document;
+                $this->logo_path->saveAs(
+                    Yii::getPathOfAlias('webroot.logo_events').DIRECTORY_SEPARATOR.$this->logo_path);
+            }
+            
             if ($this->isNewRecord){
                 $this->create_date = date('Y-m-d H:i:s');
                 $this->update_date = date('Y-m-d H:i:s');
@@ -144,6 +155,7 @@ class Events extends CActiveRecord
                 return 'Статья';
             }
         }
+        
         public function getStatusForViews(){
             if($this->status == 1){
                 return "<h4><span  style='color:#00FF66'>Опубликованная</span></h4>";
@@ -151,8 +163,28 @@ class Events extends CActiveRecord
                 return "<span style='color:red'>Не опубликованная</span>";
             }
         }
-                public function getEventsImage(){    
-//            return '<img src="'.Yii::app()->basePath. '/banners/' . $this->id . '_assortiment.jpg"  width="147" height="115" alt="' . $this->name . '">';
-            return '<img src="' . $this->logo_path . '"  width="147" height="115" alt="' . $this->logo_title . '">';
+        
+        /**
+         * Method return images for this events
+         * 
+         * @return string
+         */
+        public function getEventsImage(){    
+            return '<img src="logo_events/' . $this->logo_path . '"  width="147" height="115" alt="' . $this->logo_title . '">';
+        }
+               
+        
+        protected function beforeDelete(){
+            if(!parent::beforeDelete())
+                return false;
+            $this->deleteDocument(); // удалили модель? удаляем и файл
+            return true;
+        }
+        
+        public function deleteDocument(){
+            $documentPath=Yii::getPathOfAlias('webroot.logo_events').DIRECTORY_SEPARATOR.
+                $this->logo_path;
+            if(is_file($documentPath))
+                unlink($documentPath);
         }
 }

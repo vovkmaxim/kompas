@@ -67,7 +67,7 @@ class EventsController extends AdminController
 		// $this->performAjaxValidation($model);
 		if(isset($_POST['Events']))
 		{
-                        $model->logo_path = $_FILES['Events']['name']['logo_path'];
+//                        $model->logo_path = $_FILES['Events']['name']['logo_path'];
 			$model->attributes=$_POST['Events'];
                         $model->type = $_POST['type']; 
                         $model->status = $_POST['status'];
@@ -78,16 +78,16 @@ class EventsController extends AdminController
 //                        die();
                         
                         
-                        if($model->logo_path){
-                            $model->logo_path=CUploadedFile::getInstance($model,'logo_path');
-                        }  
+//                        if($model->logo_path){
+//                            $model->logo_path=CUploadedFile::getInstance($model,'logo_path');
+//                        }  
                         if($model->save()){
-                                $file = Yii::app()->params['addLogoEvents'] . $model->id.'_logo.jpg';
-                                @mkdir(Yii::app()->params['addLogoEvents'],0777,TRUE);
-                                @chmod(Yii::app()->params['addLogoEvents'], 0777);
-                                $model->logo_path->saveAs($file);
-                                $model->logo_path = Yii::app()->params['LogoEventsPath'] . $model->id.'_logo.jpg';;
-                                $model->save();
+//                                $file = Yii::app()->params['addLogoEvents'] . $model->id.'_logo.jpg';
+//                                @mkdir(Yii::app()->params['addLogoEvents'],0777,TRUE);
+//                                @chmod(Yii::app()->params['addLogoEvents'], 0777);
+//                                $model->logo_path->saveAs($file);
+//                                $model->logo_path = Yii::app()->params['LogoEventsPath'] . $model->id.'_logo.jpg';;
+//                                $model->save();
                                 $this->redirect(array('view','id'=>$model->id));
                         }
 				
@@ -112,20 +112,20 @@ class EventsController extends AdminController
 
 		if(isset($_POST['Events']))
 		{
-                        $model->logo_path = $_FILES['Events']['name']['logo_path'];
+//                        $model->logo_path = $_FILES['Events']['name']['logo_path'];
 			$model->attributes=$_POST['Events'];
                         $model->type = $_POST['type'];
                         $model->status = $_POST['status'];
-                        if($model->logo_path){
-                            $model->logo_path=CUploadedFile::getInstance($model,'logo_path');
-                        }  
+//                        if($model->logo_path){
+//                            $model->logo_path=CUploadedFile::getInstance($model,'logo_path');
+//                        }  
 			if($model->save()){
-                            $file = Yii::app()->params['addLogoEvents'] . $model->id.'_logo.jpg';
-                            @mkdir(Yii::app()->params['addLogoEvents'],0777,TRUE);
-                            @chmod(Yii::app()->params['addLogoEvents'], 0777);
-                            $model->logo_path->saveAs($file);
-                            $model->logo_path = Yii::app()->params['LogoEventsPath'] . $model->id.'_logo.jpg';;
-                            $model->save();
+//                            $file = Yii::app()->params['addLogoEvents'] . $model->id.'_logo.jpg';
+//                            @mkdir(Yii::app()->params['addLogoEvents'],0777,TRUE);
+//                            @chmod(Yii::app()->params['addLogoEvents'], 0777);
+//                            $model->logo_path->saveAs($file);
+//                            $model->logo_path = Yii::app()->params['LogoEventsPath'] . $model->id.'_logo.jpg';;
+//                            $model->save();
                             $this->redirect(array('view','id'=>$model->id));
                         }
 		}
