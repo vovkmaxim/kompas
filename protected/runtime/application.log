@@ -5994,3 +5994,99 @@ in /home/php/public_html/o-kompas/kompas/index.php (13)
 in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/EventsController.php (116)
 in /home/php/public_html/o-kompas/kompas/index.php (13)
 >>>>>>> 2517b04835b11061c6da19c5f6c427e5bcbb78cd
+2014/07/30 20:42:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'У вас нет прав для входа в адменистрирование сайта! Обратитесь к администратору.' in /home/max/public_html/o-kompas/protected/modules/admin/components/AdminController.php:23
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(359): AdminController->__construct('photo', Object(AdminModule))
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(338): CWebApplication->createController('photo/index/', Object(AdminModule))
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(276): CWebApplication->createController('admin/photo/ind...')
+#3 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/photo/ind...')
+#4 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/index.php?r=admin/photo/index
+---
+2014/07/30 20:47:50 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (116)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/30 20:47:55 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (116)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/30 20:47:59 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (116)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/30 20:48:00 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (116)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/30 20:48:16 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (116)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/30 20:48:17 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (116)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/30 20:48:44 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (116)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/30 20:48:44 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (116)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/30 20:48:59 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (116)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/30 20:48:59 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (116)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/30 20:49:17 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (71)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/30 20:49:18 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (71)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/30 20:49:19 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (71)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/30 20:49:22 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (71)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/30 20:49:25 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (71)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/30 20:49:28 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (71)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/30 20:49:29 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (71)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/30 21:11:10 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (116)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/07/30 21:12:27 [error] [php] Undefined variable: model (/home/max/public_html/o-kompas/protected/views/events/_viewnews.php:58)
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/zii/widgets/CListView.php(291): EventsController->renderFile()
+#1 /home/max/public_html/o-kompas/framework/zii/widgets/CBaseListView.php(167): CListView->renderItems()
+#2 unknown(0): CListView->renderSection()
+#3 /home/max/public_html/o-kompas/framework/zii/widgets/CBaseListView.php(150): preg_replace_callback()
+#4 /home/max/public_html/o-kompas/framework/zii/widgets/CBaseListView.php(135): CListView->renderContent()
+#5 /home/max/public_html/o-kompas/framework/web/CBaseController.php(173): CListView->run()
+#6 /home/max/public_html/o-kompas/protected/views/events/news.php(25): EventsController->widget()
+#7 /home/max/public_html/o-kompas/framework/web/CBaseController.php(126): require()
+#8 /home/max/public_html/o-kompas/framework/web/CBaseController.php(95): EventsController->renderInternal()
+#9 /home/max/public_html/o-kompas/framework/web/CController.php(869): EventsController->renderFile()
+#10 /home/max/public_html/o-kompas/framework/web/CController.php(782): EventsController->renderPartial()
+#11 /home/max/public_html/o-kompas/protected/controllers/EventsController.php(158): EventsController->render()
+#12 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(49): EventsController->actionNews()
+#13 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams()
+#14 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): EventsController->runAction()
+#15 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#16 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#17 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): EventsController->filterAccessControl()
+#18 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#19 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#20 /home/max/public_html/o-kompas/framework/web/CController.php(265): EventsController->runActionWithFilters()
+#21 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): EventsController->run()
+#22 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#23 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#24 /home/max/public_html/o-kompas/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=events/news
+in /home/max/public_html/o-kompas/protected/views/events/_viewnews.php (58)
+in /home/max/public_html/o-kompas/protected/views/events/news.php (25)
+in /home/max/public_html/o-kompas/protected/controllers/EventsController.php (158)

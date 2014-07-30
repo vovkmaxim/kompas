@@ -4,7 +4,9 @@
 ?>
 
 <div class="view">
-
+<?php 
+if( $data->status != 0 && $data->member != 0 ){
+?>
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
 	<br />
@@ -33,7 +35,7 @@
 	<?php echo CHtml::encode($data->data_birth); ?>
 	<br />
 
-	<?php /*
+	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('phone')); ?>:</b>
 	<?php echo CHtml::encode($data->phone); ?>
 	<br />
@@ -57,7 +59,7 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('member')); ?>:</b>
 	<?php echo CHtml::encode($data->member); ?>
 	<br />
-
-	*/ ?>
-
+<?php 
+}
+?>
 </div>

@@ -145,8 +145,17 @@ class EventsController extends Controller
         
 	public function actionNews()
 	{
-                $dataProvider=new CActiveDataProvider('Events');
+            $dataProvider=new CActiveDataProvider('Events');            
 		$this->render('news',array(
+			'dataProvider'=>$dataProvider,
+		));
+                
+	}
+        
+	public function actionArticle()
+	{
+            $dataProvider=new CActiveDataProvider('Events');            
+		$this->render('article',array(
 			'dataProvider'=>$dataProvider,
 		));
                 
