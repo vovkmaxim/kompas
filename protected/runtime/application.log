@@ -5500,3 +5500,27 @@ Stack trace:
 REQUEST_URI=/index.php?r=events/news
 HTTP_REFERER=http://o-kompas.com.local/index.php
 ---
+2014/07/29 21:03:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'У вас нет прав для входа в адменистрирование сайта! Обратитесь к администратору.' in /home/max/public_html/o-kompas/protected/modules/admin/components/AdminController.php:23
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(359): AdminController->__construct('photo', Object(AdminModule))
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(338): CWebApplication->createController('photo/index/', Object(AdminModule))
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(276): CWebApplication->createController('admin/photo/ind...')
+#3 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/photo/ind...')
+#4 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/index.php?r=admin/photo/index
+HTTP_REFERER=http://o-kompas.com.local/index.php?r=admin/events/index
+---
+2014/07/30 19:21:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'У вас нет прав для входа в адменистрирование сайта! Обратитесь к администратору.' in /home/max/public_html/o-kompas/protected/modules/admin/components/AdminController.php:23
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(359): AdminController->__construct('photo', Object(AdminModule))
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(338): CWebApplication->createController('photo/index/', Object(AdminModule))
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(276): CWebApplication->createController('admin/photo/ind...')
+#3 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/photo/ind...')
+#4 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/index.php?r=admin/photo/index
+HTTP_REFERER=http://o-kompas.com.local/index.php?r=admin/events/index
+---
