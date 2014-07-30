@@ -42,8 +42,6 @@ class Events extends CActiveRecord
 			array('title, description, author, logo_title', 'length', 'max'=>255),
 			array('logo_path', 'length', 'max'=>555),
 			array('create_date, update_date, text', 'safe'),
-			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
 			array('id, type, title, description, author, create_date, update_date, position, text, logo_title, logo_path', 'safe', 'on'=>'search'),
 		);
 	}
@@ -78,6 +76,7 @@ class Events extends CActiveRecord
 			'text' => 'Text',
 			'logo_title' => 'Logo Title',
 			'logo_path' => 'Logo Path',
+			'status' => 'Status',
 		);
 	}
 
@@ -126,4 +125,14 @@ class Events extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        /**
+         * Method return images for this events
+         * 
+         * @return string
+         */
+        public function getEventsImage(){    
+            return '<img src="logo_events/' . $this->logo_path . '"  width="147" height="115" alt="' . $this->logo_title . '">';
+        }
+        
 }

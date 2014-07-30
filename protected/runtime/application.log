@@ -5955,3 +5955,15 @@ in /home/php/public_html/o-kompas/kompas/index.php (13)
 2014/07/30 16:36:39 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
 in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/EventsController.php (116)
 in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/30 16:57:11 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/EventsController.php (116)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/30 16:57:51 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/EventsController.php (116)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/30 16:58:20 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/EventsController.php (116)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/07/30 17:02:57 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/EventsController.php (116)
+in /home/php/public_html/o-kompas/kompas/index.php (13)

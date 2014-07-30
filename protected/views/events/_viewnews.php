@@ -5,12 +5,18 @@
 
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
+    <?php
+    if($data->status != 2 && $data->type !=2){
+    ?>
 	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('type')); ?>:</b>
 	<?php echo CHtml::encode($data->type); ?>
+        <br />
+        
+	<b><?php echo CHtml::encode($data->getAttributeLabel('status')); ?>:</b>
+	<?php echo CHtml::encode($data->status); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('title')); ?>:</b>
@@ -49,6 +55,8 @@
 	<?php echo CHtml::encode($data->logo_path); ?>
 	<br />
 
-	 
+    <?php
+    }    
+    ?> 
 
 </div>
