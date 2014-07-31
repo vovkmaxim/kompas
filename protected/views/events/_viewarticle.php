@@ -6,7 +6,7 @@
 <div class="view">
 
     <?php
-        if($data->status != 2 && $data->type !=2){
+        if($data->status != 2 && $data->type !=1){
     ?>
     
     	<?php echo CHtml::link(CHtml::encode($data->title), array('view', 'id'=>$data->id)); ?>
