@@ -145,7 +145,9 @@ class EventsController extends Controller
         
 	public function actionNews()
 	{
-            $dataProvider=new CActiveDataProvider('Events');            
+            $criteria = new CDbCriteria;
+            $criteria->condition = 't.status != 2 AND t.type !=2';
+            $dataProvider=new CActiveDataProvider('Events', array('criteria' => $criteria));            
 		$this->render('news',array(
 			'dataProvider'=>$dataProvider,
 		));

@@ -5993,6 +5993,32 @@ in /home/php/public_html/o-kompas/kompas/index.php (13)
 2014/07/30 17:02:57 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
 in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/EventsController.php (116)
 in /home/php/public_html/o-kompas/kompas/index.php (13)
+<<<<<<< HEAD
+2014/07/31 09:34:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'У вас нет прав для входа в адменистрирование сайта! Обратитесь к администратору.' in /home/php/public_html/o-kompas/kompas/protected/modules/admin/components/AdminController.php:23
+Stack trace:
+#0 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(359): AdminController->__construct('banners', Object(AdminModule))
+#1 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(338): CWebApplication->createController('banners/admin/', Object(AdminModule))
+#2 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(276): CWebApplication->createController('admin/banners/a...')
+#3 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/banners/a...')
+#4 /home/php/public_html/o-kompas/kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /home/php/public_html/o-kompas/kompas/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/index.php?r=admin/banners/admin
+HTTP_REFERER=http://o-kompas.local/index.php?r=admin/banners/view&id=64
+---
+2014/07/31 09:34:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'У вас нет прав для входа в адменистрирование сайта! Обратитесь к администратору.' in /home/php/public_html/o-kompas/kompas/protected/modules/admin/components/AdminController.php:23
+Stack trace:
+#0 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(359): AdminController->__construct('events', Object(AdminModule))
+#1 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(338): CWebApplication->createController('events/index/', Object(AdminModule))
+#2 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(276): CWebApplication->createController('admin/events/in...')
+#3 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/events/in...')
+#4 /home/php/public_html/o-kompas/kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /home/php/public_html/o-kompas/kompas/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/index.php?r=admin/events/index
+HTTP_REFERER=http://o-kompas.local/index.php?r=admin/events/view&id=6
+---
+=======
 >>>>>>> 2517b04835b11061c6da19c5f6c427e5bcbb78cd
 2014/07/30 20:42:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'У вас нет прав для входа в адменистрирование сайта! Обратитесь к администратору.' in /home/max/public_html/o-kompas/protected/modules/admin/components/AdminController.php:23
 Stack trace:
@@ -6090,6 +6116,7 @@ REQUEST_URI=/index.php?r=events/news
 in /home/max/public_html/o-kompas/protected/views/events/_viewnews.php (58)
 in /home/max/public_html/o-kompas/protected/views/events/news.php (25)
 in /home/max/public_html/o-kompas/protected/controllers/EventsController.php (158)
+<<<<<<< HEAD
 2014/07/31 19:53:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'У вас нет прав для входа в адменистрирование сайта! Обратитесь к администратору.' in /home/max/public_html/o-kompas/protected/modules/admin/components/AdminController.php:23
 Stack trace:
 #0 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(359): AdminController->__construct('competition', Object(AdminModule))
@@ -6102,3 +6129,6 @@ Stack trace:
 REQUEST_URI=/index.php?r=admin/competition/update&id=5
 HTTP_REFERER=http://o-kompas.com.local/index.php?r=admin/competition/index
 ---
+=======
+>>>>>>> d69864fc4e5647712995503d7960ed2a4ee3aa6f
+>>>>>>> 4c23c8092631c050d260f1b3b6c23b3001472326
