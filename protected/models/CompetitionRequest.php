@@ -79,18 +79,18 @@ class CompetitionRequest extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'competition_id' => 'Competition',
-			'group_id' => 'Group',
-			'name' => 'Name',
-			'lastname' => 'Lastname',
-			'year' => 'Year',
-			'chip' => 'Chip',
-			'dyusch' => 'Dyusch',
-			'sity' => 'Sity',
-			'coutry' => 'Coutry',
-			'team' => 'Team',
-			'coach' => 'Coach',
-			'fst' => 'Fst',
-			'participation_data' => 'Participation Data',
+			'group_id' => 'Группа',
+			'name' => 'Имя',
+			'lastname' => 'Фамилия',
+			'year' => 'Год рождения',
+			'chip' => 'ЧИП№',
+			'dyusch' => 'ДЮСШ',
+			'sity' => 'Город',
+			'coutry' => 'СТрана',
+			'team' => 'Команда',
+			'coach' => 'Тренер',
+			'fst' => 'ФСТ',
+			'participation_data' => 'Дни участия',
 			'status' => 'Status',
 			'user_id' => 'User',
 		);
@@ -155,6 +155,31 @@ class CompetitionRequest extends CActiveRecord
                 $all_names[$names->id] = $names->name;
             }            
             return $all_names;
+        }
+        
+        public function getChekData($id){
+            $competition_data = Competition::model()->findByPk($id);
+            if($competition_data != NULL){
+                $start_data = explode("-", $competition_data->start_data);
+                $end_data = explode("-", $competition_data->end_data);
+                
+                $date = new DateTime($competition_data->end_data);
+                $sratches ='-' . $start_data[0] . ' year -' . $start_data[1] . ' month -' . $start_data[2] . ' day'; 
+                $date->modify($sratches);
+//                $date->format('Y-m-d');
+                return $date->format('Y-m-d');
+                return $sratches;
+                
+                
+                $estudey_data[] = date('Y');
+                $estudey_data[] = date('m');
+                $estudey_data[] = date('d');
+//                if($estudey_data < $end_data){
+                    return $estudey_data;
+//                }
+            }
+                
+        return $competition_data;
         }
         
 }

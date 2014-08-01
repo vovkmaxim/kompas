@@ -18,6 +18,18 @@
         ),
 )); ?>
 
+    
+    <?php
+    $dat = $model->getChekData($model->competition_id);
+//    $dat = date('Y-m-d');
+    print_r($dat);
+    
+    
+    
+    ?>
+    
+    
+    
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
