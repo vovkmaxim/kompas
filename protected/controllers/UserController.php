@@ -122,7 +122,9 @@ class UserController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('User');
+            $criteria = new CDbCriteria;
+            $criteria->condition = 't.status = 1 AND t.member =1';
+            $dataProvider=new CActiveDataProvider('User', array('criteria' => $criteria));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

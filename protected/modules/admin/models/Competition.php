@@ -82,7 +82,7 @@ class Competition extends CActiveRecord
 		return array(
                         array('title, description, type, text, start_data, start_time, end_data, end_time, close_registration_data, close_registration_time, enable_registration_flag,  archive', 'required'),
 			array('enable_registration_flag, archive', 'numerical', 'integerOnly'=>true),
-			array('title, description, logo_desc', 'length', 'max'=>255),
+                        array('logo_desc','file','types'=>'jpg, jpeg, gif, png', 'allowEmpty'=>true,'on'=>'insert,update'),
 			array('type', 'length', 'max'=>10),
 			array('text, create_date, update_date, start_data, start_time, end_data, end_time, close_registration_data, close_registration_time', 'safe'),
 			array('id, title, description, type, logo_desc, text, create_date, update_date, start_data, start_time, end_data, end_time, close_registration_data, close_registration_time, enable_registration_flag, position, archive', 'safe', 'on'=>'search'),
@@ -114,7 +114,7 @@ class Competition extends CActiveRecord
 			'title' => 'Title',
 			'description' => 'Description',
 			'type' => 'Укажите тип события',
-			'logo_desc' => 'Logo Desc',
+			'logo_desc' => 'Логотип',
 			'text' => 'Text',
 			'create_date' => 'Create Date',
 			'update_date' => 'Update Date',
@@ -184,6 +184,16 @@ class Competition extends CActiveRecord
         
                 
         public function beforeSave() {
+            if(!parent::beforeSave())
+                return false;
+            if(($this->scenario=='insert' || $this->scenario=='update') &&
+                ($document=CUploadedFile::getInstance($this,'logo_desc'))){
+                $this->deleteDocument(); // старый документ удалим, потому что загружаем новый
+
+                $this->logo_desc=$document;
+                $this->logo_desc->saveAs(
+                    Yii::getPathOfAlias('webroot.logo_competition').DIRECTORY_SEPARATOR.$this->logo_desc);
+            }
             if ($this->isNewRecord){
                 $this->create_date = date('Y-m-d H:i:s');
                 $this->update_date = date('Y-m-d H:i:s');
@@ -193,6 +203,22 @@ class Competition extends CActiveRecord
 
             return parent::beforeSave();
         }
+        
+        protected function beforeDelete(){
+            if(!parent::beforeDelete())
+                return false;
+            $this->deleteDocument(); // удалили модель? удаляем и файл
+            return true;
+        }
+        
+        public function deleteDocument(){
+            $documentPath=Yii::getPathOfAlias('webroot.logo_competition').DIRECTORY_SEPARATOR.
+                $this->logo_desc;
+            if(is_file($documentPath))
+                unlink($documentPath);
+        }
+        
+        
         
         public function getYearInput($name, $atribut){
             if(!empty($this->$atribut)){
@@ -309,5 +335,17 @@ class Competition extends CActiveRecord
             } 
             
         }
+        
+        public function getLogoImage(){
+            
+            if(!empty($this->logo_desc)){
+                return '<img width="147" height="115" alt="logo" src="logo_competition/'. $this->logo_desc . '">';
+            } else {
+                return 'Логотип отсутствует';
+            }
+         }
+        
+        
+        
         
 }

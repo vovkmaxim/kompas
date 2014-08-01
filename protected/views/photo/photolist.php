@@ -1,16 +1,16 @@
 <?php
-/* @var $this EventsController */
+/* @var $this PhotoController */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Статьи',
+	'Photos',
 );
 
 ?>
 
-<h1>Статьи</h1>
+<h1>Photos</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
-	'itemView'=>'_viewarticle',
+	'itemView'=>'_viewphoto',
 )); ?>

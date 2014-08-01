@@ -5,7 +5,7 @@
 
 <div class="view">
 
-        <?php echo CHtml::link(CHtml::encode($data->title  . ' (' . $data->start_data . ' - ' . $data->end_data . ')'), array('view', 'id'=>$data->id)); ?>
+	<?php echo CHtml::link(CHtml::encode($data->title  . ' (' . $data->start_data . ' - ' . $data->end_data . ')'), array('view', 'id'=>$data->id)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('description')); ?>:</b>

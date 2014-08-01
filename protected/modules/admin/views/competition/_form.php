@@ -93,9 +93,16 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'logo_desc'); ?>
-		<?php echo $form->textField($model,'logo_desc',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'logo_desc'); ?>
+		<div class="row">
+            <?php if($model->logo_desc): ?>
+                <p><?php echo CHtml::encode($model->logo_desc); ?></p>
+                <?php echo $model->getLogoImage(); ?>
+                
+            <?php endif; ?>
+            <?php echo $form->labelEx($model,'logo_desc'); ?>
+            <?php echo $form->fileField($model,'logo_desc'); ?>
+            <?php echo $form->error($model,'logo_desc'); ?>
+	</div>
 	</div>
 
 	<div class="row">

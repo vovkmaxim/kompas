@@ -113,7 +113,7 @@ class Group extends CActiveRecord
             } else {
                 return "NONE";
             }
-}
+        }
         
         public function getAllParentGroupName(){
             $name = Group::model()->findAll();

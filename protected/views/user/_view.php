@@ -7,9 +7,6 @@
 <?php 
 if( $data->status != 0 && $data->member != 0 ){
 ?>
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('email')); ?>:</b>
 	<?php echo CHtml::encode($data->email); ?>
@@ -17,10 +14,6 @@ if( $data->status != 0 && $data->member != 0 ){
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('username')); ?>:</b>
 	<?php echo CHtml::encode($data->username); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('password')); ?>:</b>
-	<?php echo CHtml::encode($data->password); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('name')); ?>:</b>
@@ -50,14 +43,6 @@ if( $data->status != 0 && $data->member != 0 ){
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('club')); ?>:</b>
 	<?php echo CHtml::encode($data->club); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('status')); ?>:</b>
-	<?php echo CHtml::encode($data->status); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('member')); ?>:</b>
-	<?php echo CHtml::encode($data->member); ?>
 	<br />
 <?php 
 }

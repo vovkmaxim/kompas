@@ -1,16 +1,16 @@
 <?php
-/* @var $this EventsController */
+/* @var $this CompetitionController */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Статьи',
+	'Тренировка',
 );
 
 ?>
 
-<h1>Статьи</h1>
+<h1>Тренировка</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
-	'itemView'=>'_viewarticle',
+	'itemView'=>'_viewtraining',
 )); ?>

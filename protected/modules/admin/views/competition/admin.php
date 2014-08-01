@@ -54,7 +54,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
                     'value' => '$data->getTypeList()',
                     'filter' => false,
                 ),
-		'logo_desc',
+                array(
+                    'name' => 'logo_desc',
+                    'type' => 'raw',
+                    'value' => '$data->getLogoImage()',
+                    'filter' => false,
+                ),
 		'text',
 		/*
 		'create_date',

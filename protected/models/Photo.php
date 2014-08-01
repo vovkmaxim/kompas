@@ -111,4 +111,13 @@ class Photo extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        public function getUserName(){
+            $user = User::model()->find('id=:id',array(':id' => $this->user_id));
+            if($user != NULL){
+                return $user->name;
+            } else {
+                return 'неизвестен';
+            }
+        }
 }

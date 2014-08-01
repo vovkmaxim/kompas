@@ -1,6 +1,6 @@
 <?php
 
-class CompetitionController extends Controller
+class CompetitionRequestController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -19,6 +19,31 @@ class CompetitionController extends Controller
 		);
 	}
 
+	/**
+	 * Specifies the access control rules.
+	 * This method is used by the 'accessControl' filter.
+	 * @return array access control rules
+	 */
+//	public function accessRules()
+//	{
+//		return array(
+//			array('allow',  // allow all users to perform 'index' and 'view' actions
+//				'actions'=>array('index','view'),
+//				'users'=>array('*'),
+//			),
+//			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+//				'actions'=>array('create','update'),
+//				'users'=>array('@'),
+//			),
+//			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+//				'actions'=>array('admin','delete'),
+//				'users'=>array('admin'),
+//			),
+//			array('deny',  // deny all users
+//				'users'=>array('*'),
+//			),
+//		);
+//	}
 
 	/**
 	 * Displays a particular model.
@@ -31,20 +56,32 @@ class CompetitionController extends Controller
 		));
 	}
 
+        
+        public function actionApplication($id)
+	{            
+            $model=new CompetitionRequest;
+            $model->user_id = Yii::app()->user->id;
+            $model->competition_id = $id;
+            $model->save();
+            $this->render('/competitionRequest/create',array(
+			'model'=>$model,
+		));
+	}
+        
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
 	public function actionCreate()
 	{
-		$model=new Competition;
+		$model=new CompetitionRequest;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Competition']))
+		if(isset($_POST['CompetitionRequest']))
 		{
-			$model->attributes=$_POST['Competition'];
+			$model->attributes=$_POST['CompetitionRequest'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -66,9 +103,9 @@ class CompetitionController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Competition']))
+		if(isset($_POST['CompetitionRequest']))
 		{
-			$model->attributes=$_POST['Competition'];
+			$model->attributes=$_POST['CompetitionRequest'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -97,23 +134,8 @@ class CompetitionController extends Controller
 	 */
 	public function actionIndex()
 	{
-            $criteria = new CDbCriteria;
-            $criteria->condition = 't.type = 2 AND t.archive = 2';
-            $dataProvider=new CActiveDataProvider('Competition', array('criteria' => $criteria));
+		$dataProvider=new CActiveDataProvider('CompetitionRequest');
 		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
-	}
-
-	/**
-	 * Lists all models.
-	 */
-	public function actionTraining()
-	{
-            $criteria = new CDbCriteria;
-            $criteria->condition = 't.type = 1 AND t.archive = 2';
-            $dataProvider=new CActiveDataProvider('Competition', array('criteria' => $criteria));
-		$this->render('training',array(
 			'dataProvider'=>$dataProvider,
 		));
 	}
@@ -123,10 +145,10 @@ class CompetitionController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Competition('search');
+		$model=new CompetitionRequest('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Competition']))
-			$model->attributes=$_GET['Competition'];
+		if(isset($_GET['CompetitionRequest']))
+			$model->attributes=$_GET['CompetitionRequest'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -137,12 +159,12 @@ class CompetitionController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Competition the loaded model
+	 * @return CompetitionRequest the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Competition::model()->findByPk($id);
+		$model=CompetitionRequest::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -150,11 +172,11 @@ class CompetitionController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Competition $model the model to be validated
+	 * @param CompetitionRequest $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='competition-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='competition-request-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

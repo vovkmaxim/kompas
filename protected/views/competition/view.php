@@ -7,36 +7,26 @@ $this->breadcrumbs=array(
 	$model->title,
 );
 
-$this->menu=array(
-	array('label'=>'List Competition', 'url'=>array('index')),
-	array('label'=>'Create Competition', 'url'=>array('create')),
-	array('label'=>'Update Competition', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Competition', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Competition', 'url'=>array('admin')),
-);
 ?>
+<div class="article">
+<h1><?php echo $model->title . ' (' . $model->start_data . ' - ' . $model->end_data . ')'     ; ?></h1>
+<p>Дата начала: <?php echo $model->start_data; ?>  - время начала: <?php echo $model->start_time; ?></p>
+<p>Дата окончания: <?php echo $model->end_data; ?>  - время окончания: <?php echo $model->end_time; ?></p>
+<?php echo $model->getLogoImage(); ?>
 
-<h1>View Competition #<?php echo $model->id; ?></h1>
+<p><?php echo $model->text; ?></p>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'title',
-		'description',
-		'type',
-		'logo_desc',
-		'text',
-		'create_date',
-		'update_date',
-		'start_data',
-		'start_time',
-		'end_data',
-		'end_time',
-		'close_registration_data',
-		'close_registration_time',
-		'enable_registration_flag',
-		'position',
-		'archive',
-	),
-)); ?>
+<h4>Дата создания: </h4><?php echo $model->create_date; ?></br>
+
+
+<?php
+if($model->enable_registration_flag == 1){
+    echo 'Окончание регистрации: ' . $model->close_registration_data . ' время' . $model->close_registration_data;
+    
+    echo '<p>'.CHtml::link('Подать заявку', array('competitionRequest/application', 'id'=>$model->id)).'"</p> ';    
+}
+
+
+
+?>
+</div>

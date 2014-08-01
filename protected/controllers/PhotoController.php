@@ -19,31 +19,6 @@ class PhotoController extends Controller
 		);
 	}
 
-	/**
-	 * Specifies the access control rules.
-	 * This method is used by the 'accessControl' filter.
-	 * @return array access control rules
-	 */
-	public function accessRules()
-	{
-		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
-		);
-	}
 
 	/**
 	 * Displays a particular model.
@@ -51,9 +26,12 @@ class PhotoController extends Controller
 	 */
 	public function actionView($id)
 	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
+            $criteria = new CDbCriteria;
+            $criteria->condition = 't.group_photo_id = ' . $id;
+            $dataProvider=new CActiveDataProvider('Photo', array('criteria' => $criteria));
+            $this->render('photolist',array(
+			'dataProvider'=>$dataProvider,
+            ));
 	}
 
 	/**
@@ -124,6 +102,17 @@ class PhotoController extends Controller
 	{
 		$dataProvider=new CActiveDataProvider('Photo');
 		$this->render('index',array(
+			'dataProvider'=>$dataProvider,
+		));
+	}
+
+	/**
+	 * Lists all models.
+	 */
+	public function actionGalery()
+	{
+		$dataProvider=new CActiveDataProvider('GroupPhoto');
+		$this->render('group',array(
 			'dataProvider'=>$dataProvider,
 		));
 	}

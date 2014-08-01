@@ -6,10 +6,6 @@ $this->breadcrumbs=array(
 	'Group Photos',
 );
 
-$this->menu=array(
-	array('label'=>'Create GroupPhoto', 'url'=>array('create')),
-	array('label'=>'Manage GroupPhoto', 'url'=>array('admin')),
-);
 ?>
 
 <h1>Group Photos</h1>

@@ -30,6 +30,40 @@
  */
 class Competition extends CActiveRecord
 {
+    
+    private $numbers = array(
+        1 => '01',
+        2 => '02',
+        3 => '03',
+        4 => '04',
+        5 => '05',
+        6 => '06',
+        7 => '07',
+        8 => '08',
+        9 => '09',
+        10 => '10',
+        11 => '11',
+        12 => '12',
+        13 => '13',
+        14 => '14',
+        15 => '15',
+        16 => '16',
+        17 => '17',
+        18 => '18',
+        19 => '19',
+        20 => '20',
+        21 => '21',
+        22 => '22',
+        23 => '23',
+        24 => '24',
+        25 => '25',
+        26 => '26',
+        27 => '27',
+        28 => '28',
+        29 => '29',
+        30 => '30',
+        31 => '31',
+    );
 	/**
 	 * @return string the associated database table name
 	 */
@@ -46,12 +80,11 @@ class Competition extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+                        array('title, description, type, text, start_data, start_time, end_data, end_time, close_registration_data, close_registration_time, enable_registration_flag,  archive', 'required'),
 			array('enable_registration_flag, archive', 'numerical', 'integerOnly'=>true),
-			array('title, description, logo_desc', 'length', 'max'=>255),
-			array('type, position', 'length', 'max'=>10),
+                        array('logo_desc','file','types'=>'jpg, jpeg, gif, png', 'allowEmpty'=>true,'on'=>'insert,update'),
+			array('type', 'length', 'max'=>10),
 			array('text, create_date, update_date, start_data, start_time, end_data, end_time, close_registration_data, close_registration_time', 'safe'),
-			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
 			array('id, title, description, type, logo_desc, text, create_date, update_date, start_data, start_time, end_data, end_time, close_registration_data, close_registration_time, enable_registration_flag, position, archive', 'safe', 'on'=>'search'),
 		);
 	}
@@ -64,10 +97,10 @@ class Competition extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'kmComments' => array(self::HAS_MANY, 'KmComments', 'competition_id'),
-			'kmGroups' => array(self::MANY_MANY, 'KmGroup', 'km_competition_group_refs(km_competition_id, km_group_id)'),
-			'kmCompetitionRequests' => array(self::HAS_MANY, 'KmCompetitionRequest', 'competition_id'),
-			'kmFiles' => array(self::HAS_MANY, 'KmFile', 'competition_id'),
+			'Comments' => array(self::HAS_MANY, 'Comments', 'competition_id'),
+			'Groups' => array(self::MANY_MANY, 'Group', 'km_competition_group_refs(km_competition_id, km_group_id)'),
+			'CompetitionRequests' => array(self::HAS_MANY, 'CompetitionRequest', 'competition_id'),
+			'Files' => array(self::HAS_MANY, 'File', 'competition_id'),
 		);
 	}
 
@@ -78,22 +111,22 @@ class Competition extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Title',
-			'description' => 'Description',
-			'type' => 'Type',
-			'logo_desc' => 'Logo Desc',
-			'text' => 'Text',
-			'create_date' => 'Create Date',
-			'update_date' => 'Update Date',
-			'start_data' => 'Start Data',
-			'start_time' => 'Start Time',
-			'end_data' => 'End Data',
-			'end_time' => 'End Time',
-			'close_registration_data' => 'Close Registration Data',
-			'close_registration_time' => 'Close Registration Time',
-			'enable_registration_flag' => 'Enable Registration Flag',
-			'position' => 'Position',
-			'archive' => 'Archive',
+			'title' => 'Заголовок',
+			'description' => 'Краткое описание',
+			'type' => 'Укажите тип события',
+			'logo_desc' => 'Логотип',
+			'text' => 'Текс',
+			'create_date' => 'Дата создания',
+			'update_date' => 'Дата обновления',
+			'start_data' => 'Дата проведения',
+			'start_time' => 'Время начала',
+			'end_data' => 'Дата окончания',
+			'end_time' => 'Время окончания',
+			'close_registration_data' => 'Дата окончания регистрации',
+			'close_registration_time' => 'Время окончания регистрации',
+			'enable_registration_flag' => 'Онлайн регистрация заявок',
+			'position' => 'Позиция',
+			'archive' => 'В архив событий',
 		);
 	}
 
@@ -148,4 +181,171 @@ class Competition extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+                
+        public function beforeSave() {
+            if(!parent::beforeSave())
+                return false;
+            if(($this->scenario=='insert' || $this->scenario=='update') &&
+                ($document=CUploadedFile::getInstance($this,'logo_desc'))){
+                $this->deleteDocument(); // старый документ удалим, потому что загружаем новый
+
+                $this->logo_desc=$document;
+                $this->logo_desc->saveAs(
+                    Yii::getPathOfAlias('webroot.logo_competition').DIRECTORY_SEPARATOR.$this->logo_desc);
+            }
+            if ($this->isNewRecord){
+                $this->create_date = date('Y-m-d H:i:s');
+                $this->update_date = date('Y-m-d H:i:s');
+            } else {
+                $this->update_date = date('Y-m-d H:i:s');
+            }                
+
+            return parent::beforeSave();
+        }
+        
+        protected function beforeDelete(){
+            if(!parent::beforeDelete())
+                return false;
+            $this->deleteDocument(); // удалили модель? удаляем и файл
+            return true;
+        }
+        
+        public function deleteDocument(){
+            $documentPath=Yii::getPathOfAlias('webroot.logo_competition').DIRECTORY_SEPARATOR.
+                $this->logo_desc;
+            if(is_file($documentPath))
+                unlink($documentPath);
+        }
+        
+        
+        
+        public function getYearInput($name, $atribut){
+            if(!empty($this->$atribut)){
+                $atribut = explode("-",$this->$atribut);
+                
+                return '<input type="text" value="' . $atribut[0] . '" name="' . $name . '" style="width: 50px;" maxlength="4" /> ';
+            } else {
+                return '<input type="text" name="' . $name . '" style="width: 50px;" maxlength="4" /> ';
+            }
+        }
+        
+        public function getDataList($name_list, $atribut,$langht,$indexValye){
+            if(!empty($this->$atribut)){
+                $atribut = explode("-",$this->$atribut);
+                $montsList = '<select name="' . $name_list . '" style="width: 50px;" size="1">';
+                $monts = $this->numbers;
+                if($indexValye == "Day"){
+                    $index = $atribut[2];
+                } elseif($indexValye == "Monts"){
+                    $index = $atribut[1];
+                }
+                for($i = 1; $i <= $langht; $i++){
+                    if($monts[$i] == $index){
+                        $montsList .= '<option  selected="selected" value="'. $monts[$i] .'">'. $monts[$i] .'</option>';
+                    } else {
+                        $montsList .= '<option value="'. $monts[$i] .'">'. $monts[$i] .'</option>';
+                    }
+                }
+                $montsList .= '</select>';
+                return $montsList;                 
+            } else {
+                $montsList = '<select name="' . $name_list . '" style="width: 50px;" size="1">';
+                $montsList .= '<option  selected="selected" value="0">   </option>';
+                $monts = $this->numbers;
+                for($i = 1; $i <= $langht; $i++){
+                        $montsList .= '<option value="'. $monts[$i] .'">'. $monts[$i] .'</option>';
+                }
+                $montsList .= '</select>';
+                return $montsList; 
+            }
+        }
+        
+        public function getHourList($name_list, $atribut){
+           if(!empty($this->$atribut)){
+                $atribut = explode(":",$this->$atribut);
+                $hourList = '<select name="' . $name_list . '" style="width: 50px;" size="1">';
+                $hours = $this->numbers;
+                
+                for($i = 1; $i <= 24; $i++){
+                    if($hours[$i] == $atribut[0]){
+                        $hourList .= '<option  selected="selected" value="'. $hours[$i] .'">'. $hours[$i] .'</option>';
+                    } else {
+                        $hourList .= '<option value="'. $hours[$i] .'">'. $hours[$i] .'</option>';
+                    }
+                }
+                $hourList .= '</select>';
+                return $hourList;                 
+            } else {
+                $hourList = '<select name="' . $name_list . '" style="width: 50px;" size="1">';
+                $hourList .= '<option  selected="selected" value="0">   </option>';
+                $hours = $this->numbers;
+                for($i = 1; $i <= 24; $i++){
+                        $hourList .= '<option value="'. $hours[$i] .'">'. $hours[$i] .'</option>';
+                }
+                $hourList .= '</select>';
+                return $hourList; 
+            }
+        }
+        
+        
+        public function getGroupCompetitionFormCheckbox(){
+            $group = Group::model()->findAll();
+            if($group != NULL){
+                $COUNT_GROUP = count($group);
+                $group_string = '';
+                if(!empty($this->Groups)){
+                    for( $i=0; $i < $COUNT_GROUP; $i++ ){
+                        if($this->chekGroupForCompetition($group[$i]->id)){
+                            $group_string .= '<input type="checkbox" name="grop_' . $group[$i]->id . '" value="' . $group[$i]->id . '" checked  >' . $group[$i]->name . '<br>';
+                        } else {
+                            $group_string .= '<input type="checkbox" name="grop_' . $group[$i]->id . '" value="' . $group[$i]->id . '">' . $group[$i]->name . '<br>';
+                        }                        
+                    }
+                    return $group_string;                    
+                } else {                    
+                    for( $i=0; $i < $COUNT_GROUP; $i++ ){
+                        $group_string .= '<input type="checkbox" name="grop_' . $group[$i]->id . '" value="' . $group[$i]->id . '">' . $group[$i]->name . '<br>';
+                    }
+                    return $group_string;
+                }                
+            } else {
+                return 0;
+            }
+        }
+        
+        private function chekGroupForCompetition($grop_id){
+            $THIS_GROUP = $this->Groups;
+            $lenght_this_group = count($THIS_GROUP);
+            for( $i=0; $i < $lenght_this_group; $i++ ){
+                if($THIS_GROUP[$i]->id == $grop_id){
+                    return TRUE;
+                }
+            }
+            return FALSE;
+        }
+        
+        public function getTypeList(){
+            if($this->type == 1){
+                return "<h4><span  style='color:#0000CD'>Тренеровка</span></h4>";
+            } 
+            
+            if($this->type == 2){
+                return "<h4><span  style='color:#FF0000'>Соревнования</span></h4>";    
+            } 
+            
+        }
+        
+        public function getLogoImage(){
+            
+            if(!empty($this->logo_desc)){
+                return '<img width="147" height="115" alt="logo" src="logo_competition/'. $this->logo_desc . '">';
+            } else {
+                return 'Логотип отсутствует';
+            }
+         }
+        
+        
+        
+        
 }
