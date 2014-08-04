@@ -26,8 +26,10 @@ class CompetitionController extends Controller
 	 */
 	public function actionView($id)
 	{
+            $request = CompetitionRequest::model()->findAll('competition_id=:competition_id',array(':competition_id' => $id));
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
+			'request'=> $request,
 		));
 	}
 

@@ -25,8 +25,40 @@ if($model->enable_registration_flag == 1){
     
     echo '<p>'.CHtml::link('Подать заявку', array('competitionRequest/application', 'id'=>$model->id)).'"</p> ';    
 }
-
-
+//
+//if($request != NULL){
+//    
+//    foreach ($request as $reqs){
+//            $this->widget('zii.widgets.grid.CGridView', array(
+//                
+//            'id'=>'competition-request-grid',
+//            'dataProvider'=>$reqs,
+//            'filter'=>$reqs,
+//            'columns'=>array(
+//                    'id',
+////                    'competition_id',
+////                    'group_id',
+////                    'name',
+////                    'lastname',
+////                    'year',
+////                    'chip',
+////                    'dyusch',
+////                    'sity',
+////                    'coutry',
+////                    'team',
+////                    'coach',
+////                    'fst',
+////                    'participation_data',
+////                    'status',
+////                    'user_id',
+//                
+//            ),
+//    ));
+//    }
+//    
+//    
+//}
+//
 
 ?>
 </div>

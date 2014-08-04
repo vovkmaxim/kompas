@@ -1,3 +1,110 @@
+<?php
+/* Функция генерации календаря */
+function draw_calendar($month,$year){
+  /* Начало таблицы */
+  $calendar = '<table cellpadding="0" cellspacing="0" class="calendar">';
+  /* Заглавия в таблице */
+  $headings = array('Понедельник','Вторник','Среда','Четверг','Пятница','Субота','Воскресенье');
+  $calendar.= '<tr class="calendar-row"><td class="calendar-day-head">'.implode('</td><td class="calendar-day-head">',$headings).'</td></tr>';
+  /* необходимые переменные дней и недель... */
+  $running_day = date('w',mktime(0,0,0,$month,1,$year));
+  $running_day = $running_day - 1;
+  $days_in_month = date('t',mktime(0,0,0,$month,1,$year));
+  $days_in_this_week = 1;
+  $day_counter = 0;
+  $dates_array = array();
+  /* первая строка календаря */
+  $calendar.= '<tr class="calendar-row">';
+  /* вывод пустых ячеек в сетке календаря */
+  for($x = 0; $x < $running_day; $x++):
+    $calendar.= '<td class="calendar-day-np"> </td>';
+    $days_in_this_week++;
+  endfor;
+  // ***************************************************************************
+  // ***************************************************************************
+  // ***************************************************************************
+  
+  $user = User::model()->findAll();
+  $user_dey_list = array();
+  foreach ($user as $users){
+      $mas_data = explode('-', $users->data_birth);
+      $user_dey_list[] = $mas_data[1] . '-' . $mas_data[2];
+  }
+  
+  // ***************************************************************************
+  // ***************************************************************************
+  // ***************************************************************************
+  /* дошли до чисел, будем их писать в первую строку */
+  for($list_day = 1; $list_day <= $days_in_month; $list_day++):
+    $calendar.= '<td class="calendar-day">';
+      /* Пишем номер в ячейку */
+      $data = $month . '-' . $list_day;
+      $flag = false;
+      foreach ($user_dey_list as $k => $v){
+        if($data == $v){
+            $flag = true;
+        }
+      }
+         
+      if($flag){
+          $calendar.= '<div class=""> ***'. $list_day.'***</div>';
+      } else {
+          $calendar.= '<div class="day-number">'. $list_day.'</div>';
+      }
+             
+      /** ЗДЕСЬ МОЖНО СДЕЛАТЬ MySQL ЗАПРОС К БАЗЕ ДАННЫХ! ЕСЛИ НАЙДЕНО СОВПАДЕНИЕ ДАТЫ СОБЫТИЯ С ТЕКУЩЕЙ - ВЫВОДИМ! **/
+      $calendar.= str_repeat('<p> </p>',2);
+      
+    $calendar.= '</td>';
+    if($running_day == 6):
+      $calendar.= '</tr>';
+      if(($day_counter+1) != $days_in_month):
+        $calendar.= '<tr class="calendar-row">';
+      endif;
+      $running_day = -1;
+      $days_in_this_week = 0;
+    endif;
+    $days_in_this_week++; $running_day++; $day_counter++;
+  endfor;
+  /* Выводим пустые ячейки в конце последней недели */
+  if($days_in_this_week < 8):
+    for($x = 1; $x <= (8 - $days_in_this_week); $x++):
+      $calendar.= '<td class="calendar-day-np"> </td>';
+    endfor;
+  endif;
+  /* Закрываем последнюю строку */
+  $calendar.= '</tr>';
+  /* Закрываем таблицу */
+  $calendar.= '</table>';
+  
+  /* Все сделано, возвращаем результат */
+  return $calendar;
+}
+
+function get_mont($mont){
+    $monts_array = array(
+        "01" => 'Январь',
+        "02" => 'Февраль',
+        "03" => 'Март',
+        "04" => 'Апрель',
+        "05" => 'Май',
+        "06" => 'Июнь',
+        "07" => 'Июль',
+        "08" => 'Август',
+        "09" => 'Сентябрь',
+        "10" => 'Октябрь',
+        "11" => 'Ноябрь',
+        "12" => 'Декабрь',
+    );
+    foreach ($monts_array as $k => $v){
+        if($mont == $k){
+            return $v;
+        }
+    }
+}
+
+
+?>
 <?php /* @var $this Controller */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -51,6 +158,7 @@
                                 array('label'=>'Competition', 'url'=>array('competition/index')),
                                 array('label'=>'File', 'url'=>array('file/index')),
                                 array('label'=>'Photo', 'url'=>array('photo/index')),
+                                array('label'=>'Заявки на соревнования(тренировки)', 'url'=>array('competitionRequest/index')),
 			),
 		)); ?>
 	</div><!-- mainmenu -->
@@ -78,7 +186,14 @@
 	<?php echo $content; ?>
 
 	<div class="clear">
-
+            <?php 
+                /* КАЛЕНДАРЬ!!!!! */           
+                $user = User::model()->findAll();
+                print_r($user[0]->name);
+                $mass_data = explode('-', date('m-Y'));
+                echo '<h2>' . get_mont($mass_data[0]) . ' ' . $mass_data[1] . '</h2>';
+                echo draw_calendar($mass_data[0],$mass_data[1]);
+            ?>
         </div>
 
 	<div id="footer">

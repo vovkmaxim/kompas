@@ -16,26 +16,10 @@
         'htmlOptions' => array(
             'enctype' => 'multipart/form-data',
         ),
-)); ?>
-
-    
-    <?php
-//    $dat = $model->getChekData($model->competition_id);
-////    $dat = date('Y-m-d');
-//    print_r($dat);
-    
-    
-    
-    ?>
-    
-    
-    
+)); ?>    
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
-	<?php echo $form->errorSummary($model); ?>
-
-
-	<div class="row">
+        <?php echo $form->errorSummary($model); ?>
+        <div class="row">
 		<?php echo $form->hiddenField($model,'competition_id',array('size'=>10,'maxlength'=>10)); ?>
 	</div>
 
@@ -54,20 +38,15 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'year'); ?>
-		<?php // echo $form->textField($model,'year',array('size'=>4,'maxlength'=>4)); ?>
-                <?php echo $model->getYearInput('year_bird','year'); ?>
-                <?php // echo $model->getDataList("monts_bird", 'monts_bird', 12, "Monts");  ?>
-                <?php // echo $model->getDataList("day_bird", 'day_bird', 31, "Day");  ?>
+		<?php echo $form->textField($model,'year',array('size'=>4,'maxlength'=>4)); ?>
 		<?php echo $form->error($model,'year'); ?>
-                
-	</div>       
+        </div>       
         
 	<div class="row">
             <?php echo $form->labelEx($model,'group_id'); ?>
+            <?php // echo $form->textField($model,'group_id',array('size'=>4,'maxlength'=>4)); ?>
                 <?php 
-                    echo CHtml::dropDownList('group_id', $model, 
-                              $model->getAllGroupName(),
-                              array(0 => ''));
+                    echo $model->groupDropDownList();
                 ?>
             <?php echo $form->error($model,'group_id'); ?>
 	</div>        
@@ -77,7 +56,7 @@
                     Разряд
                 <span class="required">*</span>
                 </label>
-                <?php echo $model->getRanksList(); ?>
+                <?php print_r($model->getRanksList()); ?>
 	</div>
 
 	<div class="row">
@@ -123,24 +102,31 @@
 	</div>
 
 	<div class="row">
-		<?php // echo $form->labelEx($model,'participation_data'); ?>
-		<?php // echo $form->textField($model,'participation_data',array('size'=>60,'maxlength'=>255)); ?>
-		<?php // echo $form->error($model,'participation_data'); ?>
+		<?php echo $form->labelEx($model,'participation_data'); ?>
+		<?php echo $form->textField($model,'participation_data',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'participation_data'); ?>
 	</div>
 
+        
 	<div class="row">
-		<?php echo $form->hiddenField($model,'status',array('size'=>10,'maxlength'=>10)); ?>
+            
+           
+		<?php echo $form->labelEx($model,'status'); ?>
+                <?php 
+                    echo $form->dropDownList($model,'status',
+                    array('0' => 'Не актевирован', 
+                          '1' => 'Актевирован', ),
+                    array('0' => 'Не актевирован', ));            
+                ?>
+		<?php // echo $form->textField($model,'status'); ?>
+		<?php echo $form->error($model,'status'); ?>
 	</div>
+        
 
 	<div class="row">
 		<?php echo $form->hiddenField($model,'user_id',array('size'=>10,'maxlength'=>10)); ?>
 	</div>
 
-	<div class="row">
-		<?php 
-                print_r($model->getChekData($model->competition_id)); 
-                ?>
-	</div>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

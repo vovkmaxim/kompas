@@ -3,10 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/php/public_html/o-kompas/kompas/protected/views/events/view.php</file>
-            <file>file:/home/php/public_html/o-kompas/kompas/protected/views/events/news.php</file>
-            <file>file:/home/php/public_html/o-kompas/kompas/protected/controllers/EventsController.php</file>
-            <file>file:/home/php/public_html/o-kompas/kompas/protected/views/events/_viewnews.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/views/competition/_viewtraining.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/views/competition/index.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/views/competition/_view.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/components/AdminController.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/views/competition/update.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/views/competitionRequest/update.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/views/competition/admin.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/views/competitionRequest/create.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/views/group/_form.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/views/competition/view.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/controllers/CompetitionController.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/views/competitionRequest/_form.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/controllers/CompetitionRequestController.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/models/Banners.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/models/Competition.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/views/photo/_form.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/models/CompetitionRequest.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/CompetitionController.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/models/Group.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/views/competition/_form.php</file>
         </group>
     </open-files>
 </project-private>

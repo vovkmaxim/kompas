@@ -1,6 +1,6 @@
 <?php
 
-class CompetitionRequestController extends Controller
+class CompetitionRequestController extends AdminController
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -29,61 +29,8 @@ class CompetitionRequestController extends Controller
 			'model'=>$this->loadModel($id),
 		));
 	}
-
         
-        public function actionApplication($id)
-	{            
-            $model=new CompetitionRequest;
-            $model->user_id = Yii::app()->user->id;
-            $model->competition_id = $id;
-            $model->save();
-            
-            if(isset($_POST['CompetitionRequest'])){
-                    $model->group_id = $_POST['group_id'];
-                    $check_data = $_POST['check_data'];
-                    if(!empty($check_data)){
-                        $participation_data = '';
-                        $lenght = count($check_data);
-                        foreach ($check_data as $k=>$v){
-                             $participation_data .= $v . ', ';
-                        }                
-                        $model->participation_data = $participation_data;
-                    }                    
-                    if(isset($_POST['year_bird']) && !empty($_POST['year_bird'])){
-                        $model->year = $_POST['year_bird'];
-                    }
-                    $model->attributes=$_POST['CompetitionRequest'];
-                        if($model->save()){
-                            if(!empty($_POST['rank'])){
-                                try{
-                                    $this->addRank($_POST['rank'], $model->id);  
-                                    $this->redirect(array('competition/index'));
-                                } catch (\Exception $e){
-                                    $this->redirect(array('competition/index'));  
-                                }
-                            }                                
-                            $this->redirect(array('competition/index'));
-                        }
-            }
-            $this->render('/competitionRequest/create',array(
-			'model'=>$model,
-            ));
-	}
         
-                
-        public function addRank($rank_id, $request_id){
-            $prom_rank = RankHasCompetitionRequest::model()->find('competition_request_id=:competition_request_id', array(':competition_request_id' => $request_id));
-            if($prom_rank != NULL){
-                $prom_rank->rank_id = $rank_id;
-                $prom_rank->competition_request_id = $request_id;
-                $prom_rank->save();
-            } else {
-                $prom_rank = new RankHasCompetitionRequest();
-                $prom_rank->rank_id = $rank_id;
-                $prom_rank->competition_request_id = $request_id;
-                $prom_rank->save();
-            }
-        }
         
 	/**
 	 * Creates a new model.
@@ -98,15 +45,18 @@ class CompetitionRequestController extends Controller
 
 		if(isset($_POST['CompetitionRequest']))
 		{
-                    
-                    print_r("<pre>");
-                    print_r($_POST);
-                    print_r("<pre>");
-                    die();
 			$model->attributes=$_POST['CompetitionRequest'];
-			if($model->save())
+                        if($model->save()){
+                            if(!empty($_POST['rank'])){
+                                try{
+                                    $this->addRank($_POST['rank'], $model->id);   
+                                } catch (\Exception $e){
+                                    $this->redirect(array('view','id'=>$model->id));   
+                                }
+                            }                                
 				$this->redirect(array('view','id'=>$model->id));
-		}
+                        }
+                }
 
 		$this->render('create',array(
 			'model'=>$model,
@@ -127,23 +77,40 @@ class CompetitionRequestController extends Controller
 
 		if(isset($_POST['CompetitionRequest']))
 		{
-                    
-                    print_r("<pre>");
-                    print_r($_POST);
-                    print_r("<pre>");
-                    die();
-                    
 			$model->attributes=$_POST['CompetitionRequest'];
-			if($model->save())
+                        if($model->save()){
+                            if(!empty($_POST['rank'])){
+                                try{
+                                    $this->addRank($_POST['rank'], $model->id);   
+                                } catch (\Exception $e){
+                                    $this->redirect(array('view','id'=>$model->id));   
+                                }
+                            }                                
 				$this->redirect(array('view','id'=>$model->id));
-		}
+                        }
+                }
 
 		$this->render('update',array(
 			'model'=>$model,
 		));
 	}
+        
+        public function addRank($rank_id, $request_id){
+            $prom_rank = RankHasCompetitionRequest::model()->find('competition_request_id=:competition_request_id', array(':competition_request_id' => $request_id));
+            if($prom_rank != NULL){
+                $prom_rank->rank_id = $rank_id;
+                $prom_rank->competition_request_id = $request_id;
+                $prom_rank->save();
+            } else {
+                $prom_rank = new RankHasCompetitionRequest();
+                $prom_rank->rank_id = $rank_id;
+                $prom_rank->competition_request_id = $request_id;
+                $prom_rank->save();
+            }
+        }
 
-	/**
+        
+        /**
 	 * Deletes a particular model.
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
 	 * @param integer $id the ID of the model to be deleted
@@ -162,10 +129,7 @@ class CompetitionRequestController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('CompetitionRequest');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
+            $this->actionAdmin();
 	}
 
 	/**
