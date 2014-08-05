@@ -26,10 +26,20 @@ class CompetitionController extends Controller
 	 */
 	public function actionView($id)
 	{
-            $request = CompetitionRequest::model()->findAll('competition_id=:competition_id',array(':competition_id' => $id));
+            
+            $criteria = new CDbCriteria;
+            $criteria->condition = 't.competition_id =' . $id;
+            $request=new CActiveDataProvider('CompetitionRequest', array('criteria' => $criteria));
+            
+            $criteria = new CDbCriteria;
+            $criteria->condition = 't.competition_id =' . $id;
+            $file=new CActiveDataProvider('File', array('criteria' => $criteria));
+            
+//            $request = CompetitionRequest::model()->findAll('competition_id=:competition_id',array(':competition_id' => $id));
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 			'request'=> $request,
+			'file'=> $file,
 		));
 	}
 

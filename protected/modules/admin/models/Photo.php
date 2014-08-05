@@ -52,8 +52,8 @@ class Photo extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'groupPhoto' => array(self::BELONGS_TO, 'KmGroupPhoto', 'group_photo_id'),
-			'user' => array(self::BELONGS_TO, 'KmUser', 'user_id'),
+			'groupPhoto' => array(self::BELONGS_TO, 'GroupPhoto', 'group_photo_id'),
+			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
 		);
 	}
 

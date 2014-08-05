@@ -71,7 +71,6 @@ class UserController extends AdminController
 		{
 			$model->attributes=$_POST['User'];
                         if($model->save()){
-                            $model->password = md5($model->password);
                             $model->save();
                             if(isset($_POST['Role']['role']) && !empty($_POST['Role']['role'])){
                                 foreach ($_POST['Role']['role'] as $roles){
@@ -109,15 +108,8 @@ class UserController extends AdminController
 
 		if(isset($_POST['User']))
 		{
-//                    $delete_role = KmRoleHasKmUser::model()->findAll("user_id=:user_id",array(":user_id" => $model->id));
-//                    
-//                    print_r("<pre>");
-//                    print_r($delete_role);
-//                    print_r("<pre>");
-//                    die();
 			$model->attributes=$_POST['User'];
 			if($model->save()){
-                            $model->password = md5($model->password);
                             $model->save();
                             if(isset($_POST['Role']['role']) && !empty($_POST['Role']['role'])){
                                 $delete_role = KmRoleHasKmUser::model()->findAll("user_id=:user_id",array(":user_id" => $model->id));
@@ -242,7 +234,6 @@ class UserController extends AdminController
                         $user->member = 0;
                         $user->email  = $model->email;
                         $user->username = $model->username;
-                        $user->password = md5($model->password);
                         $user->name   = $model->name;
                         $user->lastname = $model->lastname;
                         $user->phone  = $model->phone;

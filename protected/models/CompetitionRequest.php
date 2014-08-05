@@ -302,7 +302,60 @@ class CompetitionRequest extends CActiveRecord
                 return $rankList; 
             }
         }
-
+        
+        public function getGroupName(){
+            $group = Group::model()->findByPk($this->group_id);
+            if($group != NULL){
+                return $group->name;
+            } else {
+                return false;
+            }
+        }
+        
+        public function getCompetitionTitle(){
+            $competition = Competition::model()->findByPk($this->competition_id);
+            if($competition != NULL){
+//                return CHtml::link($competition->title, array('competition/view', 'id'=>$this->competition_id));
+                return '<a href="/index.php?r=competition/view&id=' . $this->competition_id . '" >' . $competition->title . '</a>';
+            } else {
+                return false;
+            }
+        }
+        
+        public function getNameStatus(){
+            if($this->status == 0){
+                return "<span  style='color:red'>Не активирован</span>";
+            }
+            
+            if($this->status == 1){
+                return "<span  style='color:#00FF66'>Aктивирован</span>";
+            }
+            
+            
+        }
+        
+        //  admin/user/view&id=3
+        
+        public function getNameUser(){
+            $user =User::model()->findByPk($this->user_id);
+            if($user != NULL){
+                return CHtml::link($user->name, array('user/view', 'id'=>$user->id));
+            }
+        }
+        
+        public function groupDropDownList(){
+            $return_list = '<select name="menu" size="1">';
+            $group_name_list = $this->getAllGroupName();
+            foreach ($group_name_list as $k => $value){
+                if($this->group_id){
+                    $return_list .= '<option selected="selected" value="' . $k . '">' . $value . '</option>';
+                } else {
+                    $return_list .= '<option value="' . $k . '">' . $value . '</option>';
+                }
+            }
+            $return_list .= '</select>';
+            return $return_list;
+        }
         
         
 }

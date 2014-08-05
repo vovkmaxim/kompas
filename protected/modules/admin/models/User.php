@@ -7,7 +7,6 @@
  * @property string $id
  * @property string $email
  * @property string $username
- * @property string $password
  * @property string $name
  * @property string $lastname
  * @property string $data_birth
@@ -44,13 +43,13 @@ class User extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('status, member', 'numerical', 'integerOnly'=>true),
-			array('email, username, password, name, lastname, phone, sity, coutry, club', 'length', 'max'=>255),
+			array('email, username, name, lastname, phone, sity, coutry, club', 'length', 'max'=>255),
 			array('data_birth,role', 'safe'),
 //			array('email', 'email'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 //			array('id, email, username, password, name, lastname, data_birth, phone, sity, coutry, club, status, member',  'required'),
-			array('id, email, username, password, name, lastname, data_birth, phone, sity, coutry, club, status, member', 'safe', 'on'=>'search'),
+			array('id, email, username, name, lastname, data_birth, phone, sity, coutry, club, status, member', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -109,7 +108,6 @@ class User extends CActiveRecord
 			'id' => 'ID',
 			'email' => 'Email',
 			'username' => 'Username',
-			'password' => 'Password',
 			'name' => 'Name',
 			'lastname' => 'Lastname',
 			'data_birth' => 'Data Birth',
@@ -144,7 +142,6 @@ class User extends CActiveRecord
 		$criteria->compare('id',$this->id,true);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('username',$this->username,true);
-		$criteria->compare('password',$this->password,true);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('lastname',$this->lastname,true);
 		$criteria->compare('data_birth',$this->data_birth,true);

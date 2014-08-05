@@ -137,6 +137,10 @@
 	</div>
 
 	<div class="row">
+            <label class="required">
+            Укажите дату участия
+            <span class="required">*</span>:
+            </label>
 		<?php 
                 print_r($model->getChekData($model->competition_id)); 
                 ?>

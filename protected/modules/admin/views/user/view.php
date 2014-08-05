@@ -24,7 +24,6 @@ $this->menu=array(
 		'id',
 		'email',
 		'username',
-		'password',
 		'name',
 		'lastname',
 		'data_birth',

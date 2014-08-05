@@ -22,6 +22,31 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
+        
+        <!--<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation.min.js" type="text/javascript"></script>-->
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/holder.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendor/zepto.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendor/jquery.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendor/jquery.horizontalNav.js" type="text/javascript"></script>
+        <!--<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendor/costom.modernizr.js" type="text/javascript"></script>-->
+<!--        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.abide.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.alerts.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.clearing.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.cookie.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.dropdown.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.forms.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.interchange.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.joyride.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.magellan.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.orbit.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.placeholder.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.reveal.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.section.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.tooltips.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.topbar.js" type="text/javascript"></script>-->
+        
+        
         <title>Клуб спортивного орієнтування «Компас» м.Харків</title>
 	<!--<title><?php // echo CHtml::encode($this->pageTitle); ?></title>-->
 </head>
@@ -171,7 +196,39 @@
 			),
 		)); ?>
 	</div><!-- mainmenu -->
-	<?php if(isset($this->breadcrumbs)):?>
+        <?php
+        $sliders = Sliders::model()->findAll();
+        $request = Yii::app()->request->requestUri;
+        if($sliders!=NULL){
+            if($request == '/' || $request == '/index.php?r=site/index'){ ?>
+        <div class="slideshow-holder row">
+	  <div class="slideshow-wrapper large-8 columns">
+			<div class="preloader"></div>
+			<ul data-orbit>
+                            <?php
+                            
+                            foreach($sliders as $slider){
+                                echo '<li data-orbit-slide="headline-'.$slider->id.'"><img src="sliders/'.$slider->path.'" alt="'.$slider->alt.'" /></li>';
+                            }
+                            
+                            ?>
+				
+			</ul>
+                        <?php
+                            
+                            foreach($sliders as $slider){
+                                echo '<div class="orbit-headline"><a href="#" data-orbit-link="headline-'.$slider->id.'">'.$slider->hedline.'</a></div>';
+                            }
+                            
+                            ?>
+			
+		</div>
+        </div>
+        <?php 
+            }
+        }       
+        ?>
+        <?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 			'links'=>$this->breadcrumbs,
 		)); ?><!-- breadcrumbs -->
