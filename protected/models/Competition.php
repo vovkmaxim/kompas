@@ -345,6 +345,23 @@ class Competition extends CActiveRecord
             }
          }
         
+        public function getCommentCount(){
+            $comment = Comments::model()->findAll('competition_id=:id', array(':id' => $this->id));
+            if($comment != NULL){
+                return count($comment);
+            } else {
+                return 0;
+            }
+        }
+        
+        public function getCountRequest(){
+            $comment = CompetitionRequest::model()->findAll('competition_id=:id', array(':id' => $this->id));
+            if($comment != NULL){
+                return count($comment);
+            } else {
+                return 0;
+            }
+        }
         
         
         

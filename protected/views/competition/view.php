@@ -49,8 +49,6 @@ if($file != NULL){
 
 ?>
 <h4>Дата создания: </h4><?php echo $model->create_date; ?></br>
-
-    
 <?php
 if($model->enable_registration_flag == 1){
     echo 'Окончание регистрации: ' . $model->close_registration_data . ' время' . $model->close_registration_data;
@@ -100,5 +98,47 @@ if($request != NULL){
 }
 
 
+$this->widget('zii.widgets.CListView', array(
+	'dataProvider'=>$comments,
+	'itemView'=>'_viewcomment',
+));
+
+if(!Yii::app()->user->isGuest){
 ?>
+        <div class="comment">
+            <p>Ваш отзыв:</p>
+            <form id="comments-form" method="post" action="/index.php?r=comments/create">
+                <div class="row">
+                    <input id="Comments_events_id" type="hidden" value="0" name="Comments[events_id]" maxlength="10" size="10">
+                </div>
+                <div class="row">
+                    <input id="Comments_competition_id" type="hidden" value="<?php echo $model->id; ?>" name="Comments[competition_id]" maxlength="10" size="10">
+                </div>
+                <div class="row">
+                    <input id="Comments_user_id" type="hidden" value="<?php echo Yii::app()->user->id; ?>" name="Comments[user_id]" maxlength="10" size="10">
+                </div>
+                <div class="row">
+                    <input id="Comments_create_date" type="hidden" value="<?php echo date('Y-m-d'); ?>" name="Comments[create_date]">
+                </div>
+                <div class="row">
+                    <label for="Comments_title">Тема:</label>
+                    <input id="Comments_title" type="text" name="Comments[title]" maxlength="255" size="60">
+                </div>
+                <div class="row">
+                    <label for="Comments_text">Текст:</label>
+                    <textarea id="Comments_text" name="Comments[text]" cols="50" rows="6"></textarea>
+                </div>
+                <div class="row buttons">
+                    <input type="submit" value="Отправить" name="yt0">
+                </div>
+            </form>
+        </div>
+
+<?php
+} else {
+    echo '<p>Для того что бы оставвить отзыв Вы должны авторезироватся</p>';
+}
+
+?>
+
 </div>

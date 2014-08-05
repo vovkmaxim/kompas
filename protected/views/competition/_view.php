@@ -25,8 +25,18 @@
 	<br />
 	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('enable_registration_flag')); ?>:</b>
-	<?php echo CHtml::encode($data->enable_registration_flag); ?>
+	<?php 
+        if($data->enable_registration_flag){
+            echo 'Да';
+        } else {
+            echo 'Нет';
+        }
+        
+        ?>
 	<br />
+        Количество просмотров: <?php echo $data->views; ?></br>
+        Количество комментариев: <?php echo $data->getCommentCount(); ?></br>
+        Количество заявок: <?php echo $data->getCountRequest(); ?></br>
         <?php echo CHtml::link(CHtml::encode('Читать дальше ...'), array('view', 'id'=>$data->id)); ?>
 	<br />
 </div>

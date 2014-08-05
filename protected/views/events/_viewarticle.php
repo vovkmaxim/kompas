@@ -57,7 +57,10 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('logo_path')); ?>:</b>
 	<?php echo $data->getEventsImage(); ?>
 	<br />
-
+-----------------------------------------------------------------------------------------
+	<b>Количество комментариев:</b>
+	<?php echo $data->getCommentCount(); ?>
+	<br />
     <?php
     }    
     ?> 

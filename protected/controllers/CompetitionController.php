@@ -35,11 +35,16 @@ class CompetitionController extends Controller
             $criteria->condition = 't.competition_id =' . $id;
             $file=new CActiveDataProvider('File', array('criteria' => $criteria));
             
+            $criteria = new CDbCriteria;
+            $criteria->condition = 't.competition_id =' . $id;
+            $comments = new CActiveDataProvider('Comments', array('criteria' => $criteria));
+            
 //            $request = CompetitionRequest::model()->findAll('competition_id=:competition_id',array(':competition_id' => $id));
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 			'request'=> $request,
 			'file'=> $file,
+			'comments'=> $comments,
 		));
 	}
 
@@ -157,6 +162,8 @@ class CompetitionController extends Controller
 		$model=Competition::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
+		$model->views = $model->views + 1 ;
+                $model->save();
 		return $model;
 	}
 

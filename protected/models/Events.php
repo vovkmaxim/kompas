@@ -135,4 +135,13 @@ class Events extends CActiveRecord
             return '<img src="logo_events/' . $this->logo_path . '"  width="147" height="115" alt="' . $this->logo_title . '">';
         }
         
+        
+        public function getCommentCount(){
+            $comment = Comments::model()->findAll('events_id=:id', array(':id' => $this->id));
+            if($comment != NULL){
+                return count($comment);
+            } else {
+                return 0;
+            }
+        }
 }

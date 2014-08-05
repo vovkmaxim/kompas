@@ -1,6 +1,6 @@
 <?php
 
-class EventsController extends Controller
+class CommentsController extends AdminController
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -51,17 +51,8 @@ class EventsController extends Controller
 	 */
 	public function actionView($id)
 	{
-            $criteria = new CDbCriteria;
-            $criteria->condition = 't.events_id =' . $id;
-            $file=new CActiveDataProvider('File', array('criteria' => $criteria));
-            
-            $criteria = new CDbCriteria;
-            $criteria->condition = 't.events_id =' . $id;
-            $comments = new CActiveDataProvider('Comments', array('criteria' => $criteria));
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
-			'comments'=>$comments,
-			'file'=>$file,
 		));
 	}
 
@@ -69,24 +60,24 @@ class EventsController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
-	{
-		$model=new Events;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Events']))
-		{
-			$model->attributes=$_POST['Events'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
-
-		$this->render('create',array(
-			'model'=>$model,
-		));
-	}
+//	public function actionCreate()
+//	{
+//		$model=new Comments;
+//
+//		// Uncomment the following line if AJAX validation is needed
+//		// $this->performAjaxValidation($model);
+//
+//		if(isset($_POST['Comments']))
+//		{
+//			$model->attributes=$_POST['Comments'];
+//			if($model->save())
+//				$this->redirect(array('view','id'=>$model->id));
+//		}
+//
+//		$this->render('create',array(
+//			'model'=>$model,
+//		));
+//	}
 
 	/**
 	 * Updates a particular model.
@@ -96,13 +87,9 @@ class EventsController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Events']))
+		if(isset($_POST['Comments']))
 		{
-			$model->attributes=$_POST['Events'];
+			$model->attributes=$_POST['Comments'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -131,10 +118,8 @@ class EventsController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Events');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
+//		$dataProvider=new CActiveDataProvider('Comments');
+		$this->actionAdmin();
 	}
 
 	/**
@@ -142,62 +127,38 @@ class EventsController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Events('search');
+		$model=new Comments('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Events']))
-			$model->attributes=$_GET['Events'];
+		if(isset($_GET['Comments']))
+			$model->attributes=$_GET['Comments'];
 
 		$this->render('admin',array(
 			'model'=>$model,
 		));
-	}
-        
-	public function actionNews()
-	{
-            $criteria = new CDbCriteria;
-            $criteria->condition = 't.status != 2 AND t.type !=2';
-            $dataProvider=new CActiveDataProvider('Events', array('criteria' => $criteria));            
-		$this->render('news',array(
-			'dataProvider'=>$dataProvider,
-		));
-                
-	}
-        
-	public function actionArticle()
-	{
-            $criteria = new CDbCriteria;
-            $criteria->condition = 't.status = 1 AND t.type =2';
-            $dataProvider=new CActiveDataProvider('Events', array('criteria' => $criteria));             
-		$this->render('article',array(
-			'dataProvider'=>$dataProvider,
-		));
-                
 	}
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Events the loaded model
+	 * @return Comments the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Events::model()->findByPk($id);
+		$model=Comments::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
-                $model->views = $model->views + 1 ;
-                $model->save();
 		return $model;
 	}
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Events $model the model to be validated
+	 * @param Comments $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='events-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='comments-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

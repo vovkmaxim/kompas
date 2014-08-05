@@ -47,7 +47,4 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('logo_path')); ?>:</b>
 	<?php echo CHtml::encode($data->logo_path); ?>
 	<br />
-
-	 
-
 </div>
