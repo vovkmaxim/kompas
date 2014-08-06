@@ -52,8 +52,12 @@ if($file != NULL){
 <?php
 if($model->enable_registration_flag == 1){
     echo 'Окончание регистрации: ' . $model->close_registration_data . ' время' . $model->close_registration_data;
-    
-    echo '<p>'.CHtml::link('Подать заявку', array('competitionRequest/application', 'id'=>$model->id)).'"</p> ';    
+    if(!Yii::app()->user->isGuest){
+        echo '<p>'.CHtml::link('Подать заявку', array('competitionRequest/application', 'id'=>$model->id)).'"</p> ';  
+    } else {
+        echo '<h6> Для подачи заявки нужно войти в систему! </h6>';  
+    }
+      
 }
 
 if($request != NULL){
