@@ -22,6 +22,7 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/sliders.css" />
         
         <!--<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation.min.js" type="text/javascript"></script>-->
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/holder.js" type="text/javascript"></script>
@@ -64,64 +65,6 @@
 				<div class="top-contact">
 					<a href="#" data-dropdown="calendar" data-options="is_hover:true" class="calendar"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/ico-calendar.png" alt="Календарь" title="Календарь"/></a>
 					<div id="calendar" class="f-dropdown" data-dropdown-content>
-						<!-- Calendar -->
-						<div class="cal">
-						  <table class="cal-table">
-							<caption class="cal-caption">
-							  <a href="#" class="prev">&laquo;</a>
-							  <a href="#" class="next">&raquo;</a>
-							  May 2012
-							</caption>
-							<tbody class="cal-body">
-							  <tr>
-								<td class="cal-off"><a href="#">30</a></td>
-								<td><a href="#">1</a></td>
-								<td><a href="#">2</a></td>
-								<td class="cal-today"><a href="#">3</a></td>
-								<td><a href="#">4</a></td>
-								<td><a href="#">5</a></td>
-								<td><a href="#">6</a></td>
-							  </tr>
-							  <tr>
-								<td><a href="#">7</a></td>
-								<td class="cal-selected"><a href="#">8</a></td>
-								<td><a href="#">9</a></td>
-								<td><a href="#">10</a></td>
-								<td><a href="#">11</a></td>
-								<td class="cal-check"><a href="#">12</a></td>
-								<td><a href="#">13</a></td>
-							  </tr>
-							  <tr>
-								<td><a href="#">14</a></td>
-								<td><a href="#">15</a></td>
-								<td><a href="#">16</a></td>
-								<td class="cal-check"><a href="#">17</a></td>
-								<td><a href="#">18</a></td>
-								<td><a href="#">19</a></td>
-								<td><a href="#">20</a></td>
-							  </tr>
-							  <tr>
-								<td><a href="#">21</a></td>
-								<td><a href="#">22</a></td>
-								<td><a href="#">23</a></td>
-								<td><a href="#">24</a></td>
-								<td><a href="#">25</a></td>
-								<td><a href="#">26</a></td>
-								<td><a href="#">27</a></td>
-							  </tr>
-							  <tr>
-								<td><a href="#">28</a></td>
-								<td><a href="#">29</a></td>
-								<td><a href="#">30</a></td>
-								<td><a href="#">31</a></td>
-								<td class="cal-off"><a href="#">1</a></td>
-								<td class="cal-off"><a href="#">2</a></td>
-								<td class="cal-off"><a href="#">3</a></td>
-							  </tr>
-							</tbody>
-						  </table>
-						</div>
-						<!-- End Calendar -->
 					</div>
 					<div class="top-tell"><span></span>+3(067) 857 75 86</div>
 					<div class="top-email">example@gmail.com</div>
@@ -181,38 +124,48 @@
 			),
 		)); ?>
 	</div><!-- mainmenu -->
+        
         <?php
         $sliders = Sliders::model()->findAll();
         $request = Yii::app()->request->requestUri;
         if($sliders!=NULL){
             if($request == '/' || $request == '/index.php?r=site/index'){ ?>
-        <div class="slideshow-holder row">
-	  <div class="slideshow-wrapper large-8 columns">
-			<div class="preloader"></div>
-			<ul data-orbit>
-                            <?php
-                            
-                            foreach($sliders as $slider){
-                                echo '<li data-orbit-slide="headline-'.$slider->id.'"><img src="sliders/'.$slider->path.'" alt="'.$slider->alt.'" /></li>';
-                            }
-                            
-                            ?>
-				
-			</ul>
-                        <?php
-                            
-                            foreach($sliders as $slider){
-                                echo '<div class="orbit-headline"><a href="#" data-orbit-link="headline-'.$slider->id.'">'.$slider->hedline.'</a></div>';
-                            }
-                            
-                            ?>
-			
-		</div>
-        </div>
+        <!--<div class="slideshow-holder row">-->
+	  <!--<div class="slideshow-wrapper large-8 columns">-->
+<div id="slider-wrap">
+	<div id="slider">
+		
+<?php
+foreach($sliders as $slider){
+?>
+            <div class="slide"><img src="photo/<?php echo $slider->path; ?>" width="640" height="360"></div>
+<!--            
+<a class="fancybox" href="photo/<?php echo $slider->path; ?>" data-fancybox-group="gallery" title="<?php echo $slider->alt; ?>">
+    <img width="147" height="115" src="photo/<?php echo $slider->path; ?>" alt="<?php echo $slider->alt; ?>" />
+</a>-->
+<?php } ?>
+	</div>
+</div>
+       
         <?php 
             }
         }       
         ?>
+           <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/sliders.js"></script>
+         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
+        <script type="text/javascript">
+		$(document).ready(function() {
+			
+			$('.fancybox').fancybox();
+
+		});
+	</script>
+	<style type="text/css">
+		.fancybox-custom .fancybox-skin {
+			box-shadow: 0 0 50px #222;
+		}
+	</style>
+        
         <?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 			'links'=>$this->breadcrumbs,
