@@ -80,31 +80,7 @@
 <!--	<div id="header">
 		<div id="logo"><?php // echo CHtml::encode(Yii::app()->name); ?></div>
 	</div> header -->
-<div id="top-nav">
-	<nav class="top-bar row full-width">
-		<div class="small-12 columns">
-			  <ul class="title-area">
-				<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-				<li class="toggle-topbar"><a href="#"><span>Меню</span></a></li>
-			  </ul>
 
-	  <section class="top-bar-section">
-		<!-- Left Nav Section -->
-		<ul class="left">
-		  <li><a href="news.html">Новости</a></li>
-		  <li><a href="competition.html">Соревнования</a></li>
-		  <li><a href="trennings.html">Тренировки</a></li>
-		  <li><a href="article.html">Статьи</a></li>
-		  <li><a href="team.html">Члены клуба</a></li>
-		  <li><a href="#">Ссылки</a></li>
-		  <li><a href="#">Фото-галлерея</a></li>
-		  <li><a href="#">О нас</a></li>
-		</ul>
-	  </section>
-	  </div>
-
-	</nav>
-</div>
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
@@ -138,11 +114,7 @@
 <?php
 foreach($sliders as $slider){
 ?>
-            <div class="slide"><img src="photo/<?php echo $slider->path; ?>" width="640" height="360"></div>
-<!--            
-<a class="fancybox" href="photo/<?php echo $slider->path; ?>" data-fancybox-group="gallery" title="<?php echo $slider->alt; ?>">
-    <img width="147" height="115" src="photo/<?php echo $slider->path; ?>" alt="<?php echo $slider->alt; ?>" />
-</a>-->
+            <div class="slide"><img src="sliders/<?php echo $slider->path; ?>" width="640" height="360"></div>
 <?php } ?>
 	</div>
 </div>

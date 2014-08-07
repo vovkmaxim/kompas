@@ -6663,3 +6663,27 @@ in /home/php/public_html/o-kompas/kompas/index.php (13)
 2014/08/06 17:54:40 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Sliders".
 in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/SlidersController.php (46)
 in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/08/07 09:46:50 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Sliders".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/SlidersController.php (67)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/08/07 09:47:05 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Sliders".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/SlidersController.php (67)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/08/07 09:47:21 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Sliders".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/SlidersController.php (67)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/08/07 09:47:32 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Sliders".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/SlidersController.php (67)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/08/07 09:47:57 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Sliders".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/SlidersController.php (46)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/08/07 09:48:11 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Sliders".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/SlidersController.php (46)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/08/07 09:48:59 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Sliders".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/SlidersController.php (46)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/08/07 09:49:16 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Sliders".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/SlidersController.php (46)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
