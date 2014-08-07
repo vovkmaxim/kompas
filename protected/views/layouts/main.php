@@ -80,6 +80,10 @@
 <!--	<div id="header">
 		<div id="logo"><?php // echo CHtml::encode(Yii::app()->name); ?></div>
 	</div> header -->
+<<<<<<< HEAD
+
+=======
+>>>>>>> 651c917416e5496042043230ad3155f47ffac27c
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
@@ -99,26 +103,39 @@
 			),
 		)); ?>
 	</div><!-- mainmenu -->
+        
         <?php
         $sliders = Sliders::model()->findAll();
         $request = Yii::app()->request->requestUri;
         if($sliders!=NULL){
-            if($request == '/' || $request == '/index.php?r=site/index'){ ?>                         
-        <div id="slider-wrap">
-            <div id="slider">
-                <?php                            
-                foreach($sliders as $slider){
-//                echo '<li data-orbit-slide="headline-'.$slider->id.'"><img src="sliders/'.$slider->path.'" alt="'.$slider->alt.'" /></li>';
-                echo '<div class="slide"><img src="sliders/'.$slider->path.'" width="640" height="360"></div>';
-                }                            
-                            ?>
-            </div>
-        </div>
-<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/sliders.js"></script> 				
+           if($request == '/' || $request == '/index.php?r=site/index'){ ?>
+<div id="slider-wrap">
+	<div id="slider">
+        <?php   foreach($sliders as $slider){   ?>
+                    <div class="slide"><img src="sliders/<?php echo $slider->path; ?>" width="640" height="360"></div>
+        <?php   }   ?>
+	</div>
+</div>
+
         <?php 
             }
         }       
         ?>
+           <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/sliders.js"></script>
+         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
+        <script type="text/javascript">
+		$(document).ready(function() {
+			
+			$('.fancybox').fancybox();
+
+		});
+	</script>
+	<style type="text/css">
+		.fancybox-custom .fancybox-skin {
+			box-shadow: 0 0 50px #222;
+		}
+	</style>
+        
         <?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 			'links'=>$this->breadcrumbs,

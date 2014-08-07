@@ -62,4 +62,3 @@ var $linkArrow = $('<a id="prewbutton" href="#">&lt;</a><a id="nextbutton" href=
 	rotator();
 });
 })(jQuery);
-
