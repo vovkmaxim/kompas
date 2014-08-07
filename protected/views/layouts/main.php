@@ -25,10 +25,10 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/sliders.css" />
         
         <!--<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation.min.js" type="text/javascript"></script>-->
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/holder.js" type="text/javascript"></script>
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendor/zepto.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<!--        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendor/zepto.js" type="text/javascript"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendor/jquery.js" type="text/javascript"></script>
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendor/jquery.horizontalNav.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendor/jquery.horizontalNav.js" type="text/javascript"></script>-->
         
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/lib/jquery-1.10.1.min.js"></script>
@@ -80,7 +80,10 @@
 <!--	<div id="header">
 		<div id="logo"><?php // echo CHtml::encode(Yii::app()->name); ?></div>
 	</div> header -->
+<<<<<<< HEAD
 
+=======
+>>>>>>> 651c917416e5496042043230ad3155f47ffac27c
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
@@ -105,20 +108,15 @@
         $sliders = Sliders::model()->findAll();
         $request = Yii::app()->request->requestUri;
         if($sliders!=NULL){
-            if($request == '/' || $request == '/index.php?r=site/index'){ ?>
-        <!--<div class="slideshow-holder row">-->
-	  <!--<div class="slideshow-wrapper large-8 columns">-->
+           if($request == '/' || $request == '/index.php?r=site/index'){ ?>
 <div id="slider-wrap">
 	<div id="slider">
-		
-<?php
-foreach($sliders as $slider){
-?>
-            <div class="slide"><img src="sliders/<?php echo $slider->path; ?>" width="640" height="360"></div>
-<?php } ?>
+        <?php   foreach($sliders as $slider){   ?>
+                    <div class="slide"><img src="sliders/<?php echo $slider->path; ?>" width="640" height="360"></div>
+        <?php   }   ?>
 	</div>
 </div>
-       
+
         <?php 
             }
         }       
