@@ -6780,3 +6780,405 @@ in /home/max/public_html/o-kompas/index.php (13)
 2014/08/05 22:40:09 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
 in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
 in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 20:57:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'У вас нет прав для входа в адменистрирование сайта! Обратитесь к администратору.' in /home/max/public_html/o-kompas/protected/modules/admin/components/AdminController.php:23
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(359): AdminController->__construct('default', Object(AdminModule))
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(338): CWebApplication->createController('', Object(AdminModule))
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(276): CWebApplication->createController('admin')
+#3 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin')
+#4 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/index.php?r=admin
+---
+2014/08/06 20:57:50 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_desc" класса "Competition".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (114)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 20:58:09 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_desc" класса "Competition".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (114)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 20:59:21 [error] [php] Undefined index: check_data (/home/max/public_html/o-kompas/protected/controllers/CompetitionRequestController.php:43)
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CompetitionRequestController->runAction()
+#3 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CompetitionRequestController->filterAccessControl()
+#6 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#8 /home/max/public_html/o-kompas/framework/web/CController.php(265): CompetitionRequestController->runActionWithFilters()
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CompetitionRequestController->run()
+#10 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /home/max/public_html/o-kompas/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=competitionRequest/application&id=1
+in /home/max/public_html/o-kompas/protected/controllers/CompetitionRequestController.php (43)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:00:01 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_desc" класса "Competition".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (114)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:00:43 [error] [system.db.CDbCommand] Не удалось выполнить CDbCommand::execute(): SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`kompas`.`km_competition_request`, CONSTRAINT `fk_km_competition_request_km_group1` FOREIGN KEY (`group_id`) REFERENCES `km_group` (`id`)). Выполнявшийся SQL-запрос: INSERT INTO `km_competition_request` (`status`, `user_id`, `competition_id`, `group_id`, `participation_data`, `year`, `name`, `lastname`, `chip`, `dyusch`, `sity`, `coutry`, `team`, `coach`, `fst`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13, :yp14).
+in /home/max/public_html/o-kompas/protected/controllers/CompetitionRequestController.php (56)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:00:43 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand не удалось исполнить SQL-запрос: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`kompas`.`km_competition_request`, CONSTRAINT `fk_km_competition_request_km_group1` FOREIGN KEY (`group_id`) REFERENCES `km_group` (`id`)). The SQL statement executed was: INSERT INTO `km_competition_request` (`status`, `user_id`, `competition_id`, `group_id`, `participation_data`, `year`, `name`, `lastname`, `chip`, `dyusch`, `sity`, `coutry`, `team`, `coach`, `fst`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13, :yp14)' in /home/max/public_html/o-kompas/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /home/max/public_html/o-kompas/protected/controllers/CompetitionRequestController.php(56): CActiveRecord->save()
+#3 [internal function]: CompetitionRequestController->actionApplication('1')
+#4 /home/max/public_html/o-kompas/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CompetitionRequestController), Array)
+#5 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CompetitionRequestController), Object(ReflectionMethod), Array)
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#13 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#15 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#16 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php?r=competitionRequest/application&id=1
+HTTP_REFERER=http://o-kompas.com.local/index.php?r=competitionRequest/application&id=1
+---
+2014/08/06 21:01:18 [error] [system.db.CDbCommand] Не удалось выполнить CDbCommand::execute(): SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`kompas`.`km_competition_request`, CONSTRAINT `fk_km_competition_request_km_group1` FOREIGN KEY (`group_id`) REFERENCES `km_group` (`id`)). Выполнявшийся SQL-запрос: INSERT INTO `km_competition_request` (`status`, `user_id`, `competition_id`, `group_id`, `participation_data`, `year`, `name`, `lastname`, `chip`, `dyusch`, `sity`, `coutry`, `team`, `coach`, `fst`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13, :yp14).
+in /home/max/public_html/o-kompas/protected/controllers/CompetitionRequestController.php (56)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:01:18 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand не удалось исполнить SQL-запрос: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`kompas`.`km_competition_request`, CONSTRAINT `fk_km_competition_request_km_group1` FOREIGN KEY (`group_id`) REFERENCES `km_group` (`id`)). The SQL statement executed was: INSERT INTO `km_competition_request` (`status`, `user_id`, `competition_id`, `group_id`, `participation_data`, `year`, `name`, `lastname`, `chip`, `dyusch`, `sity`, `coutry`, `team`, `coach`, `fst`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13, :yp14)' in /home/max/public_html/o-kompas/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /home/max/public_html/o-kompas/protected/controllers/CompetitionRequestController.php(56): CActiveRecord->save()
+#3 [internal function]: CompetitionRequestController->actionApplication('1')
+#4 /home/max/public_html/o-kompas/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CompetitionRequestController), Array)
+#5 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CompetitionRequestController), Object(ReflectionMethod), Array)
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#13 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#15 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#16 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php?r=competitionRequest/application&id=1
+HTTP_REFERER=http://o-kompas.com.local/index.php?r=competitionRequest/application&id=1
+---
+2014/08/06 21:28:32 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Sliders".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/SlidersController.php (46)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:28:45 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Sliders".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/SlidersController.php (46)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:29:01 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Sliders".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/SlidersController.php (46)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:29:19 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Sliders".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/SlidersController.php (46)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:29:30 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Sliders".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/SlidersController.php (46)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:29:43 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Sliders".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/SlidersController.php (46)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:31:47 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Sliders".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/SlidersController.php (46)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:32:15 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Sliders".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/SlidersController.php (46)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:32:32 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Sliders".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/SlidersController.php (46)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:32:55 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Sliders".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/SlidersController.php (46)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:33:19 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Sliders".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/SlidersController.php (46)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:36:00 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:36:11 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:36:25 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:36:48 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:37:06 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:37:20 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:37:33 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:37:44 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:37:57 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:38:16 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:38:26 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:38:39 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:38:52 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:39:07 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:39:29 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:39:44 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:39:59 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:40:14 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:40:31 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:40:48 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:41:08 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:41:21 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:41:37 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:42:33 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:42:57 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:43:17 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:43:38 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:43:53 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:44:11 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Photo".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/PhotoController.php (47)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:46:37 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "File".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/FileController.php (50)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:52:05 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "File".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/FileController.php (50)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:52:35 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "File".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/FileController.php (50)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:52:55 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "File".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/FileController.php (50)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:53:51 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "File".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/FileController.php (50)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:54:56 [error] [system.db.CDbCommand] Не удалось выполнить CDbCommand::execute(): SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`kompas`.`km_comments`, CONSTRAINT `fk_km_comments_km_events1` FOREIGN KEY (`events_id`) REFERENCES `km_events` (`id`) ON DELETE CASCADE ON UPDATE CASCADE). Выполнявшийся SQL-запрос: INSERT INTO `km_comments` (`events_id`, `competition_id`, `user_id`, `create_date`, `title`, `text`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5).
+in /home/max/public_html/o-kompas/protected/controllers/CommentsController.php (73)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:54:56 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand не удалось исполнить SQL-запрос: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`kompas`.`km_comments`, CONSTRAINT `fk_km_comments_km_events1` FOREIGN KEY (`events_id`) REFERENCES `km_events` (`id`) ON DELETE CASCADE ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `km_comments` (`events_id`, `competition_id`, `user_id`, `create_date`, `title`, `text`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5)' in /home/max/public_html/o-kompas/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /home/max/public_html/o-kompas/protected/controllers/CommentsController.php(73): CActiveRecord->save()
+#3 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(49): CommentsController->actionCreate()
+#4 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('comments/create')
+#14 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=comments/create
+HTTP_REFERER=http://o-kompas.com.local/index.php?r=competition/view&id=1
+---
+2014/08/06 21:55:03 [error] [system.db.CDbCommand] Не удалось выполнить CDbCommand::execute(): SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`kompas`.`km_comments`, CONSTRAINT `fk_km_comments_km_events1` FOREIGN KEY (`events_id`) REFERENCES `km_events` (`id`) ON DELETE CASCADE ON UPDATE CASCADE). Выполнявшийся SQL-запрос: INSERT INTO `km_comments` (`events_id`, `competition_id`, `user_id`, `create_date`, `title`, `text`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5).
+in /home/max/public_html/o-kompas/protected/controllers/CommentsController.php (73)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:55:03 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand не удалось исполнить SQL-запрос: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`kompas`.`km_comments`, CONSTRAINT `fk_km_comments_km_events1` FOREIGN KEY (`events_id`) REFERENCES `km_events` (`id`) ON DELETE CASCADE ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `km_comments` (`events_id`, `competition_id`, `user_id`, `create_date`, `title`, `text`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5)' in /home/max/public_html/o-kompas/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /home/max/public_html/o-kompas/protected/controllers/CommentsController.php(73): CActiveRecord->save()
+#3 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(49): CommentsController->actionCreate()
+#4 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('comments/create')
+#14 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=comments/create
+HTTP_REFERER=http://o-kompas.com.local/index.php?r=competition/view&id=1
+---
+2014/08/06 21:55:15 [error] [system.db.CDbCommand] Не удалось выполнить CDbCommand::execute(): SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`kompas`.`km_comments`, CONSTRAINT `fk_km_comments_km_events1` FOREIGN KEY (`events_id`) REFERENCES `km_events` (`id`) ON DELETE CASCADE ON UPDATE CASCADE). Выполнявшийся SQL-запрос: INSERT INTO `km_comments` (`events_id`, `competition_id`, `user_id`, `create_date`, `title`, `text`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5).
+in /home/max/public_html/o-kompas/protected/controllers/CommentsController.php (73)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:55:15 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand не удалось исполнить SQL-запрос: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`kompas`.`km_comments`, CONSTRAINT `fk_km_comments_km_events1` FOREIGN KEY (`events_id`) REFERENCES `km_events` (`id`) ON DELETE CASCADE ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `km_comments` (`events_id`, `competition_id`, `user_id`, `create_date`, `title`, `text`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5)' in /home/max/public_html/o-kompas/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /home/max/public_html/o-kompas/protected/controllers/CommentsController.php(73): CActiveRecord->save()
+#3 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(49): CommentsController->actionCreate()
+#4 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('comments/create')
+#14 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=comments/create
+HTTP_REFERER=http://o-kompas.com.local/index.php?r=competition/view&id=1
+---
+2014/08/06 21:55:30 [error] [system.db.CDbCommand] Не удалось выполнить CDbCommand::execute(): SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`kompas`.`km_comments`, CONSTRAINT `fk_km_comments_km_events1` FOREIGN KEY (`events_id`) REFERENCES `km_events` (`id`) ON DELETE CASCADE ON UPDATE CASCADE). Выполнявшийся SQL-запрос: INSERT INTO `km_comments` (`events_id`, `competition_id`, `user_id`, `create_date`, `title`, `text`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5).
+in /home/max/public_html/o-kompas/protected/controllers/CommentsController.php (73)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:55:30 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand не удалось исполнить SQL-запрос: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`kompas`.`km_comments`, CONSTRAINT `fk_km_comments_km_events1` FOREIGN KEY (`events_id`) REFERENCES `km_events` (`id`) ON DELETE CASCADE ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `km_comments` (`events_id`, `competition_id`, `user_id`, `create_date`, `title`, `text`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5)' in /home/max/public_html/o-kompas/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /home/max/public_html/o-kompas/protected/controllers/CommentsController.php(73): CActiveRecord->save()
+#3 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(49): CommentsController->actionCreate()
+#4 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('comments/create')
+#14 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=comments/create
+HTTP_REFERER=http://o-kompas.com.local/index.php?r=competition/view&id=1
+---
+2014/08/06 21:56:25 [error] [system.db.CDbCommand] Не удалось выполнить CDbCommand::execute(): SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`kompas`.`km_comments`, CONSTRAINT `fk_km_comments_km_events1` FOREIGN KEY (`events_id`) REFERENCES `km_events` (`id`) ON DELETE CASCADE ON UPDATE CASCADE). Выполнявшийся SQL-запрос: INSERT INTO `km_comments` (`events_id`, `competition_id`, `user_id`, `create_date`, `title`, `text`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5).
+in /home/max/public_html/o-kompas/protected/controllers/CommentsController.php (73)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:56:25 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand не удалось исполнить SQL-запрос: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`kompas`.`km_comments`, CONSTRAINT `fk_km_comments_km_events1` FOREIGN KEY (`events_id`) REFERENCES `km_events` (`id`) ON DELETE CASCADE ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `km_comments` (`events_id`, `competition_id`, `user_id`, `create_date`, `title`, `text`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5)' in /home/max/public_html/o-kompas/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /home/max/public_html/o-kompas/protected/controllers/CommentsController.php(73): CActiveRecord->save()
+#3 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(49): CommentsController->actionCreate()
+#4 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('comments/create')
+#14 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=comments/create
+HTTP_REFERER=http://o-kompas.com.local/index.php?r=competition/view&id=1
+---
+2014/08/06 21:57:07 [error] [system.db.CDbCommand] Не удалось выполнить CDbCommand::execute(): SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`kompas`.`km_comments`, CONSTRAINT `fk_km_comments_km_events1` FOREIGN KEY (`events_id`) REFERENCES `km_events` (`id`) ON DELETE CASCADE ON UPDATE CASCADE). Выполнявшийся SQL-запрос: INSERT INTO `km_comments` (`events_id`, `competition_id`, `user_id`, `create_date`, `title`, `text`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5).
+in /home/max/public_html/o-kompas/protected/controllers/CommentsController.php (73)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:57:07 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand не удалось исполнить SQL-запрос: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`kompas`.`km_comments`, CONSTRAINT `fk_km_comments_km_events1` FOREIGN KEY (`events_id`) REFERENCES `km_events` (`id`) ON DELETE CASCADE ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `km_comments` (`events_id`, `competition_id`, `user_id`, `create_date`, `title`, `text`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5)' in /home/max/public_html/o-kompas/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /home/max/public_html/o-kompas/protected/controllers/CommentsController.php(73): CActiveRecord->save()
+#3 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(49): CommentsController->actionCreate()
+#4 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('comments/create')
+#14 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=comments/create
+HTTP_REFERER=http://o-kompas.com.local/index.php?r=competition/view&id=1
+---
+2014/08/06 21:57:48 [error] [system.db.CDbCommand] Не удалось выполнить CDbCommand::execute(): SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`kompas`.`km_comments`, CONSTRAINT `km_comments_ibfk_1` FOREIGN KEY (`events_id`) REFERENCES `km_events` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION). Выполнявшийся SQL-запрос: INSERT INTO `km_comments` (`events_id`, `competition_id`, `user_id`, `create_date`, `title`, `text`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5).
+in /home/max/public_html/o-kompas/protected/controllers/CommentsController.php (73)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/06 21:57:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand не удалось исполнить SQL-запрос: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`kompas`.`km_comments`, CONSTRAINT `km_comments_ibfk_1` FOREIGN KEY (`events_id`) REFERENCES `km_events` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `km_comments` (`events_id`, `competition_id`, `user_id`, `create_date`, `title`, `text`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5)' in /home/max/public_html/o-kompas/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /home/max/public_html/o-kompas/protected/controllers/CommentsController.php(73): CActiveRecord->save()
+#3 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(49): CommentsController->actionCreate()
+#4 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('comments/create')
+#14 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=comments/create
+HTTP_REFERER=http://o-kompas.com.local/index.php?r=competition/view&id=1
+---

@@ -22,12 +22,13 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/sliders.css" />
         
         <!--<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation.min.js" type="text/javascript"></script>-->
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/holder.js" type="text/javascript"></script>
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendor/zepto.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<!--        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendor/zepto.js" type="text/javascript"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendor/jquery.js" type="text/javascript"></script>
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendor/jquery.horizontalNav.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendor/jquery.horizontalNav.js" type="text/javascript"></script>-->
         
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/lib/jquery-1.10.1.min.js"></script>
@@ -64,64 +65,6 @@
 				<div class="top-contact">
 					<a href="#" data-dropdown="calendar" data-options="is_hover:true" class="calendar"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/ico-calendar.png" alt="Календарь" title="Календарь"/></a>
 					<div id="calendar" class="f-dropdown" data-dropdown-content>
-						<!-- Calendar -->
-						<div class="cal">
-						  <table class="cal-table">
-							<caption class="cal-caption">
-							  <a href="#" class="prev">&laquo;</a>
-							  <a href="#" class="next">&raquo;</a>
-							  May 2012
-							</caption>
-							<tbody class="cal-body">
-							  <tr>
-								<td class="cal-off"><a href="#">30</a></td>
-								<td><a href="#">1</a></td>
-								<td><a href="#">2</a></td>
-								<td class="cal-today"><a href="#">3</a></td>
-								<td><a href="#">4</a></td>
-								<td><a href="#">5</a></td>
-								<td><a href="#">6</a></td>
-							  </tr>
-							  <tr>
-								<td><a href="#">7</a></td>
-								<td class="cal-selected"><a href="#">8</a></td>
-								<td><a href="#">9</a></td>
-								<td><a href="#">10</a></td>
-								<td><a href="#">11</a></td>
-								<td class="cal-check"><a href="#">12</a></td>
-								<td><a href="#">13</a></td>
-							  </tr>
-							  <tr>
-								<td><a href="#">14</a></td>
-								<td><a href="#">15</a></td>
-								<td><a href="#">16</a></td>
-								<td class="cal-check"><a href="#">17</a></td>
-								<td><a href="#">18</a></td>
-								<td><a href="#">19</a></td>
-								<td><a href="#">20</a></td>
-							  </tr>
-							  <tr>
-								<td><a href="#">21</a></td>
-								<td><a href="#">22</a></td>
-								<td><a href="#">23</a></td>
-								<td><a href="#">24</a></td>
-								<td><a href="#">25</a></td>
-								<td><a href="#">26</a></td>
-								<td><a href="#">27</a></td>
-							  </tr>
-							  <tr>
-								<td><a href="#">28</a></td>
-								<td><a href="#">29</a></td>
-								<td><a href="#">30</a></td>
-								<td><a href="#">31</a></td>
-								<td class="cal-off"><a href="#">1</a></td>
-								<td class="cal-off"><a href="#">2</a></td>
-								<td class="cal-off"><a href="#">3</a></td>
-							  </tr>
-							</tbody>
-						  </table>
-						</div>
-						<!-- End Calendar -->
 					</div>
 					<div class="top-tell"><span></span>+3(067) 857 75 86</div>
 					<div class="top-email">example@gmail.com</div>
@@ -137,31 +80,6 @@
 <!--	<div id="header">
 		<div id="logo"><?php // echo CHtml::encode(Yii::app()->name); ?></div>
 	</div> header -->
-<div id="top-nav">
-	<nav class="top-bar row full-width">
-		<div class="small-12 columns">
-			  <ul class="title-area">
-				<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-				<li class="toggle-topbar"><a href="#"><span>Меню</span></a></li>
-			  </ul>
-
-	  <section class="top-bar-section">
-		<!-- Left Nav Section -->
-		<ul class="left">
-		  <li><a href="news.html">Новости</a></li>
-		  <li><a href="competition.html">Соревнования</a></li>
-		  <li><a href="trennings.html">Тренировки</a></li>
-		  <li><a href="article.html">Статьи</a></li>
-		  <li><a href="team.html">Члены клуба</a></li>
-		  <li><a href="#">Ссылки</a></li>
-		  <li><a href="#">Фото-галлерея</a></li>
-		  <li><a href="#">О нас</a></li>
-		</ul>
-	  </section>
-	  </div>
-
-	</nav>
-</div>
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
@@ -185,30 +103,18 @@
         $sliders = Sliders::model()->findAll();
         $request = Yii::app()->request->requestUri;
         if($sliders!=NULL){
-            if($request == '/' || $request == '/index.php?r=site/index'){ ?>
-        <div class="slideshow-holder row">
-	  <div class="slideshow-wrapper large-8 columns">
-			<div class="preloader"></div>
-			<ul data-orbit>
-                            <?php
-                            
-                            foreach($sliders as $slider){
-                                echo '<li data-orbit-slide="headline-'.$slider->id.'"><img src="sliders/'.$slider->path.'" alt="'.$slider->alt.'" /></li>';
-                            }
-                            
+            if($request == '/' || $request == '/index.php?r=site/index'){ ?>                         
+        <div id="slider-wrap">
+            <div id="slider">
+                <?php                            
+                foreach($sliders as $slider){
+//                echo '<li data-orbit-slide="headline-'.$slider->id.'"><img src="sliders/'.$slider->path.'" alt="'.$slider->alt.'" /></li>';
+                echo '<div class="slide"><img src="sliders/'.$slider->path.'" width="640" height="360"></div>';
+                }                            
                             ?>
-				
-			</ul>
-                        <?php
-                            
-                            foreach($sliders as $slider){
-                                echo '<div class="orbit-headline"><a href="#" data-orbit-link="headline-'.$slider->id.'">'.$slider->hedline.'</a></div>';
-                            }
-                            
-                            ?>
-			
-		</div>
+            </div>
         </div>
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/sliders.js"></script> 				
         <?php 
             }
         }       
