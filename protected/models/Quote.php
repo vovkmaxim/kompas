@@ -100,4 +100,50 @@ class Quote extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        public function getRandQuote(){
+            $all_quote_id = $this->getAllQuoteID();
+            if($all_quote_id){
+                $max_quote_id = $this->getMaxQuoteID($all_quote_id);
+                $min_quote_id = $this->getMinQuoteID($all_quote_id);
+                return Quote::model()->findByPk(rand($min_quote_id, $max_quote_id));
+            }
+        }
+        
+        private function getAllQuoteID(){
+            $quote = Quote::model()->findAll();
+            $id_mass = array();
+            if($quote != NULL){
+                foreach ($quote as $quotes){
+                    $id_mass[] = $quotes->id;
+                }
+                return $id_mass;
+            } else {
+                return false;
+            }
+            
+        }
+
+        private function getMaxQuoteID($all_quote_id){
+            $lenght = count($all_quote_id);
+            $min = $all_quote_id[0];
+            for($i=0; $i < $lenght; $i++){
+                if($all_quote_id[$i] < $min){
+                    $min = $all_quote_id[$i];
+                }
+            }
+            return $min;
+        }
+        
+        private function getMinQuoteID($all_quote_id){
+            $lenght = count($all_quote_id);
+            $max = $all_quote_id[0];
+            for($i=0; $i < $lenght; $i++){
+                if($max < $all_quote_id[$i]){
+                    $max = $all_quote_id[$i];
+                }
+            }
+            return $max;
+        }
+        
 }

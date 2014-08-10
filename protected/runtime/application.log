@@ -7222,3 +7222,45 @@ in /home/max/public_html/o-kompas/index.php (13)
 2014/08/10 14:00:35 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
 in /home/max/public_html/o-kompas/protected/modules/admin/controllers/BannersController.php (49)
 in /home/max/public_html/o-kompas/index.php (13)
+2014/08/10 14:36:37 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/BannersController.php (83)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/10 14:36:51 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/BannersController.php (83)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/10 15:26:25 [error] [php] Undefined variable: qute (/home/max/public_html/o-kompas/protected/views/layouts/main.php:158)
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/widgets/CContentDecorator.php(76): SiteController->renderFile()
+#1 /home/max/public_html/o-kompas/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#2 /home/max/public_html/o-kompas/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#3 /home/max/public_html/o-kompas/framework/web/CBaseController.php(206): CContentDecorator->run()
+#4 /home/max/public_html/o-kompas/framework/web/CBaseController.php(300): SiteController->endWidget()
+#5 /home/max/public_html/o-kompas/protected/views/layouts/column1.php(6): SiteController->endContent()
+#6 /home/max/public_html/o-kompas/framework/web/CBaseController.php(126): require()
+#7 /home/max/public_html/o-kompas/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#8 /home/max/public_html/o-kompas/framework/web/CController.php(784): SiteController->renderFile()
+#9 /home/max/public_html/o-kompas/protected/controllers/SiteController.php(32): SiteController->render()
+#10 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#11 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams()
+#12 /home/max/public_html/o-kompas/framework/web/CController.php(286): SiteController->runAction()
+#13 /home/max/public_html/o-kompas/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#14 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): SiteController->run()
+#15 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#16 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /home/max/public_html/o-kompas/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/index
+in /home/max/public_html/o-kompas/protected/views/layouts/main.php (158)
+in /home/max/public_html/o-kompas/protected/views/layouts/column1.php (6)
+in /home/max/public_html/o-kompas/protected/controllers/SiteController.php (32)
+2014/08/10 23:23:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'У вас нет прав для входа в адменистрирование сайта! Обратитесь к администратору.' in /home/max/public_html/o-kompas/protected/modules/admin/components/AdminController.php:23
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(359): AdminController->__construct('groupPhoto', Object(AdminModule))
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(338): CWebApplication->createController('groupPhoto/inde...', Object(AdminModule))
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(276): CWebApplication->createController('admin/groupPhot...')
+#3 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/groupPhot...')
+#4 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/index.php?r=admin/groupPhoto/index
+HTTP_REFERER=http://o-kompas.com.local/index.php?r=admin/photo/index
+---

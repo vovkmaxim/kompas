@@ -141,7 +141,26 @@
 
 	<?php echo $content; ?>
 
-	<div class="clear"></div>
+	<div class="clear">
+            <?php
+            
+            echo Banners::getAllBanners();
+            
+            ?>
+            
+        </div>
+
+	<div class="clear">
+            <?php
+            
+            $Quote = new Quote();
+            $quote = $Quote->getRandQuote();
+            echo '<p>'.$quote->quote.'</p>';
+            echo '<p>'.$quote->author_quote.'</p>';
+            
+            ?>
+            
+        </div>
 
 	<div id="footer">
 		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
