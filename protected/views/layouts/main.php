@@ -80,10 +80,7 @@
 <!--	<div id="header">
 		<div id="logo"><?php // echo CHtml::encode(Yii::app()->name); ?></div>
 	</div> header -->
-<<<<<<< HEAD
 
-=======
->>>>>>> 651c917416e5496042043230ad3155f47ffac27c
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
