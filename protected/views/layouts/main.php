@@ -177,9 +177,6 @@ function get_mont($mont){
 	</div>
 	</div>
 </div>
-<!--	<div id="header">
-		<div id="logo"><?php // echo CHtml::encode(Yii::app()->name); ?></div>
-	</div> header -->
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
@@ -240,6 +237,7 @@ function get_mont($mont){
 
 	<?php echo $content; ?>
 
+<<<<<<< HEAD
 	
 	<div class="clear">
             <?php 
@@ -250,6 +248,27 @@ function get_mont($mont){
                 echo '<h2>' . get_mont($mass_data[0]) . ' ' . $mass_data[1] . '</h2>';
                 echo draw_calendar($mass_data[0],$mass_data[1]);
             ?>
+=======
+	<div class="clear">
+            <?php
+            
+            echo Banners::getAllBanners();
+            
+            ?>
+            
+        </div>
+
+	<div class="clear">
+            <?php
+            
+            $Quote = new Quote();
+            $quote = $Quote->getRandQuote();
+            echo '<p>'.$quote->quote.'</p>';
+            echo '<p>'.$quote->author_quote.'</p>';
+            
+            ?>
+            
+>>>>>>> 3d915d53b4121bc2f11e9fe31d5902ba496d685c
         </div>
 
 	<div id="footer">
