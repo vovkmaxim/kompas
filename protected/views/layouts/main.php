@@ -1,5 +1,96 @@
 <?php
 /* Функция генерации календаря */
+function draw_new_calendar($month,$year){
+  /* Начало таблицы */
+    $mass_data = explode('-', date('m-Y'));
+  $calendar = '<div class="cal">
+						  <table class="cal-table"><caption class="cal-caption">
+							  ' . get_mont($mass_data[0]) . ' ' . $mass_data[1] . '
+							</caption>
+							<tbody class="cal-body">';
+  /* Заглавия в таблице */
+  $headings = array('Пн','Вт','Ср','Чт','Пт','Сб','Вс');
+  $calendar.= '<tr><td class="">'.implode('</td><td class="">',$headings).'</td></tr>';
+  /* необходимые переменные дней и недель... */
+  $running_day = date('w',mktime(0,0,0,$month,1,$year));
+  $running_day = $running_day - 1;
+  $days_in_month = date('t',mktime(0,0,0,$month,1,$year));
+  $days_in_this_week = 1;
+  $day_counter = 0;
+  $dates_array = array();
+  /* первая строка календаря 
+   * 
+   * 
+   * <tr><td class="cal-off"><a href="#">30</a></td>
+   *   
+   *  */
+  $calendar.= '<tr>';
+  /* вывод пустых ячеек в сетке календаря */
+  for($x = 0; $x < $running_day; $x++):
+    $calendar.= '<td class="cal-off"><a href="#"> - </a></td>';
+    $days_in_this_week++;
+  endfor;
+  // ***************************************************************************
+  // ***************************************************************************
+  // ***************************************************************************
+  
+  $user = User::model()->findAll();
+  $user_dey_list = array();
+  foreach ($user as $users){
+      $mas_data = explode('-', $users->data_birth);
+      $user_dey_list[] = $mas_data[1] . '-' . $mas_data[2];
+  }
+  
+  // ***************************************************************************
+  // ***************************************************************************
+  // ***************************************************************************
+  /* дошли до чисел, будем их писать в первую строку */
+  for($list_day = 1; $list_day <= $days_in_month; $list_day++):
+//    $calendar.= '<td><a href="#">';
+      /* Пишем номер в ячейку */
+      $data = $month . '-' . $list_day;
+      $flag = false;
+      foreach ($user_dey_list as $k => $v){
+        if($data == $v){
+            $flag = true;
+        }
+      }
+         
+      if($flag){
+            $calendar.= '<td class="cal-check" ><a href="#">'. $list_day.'';
+      } else {
+            $calendar.= '<td><a href="#">'. $list_day.'';
+      }
+             
+      /** ЗДЕСЬ МОЖНО СДЕЛАТЬ MySQL ЗАПРОС К БАЗЕ ДАННЫХ! ЕСЛИ НАЙДЕНО СОВПАДЕНИЕ ДАТЫ СОБЫТИЯ С ТЕКУЩЕЙ - ВЫВОДИМ! **/
+//      $calendar.= str_repeat('<p> </p>',2);
+      
+    $calendar.= '</a>';
+    if($running_day == 6):
+      $calendar.= '</tr>';
+      if(($day_counter+1) != $days_in_month):
+        $calendar.= '<tr>';
+      endif;
+      $running_day = -1;
+      $days_in_this_week = 0;
+    endif;
+    $days_in_this_week++; $running_day++; $day_counter++;
+  endfor;
+  /* Выводим пустые ячейки в конце последней недели */
+  if($days_in_this_week < 8):
+    for($x = 1; $x <= (8 - $days_in_this_week); $x++):
+      $calendar.= '<td> </td>';
+    endfor;
+  endif;
+  /* Закрываем последнюю строку */
+  $calendar.= '</tr>';
+  /* Закрываем таблицу */
+  $calendar.= '</tbody></table></div>';
+  
+  /* Все сделано, возвращаем результат */
+  return $calendar;
+}
+/* Функция генерации календаря */
 function draw_calendar($month,$year){
   /* Начало таблицы */
   $calendar = '<table cellpadding="0" cellspacing="0" class="calendar">';
@@ -240,11 +331,18 @@ function get_mont($mont){
 	<div class="calendar">
             <?php 
                 /* КАЛЕНДАРЬ!!!!! */           
-                $user = User::model()->findAll();
+//                $user = User::model()->findAll();
 //                print_r($user[0]->name);
-                $mass_data = explode('-', date('m-Y'));
-                echo '<h2>' . get_mont($mass_data[0]) . ' ' . $mass_data[1] . '</h2>';
-                echo draw_calendar($mass_data[0],$mass_data[1]);
+//                $mass_data = explode('-', date('m-Y'));
+//                echo '<h2>' . get_mont($mass_data[0]) . ' ' . $mass_data[1] . '</h2>';
+//                echo draw_calendar($mass_data[0],$mass_data[1]);
+            ?>
+        </div>
+
+	<div class="calendar">
+            <?php
+               $mass_data = explode('-', date('m-Y'));
+                echo draw_new_calendar($mass_data[0],$mass_data[1]);
             ?>
         </div>
 	<div class="banners">
