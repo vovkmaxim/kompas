@@ -105,17 +105,23 @@ class Banners extends CActiveRecord
         public static function getAllBanners(){
             $banners = Banners::model()->findAll();
             if($banners != NULL){
+//                $return_string_images = '<ul class="no-bullet small-block-grid-4 large-block-grid-1">';
                 $return_string_images = '';
                 foreach ($banners as $banner){
                     
+//                    $return_string_images .= '<li>';
                     $return_string_images .= '
+                        
                         <a href="' . $banner->link . '">
                             <img src="baners/' . $banner->path . '" 
                                 width="115" height="100" alt="' . $banner->name . '">
                         </a>
                         ';
                     
+//                    $return_string_images .= '</li>';
+                    
                 }
+//                $return_string_images .= '</ul>';
                 return $return_string_images;
             }
         }

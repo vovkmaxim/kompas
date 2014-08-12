@@ -320,6 +320,35 @@ function get_mont($mont){
 		}
 	</style>
         
+                <div class="slideshow-holder row">
+                    <div class="slideshow-wrapper large-8 columns">
+                        <div class="preloader"></div>
+			<ul data-orbit>
+				<li data-orbit-slide="headline-1">
+					<img src="sliders/6.jpg" alt="slide image">
+				</li>
+				<li data-orbit-slide="headline-2">
+					<img data-src="sliders/ddddd.jpg" alt="slide image">
+				</li>
+				<li data-orbit-slide="headline-3">
+					<img data-src="sliders/About-sports-betting-systems2.png" alt="slide image">
+				</li>
+				<li data-orbit-slide="headline-4">
+					<img data-src="sliders/19rtz.png" alt="slide image">
+				</li>
+			</ul>
+			<div class="orbit-headline">
+				<a href="#" data-orbit-link="headline-1">«Самариада 2013», с.Васильевка, 28 — 30 июля</a>
+				<a href="#" data-orbit-link="headline-2">«Самариада 2013», с.Васильевка, 28 — 30 июля</a>
+				<a href="#" data-orbit-link="headline-3">«Самариада 2013», с.Васильевка, 28 — 30 июля</a>
+				<a href="#" data-orbit-link="headline-4">«Самариада 2013», с.Васильевка, 28 — 30 июля</a>
+                        </div>
+                    </div>
+                </div>
+        
+        
+        
+        
         <?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 			'links'=>$this->breadcrumbs,
@@ -345,15 +374,18 @@ function get_mont($mont){
                 echo draw_new_calendar($mass_data[0],$mass_data[1]);
             ?>
         </div>
-	<div class="banners">
-            <?php
-            
-            echo Banners::getAllBanners();
-            
-            ?>
-            
-        </div>
-
+                
+        <div class='banners'>        
+<!--            <div id="banner-content" class="large-4 small-12 columns">
+		<div class="row">
+                    <div class="small-12 columns">-->
+                        <?php
+                        echo Banners::getAllBanners();
+                        ?>
+<!--                    </div>
+                </div>
+            </div>-->
+        </div>        
 	<div class="quote">
             <?php
             
