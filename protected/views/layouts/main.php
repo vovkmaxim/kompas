@@ -237,9 +237,7 @@ function get_mont($mont){
 
 	<?php echo $content; ?>
 
-<<<<<<< HEAD
-	
-	<div class="clear">
+	<div class="calendar">
             <?php 
                 /* КАЛЕНДАРЬ!!!!! */           
                 $user = User::model()->findAll();
@@ -248,8 +246,8 @@ function get_mont($mont){
                 echo '<h2>' . get_mont($mass_data[0]) . ' ' . $mass_data[1] . '</h2>';
                 echo draw_calendar($mass_data[0],$mass_data[1]);
             ?>
-=======
-	<div class="clear">
+        </div>
+	<div class="banners">
             <?php
             
             echo Banners::getAllBanners();
@@ -258,7 +256,7 @@ function get_mont($mont){
             
         </div>
 
-	<div class="clear">
+	<div class="quote">
             <?php
             
             $Quote = new Quote();
@@ -267,8 +265,6 @@ function get_mont($mont){
             echo '<p>'.$quote->author_quote.'</p>';
             
             ?>
-            
->>>>>>> 3d915d53b4121bc2f11e9fe31d5902ba496d685c
         </div>
 
 	<div id="footer">
