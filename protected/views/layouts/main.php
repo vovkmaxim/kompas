@@ -328,16 +328,6 @@ function get_mont($mont){
 
 	<?php echo $content; ?>
 
-	<div class="calendar">
-            <?php 
-                /* КАЛЕНДАРЬ!!!!! */           
-//                $user = User::model()->findAll();
-//                print_r($user[0]->name);
-//                $mass_data = explode('-', date('m-Y'));
-//                echo '<h2>' . get_mont($mass_data[0]) . ' ' . $mass_data[1] . '</h2>';
-//                echo draw_calendar($mass_data[0],$mass_data[1]);
-            ?>
-        </div>
 
 	<div class="calendar">
             <?php

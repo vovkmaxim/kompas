@@ -1032,3 +1032,14 @@ Stack trace:
 REQUEST_URI=/index.php?r=ompetition/view&id=10
 HTTP_REFERER=http://o-kompas.local/index.php?r=competition/view&id=10
 ---
+2014/08/15 16:04:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "view".' in /home/php/public_html/o-kompas/kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/php/public_html/o-kompas/kompas/framework/web/CController.php(270): CController->missingAction('view')
+#1 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(282): CController->run('view')
+#2 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('site/view')
+#3 /home/php/public_html/o-kompas/kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/php/public_html/o-kompas/kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=site/view&id=3
+HTTP_REFERER=http://o-kompas.local/index.php?r=site/index
+---
