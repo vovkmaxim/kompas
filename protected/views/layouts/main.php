@@ -1,6 +1,6 @@
 <?php
 /* Функция генерации календаря */
-function draw_new_calendar($month,$year){
+function draw_new_calendar($month,$year,$this_){
   /* Начало таблицы */
     $mass_data = explode('-', date('m-Y'));
   $calendar = '<div class="cal">
@@ -30,41 +30,90 @@ function draw_new_calendar($month,$year){
     $calendar.= '<td class="cal-off"><a href="#"> - </a></td>';
     $days_in_this_week++;
   endfor;
-  // ***************************************************************************
-  // ***************************************************************************
-  // ***************************************************************************
   
-  $user = User::model()->findAll();
+  $user = User::model()->findAll('status=:status AND member=:member',array(':status' => 1, ':member' => 1));
   $user_dey_list = array();
   foreach ($user as $users){
       $mas_data = explode('-', $users->data_birth);
-      $user_dey_list[] = $mas_data[1] . '-' . $mas_data[2];
+      $user_dey_list[$users->id]['data'] = $mas_data[1] . '-' . $mas_data[2];
+      $user_dey_list[$users->id]['id'] = $users->id;
   }
   
-  // ***************************************************************************
-  // ***************************************************************************
-  // ***************************************************************************
+  $competition = Competition::model()->findAll();
+  $competition_data = array();
+  foreach ($competition as $competitions){
+      $start_data = explode('-', $competitions->start_data);
+      $end_data = explode('-', $competitions->end_data);
+      $competition_data[$competitions->id]['start_data'] = $start_data[1] . '-' . $start_data[2];
+      $competition_data[$competitions->id]['end_data'] = $end_data[1] . '-' . $end_data[2];
+      $competition_data[$competitions->id]['type'] = $competitions->type;
+      $competition_data[$competitions->id]['id'] = $competitions->id;
+  }
+  
+  
+//  print_r('<pre>');
+////  print_r($competition_data);
+//  print_r($this_);
+//  print_r('<pre>');
+//  die();
   /* дошли до чисел, будем их писать в первую строку */
   for($list_day = 1; $list_day <= $days_in_month; $list_day++):
-//    $calendar.= '<td><a href="#">';
-      /* Пишем номер в ячейку */
-      $data = $month . '-' . $list_day;
+      if($list_day < 10){
+            $data = $month . '-0' . $list_day;
+            $seu_dey = '0'.$list_day;
+      } else {
+            $data = $month . '-' . $list_day;
+            $seu_dey = $list_day;
+      }
+      
+      $todey = date('d');
       $flag = false;
-      foreach ($user_dey_list as $k => $v){
-        if($data == $v){
+      $next_flag = false;
+      foreach ($user_dey_list as $user_dey_lists){
+        if($data == $user_dey_lists['data']){
             $flag = true;
+            $next_flag = true;
+            if($todey == $seu_dey){
+                $calendar.= '<td class="cal-check-U cal-selected" ><a href="'.$this_->createUrl('user/view',array('id'=>$user_dey_lists['id'])).'"> '. $list_day.' ';
+            } else {
+                $calendar.= '<td class="cal-check-U" ><a href="'.$this_->createUrl('user/view',array('id'=>$user_dey_lists['id'])).'"> '. $list_day.' ';
+            }          
+        
         }
       }
-         
+      $count_competition = count($competition_data);
       if($flag){
-            $calendar.= '<td class="cal-check" ><a href="#">'. $list_day.'';
-      } else {
-            $calendar.= '<td><a href="#">'. $list_day.'';
-      }
-             
-      /** ЗДЕСЬ МОЖНО СДЕЛАТЬ MySQL ЗАПРОС К БАЗЕ ДАННЫХ! ЕСЛИ НАЙДЕНО СОВПАДЕНИЕ ДАТЫ СОБЫТИЯ С ТЕКУЩЕЙ - ВЫВОДИМ! **/
-//      $calendar.= str_repeat('<p> </p>',2);
+        } else {
+            foreach ($competition_data as $competition_dat){
+                $str = $competition_dat['start_data'];
+                if($data == $competition_dat['end_data'] && $competition_dat['type'] == 1 || $data == $competition_dat['start_data'] && $competition_dat['type'] == 1 || $data > $competition_dat['start_data'] && $data < $competition_dat['end_data'] && $competition_dat['type'] == 1){ 
+                // Тренировка
+                    $next_flag = true;
+                    if($todey == $seu_dey){
+                         $calendar.= '<td class="cal-check-T cal-selected" ><a href="'.$this_->createUrl('competition/view',array('id'=>$competition_dat['id'])).'"> '. $list_day.' ';   
+                    } else {
+                        $calendar.= '<td class="cal-check-T " ><a href="'.$this_->createUrl('competition/view',array('id'=>$competition_dat['id'])).'"> '. $list_day.' ';
+                    }
+                } elseif ($data == $competition_dat['end_data'] && $competition_dat['type'] == 2 || $data == $competition_dat['start_data'] && $competition_dat['type'] == 2 || $data > $competition_dat['start_data'] && $data < $competition_dat['end_data'] && $competition_dat['type'] == 2) { 
+                // Соревнования
+                    $next_flag = true;
+                    if($todey == $seu_dey){
+                         $calendar.= '<td class="cal-check-S cal-selected" ><a href="'.$this_->createUrl('competition/view',array('id'=>$competition_dat['id'])).'"> '. $list_day.' ';   
+                    } else {
+                        $calendar.= '<td class="cal-check-S " ><a href="'.$this_->createUrl('competition/view',array('id'=>$competition_dat['id'])).'"> '. $list_day.' ';
+                    }                    
+                }
+            }
+        }
       
+      if(!$next_flag){
+          if($todey == $seu_dey){
+              $calendar.= '<td class="cal-selected"><a href="#">'. $list_day.'';
+          } else {
+              $calendar.= '<td><a href="#">'. $list_day.'';
+          }          
+      }
+    
     $calendar.= '</a>';
     if($running_day == 6):
       $calendar.= '</tr>';
@@ -76,99 +125,13 @@ function draw_new_calendar($month,$year){
     endif;
     $days_in_this_week++; $running_day++; $day_counter++;
   endfor;
-  /* Выводим пустые ячейки в конце последней недели */
   if($days_in_this_week < 8):
     for($x = 1; $x <= (8 - $days_in_this_week); $x++):
       $calendar.= '<td> </td>';
     endfor;
   endif;
-  /* Закрываем последнюю строку */
   $calendar.= '</tr>';
-  /* Закрываем таблицу */
   $calendar.= '</tbody></table></div>';
-  
-  /* Все сделано, возвращаем результат */
-  return $calendar;
-}
-/* Функция генерации календаря */
-function draw_calendar($month,$year){
-  /* Начало таблицы */
-  $calendar = '<table cellpadding="0" cellspacing="0" class="calendar">';
-  /* Заглавия в таблице */
-  $headings = array('Понедельник','Вторник','Среда','Четверг','Пятница','Субота','Воскресенье');
-  $calendar.= '<tr class="calendar-row"><td class="calendar-day-head">'.implode('</td><td class="calendar-day-head">',$headings).'</td></tr>';
-  /* необходимые переменные дней и недель... */
-  $running_day = date('w',mktime(0,0,0,$month,1,$year));
-  $running_day = $running_day - 1;
-  $days_in_month = date('t',mktime(0,0,0,$month,1,$year));
-  $days_in_this_week = 1;
-  $day_counter = 0;
-  $dates_array = array();
-  /* первая строка календаря */
-  $calendar.= '<tr class="calendar-row">';
-  /* вывод пустых ячеек в сетке календаря */
-  for($x = 0; $x < $running_day; $x++):
-    $calendar.= '<td class="calendar-day-np"> </td>';
-    $days_in_this_week++;
-  endfor;
-  // ***************************************************************************
-  // ***************************************************************************
-  // ***************************************************************************
-  
-  $user = User::model()->findAll();
-  $user_dey_list = array();
-  foreach ($user as $users){
-      $mas_data = explode('-', $users->data_birth);
-      $user_dey_list[] = $mas_data[1] . '-' . $mas_data[2];
-  }
-  
-  // ***************************************************************************
-  // ***************************************************************************
-  // ***************************************************************************
-  /* дошли до чисел, будем их писать в первую строку */
-  for($list_day = 1; $list_day <= $days_in_month; $list_day++):
-    $calendar.= '<td class="calendar-day">';
-      /* Пишем номер в ячейку */
-      $data = $month . '-' . $list_day;
-      $flag = false;
-      foreach ($user_dey_list as $k => $v){
-        if($data == $v){
-            $flag = true;
-        }
-      }
-         
-      if($flag){
-          $calendar.= '<div class=""> ***'. $list_day.'***</div>';
-      } else {
-          $calendar.= '<div class="day-number">'. $list_day.'</div>';
-      }
-             
-      /** ЗДЕСЬ МОЖНО СДЕЛАТЬ MySQL ЗАПРОС К БАЗЕ ДАННЫХ! ЕСЛИ НАЙДЕНО СОВПАДЕНИЕ ДАТЫ СОБЫТИЯ С ТЕКУЩЕЙ - ВЫВОДИМ! **/
-      $calendar.= str_repeat('<p> </p>',2);
-      
-    $calendar.= '</td>';
-    if($running_day == 6):
-      $calendar.= '</tr>';
-      if(($day_counter+1) != $days_in_month):
-        $calendar.= '<tr class="calendar-row">';
-      endif;
-      $running_day = -1;
-      $days_in_this_week = 0;
-    endif;
-    $days_in_this_week++; $running_day++; $day_counter++;
-  endfor;
-  /* Выводим пустые ячейки в конце последней недели */
-  if($days_in_this_week < 8):
-    for($x = 1; $x <= (8 - $days_in_this_week); $x++):
-      $calendar.= '<td class="calendar-day-np"> </td>';
-    endfor;
-  endif;
-  /* Закрываем последнюю строку */
-  $calendar.= '</tr>';
-  /* Закрываем таблицу */
-  $calendar.= '</table>';
-  
-  /* Все сделано, возвращаем результат */
   return $calendar;
 }
 
@@ -251,7 +214,15 @@ function get_mont($mont){
 			
 			<div class="top-login small-4 large-3 columns">
 				<div class="top-user">
-					<a href="#" data-dropdown="profile" data-options="is_hover:true" class="top-user-link" alt="Вход" title="Вход">Войти</a>
+                                    <?php 
+                                    if(Yii::app()->user->isGuest){
+//                                        $this->createUrl('user/view',array('id'=>$user_dey_lists['id']));
+                                        echo'<a href="'.$this->createUrl('/site/login').'" data-dropdown="profile" data-options="is_hover:true" class="top-user-link" alt="Вход" title="Вход">Войти</a>';
+                                    } else {
+                                        echo'<a href="'.$this->createUrl('/site/logout').'" class="top-user-link" alt="Выйти" title="Выйти">Выйти</a>';
+                                    }
+                                    ?>
+					<!--<a href="#" data-dropdown="profile" data-options="is_hover:true" class="top-user-link" alt="Вход" title="Вход">Войти</a>-->
 				</div>
 				<div class="top-contact">
 					<a href="#" data-dropdown="calendar" data-options="is_hover:true" class="calendar"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/ico-calendar.png" alt="Календарь" title="Календарь"/></a>
@@ -272,8 +243,8 @@ function get_mont($mont){
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Главная', 'url'=>array('/site/index')),
-				array('label'=>'Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Выйти ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+//				array('label'=>'Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+//				array('label'=>'Выйти ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
                                 array('label'=>'Новости', 'url'=>array('/events/news')),
                                 array('label'=>'Соревнования', 'url'=>array('/competition/index')),
                                 array('label'=>'Тренировки', 'url'=>array('/competition/training')),
@@ -282,8 +253,8 @@ function get_mont($mont){
                                 array('label'=>'Ссылки', 'url'=>array('/link/index')),
                                 array('label'=>'Регистрация', 'url'=>array('/user/registration')),
                                 array('label'=>'Фото-галерея', 'url'=>array('/photo/galery')),
-				array('label'=>'Онас', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Контакты', 'url'=>array('/site/contact')),
+//				array('label'=>'Онас', 'url'=>array('/site/page', 'view'=>'about')),
+//				array('label'=>'Контакты', 'url'=>array('/site/contact')),
 			),
 		)); ?>
 	</div><!-- mainmenu -->
@@ -357,21 +328,11 @@ function get_mont($mont){
 
 	<?php echo $content; ?>
 
-	<div class="calendar">
-            <?php 
-                /* КАЛЕНДАРЬ!!!!! */           
-//                $user = User::model()->findAll();
-//                print_r($user[0]->name);
-//                $mass_data = explode('-', date('m-Y'));
-//                echo '<h2>' . get_mont($mass_data[0]) . ' ' . $mass_data[1] . '</h2>';
-//                echo draw_calendar($mass_data[0],$mass_data[1]);
-            ?>
-        </div>
 
 	<div class="calendar">
             <?php
                $mass_data = explode('-', date('m-Y'));
-                echo draw_new_calendar($mass_data[0],$mass_data[1]);
+               echo draw_new_calendar($mass_data[0],$mass_data[1],$this);
             ?>
         </div>
                 
