@@ -33,6 +33,16 @@ body
         border-radius: 11px;
     padding: 20px;
 }
+ 
+.large-block-grid-1 li{
+    width: 175px;
+    height: 150px;
+}
+
+.large-block-grid-1 li a,
+.large-block-grid-1 li img {
+    max-width: 100%;
+}
 
 #sidebar
 {

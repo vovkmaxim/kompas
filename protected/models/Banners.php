@@ -110,7 +110,7 @@ class Banners extends CActiveRecord
                     $return_string_images .= '                        
                         <li><a class="th radius" href="' . $banner->link . '">
                             <img src="baners/' . $banner->path . '" 
-                                width="175" height="150" alt="' . $banner->name . '">
+                                alt="' . $banner->name . '">
                         </a></li>
                         ';                    
                 }

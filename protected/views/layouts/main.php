@@ -300,7 +300,7 @@ function get_mont($mont){
     
  <div class="row">		
      <div id="news-content" class="large-8 small-12 columns">
-     <div class="container" id="page">
+     <div id="page">
         <div class="row">
                 <div class="section-container">
                     <section>

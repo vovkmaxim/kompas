@@ -3,7 +3,7 @@
 /* @var $data Competition */
 ?>
 <div class="view">
-    <!--<li>-->
+    <li>
         <h3> <?php echo CHtml::link(CHtml::encode('«'.$data->title  . '» (' . $data->start_data . ' - ' . $data->end_data . ')'), array('view', 'id'=>$data->id)); ?></h3>
         <div class="row">
             <div class="small-3 large-3 columns">
@@ -32,5 +32,5 @@
                 <div class="small-12 text-right"><?php echo CHtml::link(CHtml::encode('Детальнее...'), array('view', 'id'=>$data->id)); ?></div>
             </div>
         </div>
-    <!--</li>-->
+    </li>
 </div>

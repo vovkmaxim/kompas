@@ -4,7 +4,7 @@
 ?>
 
 <div class="view">
-<!--<li>-->
+<li>
         <h3><?php echo CHtml::encode($data->title); ?></h3>
         <div class="row">
             <div class="small-3 large-3 columns">
@@ -20,7 +20,7 @@
                 <div class="small-12 text-right"><?php echo CHtml::link(CHtml::encode('Детальнее...'), array('events/view', 'id'=>$data->id)); ?></div>
             </div>
         </div>
-    <!--</li>-->
+    </li>
 <!--    <?php
         if($data->status != 2 && $data->type !=1){
     ?>
