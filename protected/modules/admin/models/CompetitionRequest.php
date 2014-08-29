@@ -114,7 +114,7 @@ class CompetitionRequest extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'competition_id' => 'Competition',
+			'competition_id' => 'Событие',
 			'group_id' => 'Группа',
 			'name' => 'Имя',
 			'lastname' => 'Фамилия',
@@ -127,8 +127,8 @@ class CompetitionRequest extends CActiveRecord
 			'coach' => 'Тренер',
 			'fst' => 'ФСТ',
 			'participation_data' => 'Старты',
-			'status' => 'Status',
-			'user_id' => 'User',
+			'status' => 'Статус',
+			'user_id' => 'Представитель',
 		);
 	}
 
