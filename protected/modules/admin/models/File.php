@@ -65,11 +65,11 @@ class File extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
-			'path' => 'Path',
-			'type' => 'Type',
-			'events_id' => 'Events',
-			'competition_id' => 'Competition',
+			'name' => 'Название',
+			'path' => 'Файл',
+			'type' => 'Тип',
+			'events_id' => 'Новость(Статья)',
+			'competition_id' => 'Событие(Тренировка - Соревнование)',
 		);
 	}
 
