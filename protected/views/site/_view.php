@@ -4,8 +4,24 @@
 ?>
 
 <div class="view">
-
-	<?php echo CHtml::link(CHtml::encode($data->id), array('events/view', 'id'=>$data->id)); ?>
+    <li>
+        <h3><?php echo CHtml::encode($data->title); ?></h3>
+        <div class="row">
+            <div class="small-3 large-3 columns">
+                <a class="fancybox th radius" href="index.php?r=events/view&id=<?php echo $data->id; ?>">
+                    <img width="147" height="115" src="logo_events/<?php echo CHtml::encode($data->logo_path); ?>" alt="<?php echo CHtml::encode($data->title); ?>" />
+                </a>
+               
+            </div>
+            <div class="small-9 columns">
+                <?php echo CHtml::encode($data->description); ?>
+            </div>
+            <div class="more">
+                <div class="small-12 text-right"><?php echo CHtml::link(CHtml::encode('Детальнее...'), array('events/view', 'id'=>$data->id)); ?></div>
+            </div>
+        </div>
+    </li>
+<!--	<?php echo CHtml::link(CHtml::encode($data->id), array('events/view', 'id'=>$data->id)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('type')); ?>:</b>
@@ -46,5 +62,5 @@
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('logo_path')); ?>:</b>
 	<?php echo CHtml::encode($data->logo_path); ?>
-	<br />
+	<br />-->
 </div>

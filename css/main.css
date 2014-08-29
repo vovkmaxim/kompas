@@ -4,7 +4,8 @@ body
 	padding: 0;
 	color: #555;
 	font: normal 10pt Arial,Helvetica,sans-serif;
-	background: #EFEFEF;
+        background-image: url(../images/background.jpg);
+	/*background: #EFEFEF;*/
 }
 
 #page
@@ -13,6 +14,9 @@ body
 	margin-bottom: 5px;
 	background: white;
 	border: 1px solid #C9E0ED;
+        -webkit-border-radius: 11px;
+        -moz-border-radius: 11px;
+        border-radius: 11px;
 }
 
 #header
@@ -24,6 +28,9 @@ body
 
 #content
 {
+    -webkit-border-radius: 11px;
+        -moz-border-radius: 11px;
+        border-radius: 11px;
     padding: 20px;
 }
 
@@ -110,7 +117,7 @@ div.flash-success
 
 div.flash-error a
 {
-	color:#8a1f11;
+    color:#8a1f11;
 }
 
 div.flash-notice a
@@ -128,12 +135,45 @@ div.form .rememberMe label
 	display: inline;
 }
 
+.dop_in{
+    font-size: 75%;
+    font-style: italic;
+}
+div.view .more a
+{
+        font-size: 75%;
+        font-style: italic;
+        margin-right: 20px;
+}
+
+div.content
+{
+	-webkit-border-radius: 11px;
+        -moz-border-radius: 11px;
+        border-radius: 11px;
+}
+
 div.view
 {
 	padding: 10px;
 	margin: 10px 0;
 	border: 1px solid #C9E0ED;
+        -webkit-border-radius: 14px;
+        -moz-border-radius: 14px;
+        border-radius: 14px;
 }
+
+div.view:hover {
+        padding: 10px;
+	margin: 10px 0;
+	/*border: 1px solid #FFDAB9;*/
+        /*box-shadow: 0px 1px 11px -2px #ff0300;*/
+        box-shadow: 0px 0px 16px 0px #ff0300;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        border-radius: 0px;
+}
+
 
 div.breadcrumbs
 {

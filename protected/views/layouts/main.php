@@ -49,14 +49,6 @@ function draw_new_calendar($month,$year,$this_){
       $competition_data[$competitions->id]['type'] = $competitions->type;
       $competition_data[$competitions->id]['id'] = $competitions->id;
   }
-  
-  
-//  print_r('<pre>');
-////  print_r($competition_data);
-//  print_r($this_);
-//  print_r('<pre>');
-//  die();
-  /* дошли до чисел, будем их писать в первую строку */
   for($list_day = 1; $list_day <= $days_in_month; $list_day++):
       if($list_day < 10){
             $data = $month . '-0' . $list_day;
@@ -199,48 +191,45 @@ function get_mont($mont){
 </head>
 
 <body>
-
-<div class="container" id="page">
 <div id="header">
 	<div class="header-top">
-	<div class="row">
-		<div class="small-12 columns">
-			<div class="logo small-4 large-3 large-uncentered columns">
-				<a href="index.php" class="">
-					<img id="logo1" src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo_1.png" alt="«Компас» м.Харків" title="«Компас» м.Харків"/>
-					<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" alt="«Компас» м.Харків" title="«Компас» м.Харків"/>
-				</a>
-			</div>
-			
-			<div class="top-login small-4 large-3 columns">
-				<div class="top-user">
-                                    <?php 
-                                    if(Yii::app()->user->isGuest){
-//                                        $this->createUrl('user/view',array('id'=>$user_dey_lists['id']));
-                                        echo'<a href="'.$this->createUrl('/site/login').'" data-dropdown="profile" data-options="is_hover:true" class="top-user-link" alt="Вход" title="Вход">Войти</a>';
-                                    } else {
-                                        echo'<a href="'.$this->createUrl('/site/logout').'" class="top-user-link" alt="Выйти" title="Выйти">Выйти</a>';
-                                    }
-                                    ?>
-					<!--<a href="#" data-dropdown="profile" data-options="is_hover:true" class="top-user-link" alt="Вход" title="Вход">Войти</a>-->
-				</div>
-				<div class="top-contact">
-					<a href="#" data-dropdown="calendar" data-options="is_hover:true" class="calendar"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/ico-calendar.png" alt="Календарь" title="Календарь"/></a>
-					<div id="calendar" class="f-dropdown" data-dropdown-content>
-					</div>
-					<div class="top-tell"><span></span>+3(067) 857 75 86</div>
-					<div class="top-email">example@gmail.com</div>
-				</div>
-			</div>
-			<div class="top-banner small-12 large-6 small-centered large-uncentered columns">
-				<img data-src="holder.js/100%x72/social" alt="top banner">
-			</div>
-		</div>
-	</div>
+            <div class="row">
+                    <div class="small-12 columns">
+                            <div class="logo small-4 large-3 large-uncentered columns">
+                                    <a href="index.html" class="">
+                                            <img id="logo1" src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo_1.png" alt="«Компас» м.Харків" title="«Компас» м.Харків"/>
+                                            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" alt="«Компас» м.Харків" title="«Компас» м.Харків"/>
+                                    </a>
+                            </div>
+
+                            <div class="top-login small-4 large-3 columns">
+                                    <div class="top-user">
+                                        <?php 
+                                        if(Yii::app()->user->isGuest){
+                                            echo'<a href="'.$this->createUrl('/site/login').'" data-dropdown="profile" data-options="is_hover:true" class="top-user-link" alt="Вход" title="Вход">Войти</a>';
+                                        } else {
+                                            echo'<a href="'.$this->createUrl('/site/logout').'" class="top-user-link" alt="Выйти" title="Выйти">Выйти</a>';
+                                        }
+                                        ?>
+                                    </div>
+                                    <div class="top-contact">
+                                            <a href="#" data-dropdown="calendar" data-options="is_hover:true" class="calendar"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/ico-calendar.png" alt="Календарь" title="Календарь"/></a>
+                                            <div id="calendar" class="f-dropdown" data-dropdown-content>
+                                            </div>
+                                            <div class="top-tell"><span></span>+3(067) 857 75 86</div>
+                                            <div class="top-email">example@gmail.com</div>
+                                    </div>
+                            </div>
+                            <div class="top-banner small-12 large-6 small-centered large-uncentered columns">
+                                    <img data-src="holder.js/100%x72/social" alt="top banner"/>
+                            </div>
+                    </div>
+            </div>
 	</div>
 </div>
-	<div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu',array(
+    <div id="top-nav">
+                <div id="mainmenu">
+                <?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Главная', 'url'=>array('/site/index')),
 //				array('label'=>'Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
@@ -256,28 +245,30 @@ function get_mont($mont){
 //				array('label'=>'Онас', 'url'=>array('/site/page', 'view'=>'about')),
 //				array('label'=>'Контакты', 'url'=>array('/site/contact')),
 			),
-		)); ?>
-	</div><!-- mainmenu -->
-        
-        <?php
+		)); ?>		
+                </div>    
+</div>
+	<div class="slideshow-holder row">
+	  <div class="slideshow-wrapper large-8 columns">
+			 <?php
         $sliders = Sliders::model()->findAll();
         $request = Yii::app()->request->requestUri;
         if($sliders!=NULL){
            if($request == '/' || $request == '/index.php?r=site/index'){ ?>
-<div id="slider-wrap">
-	<div id="slider">
-        <?php   foreach($sliders as $slider){   ?>
+        <div id="slider-wrap">
+            <div id="slider">
+             <?php   foreach($sliders as $slider){   ?>
                     <div class="slide"><img src="sliders/<?php echo $slider->path; ?>" width="640" height="360"></div>
-        <?php   }   ?>
-	</div>
-</div>
+            <?php   }   ?>
+            </div>
+        </div>
 
         <?php 
             }
         }       
         ?>
-           <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/sliders.js"></script>
-         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/sliders.js"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
         <script type="text/javascript">
 		$(document).ready(function() {
 			
@@ -286,85 +277,152 @@ function get_mont($mont){
 		});
 	</script>
 	<style type="text/css">
-		.fancybox-custom .fancybox-skin {
+/*		.fancybox-custom .fancybox-skin {
 			box-shadow: 0 0 50px #222;
-		}
+		}*/
 	</style>
-        
-                <div class="slideshow-holder row">
-                    <div class="slideshow-wrapper large-8 columns">
-                        <div class="preloader"></div>
-			<ul data-orbit>
-				<li data-orbit-slide="headline-1">
-					<img src="sliders/6.jpg" alt="slide image">
-				</li>
-				<li data-orbit-slide="headline-2">
-					<img data-src="sliders/ddddd.jpg" alt="slide image">
-				</li>
-				<li data-orbit-slide="headline-3">
-					<img data-src="sliders/About-sports-betting-systems2.png" alt="slide image">
-				</li>
-				<li data-orbit-slide="headline-4">
-					<img data-src="sliders/19rtz.png" alt="slide image">
-				</li>
-			</ul>
-			<div class="orbit-headline">
-				<a href="#" data-orbit-link="headline-1">«Самариада 2013», с.Васильевка, 28 — 30 июля</a>
-				<a href="#" data-orbit-link="headline-2">«Самариада 2013», с.Васильевка, 28 — 30 июля</a>
-				<a href="#" data-orbit-link="headline-3">«Самариада 2013», с.Васильевка, 28 — 30 июля</a>
-				<a href="#" data-orbit-link="headline-4">«Самариада 2013», с.Васильевка, 28 — 30 июля</a>
-                        </div>
-                    </div>
-                </div>
-        
-        
-        
         
         <?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 			'links'=>$this->breadcrumbs,
-		)); ?><!-- breadcrumbs -->
+		)); ?>
 	<?php endif?>
-
-	<?php echo $content; ?>
-
-
-	<div class="calendar">
+		</div>
+		<div class="cal large-4 columns">
             <?php
+             if($request == '/' || $request == '/index.php?r=site/index'){
                $mass_data = explode('-', date('m-Y'));
                echo draw_new_calendar($mass_data[0],$mass_data[1],$this);
+               }
             ?>
-        </div>
-                
-        <div class='banners'>        
-<!--            <div id="banner-content" class="large-4 small-12 columns">
-		<div class="row">
-                    <div class="small-12 columns">-->
-                        <?php
-                        echo Banners::getAllBanners();
-                        ?>
-<!--                    </div>
+		</div>
+	</div>
+    
+ <div class="row">		
+     <div id="news-content" class="large-8 small-12 columns">
+     <div class="container" id="page">
+        <div class="row">
+                <div class="section-container">
+                    <section>
+                        <div class="content" data-section-content>
+                            <?php echo $content; ?>
+                        </div>
+                    </section>
                 </div>
-            </div>-->
-        </div>        
-	<div class="quote">
-            <?php
-            
-            $Quote = new Quote();
-            $quote = $Quote->getRandQuote();
-            echo '<p>'.$quote->quote.'</p>';
-            echo '<p>'.$quote->author_quote.'</p>';
-            
-            ?>
         </div>
+    </div>
+    </div>
+	<div id="banner-content" class="large-4 small-12 columns">
+            <div class="row">
+                <div class="small-12 columns">
+                    <ul class="no-bullet small-block-grid-4 large-block-grid-1">
+                    <?php
+                        echo Banners::getAllBanners();
+                    ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	<div class="large-12 columns">
+            <div class="quote">
+                <?php            
+                    $Quote = new Quote();
+                    $quote = $Quote->getRandQuote();
+                    echo '<blockquote>'.$quote->quote.'<cite> '.$quote->author_quote.'</cite></blockquote>';
+                ?>
+            </div>
+        </div>
+  </div>   
+    <footer class="footer">
+      <div class="row">
+		<div class="large-12 small-11 columns">
+        <div class="large-4 columns">
+            <ul class="no-bullet left">
+              <li><a href="#">Соревнования</a></li>
+              <li><a href="#">Тренировки</a></li>
+              <li><a href="#">Статьи</a></li>
+              <li><a href="#">Члены клуба</a></li>
+              <li><a href="#">Ссылки</a></li>
+              <li><a href="#">Фото-галлерея</a></li>
+              <li><a href="#">О нас</a></li>
+            </ul>
+        </div>
+        <div class="large-4 columns">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </div>
+        <div class="large-4 columns">
+			<script type="text/javascript" src="//vk.com/js/api/openapi.js?98"></script>
+			<div class="small-12 small-centered large-8 large-centered columns">
+			<!-- VK Widget -->
+			<div id="vk_groups"></div>
+			<script type="text/javascript">
+//			VK.Widgets.Group("vk_groups", {mode: 0, width: "220", height: "200", color1: 'D02B23', color2: 'FFFFFF', color3: 'EA5F58'}, 20003922);
+			</script>
+			</div>
+        </div>
+      </div>
+  </div>
+<div class="footer-copy">
+	<div class="row">
+		<div class="small-12 columns">
+		<span>&#169; КСО Компас, Харьков 2013</span>
+		</div>
+	</div>
+</div>
+</footer>
+    <script>
+  document.write('<script src=' +
+  ('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') +
+  '.js><\/script>')
+  </script>
+  
+<!--  <script src="js/foundation.min.js"></script>
 
-	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
-	</div><!-- footer -->
-
-</div><!-- page -->
-
+   Included JS Files (Uncompressed) 
+  
+  <script src="js/vendor/jquery.js"></script>
+  
+  <script src="js/foundation/foundation.js"></script>
+  
+  <script src="js/foundation/foundation.interchange.js"></script>
+  
+  <script src="js/foundation/foundation.abide.js"></script>
+  
+  <script src="js/foundation/foundation.dropdown.js"></script>
+  
+  <script src="js/foundation/foundation.placeholder.js"></script>
+  
+  <script src="js/foundation/foundation.forms.js"></script>
+  
+  <script src="js/foundation/foundation.alerts.js"></script>
+  
+  <script src="js/foundation/foundation.magellan.js"></script>
+  
+  <script src="js/foundation/foundation.reveal.js"></script>
+  
+  <script src="js/foundation/foundation.tooltips.js"></script>
+  
+  <script src="js/foundation/foundation.clearing.js"></script>
+  
+  <script src="js/foundation/foundation.cookie.js"></script>
+  
+  <script src="js/foundation/foundation.joyride.js"></script>
+  
+  <script src="js/foundation/foundation.orbit.js"></script>
+  
+  <script src="js/foundation/foundation.section.js"></script>
+  
+  <script src="js/foundation/foundation.topbar.js"></script>-->
+  
+  
+  <!-- Initialize JS Plugins -->
+  <script>
+	$(document).foundation({
+		 
+	});
+  </script>
+  <script src="js/holder.js"></script>
+    
 </body>
 </html>
