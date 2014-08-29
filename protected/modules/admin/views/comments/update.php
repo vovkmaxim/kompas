@@ -3,16 +3,16 @@
 /* @var $model Comments */
 
 $this->breadcrumbs=array(
-	'Comments'=>array('index'),
+	'Комментарии'=>array('index'),
 	$model->title=>array('view','id'=>$model->id),
-	'Update',
+	'Править',
 );
 
 $this->menu=array(
-	array('label'=>'Manage Comments', 'url'=>array('admin')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Comments <?php echo $model->id; ?></h1>
+<h1>Правка комментария</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>
