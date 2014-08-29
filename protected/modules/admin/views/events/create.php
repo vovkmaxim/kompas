@@ -3,15 +3,15 @@
 /* @var $model Events */
 
 $this->breadcrumbs=array(
-	'Events'=>array('index'),
-	'Create',
+	'Новость'=>array('index'),
+	'Создать',
 );
 
 $this->menu=array(
-	array('label'=>'Manage Events', 'url'=>array('admin')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Events</h1>
+<h1>Создать Новость(Статью)</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

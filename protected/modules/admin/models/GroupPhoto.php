@@ -62,9 +62,9 @@ class GroupPhoto extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Title',
-			'description' => 'Description',
-			'parent_id' => 'Parent',
+			'title' => 'Название',
+			'description' => 'Описание',
+			'parent_id' => 'Родитель',
 		);
 	}
 

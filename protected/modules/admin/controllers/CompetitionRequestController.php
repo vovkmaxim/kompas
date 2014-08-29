@@ -31,38 +31,7 @@ class CompetitionRequestController extends AdminController
 	}
         
         
-        
-	/**
-	 * Creates a new model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 */
-	public function actionCreate()
-	{
-		$model=new CompetitionRequest;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['CompetitionRequest']))
-		{
-			$model->attributes=$_POST['CompetitionRequest'];
-                        if($model->save()){
-                            if(!empty($_POST['rank'])){
-                                try{
-                                    $this->addRank($_POST['rank'], $model->id);   
-                                } catch (\Exception $e){
-                                    $this->redirect(array('view','id'=>$model->id));   
-                                }
-                            }                                
-				$this->redirect(array('view','id'=>$model->id));
-                        }
-                }
-
-		$this->render('create',array(
-			'model'=>$model,
-		));
-	}
-
+    
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
@@ -72,9 +41,6 @@ class CompetitionRequestController extends AdminController
 	{
 		$model=$this->loadModel($id);
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
 		if(isset($_POST['CompetitionRequest']))
 		{
 			$model->attributes=$_POST['CompetitionRequest'];
@@ -83,10 +49,10 @@ class CompetitionRequestController extends AdminController
                                 try{
                                     $this->addRank($_POST['rank'], $model->id);   
                                 } catch (\Exception $e){
-                                    $this->redirect(array('view','id'=>$model->id));   
+                                    return $this->actionAdmin();  
                                 }
                             }                                
-				$this->redirect(array('view','id'=>$model->id));
+				return $this->actionAdmin();
                         }
                 }
 

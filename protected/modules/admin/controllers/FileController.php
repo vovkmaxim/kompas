@@ -49,7 +49,7 @@ class FileController extends AdminController
 			$model->competition_id=$_POST['competition_id'];
 			$model->attributes=$_POST['File'];
                         if($model->save()){            
-                            $this->redirect(array('view','id'=>$model->id));
+                            return $this->actionAdmin();
                         }
 		}
 
@@ -66,10 +66,6 @@ class FileController extends AdminController
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
 		if(isset($_POST['File']))
 		{
                         $model->type=$_POST['type'];
@@ -77,7 +73,7 @@ class FileController extends AdminController
 			$model->competition_id=$_POST['competition_id'];
 			$model->attributes=$_POST['File'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				return $this->actionAdmin();
 		}
 
 		$this->render('update',array(

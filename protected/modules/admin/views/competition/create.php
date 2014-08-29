@@ -3,16 +3,15 @@
 /* @var $model Competition */
 
 $this->breadcrumbs=array(
-	'Competitions'=>array('index'),
-	'Create',
+	'Событие'=>array('index'),
+	'Создать',
 );
 
 $this->menu=array(
-	array('label'=>'List Competition', 'url'=>array('index')),
-	array('label'=>'Manage Competition', 'url'=>array('admin')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Competition</h1>
+<h1>Создать</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

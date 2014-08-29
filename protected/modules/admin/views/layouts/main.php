@@ -53,7 +53,7 @@
                                 array('label'=>'Файлы', 'url'=>array('file/index')),
                                 array('label'=>'Фото', 'url'=>array('photo/index')),
                                 array('label'=>'Заявки на соревнования(тренировки)', 'url'=>array('competitionRequest/index')),
-                                array('label'=>'Коментарии', 'url'=>array('comments/index')),
+                                array('label'=>'Комментарии', 'url'=>array('comments/index')),
 			),
 		)); ?>
 	</div><!-- mainmenu -->

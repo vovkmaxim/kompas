@@ -9,10 +9,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Banners', 'url'=>array('index')),
-	array('label'=>'Create Banners', 'url'=>array('create')),
-	array('label'=>'View Banners', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Banners', 'url'=>array('admin')),
+	array('label'=>'Создать', 'url'=>array('create')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 

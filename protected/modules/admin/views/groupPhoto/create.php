@@ -3,16 +3,15 @@
 /* @var $model GroupPhoto */
 
 $this->breadcrumbs=array(
-	'Group Photos'=>array('index'),
-	'Create',
+	'Группы фото'=>array('index'),
+	'Создать',
 );
 
 $this->menu=array(
-	//array('label'=>'List GroupPhoto', 'url'=>array('index')),
-	array('label'=>'Manage Group Photo', 'url'=>array('admin')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create GroupPhoto</h1>
+<h1>Создать группу для фото</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

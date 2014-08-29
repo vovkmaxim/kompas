@@ -60,9 +60,9 @@ class Group extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
-			'description' => 'Description',
-			'parent_id' => 'Parent',
+			'name' => 'Имя',
+			'description' => 'Описание',
+			'parent_id' => 'Родитель',
 		);
 	}
 

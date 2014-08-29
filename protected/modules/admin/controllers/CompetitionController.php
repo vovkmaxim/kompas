@@ -19,17 +19,6 @@ class CompetitionController extends AdminController
 		);
 	}
 
-	
-	/**
-	 * Displays a particular model.
-	 * @param integer $id the ID of the model to be displayed
-	 */
-	public function actionView($id)
-	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
-	}
 
 	/**
 	 * Creates a new model.
@@ -38,9 +27,6 @@ class CompetitionController extends AdminController
 	public function actionCreate()
 	{
 		$model=new Competition;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['Competition']))
 		{
@@ -57,7 +43,7 @@ class CompetitionController extends AdminController
 			$model->attributes = $_POST['Competition'];
 			if($model->save()){
                             $this->setCompetitionGroupRefs($_POST, $model->id);
-                            $this->redirect(array('view','id'=>$model->id));
+                            return $this->actionAdmin();
                         }
 		}
 		$this->render('create',array(
@@ -95,9 +81,6 @@ class CompetitionController extends AdminController
 	{
 		$model=$this->loadModel($id);
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
 		if(isset($_POST['Competition']))
 		{
                                        
@@ -114,7 +97,7 @@ class CompetitionController extends AdminController
 			$model->attributes=$_POST['Competition'];
 			if($model->save()){
                             $this->setCompetitionGroupRefs($_POST, $model->id);
-                            $this->redirect(array('view','id'=>$model->id));
+                            return $this->actionAdmin();
                         }				
 		}
 

@@ -38,29 +38,14 @@ class BannersController extends AdminController
 	{
 		$model=new Banners;
                 $model->setScenario("insert");
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-                $basePath = Yii::app()->basePath. '/banners/';
-                            
-                            
+                $basePath = Yii::app()->basePath. '/banners/';                          
 		if(isset($_POST['Banners']))
 		{
                         $model->attributes=$_POST['Banners'];
-//                        $model->path=CUploadedFile::getInstance($model,'path');
                         if($model->save()){            
-//                                $file = Yii::app()->params['addBaners'] . $model->id.'_assortiment.jpg';
-//                                @mkdir(Yii::app()->params['addBaners'],0777,TRUE);
-//                                @chmod(Yii::app()->params['addBaners'], 0777);
-//
-//                                $model->path->saveAs($file);
-//                                $model->path = Yii::app()->params['bannersPath'] . $model->id.'_assortiment.jpg';;
-//                                $model->save();
-                            $this->redirect(array('view','id'=>$model->id));
-                        }
-//			if($model->save())				
+                            return $this->actionAdmin();
+                        }			
 		}
-
 		$this->render('create',array(
 			'model'=>$model,
 		));
@@ -75,28 +60,13 @@ class BannersController extends AdminController
 	{
 		$model=$this->loadModel($id);
                 $model->setScenario("update");  
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
 		if(isset($_POST['Banners']))
 		{
-			$model->attributes=$_POST['Banners'];
-//                        if($model->path){
-                            //@unlink('../o-kompas/themes/banners/' . $model->id . '_assortiment.jpg');
-//                            $model->path=CUploadedFile::getInstance($model,'path');
-//                        }                        
+			$model->attributes=$_POST['Banners'];                       
 			if($model->save()){
-//                             $file = Yii::app()->params['addBaners'] . $model->id.'_assortiment.jpg';
-//                             @mkdir(Yii::app()->params['addBaners'],0777,TRUE);
-//                             @chmod(Yii::app()->params['addBaners'], 0777);
-//                             $model->path->saveAs($file);
-//                             $model->path = Yii::app()->params['bannersPath'] . $model->id.'_assortiment.jpg';;
-//                             $model->save();
-                             $this->redirect(array('view','id'=>$model->id));
-                        }
-				
+                            return $this->actionAdmin();
+                        }				
 		}
-
 		$this->render('update',array(
 			'model'=>$model,
 		));
@@ -109,10 +79,7 @@ class BannersController extends AdminController
 	 */
 	public function actionDelete($id)
 	{
-//                @unlink(Yii::app()->params['addBaners'] . $id . '_assortiment.jpg');
 		$this->loadModel($id)->delete();
-
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}

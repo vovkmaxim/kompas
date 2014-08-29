@@ -14,7 +14,7 @@
         ),
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Обязательные <span class="required">*</span> поля.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -24,11 +24,12 @@
 		<?php echo $form->error($model,'name'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'position'); ?>
-		<?php echo $form->textField($model,'position',array('size'=>10,'maxlength'=>10)); ?>
-		<?php echo $form->error($model,'position'); ?>
-	</div>
+	<!--<div class="row">-->
+		<?php // echo $form->labelEx($model,'position'); ?>
+            <input type="hidden" name="position" id="position" value="0" />
+		<?php // echo $form->textField($model,'position',array('size'=>10,'maxlength'=>10)); ?>
+		<?php // echo $form->error($model,'position'); ?>
+	<!--</div>-->
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'link'); ?>

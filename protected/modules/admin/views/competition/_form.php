@@ -8,28 +8,14 @@
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'competition-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// There is a call to performAjaxValidation() commented in generated controller code.
-	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
         'htmlOptions' => array(
                 'enctype' => 'multipart/form-data',
         ),
-)); ?>
-
-    <?php
-    
-//    print_r("<pre>");
-//    print_r($model->Groups);
-//    print_r("<pre>");
-//    die();
-    ?>
+)); ?>  
     
     
-    
-    
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Обязательные <span class="required">*</span> поля.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -239,7 +225,7 @@
         </div>
         
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'СОЗДАТЬ' : 'СОХРАНИТЬ'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

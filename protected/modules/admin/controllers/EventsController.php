@@ -18,33 +18,6 @@ class EventsController extends AdminController
 			'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
-
-	/**
-	 * Specifies the access control rules.
-	 * This method is used by the 'accessControl' filter.
-	 * @return array access control rules
-	 */
-//	public function accessRules()
-//	{
-//		return array(
-//			array('allow',  // allow all users to perform 'index' and 'view' actions
-//				'actions'=>array('index','view'),
-//				'users'=>array('*'),
-//			),
-//			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-//				'actions'=>array('create','update'),
-//				'users'=>array('@'),
-//			),
-//			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-//				'actions'=>array('admin','delete'),
-//				'users'=>array('admin'),2
-//			),
-//			array('deny',  // deny all users
-//				'users'=>array('*'),
-//			),
-//		);
-//	}
-
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -67,28 +40,11 @@ class EventsController extends AdminController
 		// $this->performAjaxValidation($model);
 		if(isset($_POST['Events']))
 		{
-//                        $model->logo_path = $_FILES['Events']['name']['logo_path'];
 			$model->attributes=$_POST['Events'];
                         $model->type = $_POST['type']; 
                         $model->status = $_POST['status'];
-                        
-//                        print_r("<pre>");
-//                        print_r($model);
-//                        print_r("<pre>");
-//                        die();
-                        
-                        
-//                        if($model->logo_path){
-//                            $model->logo_path=CUploadedFile::getInstance($model,'logo_path');
-//                        }  
                         if($model->save()){
-//                                $file = Yii::app()->params['addLogoEvents'] . $model->id.'_logo.jpg';
-//                                @mkdir(Yii::app()->params['addLogoEvents'],0777,TRUE);
-//                                @chmod(Yii::app()->params['addLogoEvents'], 0777);
-//                                $model->logo_path->saveAs($file);
-//                                $model->logo_path = Yii::app()->params['LogoEventsPath'] . $model->id.'_logo.jpg';;
-//                                $model->save();
-                                $this->redirect(array('view','id'=>$model->id));
+                                return $this->actionAdmin();
                         }
 				
 		}
@@ -106,27 +62,13 @@ class EventsController extends AdminController
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
 		if(isset($_POST['Events']))
 		{
-//                        $model->logo_path = $_FILES['Events']['name']['logo_path'];
 			$model->attributes=$_POST['Events'];
                         $model->type = $_POST['type'];
                         $model->status = $_POST['status'];
-//                        if($model->logo_path){
-//                            $model->logo_path=CUploadedFile::getInstance($model,'logo_path');
-//                        }  
 			if($model->save()){
-//                            $file = Yii::app()->params['addLogoEvents'] . $model->id.'_logo.jpg';
-//                            @mkdir(Yii::app()->params['addLogoEvents'],0777,TRUE);
-//                            @chmod(Yii::app()->params['addLogoEvents'], 0777);
-//                            $model->logo_path->saveAs($file);
-//                            $model->logo_path = Yii::app()->params['LogoEventsPath'] . $model->id.'_logo.jpg';;
-//                            $model->save();
-                            $this->redirect(array('view','id'=>$model->id));
+                            return $this->actionAdmin();
                         }
 		}
 
@@ -144,8 +86,6 @@ class EventsController extends AdminController
 	{
                 @unlink(Yii::app()->params['addLogoEvents'] . $id . '_logo.jpg');
 		$this->loadModel($id)->delete();
-
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}

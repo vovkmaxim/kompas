@@ -8,14 +8,10 @@
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'group-photo-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// There is a call to performAjaxValidation() commented in generated controller code.
-	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Обязательные <span class="required">*</span> поля.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -32,6 +28,7 @@
 	</div>
 
 	<div class="row">
+            <?php echo $form->labelEx($model,'parent_id'); ?>
                 <?php echo CHtml::dropDownList('parent_id', $model, 
                                       $model->getAllParentGroupName(),
                                       array('1' => 'ALL'));
@@ -39,7 +36,7 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'СОЗДАТЬ' : 'СОХРАНИТЬ'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
