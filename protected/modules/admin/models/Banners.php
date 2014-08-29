@@ -108,7 +108,7 @@ class Banners extends CActiveRecord
         
         public function getBannerImage(){    
 //            return '<img src="'.Yii::app()->basePath. '/banners/' . $this->id . '_assortiment.jpg"  width="147" height="115" alt="' . $this->name . '">';
-            return '<img src="baners/' . $this->path . '"  width="147" height="115" alt="' . $this->name . '">';
+            return '<img src="banners/' . $this->path . '"  width="147" height="115" alt="' . $this->name . '">';
         }
                 
         protected function beforeSave(){
@@ -120,7 +120,7 @@ class Banners extends CActiveRecord
 
                 $this->path=$document;
                 $this->path->saveAs(
-                    Yii::getPathOfAlias('webroot.baners').DIRECTORY_SEPARATOR.$this->path);
+                    Yii::getPathOfAlias('webroot.banners').DIRECTORY_SEPARATOR.$this->path);
             }
             return true;
         }
@@ -134,7 +134,7 @@ class Banners extends CActiveRecord
         }
         
         public function deleteDocument(){
-            $documentPath=Yii::getPathOfAlias('webroot.baners').DIRECTORY_SEPARATOR.
+            $documentPath=Yii::getPathOfAlias('webroot.banners').DIRECTORY_SEPARATOR.
                 $this->path;
             if(is_file($documentPath))
                 unlink($documentPath);

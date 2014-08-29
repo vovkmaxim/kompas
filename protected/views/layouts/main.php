@@ -1,138 +1,124 @@
 <?php
-/* Функция генерации календаря */
-function draw_new_calendar($month,$year,$this_){
-  /* Начало таблицы */
+function draw_new_calendar($month, $year, $this_) {
     $mass_data = explode('-', date('m-Y'));
-  $calendar = '<div class="cal">
+    $calendar = '<div class="cal">
 						  <table class="cal-table"><caption class="cal-caption">
 							  ' . get_mont($mass_data[0]) . ' ' . $mass_data[1] . '
 							</caption>
 							<tbody class="cal-body">';
-  /* Заглавия в таблице */
-  $headings = array('Пн','Вт','Ср','Чт','Пт','Сб','Вс');
-  $calendar.= '<tr><td class="">'.implode('</td><td class="">',$headings).'</td></tr>';
-  /* необходимые переменные дней и недель... */
-  $running_day = date('w',mktime(0,0,0,$month,1,$year));
-  $running_day = $running_day - 1;
-  $days_in_month = date('t',mktime(0,0,0,$month,1,$year));
-  $days_in_this_week = 1;
-  $day_counter = 0;
-  $dates_array = array();
-  /* первая строка календаря 
-   * 
-   * 
-   * <tr><td class="cal-off"><a href="#">30</a></td>
-   *   
-   *  */
-  $calendar.= '<tr>';
-  /* вывод пустых ячеек в сетке календаря */
-  for($x = 0; $x < $running_day; $x++):
-    $calendar.= '<td class="cal-off"><a href="#"> - </a></td>';
-    $days_in_this_week++;
-  endfor;
-  
-  $user = User::model()->findAll('status=:status AND member=:member',array(':status' => 1, ':member' => 1));
-  $user_dey_list = array();
-  foreach ($user as $users){
-      $mas_data = explode('-', $users->data_birth);
-      $user_dey_list[$users->id]['data'] = $mas_data[1] . '-' . $mas_data[2];
-      $user_dey_list[$users->id]['id'] = $users->id;
-  }
-  
-  $competition = Competition::model()->findAll();
-  $competition_data = array();
-  foreach ($competition as $competitions){
-      $start_data = explode('-', $competitions->start_data);
-      $end_data = explode('-', $competitions->end_data);
-      $competition_data[$competitions->id]['start_data'] = $start_data[1] . '-' . $start_data[2];
-      $competition_data[$competitions->id]['end_data'] = $end_data[1] . '-' . $end_data[2];
-      $competition_data[$competitions->id]['type'] = $competitions->type;
-      $competition_data[$competitions->id]['id'] = $competitions->id;
-  }
-  
-  
-//  print_r('<pre>');
-////  print_r($competition_data);
-//  print_r($this_);
-//  print_r('<pre>');
-//  die();
-  /* дошли до чисел, будем их писать в первую строку */
-  for($list_day = 1; $list_day <= $days_in_month; $list_day++):
-      if($list_day < 10){
+    /* Заглавия в таблице */
+    $headings = array('Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс');
+    $calendar.= '<tr><td class="">' . implode('</td><td class="">', $headings) . '</td></tr>';
+    /* необходимые переменные дней и недель... */
+    $running_day = date('w', mktime(0, 0, 0, $month, 1, $year));
+    $running_day = $running_day - 1;
+    $days_in_month = date('t', mktime(0, 0, 0, $month, 1, $year));
+    $days_in_this_week = 1;
+    $day_counter = 0;
+    $dates_array = array();
+    $calendar.= '<tr>';
+    for ($x = 0; $x < $running_day; $x++):
+        $calendar.= '<td class="cal-off"><a href="#"> - </a></td>';
+        $days_in_this_week++;
+    endfor;
+
+    $user = User::model()->findAll('status=:status AND member=:member', array(':status' => 1, ':member' => 1));
+    $user_dey_list = array();
+    foreach ($user as $users) {
+        $mas_data = explode('-', $users->data_birth);
+        $user_dey_list[$users->id]['data'] = $mas_data[1] . '-' . $mas_data[2];
+        $user_dey_list[$users->id]['id'] = $users->id;
+    }
+
+    $competition = Competition::model()->findAll();
+    $competition_data = array();
+    foreach ($competition as $competitions) {
+        $start_data = explode('-', $competitions->start_data);
+        $end_data = explode('-', $competitions->end_data);
+        $competition_data[$competitions->id]['start_data'] = $start_data[1] . '-' . $start_data[2];
+        $competition_data[$competitions->id]['end_data'] = $end_data[1] . '-' . $end_data[2];
+        $competition_data[$competitions->id]['type'] = $competitions->type;
+        $competition_data[$competitions->id]['id'] = $competitions->id;
+    }
+
+    for ($list_day = 1; $list_day <= $days_in_month; $list_day++):
+        if ($list_day < 10) {
             $data = $month . '-0' . $list_day;
-            $seu_dey = '0'.$list_day;
-      } else {
+            $seu_dey = '0' . $list_day;
+        } else {
             $data = $month . '-' . $list_day;
             $seu_dey = $list_day;
-      }
-      
-      $todey = date('d');
-      $flag = false;
-      $next_flag = false;
-      foreach ($user_dey_list as $user_dey_lists){
-        if($data == $user_dey_lists['data']){
-            $flag = true;
-            $next_flag = true;
-            if($todey == $seu_dey){
-                $calendar.= '<td class="cal-check-U cal-selected" ><a href="'.$this_->createUrl('user/view',array('id'=>$user_dey_lists['id'])).'"> '. $list_day.' ';
-            } else {
-                $calendar.= '<td class="cal-check-U" ><a href="'.$this_->createUrl('user/view',array('id'=>$user_dey_lists['id'])).'"> '. $list_day.' ';
-            }          
-        
         }
-      }
-      $count_competition = count($competition_data);
-      if($flag){
-        } else {
-            foreach ($competition_data as $competition_dat){
-                $str = $competition_dat['start_data'];
-                if($data == $competition_dat['end_data'] && $competition_dat['type'] == 1 || $data == $competition_dat['start_data'] && $competition_dat['type'] == 1 || $data > $competition_dat['start_data'] && $data < $competition_dat['end_data'] && $competition_dat['type'] == 1){ 
-                // Тренировка
-                    $next_flag = true;
-                    if($todey == $seu_dey){
-                         $calendar.= '<td class="cal-check-T cal-selected" ><a href="'.$this_->createUrl('competition/view',array('id'=>$competition_dat['id'])).'"> '. $list_day.' ';   
-                    } else {
-                        $calendar.= '<td class="cal-check-T " ><a href="'.$this_->createUrl('competition/view',array('id'=>$competition_dat['id'])).'"> '. $list_day.' ';
-                    }
-                } elseif ($data == $competition_dat['end_data'] && $competition_dat['type'] == 2 || $data == $competition_dat['start_data'] && $competition_dat['type'] == 2 || $data > $competition_dat['start_data'] && $data < $competition_dat['end_data'] && $competition_dat['type'] == 2) { 
-                // Соревнования
-                    $next_flag = true;
-                    if($todey == $seu_dey){
-                         $calendar.= '<td class="cal-check-S cal-selected" ><a href="'.$this_->createUrl('competition/view',array('id'=>$competition_dat['id'])).'"> '. $list_day.' ';   
-                    } else {
-                        $calendar.= '<td class="cal-check-S " ><a href="'.$this_->createUrl('competition/view',array('id'=>$competition_dat['id'])).'"> '. $list_day.' ';
-                    }                    
+
+        $todey = date('d');
+        $flag = false;
+        $next_flag = false;
+        foreach ($user_dey_list as $user_dey_lists) {
+            if ($data == $user_dey_lists['data']) {
+                $flag = true;
+                $next_flag = true;
+                if ($todey == $seu_dey) {
+                    $calendar.= '<td class="cal-check-U cal-selected" ><a href="' . $this_->createUrl('user/view', array('id' => $user_dey_lists['id'])) . '"> ' . $list_day . ' ';
+                } else {
+                    $calendar.= '<td class="cal-check-U" ><a href="' . $this_->createUrl('user/view', array('id' => $user_dey_lists['id'])) . '"> ' . $list_day . ' ';
                 }
             }
         }
-      
-      if(!$next_flag){
-          if($todey == $seu_dey){
-              $calendar.= '<td class="cal-selected"><a href="#">'. $list_day.'';
-          } else {
-              $calendar.= '<td><a href="#">'. $list_day.'';
-          }          
-      }
-    
-    $calendar.= '</a>';
-    if($running_day == 6):
-      $calendar.= '</tr>';
-      if(($day_counter+1) != $days_in_month):
-        $calendar.= '<tr>';
-      endif;
-      $running_day = -1;
-      $days_in_this_week = 0;
-    endif;
-    $days_in_this_week++; $running_day++; $day_counter++;
-  endfor;
-  if($days_in_this_week < 8):
-    for($x = 1; $x <= (8 - $days_in_this_week); $x++):
-      $calendar.= '<td> </td>';
+        $count_competition = count($competition_data);
+        if ($flag) {
+            
+        } else {
+            foreach ($competition_data as $competition_dat) {
+                $str = $competition_dat['start_data'];
+                if ($data == $competition_dat['end_data'] && $competition_dat['type'] == 1 || $data == $competition_dat['start_data'] && $competition_dat['type'] == 1 || $data > $competition_dat['start_data'] && $data < $competition_dat['end_data'] && $competition_dat['type'] == 1) {
+                    // Тренировка
+                    $next_flag = true;
+                    if ($todey == $seu_dey) {
+                        $calendar.= '<td class="cal-check-T cal-selected" ><a href="' . $this_->createUrl('competition/view', array('id' => $competition_dat['id'])) . '"> ' . $list_day . ' ';
+                    } else {
+                        $calendar.= '<td class="cal-check-T " ><a href="' . $this_->createUrl('competition/view', array('id' => $competition_dat['id'])) . '"> ' . $list_day . ' ';
+                    }
+                } elseif ($data == $competition_dat['end_data'] && $competition_dat['type'] == 2 || $data == $competition_dat['start_data'] && $competition_dat['type'] == 2 || $data > $competition_dat['start_data'] && $data < $competition_dat['end_data'] && $competition_dat['type'] == 2) {
+                    // Соревнования
+                    $next_flag = true;
+                    if ($todey == $seu_dey) {
+                        $calendar.= '<td class="cal-check-S cal-selected" ><a href="' . $this_->createUrl('competition/view', array('id' => $competition_dat['id'])) . '"> ' . $list_day . ' ';
+                    } else {
+                        $calendar.= '<td class="cal-check-S " ><a href="' . $this_->createUrl('competition/view', array('id' => $competition_dat['id'])) . '"> ' . $list_day . ' ';
+                    }
+                }
+            }
+        }
+
+        if (!$next_flag) {
+            if ($todey == $seu_dey) {
+                $calendar.= '<td class="cal-selected"><a href="#">' . $list_day . '';
+            } else {
+                $calendar.= '<td><a href="#">' . $list_day . '';
+            }
+        }
+
+        $calendar.= '</a>';
+        if ($running_day == 6):
+            $calendar.= '</tr>';
+            if (($day_counter + 1) != $days_in_month):
+                $calendar.= '<tr>';
+            endif;
+            $running_day = -1;
+            $days_in_this_week = 0;
+        endif;
+        $days_in_this_week++;
+        $running_day++;
+        $day_counter++;
     endfor;
-  endif;
-  $calendar.= '</tr>';
-  $calendar.= '</tbody></table></div>';
-  return $calendar;
+    if ($days_in_this_week < 8):
+        for ($x = 1; $x <= (8 - $days_in_this_week); $x++):
+            $calendar.= '<td> </td>';
+        endfor;
+    endif;
+    $calendar.= '</tr>';
+    $calendar.= '</tbody></table></div>';
+    return $calendar;
 }
 
 function get_mont($mont){
@@ -276,8 +262,8 @@ function get_mont($mont){
             }
         }       
         ?>
-           <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/sliders.js"></script>
-         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/sliders.js"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
         <script type="text/javascript">
 		$(document).ready(function() {
 			
@@ -337,15 +323,10 @@ function get_mont($mont){
         </div>
                 
         <div class='banners'>        
-<!--            <div id="banner-content" class="large-4 small-12 columns">
-		<div class="row">
-                    <div class="small-12 columns">-->
                         <?php
+                                    echo '<img width="147" height="115" src="baners/014959 (Мотоцикл, мотоциклист, мотоэкстрим, спорт).jpg" alt="logo"></img>';
                         echo Banners::getAllBanners();
                         ?>
-<!--                    </div>
-                </div>
-            </div>-->
         </div>        
 	<div class="quote">
             <?php

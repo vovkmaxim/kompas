@@ -113,7 +113,7 @@ class Banners extends CActiveRecord
                     $return_string_images .= '
                         
                         <a href="' . $banner->link . '">
-                            <img src="baners/' . $banner->path . '" 
+                            <img src="banners/' . $banner->path . '" 
                                 width="115" height="100" alt="' . $banner->name . '">
                         </a>
                         ';
