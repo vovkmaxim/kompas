@@ -1279,3 +1279,27 @@ Stack trace:
 REQUEST_URI=/index.php?r=user/registration
 HTTP_REFERER=http://o-kompas.local/index.php?r=site/index
 ---
+2014/08/29 16:48:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'У вас нет прав для входа в адменистрирование сайта! Обратитесь к администратору.' in /home/php/public_html/o-kompas/kompas/protected/modules/admin/components/AdminController.php:23
+Stack trace:
+#0 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(359): AdminController->__construct('competitionRequ...', Object(AdminModule))
+#1 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(338): CWebApplication->createController('competitionRequ...', Object(AdminModule))
+#2 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(276): CWebApplication->createController('admin/competiti...')
+#3 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/competiti...')
+#4 /home/php/public_html/o-kompas/kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /home/php/public_html/o-kompas/kompas/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/index.php?r=admin/competitionRequest/index
+HTTP_REFERER=http://o-kompas.local/index.php?r=admin/events/index
+---
+2014/08/29 16:57:36 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (49)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/08/29 17:00:30 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (65)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/08/29 17:00:58 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (65)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/08/29 17:01:36 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/BannersController.php (44)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
