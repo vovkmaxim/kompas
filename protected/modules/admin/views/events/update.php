@@ -9,12 +9,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Events', 'url'=>array('create')),
-	array('label'=>'View Events', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Events', 'url'=>array('admin')),
+	array('label'=>'Создать', 'url'=>array('create')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Events <?php echo $model->id; ?></h1>
+<h1>Обновить Новость(Статью)</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

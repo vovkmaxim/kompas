@@ -64,17 +64,17 @@ class Events extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'type' => 'Type',
-			'title' => 'Title',
-			'description' => 'Description',
-			'author' => 'Author',
-			'create_date' => 'Create Date',
-			'update_date' => 'Update Date',
-			'position' => 'Position',
-			'text' => 'Text',
-			'logo_title' => 'Logo Title',
-			'logo_path' => 'Logo Path',
-			'status' => 'Status',
+			'type' => 'Тип',
+			'title' => 'Заголовок',
+			'description' => 'Описание',
+			'author' => 'Автор',
+			'create_date' => 'Дата создания',
+			'update_date' => 'Дата обновления',
+			'position' => 'Позиция',
+			'text' => 'Текст',
+			'logo_title' => 'Заголовок логотипа',
+			'logo_path' => 'Логотип',
+			'status' => 'Статус',
 		);
 	}
 

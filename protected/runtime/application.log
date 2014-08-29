@@ -1320,3 +1320,9 @@ HTTP_REFERER=http://o-kompas.local/index.php?r=admin/competition/update&id=10
 2014/08/29 17:28:06 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_desc" класса "Competition".
 in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/CompetitionController.php (97)
 in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/08/29 17:43:25 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/EventsController.php (71)
+in /home/php/public_html/o-kompas/kompas/index.php (13)
+2014/08/29 17:46:33 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/EventsController.php (116)
+in /home/php/public_html/o-kompas/kompas/index.php (13)

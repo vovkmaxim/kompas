@@ -13,7 +13,7 @@
             'enctype' => 'multipart/form-data',
         ),
 )); ?>    
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Обязательные <span class="required">*</span> поля.</p>
         <?php echo $form->errorSummary($model); ?>
         <div class="row">
 		<?php echo $form->hiddenField($model,'competition_id',array('size'=>10,'maxlength'=>10)); ?>
