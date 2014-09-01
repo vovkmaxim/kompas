@@ -3,8 +3,8 @@
 /* @var $model Link */
 
 $this->breadcrumbs=array(
-	'Links'=>array('index'),
-	'Manage',
+	'Ссылки'=>array('index'),
+	'Управление',
 );
 
 $this->menu=array(

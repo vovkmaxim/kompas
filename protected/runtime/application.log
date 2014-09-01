@@ -1394,3 +1394,91 @@ HTTP_REFERER=http://o-kompas.local/index.php?r=admin/group/create
 2014/08/29 21:31:32 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
 in /home/max/public_html/o-kompas/protected/modules/admin/controllers/BannersController.php (44)
 in /home/max/public_html/o-kompas/index.php (13)
+2014/08/29 21:47:16 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/BannersController.php (44)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/29 21:47:51 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Banners".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/BannersController.php (44)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/29 21:53:57 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (67)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/29 21:54:08 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (67)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/29 21:54:22 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (67)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/29 21:54:33 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (67)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/29 21:54:48 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (67)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/08/31 23:10:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'У вас нет прав для входа в адменистрирование сайта! Обратитесь к администратору.' in /home/max/public_html/o-kompas/protected/modules/admin/components/AdminController.php:23
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(359): AdminController->__construct('events', Object(AdminModule))
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(338): CWebApplication->createController('events/update/', Object(AdminModule))
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(276): CWebApplication->createController('admin/events/up...')
+#3 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/events/up...')
+#4 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/index.php?r=admin/events/update&id=4
+HTTP_REFERER=http://o-kompas.com.local/index.php?r=admin/events/update&id=4
+---
+2014/09/01 00:59:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'У вас нет прав для входа в адменистрирование сайта! Обратитесь к администратору.' in /home/max/public_html/o-kompas/protected/modules/admin/components/AdminController.php:23
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(359): AdminController->__construct('competition', Object(AdminModule))
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(338): CWebApplication->createController('competition/adm...', Object(AdminModule))
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(276): CWebApplication->createController('admin/competiti...')
+#3 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/competiti...')
+#4 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/index.php?r=admin/competition/admin
+---
+2014/09/01 00:59:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'У вас нет прав для входа в адменистрирование сайта! Обратитесь к администратору.' in /home/max/public_html/o-kompas/protected/modules/admin/components/AdminController.php:23
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(359): AdminController->__construct('banners', Object(AdminModule))
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(338): CWebApplication->createController('banners/index/', Object(AdminModule))
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(276): CWebApplication->createController('admin/banners/i...')
+#3 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/banners/i...')
+#4 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/index.php?r=admin/banners/index
+---
+2014/09/01 01:00:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'У вас нет прав для входа в адменистрирование сайта! Обратитесь к администратору.' in /home/max/public_html/o-kompas/protected/modules/admin/components/AdminController.php:23
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(359): AdminController->__construct('photo', Object(AdminModule))
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(338): CWebApplication->createController('photo/create/', Object(AdminModule))
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(276): CWebApplication->createController('admin/photo/cre...')
+#3 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/photo/cre...')
+#4 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/index.php?r=admin/photo/create
+---
+2014/09/01 19:48:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'У вас нет прав для входа в адменистрирование сайта! Обратитесь к администратору.' in /home/max/public_html/o-kompas/protected/modules/admin/components/AdminController.php:23
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(359): AdminController->__construct('banners', Object(AdminModule))
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(338): CWebApplication->createController('banners/', Object(AdminModule))
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(276): CWebApplication->createController('admin/banners')
+#3 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/banners')
+#4 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/index.php?r=admin/banners
+---
+2014/09/01 22:57:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'У вас нет прав для входа в адменистрирование сайта! Обратитесь к администратору.' in /home/max/public_html/o-kompas/protected/modules/admin/components/AdminController.php:23
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(359): AdminController->__construct('link', Object(AdminModule))
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(338): CWebApplication->createController('link/index/', Object(AdminModule))
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(276): CWebApplication->createController('admin/link/inde...')
+#3 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/link/inde...')
+#4 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/index.php?r=admin/link/index
+---

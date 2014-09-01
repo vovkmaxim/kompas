@@ -386,10 +386,6 @@ echo '<blockquote>' . $quote->quote . '<cite> ' . $quote->author_quote . '</cite
         <script src="js/foundation/foundation.section.js"></script>
         <script src="js/foundation/foundation.topbar.js"></script>-->
         <!-- Initialize JS Plugins -->
-        <script>
-            $(document).foundation({
-            });
-        </script>
         <script src="js/holder.js"></script>
     </body>
 </html>
