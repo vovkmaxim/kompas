@@ -3,8 +3,8 @@
 /* @var $model Role */
 
 $this->breadcrumbs=array(
-	'Roles'=>array('index'),
-	'Manage',
+	'Роли'=>array('index'),
+	'Управление',
 );
 
 $this->menu=array(
@@ -27,15 +27,6 @@ $('.search-form form').submit(function(){
 ?>
 
 <h1>Роли</h1>
-
-<p></p>
-
-<?php echo CHtml::link('Поиск','#',array('class'=>'search-button')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'role-grid',

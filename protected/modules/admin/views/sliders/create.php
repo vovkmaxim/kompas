@@ -3,15 +3,15 @@
 /* @var $model Sliders */
 
 $this->breadcrumbs=array(
-	'Sliders'=>array('index'),
-	'Create',
+	'Слайдер'=>array('index'),
+	'Добавить слайдкр',
 );
 
 $this->menu=array(
-	array('label'=>'Manage Sliders', 'url'=>array('admin')),
+	array('label'=>'Менеджер слайдера', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Sliders</h1>
+<h1>Добавление слейдера</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

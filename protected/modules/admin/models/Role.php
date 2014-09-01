@@ -56,7 +56,7 @@ class Role extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'role' => 'Role',
+			'role' => 'Роль',
 		);
 	}
 

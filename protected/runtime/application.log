@@ -1493,3 +1493,9 @@ Stack trace:
 #6 {main}
 REQUEST_URI=/index.php?r=admin/quote/index
 ---
+2014/09/01 23:38:48 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Sliders".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/SlidersController.php (46)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/09/01 23:38:57 [warning] [application] Не удалось присвоить небезопасный атрибут "path" класса "Sliders".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/SlidersController.php (67)
+in /home/max/public_html/o-kompas/index.php (13)
