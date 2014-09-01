@@ -39,14 +39,10 @@ class PhotoController extends AdminController
 		$model=new Photo;
 		if(isset($_POST['Photo']))
 		{
-//                    print_r("<pre>");
-//                    print_r($_POST);
-//                    print_r("<pre>");
-//                    die();
 			$model->group_photo_id=$_POST['group_photo_id'];
 			$model->attributes=$_POST['Photo'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				return $this->actionAdmin();
 		}
 
 		$this->render('create',array(
@@ -67,7 +63,7 @@ class PhotoController extends AdminController
                         $model->group_photo_id=$_POST['group_photo_id'];
 			$model->attributes=$_POST['Photo'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				return $this->actionAdmin();
 		}
 
 		$this->render('update',array(
