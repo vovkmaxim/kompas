@@ -82,7 +82,7 @@
 	<div class="clear"></div>
 
 	<div id="footer">
-            	Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
+            	Copyright &copy; <?php echo date('Y'); ?> by O-KOMPAS.<br/>
 		All Rights Reserved.<br/>
 		Author Maxim Vovk
 	</div><!-- footer -->
