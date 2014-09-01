@@ -3,16 +3,16 @@
 /* @var $model Quote */
 
 $this->breadcrumbs=array(
-	'Quotes'=>array('index'),
-	'Create',
+	'Цитаты(Высказывания)'=>array('index'),
+	'Создание',
 );
 
 $this->menu=array(
 	//array('label'=>'List Quote', 'url'=>array('index')),
-	array('label'=>'Manage Quote', 'url'=>array('admin')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Quote</h1>
+<h1>Создание Цитаты(Высказывания)</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

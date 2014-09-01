@@ -42,7 +42,7 @@
                                 array('label'=>'Слайдер', 'url'=>array('sliders/index')),
                                 array('label'=>'Банера', 'url'=>array('banners/index')),
                                 array('label'=>'Ссылки', 'url'=>array('link/index')),
-                                array('label'=>'Цытаты', 'url'=>array('quote/index')),
+                                array('label'=>'Цитаты(Высказывания)', 'url'=>array('quote/index')),
                                 array('label'=>'Группы', 'url'=>array('group/index')),
                                 array('label'=>'Пользователи', 'url'=>array('user/index')),
                                 array('label'=>'Роли', 'url'=>array('role/index')),
