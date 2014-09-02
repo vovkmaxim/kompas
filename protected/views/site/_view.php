@@ -7,13 +7,13 @@
     <li>
         <h3><?php echo CHtml::encode($data->title); ?></h3>
         <div class="row">
-            <div class="small-3 large-3 columns">
+            <div class="small-3 large-4 columns">
                 <a class="fancybox th radius" href="index.php?r=events/view&id=<?php echo $data->id; ?>">
                     <img width="147" height="115" src="logo_events/<?php echo CHtml::encode($data->logo_path); ?>" alt="<?php echo CHtml::encode($data->title); ?>" />
                 </a>
                
             </div>
-            <div class="small-9 columns">
+            <div class="small-8 columns">
                 <?php echo CHtml::encode($data->description); ?>
             </div>
             <div class="more">

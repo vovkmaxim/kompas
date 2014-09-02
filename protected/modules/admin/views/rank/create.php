@@ -3,16 +3,15 @@
 /* @var $model Rank */
 
 $this->breadcrumbs=array(
-	'Ranks'=>array('index'),
-	'Create',
+	'Разряды'=>array('index'),
+	'Создать',
 );
 
 $this->menu=array(
-//	array('label'=>'List Rank', 'url'=>array('index')),
-	array('label'=>'Manage Rank', 'url'=>array('admin')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Rank</h1>
+<h1>Создать разряд</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

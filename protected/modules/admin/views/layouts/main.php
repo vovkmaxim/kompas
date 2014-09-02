@@ -42,7 +42,7 @@
                                 array('label'=>'Слайдер', 'url'=>array('sliders/index')),
                                 array('label'=>'Банера', 'url'=>array('banners/index')),
                                 array('label'=>'Ссылки', 'url'=>array('link/index')),
-                                array('label'=>'Цытаты', 'url'=>array('quote/index')),
+                                array('label'=>'Цитаты(Высказывания)', 'url'=>array('quote/index')),
                                 array('label'=>'Группы', 'url'=>array('group/index')),
                                 array('label'=>'Пользователи', 'url'=>array('user/index')),
                                 array('label'=>'Роли', 'url'=>array('role/index')),
@@ -82,7 +82,7 @@
 	<div class="clear"></div>
 
 	<div id="footer">
-            	Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
+            	Copyright &copy; <?php echo date('Y'); ?> by O-KOMPAS.<br/>
 		All Rights Reserved.<br/>
 		Author Maxim Vovk
 	</div><!-- footer -->

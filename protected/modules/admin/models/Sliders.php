@@ -53,10 +53,10 @@ class Sliders extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'link' => 'Link',
-			'alt' => 'Alt',
-			'path' => 'Path',
-			'hedline' => 'Hedline',
+			'link' => 'Ссылка',
+			'alt' => 'Оисание ссылки',
+			'path' => 'Слайд',
+			'hedline' => 'Путь ссылки',
 		);
 	}
 

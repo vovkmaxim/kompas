@@ -40,12 +40,9 @@ class SlidersController extends AdminController
 		$model=new Sliders;
 		if(isset($_POST['Sliders']))
 		{
-                    
-                    
-                    
-			$model->attributes=$_POST['Sliders'];
+                        $model->attributes=$_POST['Sliders'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				return $this->actionAdmin();
 		}
 
 		$this->render('create',array(
@@ -66,7 +63,7 @@ class SlidersController extends AdminController
 //                        $model->path=$_POST['Sliders']['path'];
 			$model->attributes=$_POST['Sliders'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				return $this->actionAdmin();
 		}
 
 		$this->render('update',array(

@@ -8,15 +8,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Photo', 'url'=>array('index')),
-	array('label'=>'Create Photo', 'url'=>array('create')),
-	array('label'=>'Update Photo', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Photo', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Photo', 'url'=>array('admin')),
+	array('label'=>'Создать', 'url'=>array('create')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View Photo #<?php echo $model->id; ?></h1>
+<h1>Просмотр фото</h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
@@ -25,7 +22,5 @@ $this->menu=array(
 		'title',
 		'description',
 		'path',
-		'group_photo_id',
-		'user_id',
 	),
 )); ?>

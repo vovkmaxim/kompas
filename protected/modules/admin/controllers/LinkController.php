@@ -20,32 +20,6 @@ class LinkController extends AdminController
 	}
 
 	/**
-	 * Specifies the access control rules.
-	 * This method is used by the 'accessControl' filter.
-	 * @return array access control rules
-	 */
-//	public function accessRules()
-//	{
-//		return array(
-//			array('allow',  // allow all users to perform 'index' and 'view' actions
-//				'actions'=>array('index','view'),
-//				'users'=>array('*'),
-//			),
-//			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-//				'actions'=>array('create','update'),
-//				'users'=>array('@'),
-//			),
-//			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-//				'actions'=>array('admin','delete'),
-//				'users'=>array('admin'),
-//			),
-//			array('deny',  // deny all users
-//				'users'=>array('*'),
-//			),
-//		);
-//	}
-
-	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
@@ -63,15 +37,11 @@ class LinkController extends AdminController
 	public function actionCreate()
 	{
 		$model=new Link;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
 		if(isset($_POST['Link']))
 		{
 			$model->attributes=$_POST['Link'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				return $this->actionAdmin();
 		}
 
 		$this->render('create',array(
@@ -87,15 +57,11 @@ class LinkController extends AdminController
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
 		if(isset($_POST['Link']))
 		{
 			$model->attributes=$_POST['Link'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				return $this->actionAdmin();
 		}
 
 		$this->render('update',array(
@@ -111,8 +77,6 @@ class LinkController extends AdminController
 	public function actionDelete($id)
 	{
 		$this->loadModel($id)->delete();
-
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
@@ -123,10 +87,6 @@ class LinkController extends AdminController
 	public function actionIndex()
 	{
             $this->actionAdmin();
-//		$dataProvider=new CActiveDataProvider('Link');
-//		$this->render('index',array(
-//			'dataProvider'=>$dataProvider,
-//		));
 	}
 
 	/**

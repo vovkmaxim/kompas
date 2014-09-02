@@ -64,11 +64,11 @@ class Photo extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Title',
-			'description' => 'Description',
-			'path' => 'Path',
-			'group_photo_id' => 'Group Photo',
-			'user_id' => 'User',
+			'title' => 'Название',
+			'description' => 'Описание',
+			'path' => 'Фото',
+			'group_photo_id' => 'Группа',
+			'user_id' => 'Пользователь',
 		);
 	}
 

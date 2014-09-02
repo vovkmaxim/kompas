@@ -3,16 +3,15 @@
 /* @var $model Link */
 
 $this->breadcrumbs=array(
-	'Links'=>array('index'),
-	'Create',
+	'Ссылки'=>array('index'),
+	'Создать',
 );
 
 $this->menu=array(
-	array('label'=>'List Link', 'url'=>array('index')),
-	array('label'=>'Manage Link', 'url'=>array('admin')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Link</h1>
+<h1>Создание ссылки</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>
