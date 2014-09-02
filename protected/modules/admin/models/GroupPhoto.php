@@ -109,14 +109,27 @@ class GroupPhoto extends CActiveRecord
         
         public function getParentGroupName($id){
             $title = GroupPhoto::model()->findAllByPk($id);
-            $title = GroupPhoto::model()->findAllByPk($title[0]->parent_id);
-            return $title[0]->title;
+            try {
+                $parent_id = $title[0]->parent_id;
+                $title = GroupPhoto::model()->findAllByPk($parent_id);
+                if(!empty($title)){
+                   $return = $title[0]->title; 
+                } else {
+                   $return = 'NONE'; 
+                }
+            } catch (Exception $e) {
+                $return = 'NONE';
+            } 
+            return $return;
         }
         
         public function getAllParentGroupName(){
             $title = GroupPhoto::model()->findAll();
+            $all_titles=array();
             foreach ($title as $titles){
-                $all_titles[$titles->id] = $titles->title;
+                try{
+                    $all_titles[$titles->id] = $titles->title;
+                }  catch (\Exception $e){}                
             }            
             return $all_titles;
         }

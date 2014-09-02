@@ -251,7 +251,7 @@ function get_mont($mont) {
                         <div id="slider-wrap">
                             <div id="slider">
                         <?php foreach ($sliders as $slider) { ?>
-                                    <div class="slide"><img src="sliders/<?php echo $slider->path; ?>" width="640" height="360"></div>
+                                    <div class="slide"><img src="/sliders/<?php echo $slider->path; ?>" width="640" height="360"></div>
         <?php } ?>
                             </div>
                         </div>
