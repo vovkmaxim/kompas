@@ -116,7 +116,7 @@ class Photo extends CActiveRecord
                 
         public function getPhoto(){    
 //            return '<img src="'.Yii::app()->basePath. '/banners/' . $this->id . '_assortiment.jpg"  width="147" height="115" alt="' . $this->name . '">';
-            return '<img src="photo/' . $this->path . '"  width="147" height="115" alt="' . $this->title . '">';
+            return '<img src="/photo/' . $this->path . '"  width="147" height="115" alt="' . $this->title . '">';
         }
                 
         protected function beforeSave(){

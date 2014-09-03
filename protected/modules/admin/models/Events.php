@@ -170,7 +170,7 @@ class Events extends CActiveRecord
          * @return string
          */
         public function getEventsImage(){    
-            return '<img src="logo_events/' . $this->logo_path . '"  width="147" height="115" alt="' . $this->logo_title . '">';
+            return '<img src="/logo_events/' . $this->logo_path . '"  width="147" height="115" alt="' . $this->logo_title . '">';
         }
                
         

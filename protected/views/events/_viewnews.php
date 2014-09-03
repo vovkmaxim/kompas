@@ -2,6 +2,7 @@
 /* @var $this EventsController */
 /* @var $data Events */
 ?>
+
 <div class="view">
     <li>
         <h3><?php echo CHtml::encode($data->title); ?></h3>

@@ -132,7 +132,7 @@ if(!Yii::app()->user->isGuest){
 ?>
         <div class="comment">
             <p>Ваш отзыв:</p>
-            <form id="comments-form" method="post" action="/index.php?r=comments/create">
+            <form id="comments-form" method="post" action="/index.php/comments/create">
                 <div class="row">
                     <input id="Comments_events_id" type="hidden" value="0" name="Comments[events_id]" maxlength="10" size="10">
                 </div>

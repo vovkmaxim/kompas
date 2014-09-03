@@ -3,35 +3,37 @@
 /* @var $model Events */
 
 $this->breadcrumbs=array(
-	'Events'=>array('index'),
+	'Новость'=>array('index'),
 	$model->title,
 );
 
 ?>
 
-<h1><?php echo $model->title; ?></h1>
-
-
-
-        <?php echo CHtml::encode($model->description); ?>
-	<br />
-       
-        <?php echo CHtml::encode($model->author); ?>
-	<br />
-        
-        <?php echo CHtml::encode($model->create_date); ?>
-	<br />
-        
-        <?php echo CHtml::encode($model->update_date); ?>
-	<br />
-        
-        <?php echo CHtml::encode($model->text); ?>
-	<br />
-        
-        <?php echo $model->getEventsImage(); ?>
-	<br />
-
-
+<div class="large-12 columns">
+	<div id="news-item" class="large-12 small-12 columns">
+		<h3><?php echo $model->title; ?></h3>
+		<span class="date-time">Дата создания: <?php echo CHtml::encode($model->create_date); ?></span></br>
+		<span class="date-time">Дата изменения:     <?php echo CHtml::encode($model->update_date); ?></span></br>
+		<div class="img-content">
+                <img src="/logo_events/<?php echo $model->logo_path; ?>"   alt="<?php echo $model->logo_title; ?>"/>
+                <div id="footer">
+                <span class="date-time"> КРАТКОЕ ОПИСАНИЕ:</span></br>
+                <span class="date-time"><?php echo CHtml::encode($model->description); ?></span></br>
+                </div>
+		</div>
+                </br>
+		<p><?php echo CHtml::encode($model->text); ?></p>
+		<div class="row">
+			<div class="large-6 small-12 columns">
+				<div class="tags">Теги: ориентирование, компас</div>
+				<div><img src="/images/ico-socials.png" alt="socials"></div>
+			</div>
+			<div class="large-6 small-12 columns" style="text-align: center;">
+				</div>
+		</div>
+	</div>
+	</div>
+            
 <?php 
 
 
@@ -72,18 +74,20 @@ if($file != NULL){
 $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$comments,
 	'itemView'=>'_viewcomment',
-));
-
-if(!Yii::app()->user->isGuest){
+));?>
+    
+<div id="comments-form" class="form">
+ <?php
+if(!Yii::app()->user->isGuest){ 
 ?>
         <div class="comment">
             <p>Ваш отзыв:</p>
-            <form id="comments-form" method="post" action="/index.php?r=comments/create">
+            <form id="comments-form" method="post" action="/index.php/comments/create">
                 <div class="row">
-                    <input id="Comments_events_id" type="hidden" value="<?php echo $model->id; ?>" name="Comments[events_id]" maxlength="10" size="10">
+                    <input id="Comments_events_id" type="hidden" value="0" name="Comments[events_id]" maxlength="10" size="10">
                 </div>
                 <div class="row">
-                    <input id="Comments_competition_id" type="hidden" value="0" name="Comments[competition_id]" maxlength="10" size="10">
+                    <input id="Comments_competition_id" type="hidden" value="<?php echo $model->id; ?>" name="Comments[competition_id]" maxlength="10" size="10">
                 </div>
                 <div class="row">
                     <input id="Comments_user_id" type="hidden" value="<?php echo Yii::app()->user->id; ?>" name="Comments[user_id]" maxlength="10" size="10">
@@ -100,7 +104,7 @@ if(!Yii::app()->user->isGuest){
                     <textarea id="Comments_text" name="Comments[text]" cols="50" rows="6"></textarea>
                 </div>
                 <div class="row buttons">
-                    <input type="submit" value="Отправить" name="yt0">
+                    <input class="large success button radius" type="submit" value="Отправить" name="yt0">
                 </div>
             </form>
         </div>
@@ -109,4 +113,7 @@ if(!Yii::app()->user->isGuest){
 } else {
     echo '<p>Для того что бы оставвить отзыв Вы должны авторезироватся</p>';
 }
+
 ?>
+
+</div>

@@ -102,7 +102,7 @@ class Sliders extends CActiveRecord
                   
         public function getPhoto(){    
 //            return '<img src="'.Yii::app()->basePath. '/banners/' . $this->id . '_assortiment.jpg"  width="147" height="115" alt="' . $this->name . '">';
-            return '<img src="sliders/' . $this->path . '"  width="147" height="115" alt="' . $this->alt . '">';
+            return '<img src="/sliders/' . $this->path . '"  width="147" height="115" alt="' . $this->alt . '">';
         }
         
         protected function beforeSave(){

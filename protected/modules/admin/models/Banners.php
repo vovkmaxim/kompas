@@ -108,7 +108,7 @@ class Banners extends CActiveRecord
         
         public function getBannerImage(){    
 //            return '<img src="'.Yii::app()->basePath. '/banners/' . $this->id . '_assortiment.jpg"  width="147" height="115" alt="' . $this->name . '">';
-            return '<img src="banners/' . $this->path . '"  width="147" height="115" alt="' . $this->name . '">';
+            return '<img src="/banners/' . $this->path . '"  width="147" height="115" alt="' . $this->name . '">';
         }
                 
         protected function beforeSave(){
