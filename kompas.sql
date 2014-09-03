@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 29, 2014 at 03:36 PM
+-- Generation Time: Sep 03, 2014 at 11:33 PM
 -- Server version: 5.5.38
 -- PHP Version: 5.3.10-1ubuntu3.13
 
@@ -33,16 +33,16 @@ CREATE TABLE IF NOT EXISTS `km_banners` (
   `link` text,
   `path` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=62 ;
 
 --
 -- Dumping data for table `km_banners`
 --
 
 INSERT INTO `km_banners` (`id`, `name`, `position`, `link`, `path`) VALUES
-(7, 'Test №1', 0, 'Test №1', '1340400052_screenshot_16.png'),
-(13, 'Test №2', 0, '0', 'ipb.html.jpeg'),
-(14, 'Test №3', 0, 'ml;kmklmklm', '1359707432_skachat-albom-red-release-the-panic.jpg');
+(57, 'asd', 0, 'http://www.kinopoisk.ru/', '1214374533_animal_sport003.jpg'),
+(58, '55555555555555555555', 0, 'http://brb.to/video/cartoons/', '014959 (Мотоцикл, мотоциклист, мотоэкстрим, спорт).jpg'),
+(61, 'mlkmklm', NULL, 'klklnkl', '343.jpg');
 
 -- --------------------------------------------------------
 
@@ -52,8 +52,8 @@ INSERT INTO `km_banners` (`id`, `name`, `position`, `link`, `path`) VALUES
 
 CREATE TABLE IF NOT EXISTS `km_comments` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `events_id` int(10) unsigned DEFAULT '0',
-  `competition_id` int(10) unsigned DEFAULT '0',
+  `events_id` int(10) unsigned DEFAULT NULL,
+  `competition_id` int(10) unsigned DEFAULT NULL,
   `user_id` int(10) unsigned NOT NULL,
   `create_date` timestamp NULL DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
@@ -62,21 +62,22 @@ CREATE TABLE IF NOT EXISTS `km_comments` (
   KEY `fk_km_comments_km_events1` (`events_id`),
   KEY `fk_km_comments_km_competition1` (`competition_id`),
   KEY `fk_km_comments_km_user1` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `km_comments`
 --
 
 INSERT INTO `km_comments` (`id`, `events_id`, `competition_id`, `user_id`, `create_date`, `title`, `text`) VALUES
-(2, 0, 9, 3, '2014-08-04 21:00:00', 'Дорога', 'Чёт непонятно с догогой!!!'),
-(3, 0, 9, 3, '2014-08-04 21:00:00', 'Дорога', 'qweqw dweqfd erfer '),
-(4, 0, 9, 3, '2014-08-04 21:00:00', '111111111', '22222222222'),
-(5, 1, 0, 3, '2014-08-04 21:00:00', 'йцу', 'йцу'),
-(6, 1, 0, 3, '2014-08-04 21:00:00', 'Дорога', 'Некий новый текст))'),
-(7, 4, 0, 3, '2014-08-04 21:00:00', 'аук цйаук аску', 'с уксцу суас у'),
-(8, 0, 10, 3, '2014-08-04 21:00:00', 'цукпам цукп цкм', 'м цуама цмек кем е4км'),
-(9, 0, 9, 3, '2014-08-04 21:00:00', 'hiu', 'iuohui');
+(8, 0, 1, 3, '2014-08-05 21:00:00', 'Тест отзыва', '\r\nТекст:'),
+(9, 0, 1, 3, '2014-09-01 21:00:00', 'Тест отзыва', 'wer qwefre gfrew qvwerqv  wev'),
+(10, 12, 0, 3, '2014-09-02 21:00:00', 'iohjknjkn', 'jknjknnjk'),
+(11, 12, 0, 3, '2014-09-02 21:00:00', 'jihuibiubhbhhb', 'jhbjhbjhbjhbjh'),
+(12, 12, 0, 3, '2014-09-02 21:00:00', 'sdg sdfg sddb sdfb', ' rbrwt brt brtb tw brt brt'),
+(13, 0, 5, 3, '2014-09-02 21:00:00', 'mlk', 'l  km k m '),
+(14, 0, 5, 3, '2014-09-02 21:00:00', 'kjhjibhjb jhbjirg iutgui tqn qq', ' iuthgui erbh fg bgrbrtbh ruitb ekwrtbnuiernrgwerij giwnf kh b niw ribjwtr jbgjfubn wdjoibj wrtnubwutjrb pv nnvjkeejv wkrov[b shgu'),
+(15, 0, 5, 3, '2014-09-02 21:00:00', 'bgrbrtbh ruitb ekwrtbnuiernrgwerij giwnf kh b niw ribjwtr jbgjfubn wdjoibj wrtnubwutjrb pv nnvjkeejv wkrov[b shgu ', 'bgrbrtbh ruitb ekwrtbnuiernrgwerij giwnf kh b niw ribjwtr jbgjfubn wdjoibj wrtnubwutjrb pv nnvjkeejv wkrov[b shgu bgrbrtbh ruitb ekwrtbnuiernrgwerij giwnf kh b niw ribjwtr jbgjfubn wdjoibj wrtnubwutjrb pv nnvjkeejv wkrov[b shgu bgrbrtbh ruitb ekwrtbnuiernrgwerij giwnf kh b niw ribjwtr jbgjfubn wdjoibj wrtnubwutjrb pv nnvjkeejv wkrov[b shgu bgrbrtbh ruitb ekwrtbnuiernrgwerij giwnf kh b niw ribjwtr jbgjfubn wdjoibj wrtnubwutjrb pv nnvjkeejv wkrov[b shgu bgrbrtbh ruitb ekwrtbnuiernrgwerij giwnf kh b niw ribjwtr jbgjfubn wdjoibj wrtnubwutjrb pv nnvjkeejv wkrov[b shgu bgrbrtbh ruitb ekwrtbnuiernrgwerij giwnf kh b niw ribjwtr jbgjfubn wdjoibj wrtnubwutjrb pv nnvjkeejv wkrov[b shgu bgrbrtbh ruitb ekwrtbnuiernrgwerij giwnf kh b niw ribjwtr jbgjfubn wdjoibj wrtnubwutjrb pv nnvjkeejv wkrov[b shgu '),
+(16, 0, 1, 3, '2014-09-02 21:00:00', 'bgrbrtbh ruitb ekwrtbnuiernrgwerij giwnf kh b niw ribjwtr jbgjfubn wdjoibj wrtnubwutjrb pv nnvjkeejv wkrov[b shgu ', 'bgrbrtbh ruitb ekwrtbnuiernrgwerij giwnf kh b niw ribjwtr jbgjfubn wdjoibj wrtnubwutjrb pv nnvjkeejv wkrov[b shgu bgrbrtbh ruitb ekwrtbnuiernrgwerij giwnf kh b niw ribjwtr jbgjfubn wdjoibj wrtnubwutjrb pv nnvjkeejv wkrov[b shgu bgrbrtbh ruitb ekwrtbnuiernrgwerij giwnf kh b niw ribjwtr jbgjfubn wdjoibj wrtnubwutjrb pv nnvjkeejv wkrov[b shgu bgrbrtbh ruitb ekwrtbnuiernrgwerij giwnf kh b niw ribjwtr jbgjfubn wdjoibj wrtnubwutjrb pv nnvjkeejv wkrov[b shgu bgrbrtbh ruitb ekwrtbnuiernrgwerij giwnf kh b niw ribjwtr jbgjfubn wdjoibj wrtnubwutjrb pv nnvjkeejv wkrov[b shgu bgrbrtbh ruitb ekwrtbnuiernrgwerij giwnf kh b niw ribjwtr jbgjfubn wdjoibj wrtnubwutjrb pv nnvjkeejv wkrov[b shgu bgrbrtbh ruitb ekwrtbnuiernrgwerij giwnf kh b niw ribjwtr jbgjfubn wdjoibj wrtnubwutjrb pv nnvjkeejv wkrov[b shgu bgrbrtbh ruitb ekwrtbnuiernrgwerij giwnf kh b niw ribjwtr jbgjfubn wdjoibj wrtnubwutjrb pv nnvjkeejv wkrov[b shgu bgrbrtbh ruitb ekwrtbnuiernrgwerij giwnf kh b niw ribjwtr jbgjfubn wdjoibj wrtnubwutjrb pv nnvjkeejv wkrov[b shgu bgrbrtbh ruitb ekwrtbnuiernrgwerij giwnf kh b niw ribjwtr jbgjfubn wdjoibj wrtnubwutjrb pv nnvjkeejv wkrov[b shgu bgrbrtbh ruitb ekwrtbnuiernrgwerij giwnf kh b niw ribjwtr jbgjfubn wdjoibj wrtnubwutjrb pv nnvjkeejv wkrov[b shgu bgrbrtbh ruitb ekwrtbnuiernrgwerij giwnf kh b niw ribjwtr jbgjfubn wdjoibj wrtnubwutjrb pv nnvjkeejv wkrov[b shgu bgrbrtbh ruitb ekwrtbnuiernrgwerij giwnf kh b niw ribjwtr jbgjfubn wdjoibj wrtnubwutjrb pv nnvjkeejv wkrov[b shgu ');
 
 -- --------------------------------------------------------
 
@@ -93,26 +94,29 @@ CREATE TABLE IF NOT EXISTS `km_competition` (
   `text` text,
   `create_date` timestamp NULL DEFAULT NULL,
   `update_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `start_data` date DEFAULT NULL,
+  `start_data` timestamp NULL DEFAULT NULL,
   `start_time` time DEFAULT NULL,
-  `end_data` date DEFAULT NULL,
+  `end_data` timestamp NULL DEFAULT NULL,
   `end_time` time DEFAULT NULL,
-  `close_registration_data` date DEFAULT NULL,
+  `close_registration_data` timestamp NULL DEFAULT NULL,
   `close_registration_time` time DEFAULT NULL,
   `enable_registration_flag` tinyint(1) unsigned DEFAULT '0' COMMENT '	',
   `position` int(10) unsigned DEFAULT NULL,
   `archive` tinyint(1) unsigned DEFAULT '0',
   `views` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `km_competition`
 --
 
 INSERT INTO `km_competition` (`id`, `title`, `description`, `type`, `logo_desc`, `text`, `create_date`, `update_date`, `start_data`, `start_time`, `end_data`, `end_time`, `close_registration_data`, `close_registration_time`, `enable_registration_flag`, `position`, `archive`, `views`) VALUES
-(9, 'Сревнование крос на 1500 - 3000 м ', 'Сревнование крос на 1500 - 3000 м ', 2, '1340400052_screenshot_16.png', 'Сревнование крос на 1500 - 3000 м \r\nСтарт где-то в лесу с полосой препядствий и всё такое!\r\nВыживут не все!', '2014-08-01 10:43:46', '2014-08-29 10:44:16', '2014-08-08', '16:00:00', '2014-08-14', '20:00:00', '2014-08-07', '17:00:00', 1, 0, 2, 22),
-(10, 'Тренировка перед забегом', 'Тренировка перед забегом на большие дистанции в 1500 и 3000 метров', 1, 'images.jpeg', 'Тренировка перед забегом на большие дистанции в 1500 и 3000 метров\r\nбудете просматривать трассу беге пытатся ёё преодолеть но всёравно выживут даже на ренировке не все!!!!', '2014-08-01 11:08:09', '2014-08-29 10:55:30', '2014-08-04', '17:00:00', '2014-08-05', '13:00:00', '2014-08-03', '17:00:00', 1, 0, 2, 13);
+(1, 'Забег на 1500 - 3000 м', 'Тринировка перед неким соривнованием бегом на большие дистанции', 2, '1363141919_sport_kstrim_2084132.jpg', 'здесь типа должен быть полный текст со всеми мелочныни описаниями', '2014-07-26 15:39:00', '2014-09-03 19:49:05', '2014-06-30 21:00:00', '07:00:00', '2014-06-30 21:00:00', '10:00:00', '2014-06-30 21:00:00', '19:00:00', 1, 0, 2, 76),
+(2, 'Проверка сохранения выбора групп', 'Проверка сохранения выбора групп', 1, '343.jpg', 'Проверка сохранения выбора групп', '2014-07-27 12:33:10', '2014-08-26 16:47:57', '2013-12-31 22:00:00', '16:00:00', '2014-11-30 22:00:00', '01:00:00', '2013-12-31 22:00:00', '24:00:00', 2, 0, 2, 4),
+(3, 'Проверка сохранения выбора групп ТЕСТ№2', 'Проверка сохранения выбора групп ТЕСТ№2', 1, '1235243444_nature-20.jpg', 'Проверка сохранения выбора групп ТЕСТ№2', '2014-07-27 13:03:48', '2014-09-02 16:43:49', '2013-12-31 22:00:00', '17:00:00', '2014-01-31 22:00:00', '02:00:00', '2014-01-31 22:00:00', '19:00:00', 2, 0, 2, 1),
+(4, 'Проверка сохранения выбора групп ТЕСТ№3', 'Проверка сохранения выбора групп ТЕСТ№3', 1, 'amazing_photos_of_nature_42.jpg', 'Проверка сохранения выбора групп ТЕСТ№3', '2014-07-27 13:14:53', '2014-08-25 18:40:38', '2014-01-31 22:00:00', '03:00:00', '2014-02-28 22:00:00', '20:00:00', '2014-01-31 22:00:00', '02:00:00', 2, 0, 1, 0),
+(5, 'Проверка сохранения выбора групп ТЕСТ№4', 'Проверка сохранения выбора групп ТЕСТ№4', 2, 'favre_photo8.jpg', 'Проверка сохранения выбора групп ТЕСТ№4', '2014-07-27 14:44:22', '2014-09-03 19:55:34', '2014-02-28 22:00:00', '14:00:00', '2014-04-30 21:00:00', '08:00:00', '2014-03-31 21:00:00', '06:00:00', 1, 0, 2, 12);
 
 -- --------------------------------------------------------
 
@@ -133,8 +137,14 @@ CREATE TABLE IF NOT EXISTS `km_competition_group_refs` (
 --
 
 INSERT INTO `km_competition_group_refs` (`km_competition_id`, `km_group_id`) VALUES
-(9, 1),
-(10, 1);
+(1, 3),
+(2, 3),
+(5, 3),
+(2, 6),
+(5, 7),
+(2, 34),
+(1, 60),
+(3, 60);
 
 -- --------------------------------------------------------
 
@@ -163,21 +173,15 @@ CREATE TABLE IF NOT EXISTS `km_competition_request` (
   KEY `fk_km_competition_request_km_competition1` (`competition_id`),
   KEY `fk_km_competition_request_km_group1` (`group_id`),
   KEY `fk_km_competition_request_km_user1` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `km_competition_request`
 --
 
 INSERT INTO `km_competition_request` (`id`, `competition_id`, `group_id`, `name`, `lastname`, `year`, `chip`, `dyusch`, `sity`, `coutry`, `team`, `coach`, `fst`, `participation_data`, `status`, `user_id`) VALUES
-(2, 9, 1, 'Test№1', 'Test№1', 2014, 'Test№1', 'Test№1', 'Test№1', 'Test№1', 'Test№1', 'Test№1', 'Test№1', '2014-08-8, 2014-08-9, 2014-08-10, ', 1, 3),
-(4, 9, 1, 'Test№2', 'Test№2', 1990, 'Test№2', 'Test№2', 'Test№2', 'Test№2', 'Test№2', 'Test№2', 'Test№2', '2014-08-8, 2014-08-9, 2014-08-10, 2014-08-11, 2014-08-12, ', 1, 3),
-(5, 9, 1, 'Test№2', 'Test№2', 1990, 'Test№2', 'Test№2', 'Test№2', 'Test№2', 'Test№2', 'Test№2', 'Test№2', '2014-08-8, 2014-08-9, 2014-08-10, 2014-08-11, 2014-08-12, ', 1, 3),
-(6, 9, 1, 'Test№3', 'Test№3', 1990, 'Test№3', 'Test№3', 'Test№3', 'Test№3', 'Test№3', 'Test№3', 'Test№3', '2014-08-8, 2014-08-10, 2014-08-12, ', 1, 3),
-(7, 10, 1, 'Max1', 'Vovk1', 1990, '312', 'ДЮСШ', 'Kharkov', 'Ukraine', 'maxCO', 'Max', '123', '2014-08-4, ', 1, 3),
-(8, 9, 1, 'Максим', 'Вовк', 1990, '1111', '№331', 'Kharkov', 'Ukraine', 'maxCO', 'Max', '1233254', '2014-08-8, 2014-08-9, 2014-08-10, 2014-08-11, 2014-08-12, ', 1, 3),
-(9, 9, 1, 'Max12', 'Vovk12', 0000, '312', 'ДЮСШ', 'Kharkov', 'Ukraine', 'Test`', 'Test№2', '123', '2014-08-9, 2014-08-10, 2014-08-11, ', 1, 3),
-(10, 10, 1, 'Max1', 'uihio', 0000, 'uioh', 'oihoi', 'hoihoih', 'iohio', 'hioh', 'ioh', 'oihoi', '2014-08-4, ', 0, 3);
+(2, 1, 3, 'Maxim', 'Vovk', 1990, '123', 'ДЮСШ', 'Kharkiv', 'Ukraine', 'MaxCo', 'Max', '123', '2014-07-1, ', 1, 3),
+(3, 5, 3, ' grtg', 'w gwerg ', 0000, 'werg', 'ДЮСШ', '\\eqqgerg', 'Ukraine', 'MaxCo', 'Max', '123', '2014-03-31, 2014-03-32, 2014-03-33, 2014-03-34, 2014-03-35, 2014-03-36, 2014-03-37, 2014-03-38, 2014-03-39, 2014-03-40, 2014-03-41, 2014-03-42, 2014-03-60, ', 0, 3);
 
 -- --------------------------------------------------------
 
@@ -197,23 +201,17 @@ CREATE TABLE IF NOT EXISTS `km_events` (
   `text` text,
   `logo_title` varchar(255) DEFAULT NULL,
   `logo_path` varchar(555) DEFAULT NULL,
-  `status` smallint(1) NOT NULL DEFAULT '0',
+  `status` smallint(6) NOT NULL DEFAULT '0',
   `views` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `km_events`
 --
 
 INSERT INTO `km_events` (`id`, `type`, `title`, `description`, `author`, `create_date`, `update_date`, `position`, `text`, `logo_title`, `logo_path`, `status`, `views`) VALUES
-(1, 1, 'Title', 'Description 122222231r 3rfkr4 vjtr vbfvyuf vefv rtvyb ruvb Description 122222231r 3rfkr4 vjtr vbfvyuf vefv rtvyb ruvb Description 122222231r 3rfkr4 vjtr vbfvyuf vefv rtvyb ruvb Description 122222231r 3rfkr4 vjtr vbfvyuf vefv rtvyb ruvb ', 'Author', '0000-00-00 00:00:00', '2014-08-29 08:25:05', 0, '	\r\nText', 'Logo Title', '52905081.jpg', 1, 9),
-(2, 2, '111', '111', '11', '2014-07-25 08:38:54', '2014-08-01 07:54:56', 0, '111', '1111', 'ipb.html.jpeg', 2, 1),
-(3, 1, '11111111', '2222222222', '333333333333', '2014-07-25 08:43:46', '2014-08-01 07:54:29', 0, '444444444444444', '555555555555555555', '1359707432_skachat-albom-red-release-the-panic.jpg', 1, 1),
-(4, 2, 'qqqqqqqqqq', 'qqqqqqqqqqqq', 'qqqqqqqqqqqqq', '2014-07-25 08:56:44', '2014-08-01 07:56:01', 0, 'qqqqqqqqqqqqqqq', 'q', '1363416202_skachat-besplatno-igru-strelyalku-na-kompyuter-tom-clancys-ghost-recon-future-soldier-deluxe-edition-s-ustanovlennymi-dlc-i-poslednimi.jpg', 1, 1),
-(5, 1, 'TEST_IMAGE', 'TEST_IMAGE', 'TEST_IMAGE', '2014-07-25 09:59:06', '2014-08-01 07:54:42', 0, 'TEST_IMAGE', 'TEST_IMAGE', '1340400052_screenshot_16.png', 1, 1),
-(6, 1, 'Title№1', 'Description№1', 'Author№1', '2014-07-30 13:24:04', '2014-08-01 07:55:51', 0, 'Text№1', 'Logo Title№1', '1330482615_cs-1_6_-_portable.png', 2, 0),
-(7, 1, 'Title№1', 'Description№1', 'Author№1', '2014-07-30 13:33:18', '2014-08-01 07:55:29', 0, 'Text', 'Logo Title№1', '1377324322_skachat-besplatno-igru-strelyalku-na-pleysteyshen-3-snayper-2-sniper-ghost-warrior-2-ps-3-russkaya-versiya-repa.jpg', 1, 1);
+(12, 1, 'Самариада 2013', 'Спортклуб “СКИФ“ приглашает принять участие в соревнованиях, которые пройдут на местности с живописным меловым карьером, цветущим лугом, сосновым лесом, спелой земляникой, тихой речкой.', 'Max', '2014-09-03 19:11:06', '2014-09-03 19:11:06', 0, ' Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. организаторы постараются обеспечить.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.', 'Logo Title', '343.jpg', 1, 31);
 
 -- --------------------------------------------------------
 
@@ -226,8 +224,8 @@ CREATE TABLE IF NOT EXISTS `km_file` (
   `name` varchar(255) DEFAULT NULL,
   `path` text,
   `type` int(11) DEFAULT NULL,
-  `events_id` int(10) unsigned DEFAULT NULL,
-  `competition_id` int(10) unsigned DEFAULT NULL,
+  `events_id` int(10) unsigned DEFAULT '0',
+  `competition_id` int(10) unsigned DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `events_id` (`events_id`),
   KEY `fcompetition_id` (`competition_id`)
@@ -238,8 +236,8 @@ CREATE TABLE IF NOT EXISTS `km_file` (
 --
 
 INSERT INTO `km_file` (`id`, `name`, `path`, `type`, `events_id`, `competition_id`) VALUES
-(1, 'TEST №1', '10104297.pdf', 1, 6, 9),
-(2, 'QWE', 'SQL_-_konspekt.pdf', 1, 4, 9);
+(1, 'Test №1', 'Последняя война.pdf', 0, 0, 1),
+(2, 'Test №1', '__MirFantastiki__2014no08_RuLit_Net_355105.pdf', 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -251,17 +249,20 @@ CREATE TABLE IF NOT EXISTS `km_group` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `description` varchar(255) NOT NULL,
-  `parent_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_km_group_km_group1` (`parent_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `parent_id` int(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=61 ;
 
 --
 -- Dumping data for table `km_group`
 --
 
 INSERT INTO `km_group` (`id`, `name`, `description`, `parent_id`) VALUES
-(1, 'test', '', 1);
+(3, 'A', '', 0),
+(6, 'B', '', 0),
+(7, 'C', '', 0),
+(34, 'A1', 'A1', 0),
+(60, 'D', 'New D group', 0);
 
 -- --------------------------------------------------------
 
@@ -276,16 +277,16 @@ CREATE TABLE IF NOT EXISTS `km_group_photo` (
   `parent_id` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `fk_km_group_photo_km_group_photo1` (`parent_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `km_group_photo`
 --
 
 INSERT INTO `km_group_photo` (`id`, `title`, `description`, `parent_id`) VALUES
-(1, 'All', 'All', 1),
-(7, 'New', 'New', 7),
-(8, 'Test', 'Description Test photo goup', 8);
+(18, 'All', 'Альбом всех фотографий', 0),
+(19, 'Природа', 'Альбом всех фотографий Природы', 18),
+(20, 'Спорт', 'Альбом всех фотографий спорта', 18);
 
 -- --------------------------------------------------------
 
@@ -299,15 +300,14 @@ CREATE TABLE IF NOT EXISTS `km_link` (
   `description` varchar(255) DEFAULT NULL,
   `path` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `km_link`
 --
 
 INSERT INTO `km_link` (`id`, `name`, `description`, `path`) VALUES
-(1, 'Google', 'Google', 'http://www.google.com'),
-(2, 'VKontake', 'Соцыальная сеть', 'http://vk.com/');
+(1, 'Google', 'Google', 'http://www.google.com');
 
 -- --------------------------------------------------------
 
@@ -325,36 +325,14 @@ CREATE TABLE IF NOT EXISTS `km_photo` (
   PRIMARY KEY (`id`),
   KEY `group_photo_id` (`group_photo_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
 
 --
 -- Dumping data for table `km_photo`
 --
 
 INSERT INTO `km_photo` (`id`, `title`, `description`, `path`, `group_photo_id`, `user_id`) VALUES
-(1, 'Test №1', 'Test №1', '1363416202_skachat-besplatno-igru-strelyalku-na-kompyuter-tom-clancys-ghost-recon-future-soldier-deluxe-edition-s-ustanovlennymi-dlc-i-poslednimi.jpg', 1, 3),
-(2, 'Test №2', 'Test №2', 'images.jpeg', 8, 3),
-(4, 'Test №3', 'Test №3', '1359707432_skachat-albom-red-release-the-panic.jpg', 8, 3),
-(5, 'Test №4', 'Test №4', 'directx_w8s.jpg', 7, 3),
-(6, 'Test №5', 'Test №5', '1340400052_screenshot_16.png', 8, 3),
-(7, 'Test №3', 'Test №3', '52905081.jpg', 1, 3),
-(8, 'Test №3', 'Test №3', '52905081(1).jpg', 1, 3),
-(9, 'Test №5', 'Test №4', '1277741913_dark-games.ru_cs_skachat.jpg', 1, 3),
-(10, 'Test №2', 'Test №1', '1330482615_cs-1_6_-_portable.png', 1, 3),
-(11, 'Test №5', 'Test №4', '1340400052_screenshot_16.png', 1, 3),
-(12, 'Test №1', 'Test №1', '1359707432_skachat-albom-red-release-the-panic.jpg', 1, 3),
-(13, 'Title', 'Description', '6.jpg', 1, 3),
-(14, 'Title', 'Description', '19rtz.png', 1, 3),
-(15, 'Title', 'Description', '1156.jpg', 1, 3),
-(16, 'Title', 'Description', '64895-3008x2000.jpg', 1, 3),
-(17, 'Title', 'Description', '397757_devushka_shtanga_sport_1920x1080.jpg', 1, 3),
-(18, 'Title', 'Description', 'About-sports-betting-systems2.png', 1, 3),
-(19, 'Title', 'Description', 'ddddd.jpg', 1, 3),
-(20, 'Title', 'Description', 'mota_ru_2082423-preview.jpg', 1, 3),
-(21, 'Title', 'Description', 'rvl_msportsmix_03item01_e3.png', 1, 3),
-(22, 'Title', 'Description', 'Sports_Item_Basketball.jpg', 1, 3),
-(23, 'Title', 'Description', 'sports-wallpaper-android.jpg', 1, 3),
-(24, 'Title', 'Description', 'ychscfuccsz9.jpg', 1, 3);
+(34, 'Title', 'Description', '9002.jpg', 18, 3);
 
 -- --------------------------------------------------------
 
@@ -369,18 +347,17 @@ CREATE TABLE IF NOT EXISTS `km_quote` (
   `create_date` timestamp NULL DEFAULT NULL,
   `update_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `km_quote`
 --
 
 INSERT INTO `km_quote` (`id`, `quote`, `author_quote`, `create_date`, `update_date`) VALUES
-(11, 'ewfwef', 'wefwef', '2014-07-22 20:22:10', '2014-07-22 20:22:10'),
+(11, 'Цытата некоторая!', 'кто то когда то сказал!', '2014-07-22 20:22:10', '2014-08-10 11:59:39'),
 (12, 'wefwef', 'wefwef', '2014-07-22 20:25:59', '2014-07-22 20:25:59'),
 (13, 'efwe', 'wefwe', '2014-07-22 20:26:04', '2014-07-22 20:26:04'),
-(14, 'fwewefwef', 'wefwefwefwefwe', '2014-07-22 20:26:10', '2014-07-22 20:26:10'),
-(15, 'eferg trh h', 'r jtyj tj rtn', '2014-07-22 20:26:15', '2014-07-22 20:26:15');
+(14, 'fwewefwef', 'wefwefwefwefwe', '2014-07-22 20:26:10', '2014-07-22 20:26:10');
 
 -- --------------------------------------------------------
 
@@ -392,16 +369,14 @@ CREATE TABLE IF NOT EXISTS `km_rank` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `km_rank`
 --
 
 INSERT INTO `km_rank` (`id`, `name`) VALUES
-(1, 'M-11'),
-(2, 'MRS-23'),
-(3, 'SSTG-47001');
+(1, 'M-11');
 
 -- --------------------------------------------------------
 
@@ -422,14 +397,8 @@ CREATE TABLE IF NOT EXISTS `km_rank_has_km_competition_request` (
 --
 
 INSERT INTO `km_rank_has_km_competition_request` (`rank_id`, `competition_request_id`) VALUES
-(3, 2),
-(2, 4),
-(2, 5),
-(1, 6),
-(3, 6),
-(2, 7),
-(2, 9),
-(1, 10);
+(1, 2),
+(1, 3);
 
 -- --------------------------------------------------------
 
@@ -487,13 +456,9 @@ CREATE TABLE IF NOT EXISTS `km_role_has_km_user` (
 --
 
 INSERT INTO `km_role_has_km_user` (`role_id`, `user_id`) VALUES
-(0000000003, 1),
 (0000000001, 3),
 (0000000002, 3),
-(0000000003, 3),
-(0000000003, 14),
-(0000000004, 14),
-(0000000006, 15);
+(0000000003, 3);
 
 -- --------------------------------------------------------
 
@@ -502,27 +467,27 @@ INSERT INTO `km_role_has_km_user` (`role_id`, `user_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `km_sliders` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
   `link` varchar(255) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `alt` varchar(255) NOT NULL,
   `path` varchar(255) NOT NULL,
   `hedline` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `km_sliders`
 --
 
-INSERT INTO `km_sliders` (`id`, `link`, `alt`, `path`, `hedline`) VALUES
-(2, 'google.com', 'GOOOGLE', '6.jpg', 'google.com'),
-(3, 'wqerwqer', 'oioiuoiu', '19rtz.png', '123444412r rgfr teh'),
-(4, 'google.com', 'GOOOGLE', '1156.jpg', '123444412r rgfr teh'),
-(6, 'google.com', 'GOOOGLE', '397757_devushka_shtanga_sport_1920x1080.jpg', '123444412r rgfr teh'),
-(7, 'google.com', 'GOOOGLE', 'About-sports-betting-systems2.png', 'google.com'),
-(8, 'google.com', 'GOOOGLE', 'ddddd.jpg', '123444412r rgfr teh'),
-(9, 'google.com', 'GOOOGLE', 'mota_ru_2082423-preview.jpg', 'google.com'),
-(10, 'google.com', 'GOOOGLE', 'sports-wallpaper-android.jpg', 'google.com');
+INSERT INTO `km_sliders` (`link`, `id`, `alt`, `path`, `hedline`) VALUES
+('www.google.com', 2, 'www.google.com', 'Мотокросс1.jpg', 'www.google.com'),
+('www.google.com', 5, 'www.google.com', '1214374502_animal_sport002.jpg', 'www.google.com'),
+('www.google.com', 6, 'www.google.com', '1214374533_animal_sport003.jpg', 'www.google.com'),
+('www.google.com', 7, 'www.google.com', '1363141919_sport_kstrim_2084132.jpg', 'www.google.com'),
+('www.google.com', 8, 'www.google.com', 'basketball_sport_game_20131121_1978378222.jpg', 'www.google.com'),
+('www.google.com', 10, 'www.google.com', 'img_sport_202.jpg', 'www.google.com'),
+('www.google.com', 11, 'www.google.com', 'sport.jpg', 'www.google.com'),
+('www.google.com', 12, 'www.google.com', 'sport8.jpg', 'www.google.com');
 
 -- --------------------------------------------------------
 
@@ -545,31 +510,21 @@ CREATE TABLE IF NOT EXISTS `km_user` (
   `status` tinyint(1) unsigned DEFAULT '0',
   `member` tinyint(1) unsigned DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `km_user`
 --
 
 INSERT INTO `km_user` (`id`, `email`, `username`, `password`, `name`, `lastname`, `data_birth`, `phone`, `sity`, `coutry`, `club`, `status`, `member`) VALUES
-(1, 'max@ukr.net', 'max', '2ffe4e77325d9a7152f7086ea7aa5114', 'Max', 'Vovk', '1996-08-02', '+38-099-428-47-10', 'Kharkiv', 'Ukrain', 'Kompas', 1, 1),
-(3, 'max', 'maxim', '95ac3c545fa3f9c81939f8fa4d0511ca', 'maxim', 'Vovk', '1990-08-24', '8936895689', 'Kharkiv', 'Ukrain', 'max', 1, 1),
-(8, 'maximas90@ukr.net', 'max1', '200c29f5fa970ad93df1553c0072ef9c', 'Max', 'Vovk', '2014-07-22', '+38-099-428-47-10', 'Харьков', 'Украина', 'Компас', 1, 1),
-(9, 'maximas90@ukr.net', 'max2', '1c6268cd0d39f7aba33b053f84d3c310', 'Max', 'Vovk', '2012-08-16', '+38-099-428-47-10', 'Харьков', 'Украина', 'Компас', 0, 0),
-(14, 'new', 'new', '22af645d1859cb5ca6da0c484f1f37ea', 'new', 'new', '2014-09-19', 'new', 'new', 'new', 'new', 0, 0),
-(15, 'new1', 'new1', '565d008474834831d44e3e000e6f9690', 'new1', 'new1', '2014-08-27', 'new1', 'new1', 'new1', 'new1', 1, 0),
-(16, 'mvovk90@mail.ru', 'maximas', 'da1234909a94fca44f7c25cc0fc93a41', 'maximas', 'maximas', '1996-08-31', '+38-099-428-47-10', 'Харьков', 'Украина', '', 1, 0),
-(17, 'mvovk90@mail.ru', 'maxim2', '9c928476c64e29c89c2ba77b3911cf8a', 'maxim2', 'maxim2', '0000-00-00', '+38-099-428-47-10', 'Харьков', 'Украина', 'new', 1, 0);
+(1, 'max@ukr.net', 'max', '2ffe4e77325d9a7152f7086ea7aa5114', 'Max', 'Vovk', '0000-00-00', '+38-099-428-47-10', 'Kharkiv', 'Ukrain', 'Kompas', 1, 1),
+(3, 'max', 'maxim', '95ac3c545fa3f9c81939f8fa4d0511ca', 'maxim', 'Vovk', '0000-00-00', '8936895689', 'Kharkiv', 'Ukrain', 'max', 1, 1),
+(8, 'maximas90@ukr.net', 'max1', '21225dccb5d0c174f1bcacf72cd4dcb2', 'Max', 'Vovk', '0000-00-00', '+38-099-428-47-10', 'Харьков', 'Украина', 'Компас', 0, 0),
+(9, 'maximas90@ukr.net', 'max2', '1c6268cd0d39f7aba33b053f84d3c310', 'Max', 'Vovk', '0000-00-00', '+38-099-428-47-10', 'Харьков', 'Украина', 'Компас', 0, 0);
 
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `km_comments`
---
-ALTER TABLE `km_comments`
-  ADD CONSTRAINT `fk_km_comments_km_user1` FOREIGN KEY (`user_id`) REFERENCES `km_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `km_competition_group_refs`
@@ -585,25 +540,6 @@ ALTER TABLE `km_competition_request`
   ADD CONSTRAINT `fk_km_competition_request_km_competition1` FOREIGN KEY (`competition_id`) REFERENCES `km_competition` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_km_competition_request_km_group1` FOREIGN KEY (`group_id`) REFERENCES `km_group` (`id`),
   ADD CONSTRAINT `fk_km_competition_request_km_user1` FOREIGN KEY (`user_id`) REFERENCES `km_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `km_file`
---
-ALTER TABLE `km_file`
-  ADD CONSTRAINT `events_id` FOREIGN KEY (`events_id`) REFERENCES `km_events` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fcompetition_id` FOREIGN KEY (`competition_id`) REFERENCES `km_competition` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `km_group`
---
-ALTER TABLE `km_group`
-  ADD CONSTRAINT `km_group_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `km_group` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
-
---
--- Constraints for table `km_group_photo`
---
-ALTER TABLE `km_group_photo`
-  ADD CONSTRAINT `km_group_photo_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `km_group_photo` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `km_photo`
