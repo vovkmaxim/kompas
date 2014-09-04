@@ -2,13 +2,14 @@
 /* @var $this EventsController */
 /* @var $data Events */
 ?>
+
 <div class="view">
     <li>
         <h3><?php echo CHtml::encode($data->title); ?></h3>
         <div class="row">
             <div class="small-3 large-4 columns">
                 <a class="fancybox th radius" href="index.php?r=events/view&id=<?php echo $data->id; ?>">
-                    <img width="147" height="115" src="logo_events/<?php echo CHtml::encode($data->logo_path); ?>" alt="<?php echo CHtml::encode($data->title); ?>" />
+                    <img width="147" height="115" src="/logo_events/<?php echo CHtml::encode($data->logo_path); ?>" alt="<?php echo CHtml::encode($data->title); ?>" />
                 </a>
                
             </div>

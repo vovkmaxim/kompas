@@ -19,10 +19,6 @@ class DefaultController extends AdminController
 	{
 		$model=new LoginForm;
                 
-//                print_r("<pre>");
-//                print_r($this);
-//                print_r("<pre>");
-//                die();
 		// if it is ajax validation request
 		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
 		{

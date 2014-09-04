@@ -339,7 +339,7 @@ class Competition extends CActiveRecord
         public function getLogoImage(){
             
             if(!empty($this->logo_desc)){
-                return '<img width="147" height="115" alt="logo" src="logo_competition/'. $this->logo_desc . '">';
+                return '<img width="147" height="115" alt="logo" src="/logo_competition/'. $this->logo_desc . '">';
             } else {
                 return 'Логотип отсутствует';
             }

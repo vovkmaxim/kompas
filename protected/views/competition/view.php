@@ -17,7 +17,7 @@ $this->breadcrumbs=array(
 		<span class="date-time"><p>Дата начала: <?php echo $model->start_data; ?>  - время начала: <?php echo $model->start_time; ?></p></span>
 		<span class="date-time"><p>Дата окончания: <?php echo $model->end_data; ?>  - время окончания: <?php echo $model->end_time; ?></p></span>
 		<div class="img-content">
-                    <img width="563" height="291" alt="logo" src="logo_competition/<?php echo $model->logo_desc; ?>">
+                    <img width="563" height="291" alt="logo" src="/logo_competition/<?php echo $model->logo_desc; ?>">
                     <!--<img data-src="holder.js/100%x291/grey" alt="image">-->
 		</div>
 		<p><?php echo $model->text; ?></p>
@@ -25,7 +25,7 @@ $this->breadcrumbs=array(
 		<div class="row">
 			<div class="large-6 small-12 columns">
 				<div class="tags">Теги: ориентирование, компас</div>
-				<div><img src="images/ico-socials.png" alt="socials"></div>
+				<div><img src="/images/ico-socials.png" alt="socials"></div>
 			</div>
 			<!--<div class="large-6 small-12 columns" style="text-align: center;">-->
                             <?php
@@ -132,7 +132,7 @@ if(!Yii::app()->user->isGuest){
 ?>
         <div class="comment">
             <p>Ваш отзыв:</p>
-            <form id="comments-form" method="post" action="/index.php?r=comments/create">
+            <form id="comments-form" method="post" action="/index.php/comments/create">
                 <div class="row">
                     <input id="Comments_events_id" type="hidden" value="0" name="Comments[events_id]" maxlength="10" size="10">
                 </div>

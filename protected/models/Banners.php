@@ -95,7 +95,7 @@ class Banners extends CActiveRecord {
             foreach ($banners as $banner) {
                 $return_string_images .= '
                 <li><a class="th radius" href="' . $banner->link . '">
-                <img src="banners/' . $banner->path . '"
+                <img src="/banners/' . $banner->path . '"
                 alt="' . $banner->name . '">
                 </a></li>
 ';
