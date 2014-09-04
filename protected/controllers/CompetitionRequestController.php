@@ -39,16 +39,27 @@ class CompetitionRequestController extends Controller
             $model->save();
             
             if(isset($_POST['CompetitionRequest'])){
+                
+//                print_r('<pre>');
+//                print_r($_POST);
+//                print_r('<pre>');
+//                die();
+                
                     $model->group_id = $_POST['group_id'];
-                    $check_data = $_POST['check_data'];
-                    if(!empty($check_data)){
-                        $participation_data = '';
-                        $lenght = count($check_data);
-                        foreach ($check_data as $k=>$v){
-                             $participation_data .= $v . ', ';
-                        }                
-                        $model->participation_data = $participation_data;
-                    }                    
+                    try{
+                        if(isset($_POST['check_data'])){
+                        $check_data = $_POST['check_data'];
+                            if(!empty($check_data)){
+                                $participation_data = '';
+                                $lenght = count($check_data);   
+                                foreach ($check_data as $k=>$v){
+                                     $participation_data .= $v . ', ';
+                                }                
+                                $model->participation_data = $participation_data;
+                            }                        
+                        }
+                    } catch (\Exception $e){}
+                    
                     if(isset($_POST['year_bird']) && !empty($_POST['year_bird'])){
                         $model->year = $_POST['year_bird'];
                     }
@@ -62,7 +73,7 @@ class CompetitionRequestController extends Controller
                                     $this->redirect(array('competition/index'));  
                                 }
                             }                                
-                            $this->redirect(array('competition/index'));
+                            return $this->redirect(array('competition/index'));
                         }
             }
             $this->render('/competitionRequest/create',array(

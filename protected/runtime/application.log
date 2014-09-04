@@ -3061,3 +3061,1644 @@ Stack trace:
 REQUEST_URI=/index.php/events/js/holder.js
 HTTP_REFERER=http://o-kompas.com.local/index.php/events/article
 ---
+2014/09/04 08:47:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/comments/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/admin/comments/img/favicons/favicon.ico
+---
+2014/09/04 08:47:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/img/favi...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/img/favicons/favicon.ico
+---
+2014/09/04 08:47:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/comments/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/admin/comments/img/favicons/favicon.ico
+---
+2014/09/04 08:47:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/img/favi...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/img/favicons/favicon.ico
+---
+2014/09/04 09:07:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/comments/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/admin/comments/img/favicons/favicon.ico
+---
+2014/09/04 09:07:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/img/favi...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/img/favicons/favicon.ico
+---
+2014/09/04 09:07:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/comments/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/admin/comments/img/favicons/favicon.ico
+---
+2014/09/04 09:07:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/img/favi...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/img/favicons/favicon.ico
+---
+2014/09/04 19:29:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/comments/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/admin/comments/img/favicons/favicon.ico
+---
+2014/09/04 19:29:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/img/favi...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/img/favicons/favicon.ico
+---
+2014/09/04 19:29:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/comments/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/admin/comments/img/favicons/favicon.ico
+---
+2014/09/04 19:29:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/img/favi...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/img/favicons/favicon.ico
+---
+2014/09/04 21:48:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/js/holde...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/events/article
+---
+2014/09/04 21:48:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/js/vendo...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/events/article
+---
+2014/09/04 21:48:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/js/holde...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/events/article
+---
+2014/09/04 21:53:18 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/1
+---
+2014/09/04 21:53:18 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/img/favicons/favicon.ico
+---
+2014/09/04 21:53:18 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/1
+---
+2014/09/04 21:53:18 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/1
+---
+2014/09/04 21:53:45 [error] [php] Undefined index: check_data (/home/max/public_html/o-kompas/protected/controllers/CompetitionRequestController.php:43)
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CompetitionRequestController->runAction()
+#3 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CompetitionRequestController->filterAccessControl()
+#6 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#8 /home/max/public_html/o-kompas/framework/web/CController.php(265): CompetitionRequestController->runActionWithFilters()
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CompetitionRequestController->run()
+#10 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /home/max/public_html/o-kompas/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/competitionRequest/application/1
+in /home/max/public_html/o-kompas/protected/controllers/CompetitionRequestController.php (43)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/09/04 22:16:51 [error] [php] Undefined index: check_data (/home/max/public_html/o-kompas/protected/controllers/CompetitionRequestController.php:43)
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CompetitionRequestController->runAction()
+#3 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CompetitionRequestController->filterAccessControl()
+#6 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#8 /home/max/public_html/o-kompas/framework/web/CController.php(265): CompetitionRequestController->runActionWithFilters()
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CompetitionRequestController->run()
+#10 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /home/max/public_html/o-kompas/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/competitionRequest/application/1
+in /home/max/public_html/o-kompas/protected/controllers/CompetitionRequestController.php (43)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/09/04 22:19:02 [error] [php] print_r() expects at least 1 parameter, 0 given (/home/max/public_html/o-kompas/protected/controllers/CompetitionRequestController.php:42)
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CompetitionRequestController->runAction()
+#4 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#6 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CompetitionRequestController->filterAccessControl()
+#7 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#8 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#9 /home/max/public_html/o-kompas/framework/web/CController.php(265): CompetitionRequestController->runActionWithFilters()
+#10 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CompetitionRequestController->run()
+#11 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /home/max/public_html/o-kompas/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/competitionRequest/application/1
+in /home/max/public_html/o-kompas/protected/controllers/CompetitionRequestController.php (42)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/09/04 22:19:15 [error] [php] Undefined index: check_data (/home/max/public_html/o-kompas/protected/controllers/CompetitionRequestController.php:45)
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CompetitionRequestController->runAction()
+#3 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CompetitionRequestController->filterAccessControl()
+#6 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#8 /home/max/public_html/o-kompas/framework/web/CController.php(265): CompetitionRequestController->runActionWithFilters()
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CompetitionRequestController->run()
+#10 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /home/max/public_html/o-kompas/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/competitionRequest/application/1
+in /home/max/public_html/o-kompas/protected/controllers/CompetitionRequestController.php (45)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/09/04 22:21:13 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/1
+---
+2014/09/04 22:21:13 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/1
+---
+2014/09/04 22:21:13 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/1
+---
+2014/09/04 22:21:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/index
+---
+2014/09/04 22:21:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/img...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/img/favicons/favicon.ico
+---
+2014/09/04 22:21:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/index
+---
+2014/09/04 22:21:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/index
+---
+2014/09/04 22:21:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/5
+---
+2014/09/04 22:21:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/5
+---
+2014/09/04 22:21:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/5
+---
+2014/09/04 22:21:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('site/js/holder....')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/site/login
+---
+2014/09/04 22:21:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('site/img/favico...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/img/favicons/favicon.ico
+---
+2014/09/04 22:21:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('site/js/vendor/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/site/login
+---
+2014/09/04 22:21:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('site/js/holder....')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/site/login
+---
+2014/09/04 22:21:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/js/holde...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/events/12
+---
+2014/09/04 22:21:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/js/vendo...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/events/12
+---
+2014/09/04 22:21:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/js/holde...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/events/12
+---
+2014/09/04 22:21:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/index
+---
+2014/09/04 22:21:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/index
+---
+2014/09/04 22:21:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/index
+---
+2014/09/04 22:21:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/5
+---
+2014/09/04 22:21:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/5
+---
+2014/09/04 22:21:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/5
+---
+2014/09/04 22:22:00 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/5
+---
+2014/09/04 22:22:01 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/5
+---
+2014/09/04 22:22:01 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/5
+---
+2014/09/04 22:22:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/training
+---
+2014/09/04 22:22:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/training
+---
+2014/09/04 22:22:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/training
+---
+2014/09/04 22:33:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/comments/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/admin/comments/img/favicons/favicon.ico
+---
+2014/09/04 22:33:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/comments/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/admin/comments/img/favicons/favicon.ico
+---
+2014/09/04 22:33:57 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/5
+---
+2014/09/04 22:33:57 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/img/favicons/favicon.ico
+---
+2014/09/04 22:33:57 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/5
+---
+2014/09/04 22:33:58 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/5
+---
+2014/09/04 22:34:03 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/1
+---
+2014/09/04 22:34:04 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/1
+---
+2014/09/04 22:34:04 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/1
+---
+2014/09/04 22:43:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/js/holde...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/events/article
+---
+2014/09/04 22:43:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/img/favi...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/img/favicons/favicon.ico
+---
+2014/09/04 22:43:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/js/vendo...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/events/article
+---
+2014/09/04 22:43:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/js/holde...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/events/article
+---
+2014/09/04 23:09:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/js/holde...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/events/news
+---
+2014/09/04 23:09:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/js/vendo...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/events/news
+---
+2014/09/04 23:09:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/js/holde...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/events/news
+---
+2014/09/04 23:09:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'У вас нет прав для входа в адменистрирование сайта! Обратитесь к администратору.' in /home/max/public_html/o-kompas/protected/modules/admin/components/AdminController.php:23
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(359): AdminController->__construct('comments', Object(AdminModule))
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(338): CWebApplication->createController('comments/index/', Object(AdminModule))
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(276): CWebApplication->createController('admin/comments/...')
+#3 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/comments/...')
+#4 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/index.php/admin/comments/index
+HTTP_REFERER=http://o-kompas.com.local/index.php/admin/events/create
+---
+2014/09/04 23:09:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/training
+---
+2014/09/04 23:09:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/img...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/img/favicons/favicon.ico
+---
+2014/09/04 23:09:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/training
+---
+2014/09/04 23:09:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/training
+---
+2014/09/04 23:09:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/js/holde...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/events/news
+---
+2014/09/04 23:09:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/js/vendo...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/events/news
+---
+2014/09/04 23:09:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/js/holde...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/events/news
+---
+2014/09/04 23:09:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('site/js/holder....')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/site/login
+---
+2014/09/04 23:09:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('site/img/favico...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/img/favicons/favicon.ico
+---
+2014/09/04 23:09:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('site/js/vendor/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/site/login
+---
+2014/09/04 23:09:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('site/js/holder....')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/site/login
+---
+2014/09/04 23:09:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/js/holde...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/events/news
+---
+2014/09/04 23:09:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/js/vendo...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/events/news
+---
+2014/09/04 23:09:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/js/holde...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/events/news
+---
+2014/09/04 23:09:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "img/favicons/favicon.ico".' in /home/max/public_html/o-kompas/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('img/favicons/fa...')
+#1 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/img/favicons/favicon.ico
+---
+2014/09/04 23:09:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/competiti...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/admin/competition/img/favicons/favicon.ico
+---
+2014/09/04 23:09:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php:157
+Stack trace:
+#0 /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php(82): CompetitionController->loadModel('img')
+#1 [internal function]: CompetitionController->actionUpdate('img')
+#2 /home/max/public_html/o-kompas/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CompetitionController), Array)
+#3 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CompetitionController), Object(ReflectionMethod), Array)
+#4 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('update')
+#13 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/competiti...')
+#14 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/admin/competition/update/id/img/favicons/favicon.ico
+---
+2014/09/04 23:09:52 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_desc" класса "Competition".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (97)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/09/04 23:10:13 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_desc" класса "Competition".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (97)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/09/04 23:10:19 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/5
+---
+2014/09/04 23:10:20 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/5
+---
+2014/09/04 23:10:20 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/5
+---
+2014/09/04 23:10:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/5
+---
+2014/09/04 23:10:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/5
+---
+2014/09/04 23:10:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/5
+---
+2014/09/04 23:10:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/index
+---
+2014/09/04 23:10:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/index
+---
+2014/09/04 23:10:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/index
+---
+2014/09/04 23:10:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/1
+---
+2014/09/04 23:10:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/1
+---
+2014/09/04 23:10:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/1
+---
+2014/09/04 23:10:45 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/1
+---
+2014/09/04 23:10:45 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/1
+---
+2014/09/04 23:10:45 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/1
+---
+2014/09/04 23:11:55 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_desc" класса "Competition".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (97)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/09/04 23:12:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('site/js/holder....')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/site/index
+---
+2014/09/04 23:12:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('site/js/vendor/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/site/index
+---
+2014/09/04 23:12:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('site/js/holder....')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/site/index
+---
+2014/09/04 23:12:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/index
+---
+2014/09/04 23:12:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/index
+---
+2014/09/04 23:12:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/index
+---
+2014/09/04 23:12:18 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_desc" класса "Competition".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (97)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/09/04 23:12:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/index
+---
+2014/09/04 23:12:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/index
+---
+2014/09/04 23:12:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/index
+---
+2014/09/04 23:12:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/3
+---
+2014/09/04 23:12:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/3
+---
+2014/09/04 23:12:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/3
+---
+2014/09/04 23:12:42 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_desc" класса "Competition".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (97)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/09/04 23:12:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/3
+---
+2014/09/04 23:12:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/3
+---
+2014/09/04 23:12:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/3
+---
+2014/09/04 23:12:48 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/3
+---
+2014/09/04 23:12:48 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/3
+---
+2014/09/04 23:12:49 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/3
+---
+2014/09/04 23:13:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/index
+---
+2014/09/04 23:13:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/index
+---
+2014/09/04 23:13:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/index
+---
+2014/09/04 23:13:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/1
+---
+2014/09/04 23:13:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/1
+---
+2014/09/04 23:13:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "js".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('js')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('js')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/js/...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/1
+---
+2014/09/04 23:13:12 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/1
+---
+2014/09/04 23:13:12 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/vendor/zepto.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/1
+---
+2014/09/04 23:13:12 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('application')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competitionRequ...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/competitionRequest/application/js/holder.js
+HTTP_REFERER=http://o-kompas.com.local/index.php/competitionRequest/application/1
+---
