@@ -145,7 +145,7 @@ class File extends CActiveRecord
         }
         
         public function viewsFile(){
-            return "<a href='media/" . $this->path . "' target='_blank' >" . $this->path  . "</a>";
+            return "<a href='/media/" . $this->path . "' target='_blank' >" . $this->path  . "</a>";
         }
         
         public function getAllEventsList(){

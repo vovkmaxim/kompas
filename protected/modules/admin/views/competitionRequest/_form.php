@@ -110,9 +110,9 @@
 		<?php echo $form->labelEx($model,'status'); ?>
                 <?php 
                     echo $form->dropDownList($model,'status',
-                    array('0' => 'Не актевирован', 
-                          '1' => 'Актевирован', ),
-                    array('0' => 'Не актевирован', ));            
+                    array('0' => 'Не активирован', 
+                          '1' => 'Активирован', ),
+                    array('0' => 'Не активирован', ));            
                 ?>
 		<?php // echo $form->textField($model,'status'); ?>
 		<?php echo $form->error($model,'status'); ?>

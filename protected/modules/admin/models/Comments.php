@@ -117,8 +117,7 @@ class Comments extends CActiveRecord
             if($this->events_id != 0 ){
                 $events = Events::model()->find('id=:id',array(':id' => $this->events_id));
                 if($events != NULL){
-                    return '<a href="/index.php?r=events/view&id=' . $this->events_id . '" >' . $events->title . '</a>';
-//                    return $events->title;
+                    return '<a target="_blank" href="/index.php/events/view/' . $this->events_id . '" >' . $events->title . '</a>';
                 }
             }
         }
@@ -127,8 +126,7 @@ class Comments extends CActiveRecord
             if($this->competition_id != 0 ){
                 $competition = Competition::model()->find('id=:id',array(':id' => $this->competition_id));
                 if($competition != NULL){
-                    return '<a href="/index.php?r=competition/view&id=' . $this->competition_id . '" >' . $competition->title . '</a>';
-//                    return $competition->title;    index.php?r=events/view&id
+                    return '<a target="_blank" href="/index.php/competition/view/' . $this->competition_id . '" >' . $competition->title . '</a>';
                 }
             }
         }

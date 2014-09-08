@@ -3,8 +3,8 @@
 /* @var $model Comments */
 
 $this->breadcrumbs=array(
-	'Comments'=>array('index'),
-	'Manage',
+	'Коментарии'=>array('index'),
+	'Управление',
 );
 
 

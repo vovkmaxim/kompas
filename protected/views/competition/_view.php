@@ -18,7 +18,7 @@
             </div>
             <div class="more">
                 <div class="small-12 dop_in">Опубликовано: <?php echo CHtml::encode($data->create_date) . ';'; ?></div>
-                <div class="small-12 dop_in">
+                <div class="small-8 dop_in">
                     <?php if($data->enable_registration_flag == 1){
                         echo '<b>Окончание онлайн регистраци : </b>' . $data->close_registration_data . '-' . $data->close_registration_time . ';';
                     } ?>      

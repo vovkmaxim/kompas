@@ -57,10 +57,12 @@ function draw_new_calendar($month, $year, $this_) {
             $seu_dey = $list_day;
         }
         $todey = date('d');
+        $this_day = 0;
         $flag = false;
         $next_flag = false;
         foreach ($user_dey_list as $user_dey_lists) {
             if ($data == $user_dey_lists['data']) {
+                $this_day = $list_day;
                 $flag = true;
                 $next_flag = true;
                 if ($todey == $seu_dey) {
@@ -76,17 +78,19 @@ function draw_new_calendar($month, $year, $this_) {
         } else {
             foreach ($competition_data as $competition_dat) {
                 $str = $competition_dat['start_data'];
-                if ($data == $competition_dat['end_data'] && $competition_dat['type'] == 1 || $data == $competition_dat['start_data'] && $competition_dat['type'] == 1 || $data > $competition_dat['start_data'] && $data < $competition_dat['end_data'] && $competition_dat['type'] == 1) {
+                if ($this_day != $list_day  && ($data == $competition_dat['end_data'] && $competition_dat['type'] == 1 || $data == $competition_dat['start_data'] && $competition_dat['type'] == 1 || $data > $competition_dat['start_data'] && $data < $competition_dat['end_data'] && $competition_dat['type'] == 1)) {
 // Тренировка
                     $next_flag = true;
+                    $this_day = $list_day;
                     if ($todey == $seu_dey) {
                         $calendar.= '<td class="cal-check-T cal-selected" ><a href="' . $this_->createUrl('competition/view', array('id' => $competition_dat['id'])) . '"> ' . $list_day . ' ';
                     } else {
                         $calendar.= '<td class="cal-check-T " ><a href="' . $this_->createUrl('competition/view', array('id' => $competition_dat['id'])) . '"> ' . $list_day . ' ';
                     }
-                } elseif ($data == $competition_dat['end_data'] && $competition_dat['type'] == 2 || $data == $competition_dat['start_data'] && $competition_dat['type'] == 2 || $data > $competition_dat['start_data'] && $data < $competition_dat['end_data'] && $competition_dat['type'] == 2) {
+                } elseif ($this_day != $list_day  && ($data == $competition_dat['end_data'] && $competition_dat['type'] == 2 || $data == $competition_dat['start_data'] && $competition_dat['type'] == 2 || $data > $competition_dat['start_data'] && $data < $competition_dat['end_data'] && $competition_dat['type'] == 2)) {
 // Соревнования
                     $next_flag = true;
+                    $this_day = $list_day;
                     if ($todey == $seu_dey) {
                         $calendar.= '<td class="cal-check-S cal-selected" ><a href="' . $this_->createUrl('competition/view', array('id' => $competition_dat['id'])) . '"> ' . $list_day . ' ';
                     } else {
@@ -187,7 +191,7 @@ function get_mont($mont) {
                 <div class="row">
                     <div class="small-12 columns">
                         <div class="logo small-4 large-3 large-uncentered columns">
-                            <a href="index.html" class="">
+                            <a href="<?php echo Yii::app()->homeUrl; ?>" class="">
                                 <img id="logo1" src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo_1.png" alt="«Компас» м.Харків" title="«Компас» м.Харків"/>
                                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" alt="«Компас» м.Харків" title="«Компас» м.Харків"/>
                             </a>
@@ -246,7 +250,7 @@ function get_mont($mont) {
                         $sliders = Sliders::model()->findAll();
                         $request = Yii::app()->request->requestUri;
                         if ($sliders != NULL) {
-                            if ($request == '/' || $request == '/index.php?r=site/index') {
+                            if ($request == '/' || $request == '/index.php/site/index' || $request == '/index.php' ) {
                                 ?>
                         <div id="slider-wrap">
                             <div id="slider">
@@ -280,8 +284,8 @@ function get_mont($mont) {
 <?php endif ?>
             </div>
             <div class="cal large-4 columns">
-<?php
-if ($request == '/' || $request == '/index.php?r=site/index') {
+<?php 
+if ($request == '/' || $request == '/index.php/site/index' || $request == '/index.php' ) {
     $mass_data = explode('-', date('m-Y'));
     echo draw_new_calendar($mass_data[0], $mass_data[1], $this);
 }
@@ -307,7 +311,7 @@ if ($request == '/' || $request == '/index.php?r=site/index') {
                     <div class="small-12 columns">
                         <ul class="no-bullet small-block-grid-4 large-block-grid-1">
                     <?php
-                    echo Banners::getAllBanners();
+                         echo Banners::getAllBanners();
                     ?>
                         </ul>
                     </div>
@@ -328,13 +332,13 @@ echo '<blockquote>' . $quote->quote . '<cite> ' . $quote->author_quote . '</cite
                 <div class="large-12 small-11 columns">
                     <div class="large-4 columns">
                         <ul class="no-bullet left">
-                            <li><a href="#">Соревнования</a></li>
-                            <li><a href="#">Тренировки</a></li>
-                            <li><a href="#">Статьи</a></li>
-                            <li><a href="#">Члены клуба</a></li>
-                            <li><a href="#">Ссылки</a></li>
-                            <li><a href="#">Фото-галлерея</a></li>
-                            <li><a href="#">О нас</a></li>
+                            <li><a href="/index.php/competition/index">Соревнования</a></li>
+                            <li><a href="/index.php/competition/training">Тренировки</a></li>
+                            <li><a href="/index.php/events/article">Статьи</a></li>
+                            <li><a href="/index.php/user/index">Члены клуба</a></li>
+                            <li><a href="/index.php/link/index">Ссылки</a></li>
+                            <li><a href="/index.php/photo/galery">Фото-галлерея</a></li>
+                            <!--<li><a href="#">О нас</a></li>-->
                         </ul>
                     </div>
                     <div class="large-4 columns">
@@ -347,7 +351,7 @@ echo '<blockquote>' . $quote->quote . '<cite> ' . $quote->author_quote . '</cite
                             <!-- VK Widget -->
                             <div id="vk_groups"></div>
                             <script type="text/javascript">
-                                // VK.Widgets.Group("vk_groups", {mode: 0, width: "220", height: "200", color1: 'D02B23', color2: 'FFFFFF', color3: 'EA5F58'}, 20003922);
+                                 VK.Widgets.Group("vk_groups", {mode: 0, width: "220", height: "200", color1: 'D02B23', color2: 'FFFFFF', color3: 'EA5F58'}, 20003922);
                             </script>
                         </div>
                     </div>
@@ -366,8 +370,7 @@ echo '<blockquote>' . $quote->quote . '<cite> ' . $quote->author_quote . '</cite
                 ('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') +
                 '.js><\/script>')
         </script>
-        <!-- <script src="js/foundation.min.js"></script>
-        Included JS Files (Uncompressed)
+         <script src="js/foundation.min.js"></script>
         <script src="js/vendor/jquery.js"></script>
         <script src="js/foundation/foundation.js"></script>
         <script src="js/foundation/foundation.interchange.js"></script>
@@ -384,8 +387,7 @@ echo '<blockquote>' . $quote->quote . '<cite> ' . $quote->author_quote . '</cite
         <script src="js/foundation/foundation.joyride.js"></script>
         <script src="js/foundation/foundation.orbit.js"></script>
         <script src="js/foundation/foundation.section.js"></script>
-        <script src="js/foundation/foundation.topbar.js"></script>-->
-        <!-- Initialize JS Plugins -->
+        <script src="js/foundation/foundation.topbar.js"></script>
         <script src="js/holder.js"></script>
     </body>
 </html>

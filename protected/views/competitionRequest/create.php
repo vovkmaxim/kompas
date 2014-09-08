@@ -3,8 +3,8 @@
 /* @var $model CompetitionRequest */
 
 $this->breadcrumbs=array(
-	'Competition Requests'=>array('index'),
-	'Create',
+	'Заявка'=>array('index'),
+	'Подать заявку',
 );
 
 //$this->menu=array(
@@ -13,6 +13,6 @@ $this->breadcrumbs=array(
 //);
 ?>
 
-<h1>Create CompetitionRequest</h1>
+<h1>Подать заявку</h1>
 
 <?php $this->renderPartial('/competitionRequest/_form', array('model'=>$model)); ?>

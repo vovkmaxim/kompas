@@ -316,7 +316,7 @@ class CompetitionRequest extends CActiveRecord
             $competition = Competition::model()->findByPk($this->competition_id);
             if($competition != NULL){
 //                return CHtml::link($competition->title, array('competition/view', 'id'=>$this->competition_id));
-                return '<a href="/index.php?r=competition/view&id=' . $this->competition_id . '" >' . $competition->title . '</a>';
+                return '<a target="_blan" href="/index.php/competition/' . $this->competition_id . '" >' . $competition->title . '</a>';
             } else {
                 return false;
             }
