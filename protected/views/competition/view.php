@@ -3,7 +3,7 @@
 /* @var $model Competition */
 
 $this->breadcrumbs=array(
-	'Competitions'=>array('index'),
+	'Сореноание'=>array('index'),
 	$model->title,
 );
 
