@@ -30,8 +30,8 @@ $this->breadcrumbs = array(
         </div>
     </div>
 </div>
-<?php
-if ($file != NULL) {
+<?php 
+if($file->itemCount){
     $this->widget('zii.widgets.grid.CGridView', array(
         'id' => 'file-grid',
         'dataProvider' => $file,
@@ -57,10 +57,12 @@ if ($file != NULL) {
         ),
     ));
 }
-$this->widget('zii.widgets.CListView', array(
-    'dataProvider' => $comments,
-    'itemView' => '_viewcomment',
-));
+if($comments->itemCount){
+        $this->widget('zii.widgets.CListView', array(
+            'dataProvider'=>$comments,
+            'itemView'=>'_viewcomment',
+         ));
+    }
 ?>
 <div id="comments-form" class="form">
     <?php

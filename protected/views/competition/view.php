@@ -29,8 +29,7 @@ $this->breadcrumbs=array(
 			</div>
 			<!--<div class="large-6 small-12 columns" style="text-align: center;">-->
                             <?php
-
-if($file != NULL){
+if($file->itemCount){
     
     $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'file-grid',
@@ -77,10 +76,12 @@ if($file != NULL){
 	</div>
 </div>
 <div class="people large-12 small-12 columns">
+    <?php if($request->itemCount){ ?>
     <div class="people-about">Уже заявилось:</div>
+    <?php } ?>
     <div>        
         <?php        
-        if($request != NULL){
+        if($request->itemCount){
                 $this->widget('zii.widgets.grid.CGridView', array(
                        'id'=>'competition-request-grid',
                        'dataProvider'=>$request,
@@ -119,10 +120,12 @@ if($file != NULL){
 </div>
 <div class="comments">
     <?php
-    $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$comments,
-	'itemView'=>'_viewcomment',
-));
+    if($comments->itemCount){
+        $this->widget('zii.widgets.CListView', array(
+            'dataProvider'=>$comments,
+            'itemView'=>'_viewcomment',
+         ));
+    }
     ?>
     
 </div>
