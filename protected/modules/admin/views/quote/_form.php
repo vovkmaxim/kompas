@@ -26,11 +26,8 @@
 		<?php echo $form->textField($model,'author_quote',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'author_quote'); ?>
 	</div>
-
-	
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'СОЗДАТЬ' : 'СОХРАНИТЬ'); ?>
+        <div class="row buttons">
+            <input class="knopka" type="submit" value="<?php if($model->isNewRecord){echo 'СОЗДАТЬ';} else { echo 'СОХРАНИТЬ';} ?>" />
 	</div>
 
 <?php $this->endWidget(); ?>

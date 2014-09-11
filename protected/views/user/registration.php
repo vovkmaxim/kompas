@@ -19,15 +19,6 @@
 
 	<?php echo $form->errorSummary($model); ?>
 	<?php // echo date('y-m-d') ?>
-
-        <?php 
-        
-//        print_r("<pre>");
-//        print_r($model);
-//        print_r("<pre>");
-//        die();
-        ?>
-        
 	<div class="row">
 		<?php echo $form->labelEx($model,'email'); ?>
 		<?php echo $form->textField($model,'email'); ?>
@@ -98,10 +89,9 @@
 		<?php // echo $form->error($model,'verifyCode'); ?>
 	</div>-->
 
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Submit'); ?>
-	</div>
+        <div class="row buttons">
+                            <input class="button8" type="submit" value="РЕГИСТРАЦИЯ" />
+        </div>
 
 <?php $this->endWidget(); ?>
 

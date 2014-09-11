@@ -7,9 +7,9 @@ $this->breadcrumbs=array(
 	'Управление',
 );
 
-$this->menu=array(
-	array('label'=>'Добавить', 'url'=>array('create')),
-);
+//$this->menu=array(
+//	array('label'=>'Добавить', 'url'=>array('create')),
+//);
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){

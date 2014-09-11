@@ -59,10 +59,10 @@ class Banners extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
+			'name' => 'Имя',
 			'position' => 'Position',
-			'link' => 'Link',
-			'path' => 'Path',
+			'link' => 'Ссылка',
+			'path' => 'Картинка',
 		);
 	}
 

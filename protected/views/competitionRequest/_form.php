@@ -128,9 +128,8 @@
                 print_r($model->getChekData($model->competition_id)); 
                 ?>
 	</div>
-
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Подать' : 'Save'); ?>
+            <input class="knopka" type="submit" value="<?php if($model->isNewRecord){echo 'Подать';} else { echo 'СОХРАНИТЬ';} ?>" />
 	</div>
 
 <?php $this->endWidget(); ?>

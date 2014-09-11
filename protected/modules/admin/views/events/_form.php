@@ -78,12 +78,12 @@
                 
             <?php endif; ?>
             <?php echo $form->labelEx($model,'logo_path'); ?>
-            <?php echo $form->fileField($model,'logo_path'); ?>
+            <span class="button7"><p>ЗАГРУЗИТЬ КАРТИНКУ</p><?php echo $form->fileField($model,'logo_path'); ?></span>
+            <?php // echo $form->fileField($model,'logo_path'); ?>
             <?php echo $form->error($model,'logo_path'); ?>  
 	</div>
-
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'СОЗДАТЬ' : 'СОХРАНИТЬ'); ?>
+            <input class="knopka" type="submit" value="<?php if($model->isNewRecord){echo 'СОЗДАТЬ';} else { echo 'СОХРАНИТЬ';} ?>" />
 	</div>
 
 <?php $this->endWidget(); ?>

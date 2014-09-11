@@ -28,15 +28,11 @@
 	</div>
 
 	<div class="row">
-            <?php echo $form->labelEx($model,'parent_id'); ?>
-                <?php echo CHtml::dropDownList('parent_id', $model, 
-                                      $model->getAllParentGroupName(),
-                                      array('1' => 'ALL'));
-                ?>
+<?php echo $form->labelEx($model,'parent_id'); ?>
+<?php echo CHtml::dropDownList('parent_id', $model, $model->getAllParentGroupName(), array('1' => 'ALL')); ?>
 	</div>
-
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'СОЗДАТЬ' : 'СОХРАНИТЬ'); ?>
+            <input class="knopka" type="submit" value="<?php if($model->isNewRecord){echo 'СОЗДАТЬ';} else { echo 'СОХРАНИТЬ';} ?>" />
 	</div>
 
 <?php $this->endWidget(); ?>

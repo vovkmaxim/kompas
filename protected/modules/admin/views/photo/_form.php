@@ -35,7 +35,7 @@
                 <p><?php echo CHtml::encode($model->path); ?></p>
             <?php endif; ?>
             <?php echo $form->labelEx($model,'path'); ?>
-            <?php echo $form->fileField($model,'path'); ?>
+            <span class="button7"><?php echo $form->fileField($model,'path'); ?></span>
             <?php echo $form->error($model,'path'); ?>
         </div>    
 
@@ -48,16 +48,9 @@
                 ?>
 		<?php echo $form->error($model,'group_photo_id'); ?>
 	</div>
-
-	<div class="row">
-		<?php // echo $form->labelEx($model,'user_id'); ?>
-		<?php // echo $form->textField($model,'user_id',array('size'=>10,'maxlength'=>10)); ?>
 		<?php echo $form->hiddenField($model,'user_id',array('size'=>'50','value'=> Yii::app()->user->id )); ?>
-		<?php // echo $form->error($model,'user_id'); ?>
-	</div>
-
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'СОЗДАТЬ' : 'СОХРАНИТЬ'); ?>
+            <input class="knopka" type="submit" value="<?php if($model->isNewRecord){echo 'СОЗДАТЬ';} else { echo 'СОХРАНИТЬ';} ?>" />
 	</div>
 
 <?php $this->endWidget(); ?>
