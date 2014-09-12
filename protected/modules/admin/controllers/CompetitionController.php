@@ -51,7 +51,7 @@ class CompetitionController extends AdminController
 		));
 	}
 
-        private function setCompetitionGroupRefs($_POST, $km_competition_id){
+        private function setCompetitionGroupRefs($km_competition_id){
             $all_group = Group::model()->findAll();
             if($all_group != NULL){                
                     foreach($all_group as $all_groups){
