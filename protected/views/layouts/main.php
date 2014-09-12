@@ -158,30 +158,38 @@ function get_mont($mont) {
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="language" content="en" />
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/favicons/apple-touch-icon-144x144-precomposed.png"/>
-        <!-- For iPhone with high-resolution Retina display: -->
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/favicons/apple-touch-icon-114x114-precomposed.png"/>
-        <!-- For first- and second-generation iPad: -->
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/favicons/apple-touch-icon-72x72-precomposed.png"/>
-        <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
         <link rel="apple-touch-icon-precomposed" href="img/favicons/apple-touch-icon-precomposed.png"/>
         <link rel="icon" href="img/favicons/favicon.ico" type="image/x-icon" />
         <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/foundation.css"/>
-        <!-- blueprint CSS framework -->
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
-        <!--[if lt IE 8]>
-        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
-        <![endif]-->
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/sliders.css" />
-        <!--<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation.min.js" type="text/javascript"></script>-->
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.7.2.min.js" type="text/javascript"></script>
-        <!-- <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendor/zepto.js" type="text/javascript"></script>
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendor/jquery.js" type="text/javascript"></script>
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendor/jquery.horizontalNav.js" type="text/javascript"></script>-->
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
-        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/lib/jquery-1.10.1.min.js"></script>
+        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/lib/jquery-1.10.1.min.js"></script>
+        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation.min.js"></script>
+        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendor/jquery.js"></script>
+        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.js"></script>
+        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.interchange.js"></script>
+        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.abide.js"></script>
+        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.dropdown.js"></script>
+        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.placeholder.js"></script>
+        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.forms.js"></script>
+        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.alerts.js"></script>
+        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.magellan.js"></script>
+        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.reveal.js"></script>
+        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.tooltips.js"></script>
+        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.clearing.js"></script>
+        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.cookie.js"></script>
+        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.joyride.js"></script>
+        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.orbit.js"></script>
+        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.section.js"></script>
+        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.topbar.js"></script>
+        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/holder.js"></script>
         <title>Клуб спортивного орієнтування «Компас» м.Харків</title>
         <!--<title><?php // echo CHtml::encode($this->pageTitle);  ?></title>-->
     </head>
@@ -215,7 +223,24 @@ function get_mont($mont) {
                             </div>
                         </div>
                         <div class="top-banner small-12 large-6 small-centered large-uncentered columns">
-                            <img data-src="holder.js/100%x72/social" alt="top banner"/>
+                            <div class="first-my timerhello">
+                                <div class="first-my-content">
+						<p class="titloftimer">До ближайшего события:</p> 
+						<p class="titles">
+							<span class="dd">дней</span>
+							<span class="hh">часов</span>
+							<span class="mm">минут</span>
+							<span class="ss">секунд</span>
+						</p>
+						<p class="result">
+							<span style="color: rgb(0, 0, 0);" class="result-day">59</span>
+							<span style="color: rgb(0, 0, 0);" class="result-hour">01</span>  
+							<span style="color: rgb(0, 0, 0);" class="result-minute">16</span>
+							<span style="color: rgb(0, 0, 0);" class="result-second">11</span> 
+						</p> 
+						<div class="clear"></div>
+				</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -244,52 +269,47 @@ function get_mont($mont) {
                 ?>	
             </div>
         </div>
-        <div class="slideshow-holder row">
+        
+        
+        
+        
+        <?php
+            $sliders = Sliders::model()->findAll();
+            $images_sliders = '<ul data-orbit>';
+            $headline_sliders = '<div class="orbit-headline">';
+            $i = 0;
+            foreach ($sliders as $slider) {
+                $i++;
+               $headline_sliders .= '<a href="#" data-orbit-link="headline-'.$i.'"> --- '.$i.' --- </a>';
+               $images_sliders .= '<li data-orbit-slide="headline-'.$i.'">'; 
+               $images_sliders .= ' <img src="/sliders/' . $slider->path . '" width="640" height="360"/>'; 
+               $images_sliders .= '</li>'; 
+            }
+            $images_sliders .= '</ul>';
+            $headline_sliders .= '</div>';
+        ?>
+        
+        
+        <div class="slideshow-holder row">            
             <div class="slideshow-wrapper large-8 columns">
-                        <?php
-                        $sliders = Sliders::model()->findAll();
+                <?php
                         $request = Yii::app()->request->requestUri;
                         if ($sliders != NULL) {
                             if ($request == '/' || $request == '/index.php/site/index' || $request == '/index.php' ) {
-                                ?>
-                        <div id="slider-wrap">
-                            <div id="slider">
-                        <?php foreach ($sliders as $slider) { ?>
-                                    <div class="slide"><img src="/sliders/<?php echo $slider->path; ?>" width="640" height="360"></div>
-        <?php } ?>
-                            </div>
-                        </div>
-        <?php
-    }
-}
-?>
-                <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/sliders.js"></script>
-                <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
-                <script type="text/javascript">
-                    $(document).ready(function() {
-                        $('.fancybox').fancybox();
-                    });
-                </script>
-                <style type="text/css">
-                    /* .fancybox-custom .fancybox-skin {
-                    box-shadow: 0 0 50px #222;
-                    }*/
-                </style>
-                <?php if (isset($this->breadcrumbs)): ?>
-                    <?php
-                    $this->widget('zii.widgets.CBreadcrumbs', array(
-                        'links' => $this->breadcrumbs,
-                    ));
-                    ?>
-<?php endif ?>
+                                echo $images_sliders;
+                                echo $headline_sliders;
+                            }
+                        }
+                ?>
+<?php if (isset($this->breadcrumbs)): $this->widget('zii.widgets.CBreadcrumbs', array('links' => $this->breadcrumbs)); endif ?>
             </div>
             <div class="cal large-4 columns">
-<?php 
-if ($request == '/' || $request == '/index.php/site/index' || $request == '/index.php' ) {
-    $mass_data = explode('-', date('m-Y'));
-    echo draw_new_calendar($mass_data[0], $mass_data[1], $this);
-}
-?>
+                <?php 
+                    if ($request == '/' || $request == '/index.php/site/index' || $request == '/index.php' ) {
+                        $mass_data = explode('-', date('m-Y'));
+                        echo draw_new_calendar($mass_data[0], $mass_data[1], $this);
+                    }
+                ?>
             </div>
         </div>
         <div class="row">
@@ -299,7 +319,7 @@ if ($request == '/' || $request == '/index.php/site/index' || $request == '/inde
                         <div class="section-container">
                             <section>
                                 <div class="content" data-section-content>
-                            <?php echo $content; ?>
+                                     <?php echo $content; ?>
                                 </div>
                             </section>
                         </div>
@@ -365,29 +385,61 @@ echo '<blockquote>' . $quote->quote . '<cite> ' . $quote->author_quote . '</cite
                 </div>
             </div>
         </footer>
-        <script>
-            document.write('<script src=' +
-                ('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') +
-                '.js><\/script>')
+        <script type="text/javascript">	
+            function get_timer(string) {
+                var date_new = string;
+                var date_t = new Date(date_new);
+                var date = new Date();
+                var timer = date_t - date;
+                if(date_t > date) {	
+                    var day = parseInt(timer/(60*60*1000*24));	
+                    if(day < 10) {	
+                        day = "0" + day;
+                    }
+                    day = day.toString();
+                    var hour = parseInt(timer/(60*60*1000))%24;
+                    if(hour < 10) {
+                        hour = "0" + hour;
+                    }
+                    hour = hour.toString();
+                    var min = parseInt(timer/(1000*60))%60;
+                    if(min < 10) {
+                        min = "0" + min;
+                    }
+                    min = min.toString();
+                    var sec = parseInt(timer/1000)%60;
+                    if(sec < 10) {
+                        sec = "0" + sec;
+                    }
+                    sec = sec.toString();
+                    timethis = day + " : " + hour + " : " + min + " : " + sec;
+                    $(".timerhello p.result .result-day").text(day);
+                    $(".timerhello p.result .result-hour").text(hour);
+                    $(".timerhello p.result .result-minute").text(min);
+                    $(".timerhello p.result .result-second").text(sec);
+                }
+                else {
+                    $(".timerhello p.result .result-day").text("00");
+                    $(".timerhello p.result .result-hour").text("00");
+                    $(".timerhello p.result .result-minute").text("00");
+                    $(".timerhello p.result .result-second").text("00");
+                }	 }
+            
+            function getfrominputs(){
+                string = "11/10/2014 12:00"; 
+                get_timer(string);
+                setInterval(function(){
+                    get_timer(string);
+                },1000);}
+            
+            $(document).ready(function(){ 
+                getfrominputs();
+            });	
         </script>
-         <script src="js/foundation.min.js"></script>
-        <script src="js/vendor/jquery.js"></script>
-        <script src="js/foundation/foundation.js"></script>
-        <script src="js/foundation/foundation.interchange.js"></script>
-        <script src="js/foundation/foundation.abide.js"></script>
-        <script src="js/foundation/foundation.dropdown.js"></script>
-        <script src="js/foundation/foundation.placeholder.js"></script>
-        <script src="js/foundation/foundation.forms.js"></script>
-        <script src="js/foundation/foundation.alerts.js"></script>
-        <script src="js/foundation/foundation.magellan.js"></script>
-        <script src="js/foundation/foundation.reveal.js"></script>
-        <script src="js/foundation/foundation.tooltips.js"></script>
-        <script src="js/foundation/foundation.clearing.js"></script>
-        <script src="js/foundation/foundation.cookie.js"></script>
-        <script src="js/foundation/foundation.joyride.js"></script>
-        <script src="js/foundation/foundation.orbit.js"></script>
-        <script src="js/foundation/foundation.section.js"></script>
-        <script src="js/foundation/foundation.topbar.js"></script>
-        <script src="js/holder.js"></script>
+        
+        
+        
+        
+        
     </body>
 </html>
