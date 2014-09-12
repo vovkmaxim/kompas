@@ -37,7 +37,7 @@
                 <p><?php echo CHtml::encode($model->path); ?></p>
             <?php endif; ?>
             <?php echo $form->labelEx($model,'path'); ?>
-            <?php echo $form->fileField($model,'path'); ?>
+            <span class="button7"><p>ЗАГРУЗИТЬ КАРТИНКУ</p><?php echo $form->fileField($model,'path'); ?></span>
             <?php echo $form->error($model,'path'); ?>
         </div>  
 
@@ -48,7 +48,7 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'СОЗДАТЬ' : 'СОХРАНИТЬ'); ?>
+            <input class="knopka" type="submit" value="<?php if($model->isNewRecord){echo 'СОЗДАТЬ';} else { echo 'СОХРАНИТЬ';} ?>" />
 	</div>
 
 <?php $this->endWidget(); ?>

@@ -92,7 +92,7 @@ if($comments->itemCount){
                     <textarea id="Comments_text" name="Comments[text]" cols="50" rows="6"></textarea>
                 </div>
                 <div class="row buttons">
-                    <input class="large success button radius" type="submit" value="Отправить" name="yt0">
+                    <input class="button8" type="submit" value="Отправить" />
                 </div>
             </form>
         </div>

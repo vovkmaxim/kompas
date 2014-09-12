@@ -86,7 +86,9 @@
                 
             <?php endif; ?>
             <?php echo $form->labelEx($model,'logo_desc'); ?>
-            <?php echo $form->fileField($model,'logo_desc'); ?>
+                <span class="button7"><p>ЗАГРУЗИТЬ КАРТИНКУ</p><?php echo $form->fileField($model,'logo_desc'); ?></span>
+            
+            <?php // echo $form->fileField($model,'logo_desc'); ?>
             <?php echo $form->error($model,'logo_desc'); ?>
 	</div>
 	</div>
@@ -223,11 +225,9 @@
             </p>
 
         </div>
-        
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'СОЗДАТЬ' : 'СОХРАНИТЬ'); ?>
+            <input class="knopka" type="submit" value="<?php if($model->isNewRecord){echo 'СОЗДАТЬ';} else { echo 'СОХРАНИТЬ';} ?>" />
 	</div>
-
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->

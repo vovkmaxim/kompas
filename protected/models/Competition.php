@@ -363,6 +363,18 @@ class Competition extends CActiveRecord
             }
         }
         
-        
-        
+        public function getFileForThisCompetition(){
+            $files = File::model()->findAll('competition_id=:id', array(':id' => $this->id));
+            $retun_string = '';
+            if(!empty($files)){
+            $retun_string .= '<p><a target="_blank" href="/media/';
+                foreach ($files as $file){   
+                    $retun_string .= $file->path;   
+                    $retun_string .= '">';   
+                    $retun_string .= $file->name; 
+                    $retun_string .= '</a></p>'; 
+                } 
+            }
+             return $retun_string;
+        }
 }

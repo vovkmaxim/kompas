@@ -32,9 +32,8 @@
 		<?php echo $form->textArea($model,'path',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'path'); ?>
 	</div>
-
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'СОЗДАТЬ' : 'СОХРАНИТЬ '); ?>
+            <input class="knopka" type="submit" value="<?php if($model->isNewRecord){echo 'СОЗДАТЬ';} else { echo 'СОХРАНИТЬ';} ?>" />
 	</div>
 
 <?php $this->endWidget(); ?>

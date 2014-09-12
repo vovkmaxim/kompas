@@ -7,6 +7,117 @@ body
         background-image: url(../images/background.jpg);
 }
 
+.knopka {
+  color: #fff; /* цвет текста */
+  text-decoration: none; /* убирать подчёркивание у ссылок */
+  user-select: none; /* убирать выделение текста */
+  background: rgb(212,75,56); /* фон кнопки */
+  padding: .7em 1.5em; /* отступ от текста */
+  outline: none; /* убирать контур в Mozilla */
+} 
+.knopka:hover { background: rgb(232,95,76); } /* при наведении курсора мышки */
+.knopka:active { background: rgb(152,15,0); } /* при нажатии */
+
+.button8 {
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  padding: .8em 1em calc(.8em + 3px);
+  border-radius: 3px;
+  background: rgb(64,199,129);
+  box-shadow: 0 -3px rgb(53,167,110) inset;
+  transition: 0.2s;
+} 
+.button8:hover { background: rgb(53, 167, 110); }
+.button8:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}
+
+.button7 {
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  padding: .8em 0em calc(.8em + 3px);
+  border-radius: 3px;
+  background: rgb(64,199,129);
+  box-shadow: 0 -3px rgb(53,167,110) inset;
+  transition: 0.2s;
+  padding: 10px;
+  position: relative;
+  width: 100%;
+  height: 40px;
+  display: block;
+  overflow: hidden;
+} 
+.button7:hover { background: rgb(53, 167, 110); }
+.button7:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}
+
+
+.button6 {
+  position: relative;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  text-shadow: 0 -1px 1px #cc5500;
+  user-select: none;
+  padding: .8em 2em;
+  outline: none;
+  border-radius: 1px;
+  background: linear-gradient(to left, rgba(0,0,0,.3), rgba(0,0,0,.0) 50%, rgba(0,0,0,.3)), linear-gradient(#d77d31, #fe8417, #d77d31);
+  background-size: 100% 100%, auto;
+  background-position: 50% 50%;
+  box-shadow: inset #ebab00 0 -1px 1px, inset 0 1px 1px #ffbf00, #cc7722 0 0 0 1px, #000 0 10px 15px -10px;
+  transition: 0.2s;
+}
+.button6:hover {
+  background-size: 140% 100%, auto;
+}
+.button6:active {
+  top: 1px;
+  color: #ffdead;
+  box-shadow: inset #ebab00 0 -1px 1px, inset 0 1px 1px #ffbf00, #cc7722 0 0 0 1px, 0 10px 10px -9px #000;
+}
+
+
+#Sliders_path{
+    position: absolute;
+    width: 200%;
+    height: 200px;
+    top: -50px;
+    left: -50%;
+}
+#Competition_logo_desc{
+    position: absolute;
+    width: 200%;
+    height: 200px;
+    top: -50px;
+    left: -50%;
+}
+#Events_logo_path{
+    position: absolute;
+    width: 200%;
+    height: 200px;
+    top: -50px;
+    left: -50%;
+}
+#Banners_path{
+    position: absolute;
+    width: 200%;
+    height: 200px;
+    top: -50px;
+    left: -50%;
+}
+#File_path{
+    position: absolute;
+    width: 200%;
+    height: 200px;
+    top: -50px;
+    left: -50%;
+}
 #page
 {
 	margin-top: 5px;
