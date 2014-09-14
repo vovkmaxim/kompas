@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /* Функция генерации календаря */
 
 function draw_new_calendar($month, $year, $this_) {
