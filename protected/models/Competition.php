@@ -367,8 +367,8 @@ class Competition extends CActiveRecord
             $files = File::model()->findAll('competition_id=:id', array(':id' => $this->id));
             $retun_string = '';
             if(!empty($files)){
-            $retun_string .= '<p><a target="_blank" href="/media/';
-                foreach ($files as $file){   
+                foreach ($files as $file){  
+                    $retun_string .= '<p><a target="_blank" href="/media/';
                     $retun_string .= $file->path;   
                     $retun_string .= '">';   
                     $retun_string .= $file->name; 
@@ -376,5 +376,43 @@ class Competition extends CActiveRecord
                 } 
             }
              return $retun_string;
+        }
+         public function getAllGroupName(){
+            $name = Group::model()->findAll();
+            $all_names = '<select style="min-width: 50px; max-width: 100px;" id="group_id" name="group_id" 0="">';
+            $all_names .= '<option value="0"></option>';
+            foreach ($name as $names){
+                $all_names .= '<option value="';
+                $all_names .= $names->id;
+                $all_names .= '">';
+                $all_names .= $names->name;
+                $all_names .= '</option>';
+            }      
+             $all_names .= '</select> ';
+            return $all_names;
+        }
+        
+        public function getRanksList(){
+            $rank = Rank::model()->findAll();       
+            if($rank != NULL){
+                $rankList = '<select name="rank" style="width: 50px;" size="1">';
+                $rankList .= '<option  selected="selected" value="0">   </option>';
+                $prom_rank = RankHasCompetitionRequest::model()->findAll('competition_request_id=:id',array(':id' => $this->id));
+                if($prom_rank != NULL){
+                    foreach ($rank as $ranks){
+                        if($ranks->id == $prom_rank[0]->rank_id){
+                            $rankList .= '<option selected="selected" value="'. $ranks->id .'">'. $ranks->name .'</option>';
+                        } else {
+                            $rankList .= '<option value="'. $ranks->id .'">'. $ranks->name .'</option>';
+                        }
+                    }
+                } else {
+                    foreach ($rank as $ranks){
+                        $rankList .= '<option value="'. $ranks->id .'">'. $ranks->name .'</option>';
+                    }
+                }                
+                $rankList .= '</select>';
+                return $rankList; 
+            }
         }
 }
