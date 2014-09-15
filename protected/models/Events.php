@@ -144,4 +144,20 @@ class Events extends CActiveRecord
                 return 0;
             }
         }
+        
+        public function getFileForThisEvents(){
+            
+            $files = File::model()->findAll('events_id=:id', array(':id' => $this->id));
+            $retun_string = '';
+            if(!empty($files)){
+                foreach ($files as $file){  
+                    $retun_string .= '<p><a target="_blank" href="/media/';
+                    $retun_string .= $file->path;   
+                    $retun_string .= '">';   
+                    $retun_string .= $file->name; 
+                    $retun_string .= '</a></p>'; 
+                } 
+            }
+             return $retun_string;
+        }
 }

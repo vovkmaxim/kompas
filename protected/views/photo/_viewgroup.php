@@ -3,7 +3,7 @@
 /* @var $data GroupPhoto */
 ?>
 
-<div class="view">
+<span class="view span_view_group_photo">
 
 	<?php echo CHtml::link(CHtml::encode($data->title), array('view', 'id'=>$data->id)); ?>
 	<br />
@@ -12,4 +12,4 @@
 
 
 
-</div>
+</span>

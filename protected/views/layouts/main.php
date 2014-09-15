@@ -169,7 +169,8 @@ function get_mont($mont) {
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/sliders.css" />
-        
+        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
+        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/lib/jquery-1.10.1.min.js"></script>
         <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.7.2.min.js" type="text/javascript"></script>
         <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/lib/jquery-1.10.1.min.js"></script>
         <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation.min.js"></script>
@@ -225,7 +226,7 @@ function get_mont($mont) {
                         </div>
                         <div class="top-banner small-12 large-6 small-centered large-uncentered columns">
                             <div class="first-my timerhello">
-<!--                                <div class="first-my-content">
+                                <div class="first-my-content">
 						<p class="titloftimer">До ближайшего события:</p> 
 						<p class="titles">
 							<span class="dd">дней</span>
@@ -240,7 +241,8 @@ function get_mont($mont) {
 							<span style="color: rgb(0, 0, 0);" class="result-second">11</span> 
 						</p> 
 						<div class="clear"></div>
-				</div>-->
+
+				</div>
                             </div>
                         </div>
                     </div>
@@ -340,11 +342,11 @@ function get_mont($mont) {
             </div>
             <div class="large-12 columns">
                 <div class="quote">
-<?php
-$Quote = new Quote();
-$quote = $Quote->getRandQuote();
-echo '<blockquote>' . $quote->quote . '<cite> ' . $quote->author_quote . '</cite></blockquote>';
-?>
+                    <?php
+                        $Quote = new Quote();
+                        $quote = $Quote->getRandQuote();
+                            echo '<blockquote>' . $quote->quote . '<cite> ' . $quote->author_quote . '</cite></blockquote>';
+                    ?>
                 </div>
             </div>
         </div>

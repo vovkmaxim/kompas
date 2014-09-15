@@ -299,7 +299,7 @@ div.view:hover {
 	margin: 10px 0;
 	/*border: 1px solid #FFDAB9;*/
         /*box-shadow: 0px 1px 11px -2px #ff0300;*/
-        box-shadow: 0px 0px 16px 0px #ff0300;
+        box-shadow: 0px 0px 16px 0px #BEBEBE;
         -webkit-border-radius: 0px;
         -moz-border-radius: 0px;
         border-radius: 0px;
@@ -473,4 +473,58 @@ td.calendar-day, td.calendar-day-np { width:120px; padding:5px; border-bottom:1p
     clear: both;
     height: 0; }
 
+iv.news .more a
+{
+        font-size: 75%;
+        font-style: italic;
+        margin-right: 20px;
+}
 
+div.news li{
+    list-style: none;
+    /*width:*/ 
+}
+
+div.news
+{
+	padding: 10px;
+	margin: 10px 0;
+}
+
+div.news:hover {
+        padding: 10px;
+	margin: 10px 0;
+	/*border: 1px solid #FFDAB9;*/
+        /*box-shadow: 0px 1px 11px -2px #ff0300;*/
+        box-shadow: 0px 0px 16px 0px #BEBEBE;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        border-radius: 0px;
+}
+
+.create-data{
+    
+}
+.title-p{
+    border-bottom: 3px solid #FF4500;
+}
+.title-span{
+    font-family: Verdana, Arial, Helvetica, sans-serif; 
+    font-size: 15pt; /* Размер шрифта в пунктах */ 
+}
+.create-data{
+     text-align: right; 
+     width: 60px; 
+     right: 1px; 
+}
+
+#competition-request-form.input{
+     height: 40px;
+     color: #777;
+     width: 250px;
+}
+/*.inputFormStyles{
+    height: 40px;
+    color: #777;
+    width: 250px;
+}*/
