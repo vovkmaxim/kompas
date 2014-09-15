@@ -31,6 +31,73 @@ class CompetitionRequestController extends Controller
 	}
 
         
+        public function actionAddrequest($id){
+            $model=new CompetitionRequest;
+            $model->user_id = Yii::app()->user->id;
+            $model->competition_id = $id;
+            $model->save();
+            
+            if(Yii::app()->request->isAjaxRequest){
+//                print_r('<pre>');
+//                print_r($_POST['CompetitionRequest']['group_id']);
+//                print_r($_POST['CompetitionRequest']['check_data']);
+//                print_r($_POST['CompetitionRequest']);
+//                print_r($_POST);
+//                print_r('<pre>');
+//                die();
+                if(isset($_POST)){  
+                    $model->group_id = $_POST['CompetitionRequest']['group_id'];
+                    try{
+                        if(isset($_POST['CompetitionRequest']['check_data'])){
+                        $check_data = $_POST['CompetitionRequest']['check_data'];
+                            if(!empty($check_data)){
+                                $participation_data = '';
+                                $lenght = count($check_data);   
+                                foreach ($check_data as $k=>$v){
+                                     $participation_data .= $v . ', ';
+                                }                
+                                $model->participation_data = $participation_data;
+                            }                        
+                        }
+                    } catch (\Exception $e){}
+                    
+                    if(isset($_POST['CompetitionRequest']['year_bird']) && !empty($_POST['CompetitionRequest']['year_bird'])){
+                        $model->year = $_POST['year_bird'];
+                    }
+                    
+//                        $model->attributes=$_POST['CompetitionRequest'];
+                        $model->competition_id = $_POST['CompetitionRequest']['competition_id'];
+			$model->name = $_POST['CompetitionRequest']['name'];
+			$model->lastname = $_POST['CompetitionRequest']['lastname'];
+			$model->year = $_POST['CompetitionRequest']['year_bird'];
+			$model->chip = $_POST['CompetitionRequest']['chip'];
+			$model->dyusch = $_POST['CompetitionRequest']['dyusch'];
+			$model->sity = $_POST['CompetitionRequest']['sity'];
+			$model->coutry = $_POST['CompetitionRequest']['coutry'];
+			$model->team = $_POST['CompetitionRequest']['team'];
+			$model->coach = $_POST['CompetitionRequest']['coach'];
+			$model->fst = $_POST['CompetitionRequest']['fst'];
+			$model->status = $_POST['CompetitionRequest']['status'];
+			$model->user_id = $_POST['CompetitionRequest']['user_id'];
+                        
+                        if($model->save()){
+                            if(!empty($_POST['CompetitionRequest']['rank'])){
+                                try{
+                                    $this->addRank($_POST['CompetitionRequest']['rank'], $model->id);  
+                                    echo '111111111111111111111111111'; die();
+                                } catch (\Exception $e){
+                                    echo '\\\\\\\\\\\\\\\\\\\\\\\\\\'; die();  
+                                }
+                            }                                
+                            echo '111111111111111111111111111'; die();
+                        } else {
+                            echo '/////////////////////////////////////'; die();
+                        }
+                }
+            }
+                echo '222222222222222222222222222222222222222222222222222222222222';
+        }
+
         public function actionApplication($id)
 	{            
             $model=new CompetitionRequest;

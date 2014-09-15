@@ -46,27 +46,181 @@ $this->breadcrumbs = array(
                 }
             }
             ?>   
-            <div>
-                <form id="competition-request-form">
-                    <input id="CompetitionRequest_status" type="hidden" value="0" name="CompetitionRequest[status]" maxlength="10" size="10"/>
-                    <input id="CompetitionRequest_competition_id" type="hidden" value="<?php echo $model->id; ?>" name="CompetitionRequest[competition_id]" maxlength="10" size="10"/>
-                    <input id="CompetitionRequest_user_id" type="hidden" value="<?php echo Yii::app()->user->id; ?>" name="CompetitionRequest[user_id]" maxlength="10" size="10"/>
-                    <input class="inputFormStyles" id="CompetitionRequest_name" type="text" name="CompetitionRequest[name]" maxlength="255" value="Ваше имя" onfocus="if (this.value == 'Ваше имя') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'Ваше имя'; this.style.color = '#777';}" />
-                    <input id="CompetitionRequest_lastname" type="text" name="CompetitionRequest[lastname]" maxlength="255" size="60" value="Фамилия" onfocus="if (this.value == 'Фамилия') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'Фамилия'; this.style.color = '#777';}"/>
-                    <input type="text" maxlength="4" name="year_bird" value="Год рождения" onfocus="if (this.value == 'Год рождения') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'Год рождения'; this.style.color = '#777';}"/>
-                    Укажите группу:  <?php echo $model->getAllGroupName(); ?></br>
-                    Укажите разряд: <?php echo $model->getRanksList(); ?></br>
-                    <input id="CompetitionRequest_chip" type="text" name="CompetitionRequest[chip]" maxlength="255" value="ЧИП№" onfocus="if (this.value == 'ЧИП№') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'ЧИП№'; this.style.color = '#777';}"/>
-                    <input id="CompetitionRequest_dyusch" type="text" name="CompetitionRequest[dyusch]" maxlength="255" value="ДЮСШ" onfocus="if (this.value == 'ДЮСШ') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'ДЮСШ'; this.style.color = '#777';}"/>
-                    <input id="CompetitionRequest_sity"   type="text" name="CompetitionRequest[sity]" maxlength="255" value="Город" onfocus="if (this.value == 'Город') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'Город'; this.style.color = '#777';}"/>
-                    <input id="CompetitionRequest_coutry" type="text" name="CompetitionRequest[coutry]" maxlength="255" value="Страна" onfocus="if (this.value == 'Страна') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'Страна'; this.style.color = '#777';}"/>
-                    <input id="CompetitionRequest_team" type="text" name="CompetitionRequest[team]" maxlength="255" value="Команда" onfocus="if (this.value == 'Команда') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'Команда'; this.style.color = '#777';}"/>
-                    <input id="CompetitionRequest_coach" type="text" name="CompetitionRequest[coach]" maxlength="255" value="Тренер" onfocus="if (this.value == 'Тренер') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'Тренер'; this.style.color = '#777';}"/>
-                    <input id="CompetitionRequest_fst" type="text" name="CompetitionRequest[fst]" maxlength="255" value="ФСТ" onfocus="if (this.value == 'ФСТ') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'ФСТ'; this.style.color = '#777';}"/>
-                   
+        </div>
+        <script type="text/javascript">
+            function submmitCompetitionRequest(form){
+                var send_flag = true;
+                competition_id = form.elements["CompetitionRequest[competition_id]"].value;
+                lastname = form.elements["CompetitionRequest[lastname]"].value;
+                user_id = form.elements["CompetitionRequest[user_id]"].value;
+                coutry = form.elements["CompetitionRequest[coutry]"].value;
+                dyusch = form.elements["CompetitionRequest[dyusch]"].value;
+                status = form.elements["CompetitionRequest[status]"].value;
+                coach = form.elements["CompetitionRequest[coach]"].value;
+                name = form.elements["CompetitionRequest[name]"].value;
+                chip = form.elements["CompetitionRequest[chip]"].value;
+                sity = form.elements["CompetitionRequest[sity]"].value;
+                team = form.elements["CompetitionRequest[team]"].value;
+                fst = form.elements["CompetitionRequest[fst]"].value;
+                year_bird = form.elements["year_bird"].value;
+                group_id = form.elements["group_id"].value;
+                rank = form.elements["rank"].value;
+//                check_data = {};
+                check_data = document.getElementById('check_data').value;
+
+//                alert(check_data);
+//                console.log(document.getElementById('check_data').value);
+                
+                if(check_data == ''){
+                    document.getElementById('CompetitionRequest_check_data_error').innerHTML = "Необходимо указать дни участия.";
+                    send_flag = false;
+                }
+                
+                if(lastname == 'Фамилия'){
+                    document.getElementById('CompetitionRequest_lastname_error').innerHTML = "Необходимо заполнить поле «Фамилия».";
+                    send_flag = false;
+                }
+                if(coutry == 'Страна'){
+                    document.getElementById('CompetitionRequest_coutry_error').innerHTML = "Необходимо заполнить поле «Страна».";
+                    send_flag = false;
+                }
+                if(coach == 'Тренер'){
+                    document.getElementById('CompetitionRequest_coach_error').innerHTML = "Необходимо заполнить поле «Тренер».";
+                    send_flag = false;
+                }
+                if(name == 'Ваше имя'){
+                    document.getElementById('CompetitionRequest_name_error').innerHTML = "Необходимо заполнить поле «Имя».";
+                    send_flag = false;
+                }
+                if(sity == 'Город'){
+                    document.getElementById('CompetitionRequest_sity_error').innerHTML = "Необходимо заполнить поле «Город»."
+                    send_flag = false;
+                }
+                if(fst == 'ФСТ'){
+                    document.getElementById('CompetitionRequest_fst_error').innerHTML = "Необходимо заполнить поле «ФСТ»."
+                    send_flag = false;
+                }
+                if(group_id == 0){
+                    document.getElementById('CompetitionRequest_group_id_error').innerHTML = "Необходимо указать группу. "
+                    send_flag = false;
+                }
+                if(rank == 0){
+                    document.getElementById('CompetitionRequest_rank_error').innerHTML = "Необходимо указать Ваш «Разряд». "
+                    send_flag = false;
+                }
+                if(team == "Команда"){
+                    document.getElementById('CompetitionRequest_team_error').innerHTML = "Необходимо заполнить поле «Команда»."
+                    send_flag = false;
+                }
+                if(year_bird == "Год рождения"){
+                    document.getElementById('CompetitionRequest_year_bird_error').innerHTML = "Необходимо заполнить поле «Год рождения»."
+                    send_flag = false;
+                }
+                
+                if(!send_flag){
+                    form.elements["CompetitionRequest[competition_id]"].value = competition_id;
+                    form.elements["CompetitionRequest[lastname]"].value = lastname;
+                    form.elements["CompetitionRequest[user_id]"].value = user_id;
+                    form.elements["CompetitionRequest[coutry]"].value = coutry;
+                    form.elements["CompetitionRequest[dyusch]"].value = dyusch
+                    form.elements["CompetitionRequest[status]"].value = status;
+                    form.elements["CompetitionRequest[coach]"].value = coach;
+                    form.elements["CompetitionRequest[name]"].value = name;
+                    form.elements["CompetitionRequest[chip]"].value = chip;
+                    form.elements["CompetitionRequest[sity]"].value = sity;
+                    form.elements["CompetitionRequest[team]"].value = team;
+                    form.elements["CompetitionRequest[fst]"].value = fst;
+                    form.elements["year_bird"].value = year_bird;
+                    form.elements["group_id"].value = group_id;
+                    form.elements["rank"].value = rank;
+                } else {
+                    CompetitionRequest = [];
+                    document.getElementById('CompetitionRequest_lastname_error').innerHTML = "";
+                    document.getElementById('CompetitionRequest_coutry_error').innerHTML = "";
+                    document.getElementById('CompetitionRequest_coach_error').innerHTML = "";
+                    document.getElementById('CompetitionRequest_name_error').innerHTML = "";
+                    document.getElementById('CompetitionRequest_sity_error').innerHTML = "";
+                    document.getElementById('CompetitionRequest_fst_error').innerHTML = "";
+                    document.getElementById('CompetitionRequest_group_id_error').innerHTML = "";
+                    document.getElementById('CompetitionRequest_rank_error').innerHTML = "";
+                    document.getElementById('CompetitionRequest_team_error').innerHTML = "";
+                    document.getElementById('CompetitionRequest_year_bird_error').innerHTML = "";
+                    
+                    CompetitionRequest = {};
+                    CompetitionRequest["lastname"] = lastname;
+                    CompetitionRequest["user_id"] = user_id;
+                    CompetitionRequest["coutry"] = coutry;
+                    CompetitionRequest["dyusch"] = dyusch;
+                    CompetitionRequest["status"] = status;
+                    CompetitionRequest["coach"] = coach;
+                    CompetitionRequest["name"] = name;
+                    CompetitionRequest["chip"] = chip;
+                    CompetitionRequest["sity"] = sity;
+                    CompetitionRequest["team"] = team;
+                    CompetitionRequest["fst"] = fst;
+                    CompetitionRequest["year_bird"] = year_bird;
+                    CompetitionRequest["group_id"] = group_id;
+                    CompetitionRequest["rank"] = rank;
+                    CompetitionRequest["competition_id"] = competition_id;
+                    $.ajax({
+                        type: "POST",
+                        url: "/index.php/competitionRequest/addrequest/<?php echo $model->id; ?>",
+                        data: ({
+                            CompetitionRequest: CompetitionRequest,     
+                            year_bird: year_bird,
+                            group_id: group_id,
+                            rank: rank,
+                            check_data: check_data,
+                        }),
+                        success: function(data) {
+                          alert("Статья обновлена!");
+                          console.log(data);
+                        }
+                    });
+                    
+                    alert('ALERT');
+                }
+                return false;
+            }
+        </script>
+            <div class="form-competition">
+                <form id="competition-request-form" method="post" action="/index.php/competitionRequest/addrequest/<?php echo $model->id; ?>" enctype="multipart/form-data">
+                    <div class="box1">
+                        <input name="CompetitionRequest[status]" id="CompetitionRequest_status" type="hidden" value="0" maxlength="10" size="10"/>
+                        <input name="CompetitionRequest[competition_id]" id="CompetitionRequest_competition_id" type="hidden" value="<?php echo $model->id; ?>" maxlength="10" size="10"/>
+                        <input name="CompetitionRequest[user_id]" id="CompetitionRequest_user_id" type="hidden" value="<?php echo Yii::app()->user->id; ?>" maxlength="10" size="10"/>
+                        <div id="CompetitionRequest_name_error" class="errorMessage"></div>
+                        <input name="CompetitionRequest[name]" id="CompetitionRequest_name" type="text"maxlength="255" value="Ваше имя" onfocus="if (this.value == 'Ваше имя') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'Ваше имя'; this.style.color = '#777';}" />
+                        <div id="CompetitionRequest_lastname_error" class="errorMessage"></div>
+                        <input name="CompetitionRequest[lastname]" id="CompetitionRequest_lastname" type="text" maxlength="255" size="60" value="Фамилия" onfocus="if (this.value == 'Фамилия') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'Фамилия'; this.style.color = '#777';}"/>
+                        <div id="CompetitionRequest_year_bird_error" class="errorMessage"></div>
+                        <input name="year_bird" type="text" maxlength="4" value="Год рождения" onfocus="if (this.value == 'Год рождения') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'Год рождения'; this.style.color = '#777';}"/>
+                        <div id="CompetitionRequest_group_id_error" class="errorMessage"></div>
+                        Укажите группу:  </br><?php echo $model->getAllGroupName(); ?></br>
+                        <div id="CompetitionRequest_rank_error" class="errorMessage"></div>
+                        Укажите разряд: </br><?php echo $model->getRanksList(); ?></br>
+                        <input name="CompetitionRequest[chip]" id="CompetitionRequest_chip" type="text" maxlength="255" value="ЧИП№" onfocus="if (this.value == 'ЧИП№') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'ЧИП№'; this.style.color = '#777';}"/>
+                    </div>
+                    <div class="box2">
+                        <input name="CompetitionRequest[dyusch]" id="CompetitionRequest_dyusch" type="text" maxlength="255" value="ДЮСШ" onfocus="if (this.value == 'ДЮСШ') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'ДЮСШ'; this.style.color = '#777';}"/>
+                        <div id="CompetitionRequest_sity_error" class="errorMessage"></div>
+                        <input name="CompetitionRequest[sity]" id="CompetitionRequest_sity"   type="text" maxlength="255" value="Город" onfocus="if (this.value == 'Город') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'Город'; this.style.color = '#777';}"/>
+                        <div id="CompetitionRequest_coutry_error" class="errorMessage"></div>
+                        <input name="CompetitionRequest[coutry]" id="CompetitionRequest_coutry" type="text" maxlength="255" value="Страна" onfocus="if (this.value == 'Страна') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'Страна'; this.style.color = '#777';}"/>
+                        <div id="CompetitionRequest_team_error" class="errorMessage"></div>
+                        <input name="CompetitionRequest[team]" id="CompetitionRequest_team" type="text" maxlength="255" value="Команда" onfocus="if (this.value == 'Команда') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'Команда'; this.style.color = '#777';}"/>
+                        <div id="CompetitionRequest_coach_error" class="errorMessage"></div>
+                        <input name="CompetitionRequest[coach]" id="CompetitionRequest_coach" type="text" maxlength="255" value="Тренер" onfocus="if (this.value == 'Тренер') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'Тренер'; this.style.color = '#777';}"/>
+                        <div id="CompetitionRequest_fst_error" class="errorMessage"></div>
+                        <input name="CompetitionRequest[fst]" id="CompetitionRequest_fst" type="text" maxlength="255" value="ФСТ" onfocus="if (this.value == 'ФСТ') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'ФСТ'; this.style.color = '#777';}"/>
+                        <?php // echo $model->getChekData();  ?>
+                    </div>
+                    <div id="CompetitionRequest_check_data_error" class="errorMessage"></div>
+                    <?php echo $model->getChekData();  ?>
+                    <input type="submit" class="submit" onclick="submmitCompetitionRequest(document.getElementById('competition-request-form'));return false;" value="Отправить" />
+                    
                 </form>
             </div>
-        </div>
     </div>
 
 

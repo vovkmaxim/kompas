@@ -4,7 +4,7 @@
 ?>
 <div class="news">
     <li>
-        <p class="title-p" ><span class="title-span"><?php echo CHtml::encode($data->title); ?></span><span class="create-data"><?php echo CHtml::encode($data->create_date); ?></span></p>
+        <p class="title-p" ><span class="title-span"><?php echo CHtml::encode($data->title); ?></span><span class="more create-data"><?php echo CHtml::encode($data->create_date); ?></span></p>
         <?php echo  $data->getFileForThisEvents();?>
         <div class="row">
             <div class="small-3 large-4 columns">

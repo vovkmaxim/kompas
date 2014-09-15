@@ -4720,9 +4720,8 @@ width:100%;
 @media only screen and (max-width: 768px) {
 #header .top-login .top-contact{margin: 0 0 0 -60px;}
 }
-
-.input_form_styles{
-    /*height: 40px;*/
+.inputFormStyles{
+    height: 40px;
     color: #777;
     width: 250px;
 }

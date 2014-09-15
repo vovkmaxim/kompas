@@ -518,13 +518,46 @@ div.news:hover {
      right: 1px; 
 }
 
-#competition-request-form.input{
-     height: 40px;
-     color: #777;
-     width: 250px;
-}
-/*.inputFormStyles{
+#competition-request-form input{
+    font-weight:normal;
+    font-size: 20px;
+    font-size-adjust: 0.45;
     height: 40px;
     color: #777;
     width: 250px;
-}*/
+}
+.form-competition{
+    min-width: 100px; 
+    max-width: 100%;
+}
+.select-form{
+    min-width: 50px; 
+    max-width: 100px;
+    height: 40px;
+    color: #777;
+    width: 250px;
+}
+.box1 {
+    padding: 5px;
+    float:left;
+}
+.box2 {    
+    padding: 5px;
+    float:right;
+}
+
+#competition-request-form .submit {
+	cursor: pointer;
+	border: 1px solid #cecece;
+	background: #f6f6f6;
+	box-shadow: inset 0px 20px 20px #ffffff;
+	width: 120px;
+	height: 40px;
+}
+#competition-request-form .submit:hover {
+	box-shadow: inset 0px -20px 20px #ffffff;
+}
+#competition-request-form .submit:active {
+	margin-top: 1px;
+	margin-bottom: -1px;
+}
