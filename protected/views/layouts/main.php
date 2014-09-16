@@ -1,155 +1,51 @@
 <?php
 /* Функция генерации календаря */
 
-function draw_new_calendar($month, $year, $this_) {
-    /* Начало таблицы */
-    $mass_data = explode('-', date('m-Y'));
-    $calendar = '<div class="cal">
-<table class="cal-table"><caption class="cal-caption">
-' . get_mont($mass_data[0]) . ' ' . $mass_data[1] . '
-</caption>
-<tbody class="cal-body">';
-    /* Заглавия в таблице */
-    $headings = array('Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс');
-    $calendar.= '<tr><td class="">' . implode('</td><td class="">', $headings) . '</td></tr>';
-    /* необходимые переменные дней и недель... */
-    $running_day = date('w', mktime(0, 0, 0, $month, 1, $year));
-    $running_day = $running_day - 1;
-    $days_in_month = date('t', mktime(0, 0, 0, $month, 1, $year));
-    $days_in_this_week = 1;
-    $day_counter = 0;
-    $dates_array = array();
-    /* первая строка календаря
-     *
-     *
-     * <tr><td class="cal-off"><a href="#">30</a></td>
-     *
-     * */
-    $calendar.= '<tr>';
-    /* вывод пустых ячеек в сетке календаря */
-    for ($x = 0; $x < $running_day; $x++):
-        $calendar.= '<td class="cal-off"><a href="#"> - </a></td>';
-        $days_in_this_week++;
-    endfor;
+
     $user = User::model()->findAll('status=:status AND member=:member', array(':status' => 1, ':member' => 1));
     $user_dey_list = array();
+    
+    $USERS_BIRD = "";
+    $USERS_BIRD .= "  var user_day = {";
+         
+    $user_i = 0;
     foreach ($user as $users) {
+        $user_i++;
         $mas_data = explode('-', $users->data_birth);
-        $user_dey_list[$users->id]['data'] = $mas_data[1] . '-' . $mas_data[2];
-        $user_dey_list[$users->id]['id'] = $users->id;
+        $USERS_BIRD .= "".$user_i.": {".
+                    " 'data_day':". $mas_data[2] .",".
+                    " 'data_mont':". $mas_data[1] .",".
+                    " 'id':". $users->id .","
+                . "},";
     }
+    $USERS_BIRD .=    "'length':".$user_i;
+    $USERS_BIRD .=    "};";
+    
     $competition = Competition::model()->findAll();
     $competition_data = array();
+    $competition_day=' var competitions = {';
+    
+    $competition_i = 0;
     foreach ($competition as $competitions) {
+        $competition_i++;
+        
         $start_data = explode('-', $competitions->start_data);
+        $start_data1 = explode(' ', $start_data[2]);
         $end_data = explode('-', $competitions->end_data);
-        $competition_data[$competitions->id]['start_data'] = $start_data[1] . '-' . $start_data[2];
-        $competition_data[$competitions->id]['end_data'] = $end_data[1] . '-' . $end_data[2];
-        $competition_data[$competitions->id]['type'] = $competitions->type;
-        $competition_data[$competitions->id]['id'] = $competitions->id;
+        $end_data1 = explode(' ', $end_data[2]);        
+        $competition_day .= "".$competition_i.": {".
+                    " 'start_data_mont':". $start_data[1] .",".
+                    " 'start_data_day':". $start_data1[0] .",".
+                    " 'end_data_mont':". $end_data[1] .",".
+                    " 'end_data_day':". $end_data1[0] .",".
+                    " 'type':". $competitions->type .",".
+                    " 'id':". $competitions->id .","
+                . "},";
     }
-    for ($list_day = 1; $list_day <= $days_in_month; $list_day++):
-        if ($list_day < 10) {
-            $data = $month . '-0' . $list_day;
-            $seu_dey = '0' . $list_day;
-        } else {
-            $data = $month . '-' . $list_day;
-            $seu_dey = $list_day;
-        }
-        $todey = date('d');
-        $this_day = 0;
-        $flag = false;
-        $next_flag = false;
-        foreach ($user_dey_list as $user_dey_lists) {
-            if ($data == $user_dey_lists['data']) {
-                $this_day = $list_day;
-                $flag = true;
-                $next_flag = true;
-                if ($todey == $seu_dey) {
-                    $calendar.= '<td class="cal-check-U cal-selected" ><a href="' . $this_->createUrl('user/view', array('id' => $user_dey_lists['id'])) . '"> ' . $list_day . ' ';
-                } else {
-                    $calendar.= '<td class="cal-check-U" ><a href="' . $this_->createUrl('user/view', array('id' => $user_dey_lists['id'])) . '"> ' . $list_day . ' ';
-                }
-            }
-        }
-        $count_competition = count($competition_data);
-        if ($flag) {
-            
-        } else {
-            foreach ($competition_data as $competition_dat) {
-                $str = $competition_dat['start_data'];
-                if ($this_day != $list_day  && ($data == $competition_dat['end_data'] && $competition_dat['type'] == 1 || $data == $competition_dat['start_data'] && $competition_dat['type'] == 1 || $data > $competition_dat['start_data'] && $data < $competition_dat['end_data'] && $competition_dat['type'] == 1)) {
-// Тренировка
-                    $next_flag = true;
-                    $this_day = $list_day;
-                    if ($todey == $seu_dey) {
-                        $calendar.= '<td class="cal-check-T cal-selected" ><a href="' . $this_->createUrl('competition/view', array('id' => $competition_dat['id'])) . '"> ' . $list_day . ' ';
-                    } else {
-                        $calendar.= '<td class="cal-check-T " ><a href="' . $this_->createUrl('competition/view', array('id' => $competition_dat['id'])) . '"> ' . $list_day . ' ';
-                    }
-                } elseif ($this_day != $list_day  && ($data == $competition_dat['end_data'] && $competition_dat['type'] == 2 || $data == $competition_dat['start_data'] && $competition_dat['type'] == 2 || $data > $competition_dat['start_data'] && $data < $competition_dat['end_data'] && $competition_dat['type'] == 2)) {
-// Соревнования
-                    $next_flag = true;
-                    $this_day = $list_day;
-                    if ($todey == $seu_dey) {
-                        $calendar.= '<td class="cal-check-S cal-selected" ><a href="' . $this_->createUrl('competition/view', array('id' => $competition_dat['id'])) . '"> ' . $list_day . ' ';
-                    } else {
-                        $calendar.= '<td class="cal-check-S " ><a href="' . $this_->createUrl('competition/view', array('id' => $competition_dat['id'])) . '"> ' . $list_day . ' ';
-                    }
-                }
-            }
-        }
-        if (!$next_flag) {
-            if ($todey == $seu_dey) {
-                $calendar.= '<td class="cal-selected"><a href="#">' . $list_day . '';
-            } else {
-                $calendar.= '<td><a href="#">' . $list_day . '';
-            }
-        }
-        $calendar.= '</a>';
-        if ($running_day == 6):
-            $calendar.= '</tr>';
-            if (($day_counter + 1) != $days_in_month):
-                $calendar.= '<tr>';
-            endif;
-            $running_day = -1;
-            $days_in_this_week = 0;
-        endif;
-        $days_in_this_week++;
-        $running_day++;
-        $day_counter++;
-    endfor;
-    if ($days_in_this_week < 8):
-        for ($x = 1; $x <= (8 - $days_in_this_week); $x++):
-            $calendar.= '<td> </td>';
-        endfor;
-    endif;
-    $calendar.= '</tr>';
-    $calendar.= '</tbody></table></div>';
-    return $calendar;
-}
+    $competition_day .=    "'length':".$competition_i;
+    $competition_day .=    "};";
+   
 
-function get_mont($mont) {
-    $monts_array = array(
-        "01" => 'Январь',
-        "02" => 'Февраль',
-        "03" => 'Март',
-        "04" => 'Апрель',
-        "05" => 'Май',
-        "06" => 'Июнь',
-        "07" => 'Июль',
-        "08" => 'Август',
-        "09" => 'Сентябрь',
-        "10" => 'Октябрь',
-        "11" => 'Ноябрь',
-        "12" => 'Декабрь',
-    );
-    foreach ($monts_array as $k => $v) {
-        if ($mont == $k) {
-            return $v;
-        }
-    }
-}
 ?>
 <?php /* @var $this Controller */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -227,21 +123,20 @@ function get_mont($mont) {
                         <div class="top-banner small-12 large-6 small-centered large-uncentered columns">
                             <div class="first-my timerhello">
                                 <div class="first-my-content">
-						<p class="titloftimer">До ближайшего события:</p> 
-						<p class="titles">
-							<span class="dd">дней</span>
-							<span class="hh">часов</span>
-							<span class="mm">минут</span>
-							<span class="ss">секунд</span>
-						</p>
-						<p class="result">
-							<span style="color: rgb(0, 0, 0);" class="result-day">59</span>
-							<span style="color: rgb(0, 0, 0);" class="result-hour">01</span>  
-							<span style="color: rgb(0, 0, 0);" class="result-minute">16</span>
-							<span style="color: rgb(0, 0, 0);" class="result-second">11</span> 
-						</p> 
-						<div class="clear"></div>
-
+					<p class="titloftimer">До ближайшего события:</p> 
+					<p class="titles">
+                                            <span class="dd">дней</span>
+                                            <span class="hh">часов</span>
+                                            <span class="mm">минут</span>
+                                            <span class="ss">секунд</span>
+					</p>
+                                        <p class="result">
+                                            <span style="color: rgb(0, 0, 0);" class="result-day">59</span>
+                                            <span style="color: rgb(0, 0, 0);" class="result-hour">01</span>  
+                                            <span style="color: rgb(0, 0, 0);" class="result-minute">16</span>
+                                            <span style="color: rgb(0, 0, 0);" class="result-second">11</span> 
+                                        </p> 
+                                    <div class="clear"></div>
 				</div>
                             </div>
                         </div>
@@ -304,15 +199,10 @@ function get_mont($mont) {
                             }
                         }
                 ?>
-<?php if (isset($this->breadcrumbs)): $this->widget('zii.widgets.CBreadcrumbs', array('links' => $this->breadcrumbs)); endif ?>
+            <?php if (isset($this->breadcrumbs)): $this->widget('zii.widgets.CBreadcrumbs', array('links' => $this->breadcrumbs)); endif ?>
             </div>
             <div class="cal large-4 columns">
-                <?php 
-                    if ($request == '/' || $request == '/index.php/site/index' || $request == '/index.php' ) {
-                        $mass_data = explode('-', date('m-Y'));
-//                        echo draw_new_calendar($mass_data[0], $mass_data[1], $this);
-                    }
-                ?>
+                <div id="cal_placeholder"></div> 
             </div>
         </div>
         <div class="row">
@@ -439,10 +329,354 @@ function get_mont($mont) {
                 getfrominputs();
             });	
         </script>
+       
         
         
         
+        <script type="text/javascript">
+<?php
+        echo $USERS_BIRD;
+        echo $competition_day;
+?> 
+
+if (!fcp)
+	var fcp = new Object();
+if (!fcp.msg)
+	fcp.msg = new Object();
+if (!fcp)
+	var fcp = new Object();
+if (!fcp.msg)
+	fcp.msg = new Object();
+fcp.week_days = ["Пн", "Вт", "Ср", "Чт", "Пн", "Сб", "Вс"];
+fcp.months = ["январь", "февраль", "март", "апрель", "май", "июнь",
+	"июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"];
+fcp.msg.prev_year = "пред г";
+fcp.msg.prev_month = "пред м";
+fcp.msg.next_month = "след м";
+fcp.msg.next_year = "след г";
+fcp.Calendar = function(element, show_clock) {
+	if (!element.childNodes)
+		throw "HTML element expected";
+	this.element = element;
+	this.selection = new Date();
+	this.show_clock = show_clock;
+	this.selected_cell = undefined;
+	this.generate_month();
+	this.render_calendar();
+}
+fcp.Calendar.prototype.set_date_time = function (date_time) {
+	if (date_time.constructor == Date) {
+		this.selection = date_time;
+		this.generate_month();
+		this.render_calendar();
+	} else {
+		throw "Date object expected (in fcp.Calendar.set_date_time)";
+	}
+}
+fcp.Calendar.prototype.next_month = function () {
+	var month = this.selection.getMonth();
+	if (month == 11) {
+		this.selection.setMonth(0);
+		this.selection.setYear(this.selection.getFullYear() + 1);
+	} else {
+		this.selection.setMonth(month + 1);
+	}
+	this.generate_month();
+	this.render_calendar();
+}
+fcp.Calendar.prototype.prev_month = function () {
+	var month = this.selection.getMonth();
+	if (month == 0) {
+		this.selection.setMonth(11);
+		this.selection.setYear(this.selection.getFullYear() - 1);
+	} else {
+		this.selection.setMonth(month - 1);
+	}
+	this.generate_month();
+	this.render_calendar();
+}
+fcp.Calendar.prototype.next_year = function () {
+	var is_feb29 = (this.selection.getMonth() == 1)
+		&& (this.selection.getDate() == 29);
+	if (is_feb29) {
+		this.selection.setDate(1);
+		this.selection.setMonth(2); // March
+	}
+	this.selection.setFullYear(this.selection.getFullYear() + 1);
+	this.generate_month();
+	this.render_calendar();
+}
+fcp.Calendar.prototype.prev_year = function () {
+	var is_feb29 = (this.selection.getMonth() == 1)
+		&& (this.selection.getDate() == 29);
+	if (is_feb29) {
+		this.selection.setDate(1);
+		this.selection.setMonth(2); // March
+	}
+	this.selection.setFullYear(this.selection.getFullYear() - 1);
+	this.generate_month();
+	this.render_calendar();
+}
+fcp.Calendar.prototype.generate_month = function () {
+	this.raw_data = new Array();
+	var week = 0;
+	this.raw_data[week] = new Array(7);
+	var first_of_month = fcp.Calendar.clone_date(this.selection);
+	first_of_month.setDate(1);
+	var first_weekday = first_of_month.getDay();
+	first_weekday = (first_weekday == 0) ? 6 : first_weekday - 1;
+	for (var i = 0; i < first_weekday; i++) {
+		this.raw_data[week][i] = 0;
+	}
+	var last_of_month = fcp.Calendar.days_in_month(
+		this.selection.getYear(),
+		this.selection.getMonth());
+	var weekday = first_weekday;
+	for (var i = 1; i <= last_of_month; i++) {
+		this.raw_data[week][weekday] = i;
+		weekday++;
+		if (weekday > 6) {
+			weekday = 0;
+			week++;
+			this.raw_data[week] = new Array(7);
+		}
+	}
+	for (var i = weekday; i < 7; i++) {
+		this.raw_data[week][i] = 0;
+	}
+}
+fcp.Calendar.prototype.render_calendar = function () {
+	this.element.selected_cell = undefined;
+	this.element.innerHTML = "";
+	this.element.appendChild(this.render_month());
+}
+fcp.Calendar.prototype.render_heading = function () {
+	var heading = document.createElement("caption");
+	var prev_year = document.createElement("a");
+	prev_year.href = "#";
+	prev_year.calendar = this;
+	prev_year.onclick = function() {
+		this.calendar.prev_year();
+		return false;
+	};
+	prev_year.innerHTML = "пред год |";
+	prev_year.title = fcp.msg.prev_year;
+	var prev_month = document.createElement("a");
+	prev_month.href = "#";
+	prev_month.calendar = this;
+	prev_month.onclick = function() {
+		this.calendar.prev_month();
+		return false;
+	};
+	prev_month.innerHTML = "пред мес|<br>";
+	prev_month.title = fcp.msg.prev_month;
+	var month_year = document.createTextNode(
+		"\u00a0" + fcp.months[this.selection.getMonth()]
+		+ " " + this.selection.getFullYear() + "\u00a0");
+	var next_month = document.createElement("a");
+	next_month.href = "#";
+	next_month.calendar = this;
+	next_month.onclick = function() {
+		this.calendar.next_month();
+		return false;
+	};
+	next_month.innerHTML = "<br>|сл мес";
+	next_month.title = fcp.msg.next_month;
+	var next_year = document.createElement("a");
+	next_year.href = "#";
+	next_year.calendar = this;
+	next_year.onclick = function() {
+		this.calendar.next_year();
+		return false;
+	};
+	next_year.innerHTML = "|сл год";
+	next_year.title = fcp.msg.next_year;
+	heading.appendChild(prev_year);
+	heading.appendChild(document.createTextNode("\u00a0"));
+	heading.appendChild(prev_month);
+	heading.appendChild(month_year);
+	heading.appendChild(next_month);
+	heading.appendChild(document.createTextNode("\u00a0"));
+	heading.appendChild(next_year);
+	return heading;
+}
+fcp.Calendar.prototype.render_month = function() {
+	var html_month = document.createElement("table");
+	html_month.className = "calendar";
+	html_month.appendChild(this.render_heading());
+	var thead = document.createElement("thead");
+	var tr = document.createElement("tr");
+	for (var i = 0; i < fcp.week_days.length; i++) {
+		var th = document.createElement("th");
+		th.innerHTML =  fcp.week_days[i];
+		tr.appendChild(th);
+	}
+	thead.appendChild(tr);
+	html_month.appendChild(thead);
+	var tbody = document.createElement("tbody");
+	for (var i = 0; i < this.raw_data.length; i++) {
+		tbody.appendChild(this.render_week(this.raw_data[i]));
+	}
+	html_month.appendChild(tbody);
+	return html_month;
+}
+fcp.Calendar.prototype.render_week = function (day_numbers) {
+	var html_week = document.createElement("tr");
+	html_week.align = "right";
+	for (var i = 0; i < 7; i++) {
+		html_week.appendChild(this.render_day(day_numbers[i]));
+	}
+	return html_week;
+}
+fcp.Calendar.prototype.render_day = function (day_number) {
+	var td = document.createElement("td");
+	if (day_number >= 1 && day_number <= 31) {
+                var day_flag_link = true;
+                var mont = this.selection.getMonth() + 1;
+                
+                for(var i=1; i <= user_day.length; i++){
+                    if(user_day[i]['data_day'] == day_number && user_day[i]['data_mont'] == mont){
+                        day_flag_link = false;
+                        var anchor = document.createElement("a");
+                        anchor.href = "#";
+                        anchor.innerHTML = '--' +day_number + '--';
+                        anchor.calendar = this;
+                        anchor.date = day_number;
+                        td.appendChild(anchor);
+                        if (day_number == this.selection.getDate()) {
+                                this.selected_cell = td;
+                                td.className = "in_month selected";
+                        } else {
+                                td.className = "in_month";
+                        }
+                    }
+                }
+                
+                for(var i=1; i <= competitions.length; i++){
+                    if( ( competitions[i]['start_data_day'] == day_number && mont == competitions[i]['start_data_mont'] ) ){// || ( competitions[i]['end_data_day'] == day_number && mont == competitions[i]['end_data_mont'] ) ){
+                        if(competitions[i]['type'] == 1){
+                            // Trening
+                            day_flag_link = false;
+                            var anchor = document.createElement("a");
+                            anchor.href = "#";
+                            anchor.innerHTML = '+1+' +day_number + '+1+'; 
+                            anchor.calendar = this;
+                            anchor.date = day_number;
+                            td.appendChild(anchor);
+                            if (day_number == this.selection.getDate()) {
+                                    this.selected_cell = td;
+                                    td.className = "in_month selected";
+                            } else {
+                                    td.className = "in_month";
+                            }
+                            break;
+                        } 
+                    if(competitions[i]['type'] == 2){
+                            // Competitions
+                            day_flag_link = false;
+                            var anchor = document.createElement("a");
+                            anchor.href = "#";
+                            anchor.innerHTML = '+2+' +day_number + '+2+';
+                            anchor.calendar = this;
+                            anchor.date = day_number;
+                            td.appendChild(anchor);
+                            if (day_number == this.selection.getDate()) {
+                                    this.selected_cell = td;
+                                    td.className = "in_month selected";
+                            } else {
+                                    td.className = "in_month";
+                            }
+                            break;
+                        }
+                        
+                    }
+                }
+                
+                
+                
+                if(day_flag_link){
+                   var anchor = document.createElement("a");
+                    anchor.href = "#";
+                    anchor.innerHTML = '' +day_number + '';
+                    anchor.calendar = this;
+                    anchor.date = day_number;
+    //		anchor.onclick = fcp.Calendar.handle_select;
+                    td.appendChild(anchor);
+                    if (day_number == this.selection.getDate()) {
+                            this.selected_cell = td;
+                            td.className = "in_month selected";
+                    } else {
+                            td.className = "in_month";
+                    } 
+                }		
+	}
+	return td;
+}
+fcp.Calendar.prototype.onselect = function () {}
+fcp.Calendar.clone_date = function (date_obj) {
+	if (date_obj.constructor != Date)
+		throw "Date object expected (in fcp.Calendar.clone_date)";
+	else
+		return new Date(
+			date_obj.getFullYear(),
+			date_obj.getMonth(),
+			date_obj.getDate(),
+			date_obj.getHours(),
+			date_obj.getMinutes(),
+			date_obj.getSeconds());
+}
+fcp.Calendar.days_in_month = function (year, month) {
+	if (month < 0 || month > 11)
+		throw "Month must be between 0 and 11";
+	var day_count = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+	if (month != 1) {
+		return day_count[month];
+	} else if ((year % 4) != 0) {
+		return 28;
+	} else if ((year % 400) == 0) {
+		return 29;
+	} else if ((year % 100) == 0) {
+		return 28;
+	} else {
+		return 29;
+	}
+}
+fcp.Calendar.handle_select = function () {
+	if (this.calendar.selected_cell)
+		this.calendar.selected_cell.className = "in_month";
+	this.calendar.selected_cell = this.parentNode;
+	this.parentNode.className = "in_month selected";
+	this.calendar.selection.setDate(this.date);
+	this.calendar.onselect(this.calendar.selection);
+	return false;
+}
+function addLoadEvent(func) {
+  var oldonload = window.onload;
+  if (typeof window.onload != 'function') {
+    window.onload = func;
+  } else {
+    window.onload = function() {
+      if (oldonload) {
+        oldonload();
+      }
+      func();
+    }
+  }
+}
+addLoadEvent(function() {
+  cal = new fcp.Calendar(document.getElementById("cal_placeholder"));
+  cal.onselect = function(date) {alert(date);}; 
+  } )
+//-->
+        </script>
+<style>
+table.calendar, table.calendar caption, table.calendar td.in_month {	border: 1px solid black; background-color: #FFFFCC;  text-align: center; FONT-WEIGHT: normal; FONT-SIZE: 8pt; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif}
+table.calendar td.in_month {  width:18px; FONT-WEIGHT: normal; FONT-SIZE: 8pt; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif}
+table.calendar td.selected {  background-color: yellow; FONT-WEIGHT: normal; FONT-SIZE: 8pt; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif}
+table.calendar a {	display: block; 	font-weight: bold; 	text-decoration: none; 	color: #0000ff;  text-align: center; FONT-WEIGHT: normal; FONT-SIZE: 8pt; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif}
+table.calendar caption a { 	display: inline;  FONT-WEIGHT: normal; FONT-SIZE: 8pt;  COLOR: red;  FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif}
+</style>
         
-        
+        <div id="cal_placeholder"></div> 
     </body>
 </html>
