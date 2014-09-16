@@ -164,7 +164,7 @@ $this->breadcrumbs = array(
                     CompetitionRequest["competition_id"] = competition_id;
                     $.ajax({
                         type: "POST",
-                        url: "/index.php/competitionRequest/addrequest/<?php echo $model->id; ?>",
+                        url: "/index.php/competition/addrequest/<?php echo $model->id; ?>",
                         data: ({
                             CompetitionRequest: CompetitionRequest,     
                             year_bird: year_bird,
@@ -173,12 +173,25 @@ $this->breadcrumbs = array(
                             check_data: check_data,
                         }),
                         success: function(data) {
-                          alert("Статья обновлена!");
-                          console.log(data);
+                          var obj = jQuery.parseJSON( data );
+                          if(obj.success){
+                               alert(obj.message);
+                               $.ajax({
+                                    type: "POST",
+                                    url: "/index.php/competition/updatevievs/<?php echo $model->id; ?>",
+                                    data: ({
+                                        id: <?php echo $model->id; ?>,
+                                    }),
+                                    success: function(data) {
+                                        document.getElementById('vidjet_views').innerHTML = data;
+                                      
+                                    }
+                                });
+                          } else {
+                              alert(obj.message);
+                          }
                         }
                     });
-                    
-                    alert('ALERT');
                 }
                 return false;
             }
@@ -234,7 +247,7 @@ $this->breadcrumbs = array(
     <?php if ($request->itemCount) { ?>
         <div class="people-about">Уже заявилось:</div>
     <?php } ?>
-    <div>        
+    <div id='vidjet_views'>        
         <?php
         if ($request->itemCount) {
             $this->widget('zii.widgets.grid.CGridView', array(

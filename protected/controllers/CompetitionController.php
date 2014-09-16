@@ -47,6 +47,77 @@ class CompetitionController extends Controller
 			'comments'=> $comments,
 		));
 	}
+        
+        /**
+         * 
+         * @param type $id
+         */        
+        public function actionAddrequest($id){
+            if(Yii::app()->request->isAjaxRequest){                
+                if(isset($_POST)){  
+                        $return_mass = array();
+                        $model = new CompetitionRequest();  
+                        $model->competition_id = $_POST['CompetitionRequest']['competition_id'];
+                        $model->group_id = $_POST['group_id'];                        
+			$model->name = $_POST['CompetitionRequest']['name'];;
+			$model->lastname =  $_POST['CompetitionRequest']['lastname'];
+			$model->year = $_POST['CompetitionRequest']['year_bird'];
+			$model->chip = $_POST['CompetitionRequest']['chip'];
+			$model->dyusch = $_POST['CompetitionRequest']['dyusch'];
+			$model->sity = $_POST['CompetitionRequest']['sity'];
+			$model->coutry = $_POST['CompetitionRequest']['coutry'];
+			$model->team = $_POST['CompetitionRequest']['team'];
+			$model->coach = $_POST['CompetitionRequest']['coach'];
+			$model->fst = $_POST['CompetitionRequest']['fst'];
+                        $model->participation_data = $_POST['check_data'];
+                        $model->status = 0;
+                        $model->user_id = Yii::app()->user->id;
+                        
+                        if($model->save()){
+                            $return_mass['success'] = true;
+                            $return_mass['message'] = 'Ваша заявка принята на рассмотрение.';
+                            echo json_encode($return_mass);
+                            exit();
+                        } else {
+                            $return_mass['success'] = FALSE;
+                            $return_mass['message'] = 'Ваша заявка не принята, произошла неизвестная ошибка.';
+                            echo json_encode($return_mass);
+                            exit();
+                        }
+                }
+            }
+        }
+        
+        
+        public function actionUpdatevievs($id){
+            if(Yii::app()->request->isAjaxRequest){ 
+                
+                $criteria = new CDbCriteria;
+                $criteria->condition = 't.competition_id =' . $id;
+                $request = new CActiveDataProvider('CompetitionRequest', array('criteria' => $criteria));
+                
+                return $this->widget('zii.widgets.grid.CGridView', array(
+                                    'id' => 'competition-request-grid',
+                                    'dataProvider' => $request,
+                                    'template' => '{pager}{items}{pager}',
+                                    'columns' => array(
+                                        'id', 
+                                        array('name' => 'group_id','type' => 'raw','value' => '$data->getGroupName()','filter' => false,),
+                                        'name',
+                                        'lastname',
+                                        'year',
+                                        'sity',
+                                        'coutry',
+                                        'participation_data',
+                                        array('name' => 'Состояние','type' => 'raw','value' => '$data->getNameStatus()','filter' => false,),
+                                        array('name' => 'Представитель','type' => 'raw','value' => '$data->getNameUser()','filter' => false,),
+                                    ),
+                ));
+                exit();
+            }
+        }
+        
+        
 //
 //	/**
 //	 * Creates a new model.

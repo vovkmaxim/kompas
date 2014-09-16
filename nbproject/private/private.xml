@@ -3,21 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/php/public_html/o-kompas/kompas/protected/controllers/SiteController.php</file>
-            <file>file:/home/php/public_html/o-kompas/kompas/protected/views/competition/_view.php</file>
-            <file>file:/home/php/public_html/o-kompas/kompas/protected/views/competition/index.php</file>
-            <file>file:/home/php/public_html/o-kompas/kompas/protected/views/competition/view.php</file>
-            <file>file:/home/php/public_html/o-kompas/kompas/index.php</file>
-            <file>file:/home/php/public_html/o-kompas/kompas/protected/controllers/CompetitionController.php</file>
-            <file>file:/home/php/public_html/o-kompas/kompas/js/sliders.js</file>
-            <file>file:/home/php/public_html/o-kompas/kompas/protected/config/main.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/controllers/CompetitionRequestController.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/models/CompetitionRequest.php</file>
             <file>file:/home/php/public_html/o-kompas/kompas/protected/models/Competition.php</file>
-            <file>file:/home/php/public_html/o-kompas/kompas/protected/views/events/_viewnews.php</file>
-            <file>file:/home/php/public_html/o-kompas/kompas/protected/models/Comments.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/models/CompetitionRequest.php</file>
             <file>file:/home/php/public_html/o-kompas/kompas/css/foundation.css</file>
             <file>file:/home/php/public_html/o-kompas/kompas/css/main.css</file>
             <file>file:/home/php/public_html/o-kompas/kompas/protected/modules/admin/controllers/CompetitionController.php</file>
-            <file>file:/home/php/public_html/o-kompas/kompas/protected/views/layouts/main.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/views/competition/view.php</file>
+            <file>file:/home/php/public_html/o-kompas/kompas/protected/views/competitionRequest/_form.php</file>
         </group>
     </open-files>
 </project-private>
