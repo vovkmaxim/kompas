@@ -592,3 +592,35 @@ in /home/max/public_html/o-kompas/index.php (13)
 2014/09/14 18:17:02 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
 in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (67)
 in /home/max/public_html/o-kompas/index.php (13)
+2014/09/16 20:14:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'У вас нет прав для входа в адменистрирование сайта! Обратитесь к администратору.' in /home/max/public_html/o-kompas/protected/modules/admin/components/AdminController.php:23
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(359): AdminController->__construct('events', Object(AdminModule))
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(338): CWebApplication->createController('events/update/i...', Object(AdminModule))
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(276): CWebApplication->createController('admin/events/up...')
+#3 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/events/up...')
+#4 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#6 {main}
+REQUEST_URI=/index.php/admin/events/update/id/12
+HTTP_REFERER=http://o-kompas.com.local/index.php/admin/events/update/id/12
+---
+2014/09/16 20:14:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/img/favi...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/img/favicons/favicon.ico
+---
+2014/09/16 20:14:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "favicon.ico".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('favicon.ico')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('favicon.ico')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/favicon....')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/favicon.ico
+---
