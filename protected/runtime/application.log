@@ -714,3 +714,495 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/index.php/events/img/favicons/favicon.ico
 ---
+2014/09/17 21:06:24 [error] [system.db.CDbCommand] Не удалось выполнить CDbCommand::fetchAll(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kompas.km_timers' doesn't exist. Выполнявшийся SQL-запрос: SHOW FULL COLUMNS FROM `km_timers`.
+in /home/max/public_html/o-kompas/protected/views/layouts/functions.php (111)
+in /home/max/public_html/o-kompas/protected/views/layouts/main.php (44)
+in /home/max/public_html/o-kompas/protected/views/layouts/column1.php (6)
+2014/09/17 21:06:24 [error] [exception.CDbException] exception 'CDbException' with message 'Таблица "km_timers", упомянутая в записи active record класса "Timers", не найдена в базе данных.' in /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php:2362
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Timers))
+#1 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(658): CActiveRecord->getMetaData()
+#2 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(1350): CActiveRecord->getTableSchema()
+#3 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(1456): CActiveRecord->query(Object(CDbCriteria))
+#4 /home/max/public_html/o-kompas/protected/views/layouts/functions.php(111): CActiveRecord->find('status=:status', Array)
+#5 /home/max/public_html/o-kompas/protected/views/layouts/main.php(44): get_timer()
+#6 /home/max/public_html/o-kompas/framework/web/CBaseController.php(126): require('/home/max/publi...')
+#7 /home/max/public_html/o-kompas/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/max/publi...', Array, true)
+#8 /home/max/public_html/o-kompas/framework/web/widgets/CContentDecorator.php(76): CBaseController->renderFile('/home/max/publi...', Array, true)
+#9 /home/max/public_html/o-kompas/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#10 /home/max/public_html/o-kompas/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#11 /home/max/public_html/o-kompas/framework/web/CBaseController.php(206): COutputProcessor->run()
+#12 /home/max/public_html/o-kompas/framework/web/CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#13 /home/max/public_html/o-kompas/protected/views/layouts/column1.php(6): CBaseController->endContent()
+#14 /home/max/public_html/o-kompas/framework/web/CBaseController.php(126): require('/home/max/publi...')
+#15 /home/max/public_html/o-kompas/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/max/publi...', Array, true)
+#16 /home/max/public_html/o-kompas/framework/web/CController.php(784): CBaseController->renderFile('/home/max/publi...', Array, true)
+#17 /home/max/public_html/o-kompas/protected/controllers/SiteController.php(34): CController->render('index', Array)
+#18 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#19 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#20 /home/max/public_html/o-kompas/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#21 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('')
+#23 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#24 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#25 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/index.php?r=site/index
+---
+2014/09/17 21:06:31 [error] [system.db.CDbCommand] Не удалось выполнить CDbCommand::fetchAll(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kompas.km_timers' doesn't exist. Выполнявшийся SQL-запрос: SHOW FULL COLUMNS FROM `km_timers`.
+in /home/max/public_html/o-kompas/protected/views/layouts/functions.php (111)
+in /home/max/public_html/o-kompas/protected/views/layouts/main.php (44)
+in /home/max/public_html/o-kompas/protected/views/layouts/column1.php (6)
+2014/09/17 21:06:31 [error] [exception.CDbException] exception 'CDbException' with message 'Таблица "km_timers", упомянутая в записи active record класса "Timers", не найдена в базе данных.' in /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php:2362
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Timers))
+#1 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(658): CActiveRecord->getMetaData()
+#2 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(1350): CActiveRecord->getTableSchema()
+#3 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(1456): CActiveRecord->query(Object(CDbCriteria))
+#4 /home/max/public_html/o-kompas/protected/views/layouts/functions.php(111): CActiveRecord->find('status=:status', Array)
+#5 /home/max/public_html/o-kompas/protected/views/layouts/main.php(44): get_timer()
+#6 /home/max/public_html/o-kompas/framework/web/CBaseController.php(126): require('/home/max/publi...')
+#7 /home/max/public_html/o-kompas/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/max/publi...', Array, true)
+#8 /home/max/public_html/o-kompas/framework/web/widgets/CContentDecorator.php(76): CBaseController->renderFile('/home/max/publi...', Array, true)
+#9 /home/max/public_html/o-kompas/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#10 /home/max/public_html/o-kompas/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#11 /home/max/public_html/o-kompas/framework/web/CBaseController.php(206): COutputProcessor->run()
+#12 /home/max/public_html/o-kompas/framework/web/CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#13 /home/max/public_html/o-kompas/protected/views/layouts/column1.php(6): CBaseController->endContent()
+#14 /home/max/public_html/o-kompas/framework/web/CBaseController.php(126): require('/home/max/publi...')
+#15 /home/max/public_html/o-kompas/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/max/publi...', Array, true)
+#16 /home/max/public_html/o-kompas/framework/web/CController.php(784): CBaseController->renderFile('/home/max/publi...', Array, true)
+#17 /home/max/public_html/o-kompas/protected/controllers/SiteController.php(34): CController->render('index', Array)
+#18 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#19 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#20 /home/max/public_html/o-kompas/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#21 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('')
+#23 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#24 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#25 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/index.php
+---
+2014/09/17 21:06:41 [error] [system.db.CDbCommand] Не удалось выполнить CDbCommand::fetchAll(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kompas.km_timers' doesn't exist. Выполнявшийся SQL-запрос: SHOW FULL COLUMNS FROM `km_timers`.
+in /home/max/public_html/o-kompas/protected/views/layouts/functions.php (111)
+in /home/max/public_html/o-kompas/protected/views/layouts/main.php (44)
+in /home/max/public_html/o-kompas/protected/views/layouts/column1.php (6)
+2014/09/17 21:06:41 [error] [exception.CDbException] exception 'CDbException' with message 'Таблица "km_timers", упомянутая в записи active record класса "Timers", не найдена в базе данных.' in /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php:2362
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Timers))
+#1 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(658): CActiveRecord->getMetaData()
+#2 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(1350): CActiveRecord->getTableSchema()
+#3 /home/max/public_html/o-kompas/framework/db/ar/CActiveRecord.php(1456): CActiveRecord->query(Object(CDbCriteria))
+#4 /home/max/public_html/o-kompas/protected/views/layouts/functions.php(111): CActiveRecord->find('status=:status', Array)
+#5 /home/max/public_html/o-kompas/protected/views/layouts/main.php(44): get_timer()
+#6 /home/max/public_html/o-kompas/framework/web/CBaseController.php(126): require('/home/max/publi...')
+#7 /home/max/public_html/o-kompas/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/max/publi...', Array, true)
+#8 /home/max/public_html/o-kompas/framework/web/widgets/CContentDecorator.php(76): CBaseController->renderFile('/home/max/publi...', Array, true)
+#9 /home/max/public_html/o-kompas/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#10 /home/max/public_html/o-kompas/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#11 /home/max/public_html/o-kompas/framework/web/CBaseController.php(206): COutputProcessor->run()
+#12 /home/max/public_html/o-kompas/framework/web/CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#13 /home/max/public_html/o-kompas/protected/views/layouts/column1.php(6): CBaseController->endContent()
+#14 /home/max/public_html/o-kompas/framework/web/CBaseController.php(126): require('/home/max/publi...')
+#15 /home/max/public_html/o-kompas/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/max/publi...', Array, true)
+#16 /home/max/public_html/o-kompas/framework/web/CController.php(784): CBaseController->renderFile('/home/max/publi...', Array, true)
+#17 /home/max/public_html/o-kompas/protected/controllers/SiteController.php(34): CController->render('index', Array)
+#18 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#19 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#20 /home/max/public_html/o-kompas/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#21 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('')
+#23 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#24 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#25 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/index.php?r=site/index
+---
+2014/09/17 21:10:05 [error] [php] Trying to get property of non-object (/home/max/public_html/o-kompas/protected/views/layouts/functions.php:114)
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#1 /home/max/public_html/o-kompas/framework/web/widgets/CContentDecorator.php(76): SiteController->renderFile()
+#2 /home/max/public_html/o-kompas/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#3 /home/max/public_html/o-kompas/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#4 /home/max/public_html/o-kompas/framework/web/CBaseController.php(206): CContentDecorator->run()
+#5 /home/max/public_html/o-kompas/framework/web/CBaseController.php(300): SiteController->endWidget()
+#6 /home/max/public_html/o-kompas/protected/views/layouts/column1.php(6): SiteController->endContent()
+#7 /home/max/public_html/o-kompas/framework/web/CBaseController.php(126): require()
+#8 /home/max/public_html/o-kompas/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#9 /home/max/public_html/o-kompas/framework/web/CController.php(784): SiteController->renderFile()
+#10 /home/max/public_html/o-kompas/protected/controllers/SiteController.php(34): SiteController->render()
+#11 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#12 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams()
+#13 /home/max/public_html/o-kompas/framework/web/CController.php(286): SiteController->runAction()
+#14 /home/max/public_html/o-kompas/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#15 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): SiteController->run()
+#16 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#17 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /home/max/public_html/o-kompas/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php
+in /home/max/public_html/o-kompas/protected/views/layouts/functions.php (114)
+in /home/max/public_html/o-kompas/protected/views/layouts/main.php (44)
+in /home/max/public_html/o-kompas/protected/views/layouts/column1.php (6)
+2014/09/17 21:11:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('site/img/favico...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/img/favicons/favicon.ico
+---
+2014/09/17 21:11:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "favicon.ico".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('favicon.ico')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('favicon.ico')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('site/favicon.ic...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/favicon.ico
+---
+2014/09/17 21:11:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/img/favi...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/img/favicons/favicon.ico
+---
+2014/09/17 21:11:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "favicon.ico".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('favicon.ico')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('favicon.ico')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/favicon....')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/events/favicon.ico
+---
+2014/09/17 21:11:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "img/favicons/favicon.ico".' in /home/max/public_html/o-kompas/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('img/favicons/fa...')
+#1 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/img/favicons/favicon.ico
+---
+2014/09/17 21:11:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "img/favicons/favicon.ico".' in /home/max/public_html/o-kompas/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('img/favicons/fa...')
+#1 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/img/favicons/favicon.ico
+---
+2014/09/17 21:11:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/sliders/i...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/admin/sliders/img/favicons/favicon.ico
+---
+2014/09/17 21:12:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/timers/im...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/admin/timers/img/favicons/favicon.ico
+---
+2014/09/17 21:12:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/timers/im...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/admin/timers/img/favicons/favicon.ico
+---
+2014/09/17 21:14:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /home/max/public_html/o-kompas/protected/modules/admin/controllers/TimersController.php:154
+Stack trace:
+#0 /home/max/public_html/o-kompas/protected/modules/admin/controllers/TimersController.php(55): TimersController->loadModel('img')
+#1 [internal function]: TimersController->actionView('img')
+#2 /home/max/public_html/o-kompas/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(TimersController), Array)
+#3 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(TimersController), Object(ReflectionMethod), Array)
+#4 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('view')
+#13 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/timers/vi...')
+#14 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/admin/timers/view/id/img/favicons/favicon.ico
+---
+2014/09/17 21:14:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /home/max/public_html/o-kompas/protected/modules/admin/controllers/TimersController.php:154
+Stack trace:
+#0 /home/max/public_html/o-kompas/protected/modules/admin/controllers/TimersController.php(55): TimersController->loadModel('img')
+#1 [internal function]: TimersController->actionView('img')
+#2 /home/max/public_html/o-kompas/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(TimersController), Array)
+#3 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(TimersController), Object(ReflectionMethod), Array)
+#4 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('view')
+#13 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/timers/vi...')
+#14 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/admin/timers/view/id/img/favicons/favicon.ico
+---
+2014/09/17 21:14:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /home/max/public_html/o-kompas/protected/modules/admin/controllers/TimersController.php:154
+Stack trace:
+#0 /home/max/public_html/o-kompas/protected/modules/admin/controllers/TimersController.php(89): TimersController->loadModel('img')
+#1 [internal function]: TimersController->actionUpdate('img')
+#2 /home/max/public_html/o-kompas/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(TimersController), Array)
+#3 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(TimersController), Object(ReflectionMethod), Array)
+#4 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('update')
+#13 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/timers/up...')
+#14 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/admin/timers/update/id/img/favicons/favicon.ico
+---
+2014/09/17 21:14:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /home/max/public_html/o-kompas/protected/modules/admin/controllers/TimersController.php:154
+Stack trace:
+#0 /home/max/public_html/o-kompas/protected/modules/admin/controllers/TimersController.php(89): TimersController->loadModel('img')
+#1 [internal function]: TimersController->actionUpdate('img')
+#2 /home/max/public_html/o-kompas/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(TimersController), Array)
+#3 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(TimersController), Object(ReflectionMethod), Array)
+#4 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('update')
+#13 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/timers/up...')
+#14 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/admin/timers/update/id/img/favicons/favicon.ico
+---
+2014/09/17 21:15:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('user/img/favico...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/user/img/favicons/favicon.ico
+---
+2014/09/17 21:15:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "favicon.ico".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('favicon.ico')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('favicon.ico')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('user/favicon.ic...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/user/favicon.ico
+---
+2014/09/17 21:15:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "favicon.ico".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('favicon.ico')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('favicon.ico')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/fav...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/favicon.ico
+---
+2014/09/17 21:15:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/img...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/img/favicons/favicon.ico
+---
+2014/09/17 21:23:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "index.php".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('index.php')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('index.php')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/ind...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/index.php/competition/1
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/index
+---
+2014/09/17 21:23:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "index.php".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('index.php')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('index.php')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/ind...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/index.php/competition/img/favicons/favicon.ico
+---
+2014/09/17 21:23:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "index.php".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('index.php')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('index.php')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/ind...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/index.php/competition/favicon.ico
+---
+2014/09/17 21:25:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/competiti...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/admin/competition/img/favicons/favicon.ico
+---
+2014/09/17 21:25:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/competiti...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/admin/competitionRequest/img/favicons/favicon.ico
+---
+2014/09/17 21:25:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionRequestController.php:127
+Stack trace:
+#0 /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionRequestController.php(42): CompetitionRequestController->loadModel('img')
+#1 [internal function]: CompetitionRequestController->actionUpdate('img')
+#2 /home/max/public_html/o-kompas/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CompetitionRequestController), Array)
+#3 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CompetitionRequestController), Object(ReflectionMethod), Array)
+#4 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('update')
+#13 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/competiti...')
+#14 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/admin/competitionRequest/update/id/img/favicons/favicon.ico
+---
+2014/09/17 21:25:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "index.php".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('index.php')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('index.php')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/ind...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/index.php/competition/1
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/index
+---
+2014/09/17 21:26:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "index.php".' in /home/max/public_html/o-kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(270): CController->missingAction('index.php')
+#1 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('index.php')
+#2 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/ind...')
+#3 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/index.php/competition/1
+HTTP_REFERER=http://o-kompas.com.local/index.php/competition/index
+---
+2014/09/17 21:27:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php:157
+Stack trace:
+#0 /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php(82): CompetitionController->loadModel('img')
+#1 [internal function]: CompetitionController->actionUpdate('img')
+#2 /home/max/public_html/o-kompas/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CompetitionController), Array)
+#3 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CompetitionController), Object(ReflectionMethod), Array)
+#4 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('update')
+#13 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/competiti...')
+#14 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/admin/competition/update/id/img/favicons/favicon.ico
+---
+2014/09/17 21:27:20 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_desc" класса "Competition".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (97)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/09/17 21:27:46 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('view')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/view/fav...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/events/view/favicon.ico
+---
+2014/09/17 21:27:46 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in /home/max/public_html/o-kompas/framework/web/CController.php:336
+Stack trace:
+#0 /home/max/public_html/o-kompas/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('view')
+#9 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('events/view/img...')
+#10 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/events/view/img/favicons/favicon.ico
+---

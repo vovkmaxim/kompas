@@ -7,7 +7,7 @@
         <h3> <?php echo CHtml::link(CHtml::encode('«'.$data->title  . '» (' . $data->getThisDate() . ')'), array('view', 'id'=>$data->id)); ?></h3>
         <div class="row">
             <div class="small-3 large-4 columns">
-                <a class="fancybox th radius" href="index.php?r=events/view&id=<?php echo $data->id; ?>">
+                <a class="fancybox th radius" href="/index.php/competition/<?php echo $data->id; ?>">
                     <?php echo $data->getLogoImage(); ?>
                 </a>
                
