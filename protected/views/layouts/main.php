@@ -226,9 +226,9 @@ function get_mont($mont) {
                                 <div class="top-email">example@gmail.com</div>
                             </div>
                         </div>
-                        <div class="top-banner small-12 large-6 small-centered large-uncentered columns">
+                        <div class="top-banner small-12 large-6 small-centered large-uncentered columns" id="calc_banner">
                             <div class="first-my timerhello">
-<!--                                <div class="first-my-content">
+                                <div class="first-my-content">
 						<p class="titloftimer">До ближайшего события:</p> 
 						<p class="titles">
 							<span class="dd">дней</span>
@@ -243,7 +243,7 @@ function get_mont($mont) {
 							<span style="color: rgb(0, 0, 0);" class="result-second">11</span> 
 						</p> 
 						<div class="clear"></div>
-				</div>-->
+				</div>
                             </div>
                         </div>
                     </div>
