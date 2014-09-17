@@ -36,21 +36,25 @@ $this->breadcrumbs = array(
 if($file->itemCount){
    echo  $model->getFileForThisEvents();
 }
-if($comments->itemCount){
-        $this->widget('zii.widgets.CListView', array(
-            'dataProvider'=>$comments,
-            'pager'=>array(
-                'header'         => '',
-                'firstPageLabel' => '&lt;&lt;',
-                'prevPageLabel'  => '<img src="images/pagination/left.png">',
-                'nextPageLabel'  => '<img src="images/pagination/right.png">',
-                'lastPageLabel'  => '&gt;&gt;',
-         ),
-        'template'=>'{pager}{items}{pager}',
-            'itemView'=>'_viewcomment',
-         ));
-    }
 ?>
+    <div>
+        <?php 
+        if($comments->itemCount){
+                $this->widget('zii.widgets.CListView', array(
+                    'dataProvider'=>$comments,
+        //            'pager'=>array(
+        //                'header'         => '',
+        //                'firstPageLabel' => '&lt;&lt;',
+        //                'prevPageLabel'  => '<img src="images/pagination/left.png">',
+        //                'nextPageLabel'  => '<img src="images/pagination/right.png">',
+        //                'lastPageLabel'  => '&gt;&gt;',
+        //         ),
+//                'template'=>'{pager}{items}{pager}',
+                    'itemView'=>'_viewcomment',
+                 ));
+            }
+        ?>
+    </div>
 <div id="comments-form" class="form">
     <?php
     if (!Yii::app()->user->isGuest) {

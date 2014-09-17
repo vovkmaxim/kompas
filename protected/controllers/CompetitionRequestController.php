@@ -30,7 +30,6 @@ class CompetitionRequestController extends Controller
 		));
 	}
 
-        
         public function actionApplication($id)
 	{            
             $model=new CompetitionRequest;

@@ -379,7 +379,7 @@ class Competition extends CActiveRecord
         }
          public function getAllGroupName(){
             $name = Group::model()->findAll();
-            $all_names = '<select style="min-width: 50px; max-width: 100px;" id="group_id" name="group_id" 0="">';
+            $all_names = '<select class="select-form" id="group_id" name="group_id" 0="">';
             $all_names .= '<option value="0"></option>';
             foreach ($name as $names){
                 $all_names .= '<option value="';
@@ -395,7 +395,7 @@ class Competition extends CActiveRecord
         public function getRanksList(){
             $rank = Rank::model()->findAll();       
             if($rank != NULL){
-                $rankList = '<select name="rank" style="width: 50px;" size="1">';
+                $rankList = '<select class="select-form" name="rank" id="rank" size="1">';
                 $rankList .= '<option  selected="selected" value="0">   </option>';
                 $prom_rank = RankHasCompetitionRequest::model()->findAll('competition_request_id=:id',array(':id' => $this->id));
                 if($prom_rank != NULL){
@@ -415,4 +415,42 @@ class Competition extends CActiveRecord
                 return $rankList; 
             }
         }
+        
+                
+        public function getChekData(){
+            $competition_data = Competition::model()->findByPk($this->id);
+            if($competition_data != NULL){
+                $datetime1 = new DateTime($competition_data->start_data);
+                $datetime2 = new DateTime($competition_data->end_data);
+                $interval = $datetime1->diff($datetime2);
+                $lenght_data = $interval->days;
+                $start_data = explode("-", $competition_data->start_data);
+                $sring_data = '';
+                $array_data = array();
+                
+                if($lenght_data > 1){
+                    for($i = 0; $i < $lenght_data-1; $i++){
+                        $array_data[] = $start_data[0] . '-' . $start_data[1] . '-' . ($start_data[2] + $i);
+                    }
+                } else {
+                    for($i = 0; $i < $lenght_data; $i++){
+                        $array_data[] = $start_data[0] . '-' . $start_data[1] . '-' . ($start_data[2] + $i);
+                    }
+                }
+                
+                $lenght_data = count($array_data);
+                
+                 $sring_data = '<select name="check_data[]" maltiple id="check_data" size="7" multiple>';
+//                $sring_data .= '<option  selected="selected" value="0"></option>';
+                
+                for($i = 0; $i < $lenght_data; $i++){
+                    $sring_data .= '<option value="'. $array_data[$i] .'">'. $array_data[$i] .'</option>';
+//                    $sring_data .= '<input type="checkbox" name="check_data[' . $i . ']" value="' . $array_data[$i] . '">' . $array_data[$i] . '<br>';
+                }
+                return $sring_data;
+            } else {
+                return false;
+            }    
+        }
+        
 }

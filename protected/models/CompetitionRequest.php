@@ -82,7 +82,7 @@ class CompetitionRequest extends CActiveRecord
 		// will receive user inputs.
 		return array(
 
-			array('competition_id, group_id, name, lastname, year, chip, sity, fst, team, coutry,  participation_data', 'required' ),	
+//			array('competition_id, group_id, name, lastname, year, sity, fst, team, coutry,  participation_data', 'required' ),	
                         array('competition_id, group_id, status, user_id', 'length', 'max'=>10),
 			array('name, lastname, chip, dyusch, sity, coutry, team, coach, fst, participation_data', 'length', 'max'=>255),
 			array('year', 'length', 'max'=>4),

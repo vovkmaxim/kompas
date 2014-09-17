@@ -99,7 +99,7 @@ color: white;
 #news-item .tags{font-size:85%;color: #9E9E9E;margin-top:0.9375em;margin-bottom:0.9375em;}
 #news-item .img-content img{margin-top:0.9375em;margin-bottom:0.9375em;border-radius: 4px;}
 #banner-content {margin-top:2.938em;}
-#news-content .more {float: right;}
+#news-content .more {float: right; margin-right: 20px;}
 .people .people-about {margin-top:0.9375em;margin-bottom:0.9375em;font-size:85%;}
 .people a.people-link{font-size:85%;line-height: 1em;}
 .people-list > li {
@@ -4720,9 +4720,8 @@ width:100%;
 @media only screen and (max-width: 768px) {
 #header .top-login .top-contact{margin: 0 0 0 -60px;}
 }
-
-.input_form_styles{
-    /*height: 40px;*/
+.inputFormStyles{
+    height: 40px;
     color: #777;
     width: 250px;
 }
