@@ -2,10 +2,27 @@
 /* @var $this EventsController */
 /* @var $model Events */
 $this->breadcrumbs = array(
-    'Новость' => array('index'),
+    'Новость(Статья)' => array('index'),
     $model->title,
 );
 ?>
+
+
+
+<style type="text/css">
+		.fancybox-custom .fancybox-skin {
+			box-shadow: 0 0 50px #222;
+		}
+	</style>
+        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
+        <script type="text/javascript">
+		$(document).ready(function() {
+                        $(".fancybox").fancybox({
+                                openEffect	: 'none',
+                                closeEffect	: 'none'
+                        });
+                });
+	</script>
 <div class="large-12 columns">
     <div id="news-item" class="large-12 small-12 columns">
         <h3><?php echo $model->title; ?></h3>

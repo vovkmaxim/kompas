@@ -3,8 +3,8 @@
 /* @var $model Sliders */
 
 $this->breadcrumbs=array(
-	'Sliders'=>array('index'),
-	'Manage',
+	'Слайдер'=>array('index'),
+	'Управление',
 );
 
 $this->menu=array(

@@ -52,7 +52,7 @@ class CompetitionController extends Controller
          * 
          * @param type $id
          */        
-        public function actionAddrequest($id){
+        public function actionaddrequest($id){
             if(Yii::app()->request->isAjaxRequest){                
                 if(isset($_POST)){  
                         $return_mass = array();
