@@ -30,7 +30,6 @@ class CompetitionRequestController extends Controller
 		));
 	}
 
-        
         public function actionApplication($id)
 	{            
             $model=new CompetitionRequest;
@@ -38,13 +37,7 @@ class CompetitionRequestController extends Controller
             $model->competition_id = $id;
             $model->save();
             
-            if(isset($_POST['CompetitionRequest'])){
-                
-//                print_r('<pre>');
-//                print_r($_POST);
-//                print_r('<pre>');
-//                die();
-                
+            if(isset($_POST['CompetitionRequest'])){  
                     $model->group_id = $_POST['group_id'];
                     try{
                         if(isset($_POST['check_data'])){

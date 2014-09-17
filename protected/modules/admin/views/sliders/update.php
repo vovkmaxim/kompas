@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Добаввить слайд', 'url'=>array('create')),
+	array('label'=>'Добавить слайд', 'url'=>array('create')),
 	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>

@@ -132,7 +132,10 @@ class Events extends CActiveRecord
          * @return string
          */
         public function getEventsImage(){    
-            return '<img src="/logo_events/' . $this->logo_path . '"  width="147" height="115" alt="' . $this->logo_title . '">';
+            return ''
+            . '<a class="fancybox th radius" title="' . $this->logo_title . '" href="/logo_events/' . $this->logo_path . '" rel="gallery1">
+                <img width="147" height="115" src="/logo_events/' . $this->logo_path . '"   alt="' . $this->logo_title . '">
+                </a>';
         }
         
         
@@ -143,5 +146,21 @@ class Events extends CActiveRecord
             } else {
                 return 0;
             }
+        }
+        
+        public function getFileForThisEvents(){
+            
+            $files = File::model()->findAll('events_id=:id', array(':id' => $this->id));
+            $retun_string = '';
+            if(!empty($files)){
+                foreach ($files as $file){  
+                    $retun_string .= '<p><a target="_blank" href="/media/';
+                    $retun_string .= $file->path;   
+                    $retun_string .= '">';   
+                    $retun_string .= $file->name; 
+                    $retun_string .= '</a></p>'; 
+                } 
+            }
+             return $retun_string;
         }
 }

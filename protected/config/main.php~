@@ -6,6 +6,11 @@
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 return array(
+<<<<<<< HEAD
+=======
+        'sourceLanguage' => 'en',
+        'language' => 'ru',
+>>>>>>> dev
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'My Web Application',
 
@@ -20,7 +25,15 @@ return array(
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
+<<<<<<< HEAD
 		'admin',
+=======
+		'admin' => array(
+                    'layoutPath' => 'protected/modules/admin/views/layouts',
+                    'layout' => 'main',
+//                    'layout' => 'application.modules.admin.views.layouts.main',
+                ),
+>>>>>>> dev
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'123',
@@ -33,11 +46,22 @@ return array(
 	// application components
 	'components'=>array(
 		'user'=>array(
+<<<<<<< HEAD
+=======
+                        'class' => 'WebUser',
+>>>>>>> dev
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
 		// uncomment the following to enable URLs in path-format
+<<<<<<< HEAD
 		
+=======
+		'authManager' => array(
+                    'class' => 'PhpAuthManager',
+                    'defaultRole' => array('guest'),
+                ),
+>>>>>>> dev
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'rules'=>array(
@@ -56,7 +80,11 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=kompas',
 			'emulatePrepare' => true,
 			'username' => 'root',
+<<<<<<< HEAD
 			'password' => 'root',
+=======
+			'password' => '12345',
+>>>>>>> dev
 			'charset' => 'utf8',
 		),
 		
@@ -85,6 +113,20 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
+<<<<<<< HEAD
 		'adminEmail'=>'webmaster@example.com',
 	),
 );
+=======
+		'adminEmail' => 'mvovk90@ukr.net',
+		'addBaners' => '../o-kompas/themes/banners/',
+		'bannersPath' => '/themes/banners/',
+		'addLogoEvents' => '../o-kompas/themes/events_logo/',
+		'LogoEventsPath' => '/themes/events_logo/',
+		'GroupPhotoPath' => '/themes/photo/',
+                'addGroupPhotoPath' => '../o-kompas/themes/photo/',
+		'filePath' => '/themes/file/',
+                'addFile' => '../o-kompas/themes/file/',
+	),
+);
+>>>>>>> dev

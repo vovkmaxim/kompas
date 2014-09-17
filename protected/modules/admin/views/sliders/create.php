@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	'Слайдер'=>array('index'),
-	'Добавить слайдкр',
+	'Добавить слайдер',
 );
 
 $this->menu=array(

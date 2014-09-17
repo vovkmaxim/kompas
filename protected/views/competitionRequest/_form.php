@@ -7,7 +7,7 @@
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'competition-request-form',
+	'id'=>'competition-request-form1',
 	'enableAjaxValidation'=>false,
         'htmlOptions' => array(
             'enctype' => 'multipart/form-data',

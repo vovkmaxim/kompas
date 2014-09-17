@@ -42,7 +42,7 @@ class CompetitionController extends AdminController
 			$model->position = 0;
 			$model->attributes = $_POST['Competition'];
 			if($model->save()){
-                            $this->setCompetitionGroupRefs($_POST, $model->id);
+                            $this->setCompetitionGroupRefs($model->id);
                             return $this->actionAdmin();
                         }
 		}
@@ -96,7 +96,7 @@ class CompetitionController extends AdminController
 			$model->position = 0;
 			$model->attributes=$_POST['Competition'];
 			if($model->save()){
-                            $this->setCompetitionGroupRefs($_POST, $model->id);
+                            $this->setCompetitionGroupRefs($model->id);
                             return $this->actionAdmin();
                         }				
 		}

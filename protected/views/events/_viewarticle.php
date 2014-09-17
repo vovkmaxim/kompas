@@ -3,12 +3,13 @@
 /* @var $data Events */
 ?>
 
-<div class="view">
-<li>
-        <h3><?php echo CHtml::encode($data->title); ?></h3>
+<div class="news">
+    <li>
+        <p class="title-p" ><span class="title-span"><?php echo CHtml::encode($data->title); ?></span><span class="more create-data"><?php echo CHtml::encode($data->create_date); ?></span></p>
+        <?php echo  $data->getFileForThisEvents();?>
         <div class="row">
             <div class="small-3 large-4 columns">
-                <a class="fancybox th radius" href="index.php?r=events/view&id=<?php echo $data->id; ?>">
+                <a class="fancybox th radius" href="/index.php/events/view/<?php echo $data->id; ?>">
                     <img width="147" height="115" src="/logo_events/<?php echo CHtml::encode($data->logo_path); ?>" alt="<?php echo CHtml::encode($data->title); ?>" />
                 </a>
                
@@ -21,8 +22,10 @@
             </div>
         </div>
     </li>
-<!--    <?php
-        if($data->status != 2 && $data->type !=1){
+    
+<!--
+    <?php
+        if($data->status != 2 && $data->type !=2){
     ?>
     
     	<?php echo CHtml::link(CHtml::encode($data->title), array('view', 'id'=>$data->id)); ?>
@@ -73,9 +76,12 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('logo_path')); ?>:</b>
 	<?php echo $data->getEventsImage(); ?>
 	<br />
------------------------------------------------------------------------------------------
+-------------------------------------------------------------</br>
 	<b>Количество комментариев:</b>
 	<?php echo $data->getCommentCount(); ?>
+	<br />
+	<b>Количество просмотров:</b>
+	<?php echo $data->views; ?>
 	<br />
     <?php
     }    

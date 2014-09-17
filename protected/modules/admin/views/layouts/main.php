@@ -40,6 +40,7 @@
 				array('label'=>'Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Выйти ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
                                 array('label'=>'Слайдер', 'url'=>array('sliders/index')),
+                                array('label'=>'Таймер', 'url'=>array('timers/index')),
                                 array('label'=>'Банера', 'url'=>array('banners/index')),
                                 array('label'=>'Ссылки', 'url'=>array('link/index')),
                                 array('label'=>'Цитаты(Высказывания)', 'url'=>array('quote/index')),

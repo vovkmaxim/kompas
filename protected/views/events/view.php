@@ -2,28 +2,47 @@
 /* @var $this EventsController */
 /* @var $model Events */
 $this->breadcrumbs = array(
-    'Новость' => array('index'),
+    'Новость(Статья)' => array('index'),
     $model->title,
 );
 ?>
+
+
+
+<style type="text/css">
+		.fancybox-custom .fancybox-skin {
+			box-shadow: 0 0 50px #222;
+		}
+	</style>
+        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
+        <script type="text/javascript">
+		$(document).ready(function() {
+                        $(".fancybox").fancybox({
+                                openEffect	: 'none',
+                                closeEffect	: 'none'
+                        });
+                });
+	</script>
 <div class="large-12 columns">
     <div id="news-item" class="large-12 small-12 columns">
         <h3><?php echo $model->title; ?></h3>
-        <span class="date-time">Дата создания: <?php echo CHtml::encode($model->create_date); ?></span></br>
-        <span class="date-time">Дата изменения: <?php echo CHtml::encode($model->update_date); ?></span></br>
+        <!--<span class="date-time">Дата создания: <?php echo CHtml::encode($model->create_date); ?></span></br>-->
         <div class="img-content">
-            <img src="/logo_events/<?php echo $model->logo_path; ?>" alt="<?php echo $model->logo_title; ?>"/>
-            <div id="footer">
+            <div class="small-3 large-4 columns">
+                        <?php echo $model->getEventsImage(); ?>
+            </div>
+            <!--<img src="/logo_events/<?php echo $model->logo_path; ?>" alt="<?php echo $model->logo_title; ?>"/>-->
+<!--            <div id="footer">
                 <span class="date-time"> КРАТКОЕ ОПИСАНИЕ:</span></br>
                 <span class="date-time"><?php echo CHtml::encode($model->description); ?></span></br>
-            </div>
+            </div>-->
         </div>
         </br>
         <p><?php echo CHtml::encode($model->text); ?></p>
         <div class="row">
             <div class="large-6 small-12 columns">
-                <div class="tags">Теги: ориентирование, компас</div>
-                <div><img src="/images/ico-socials.png" alt="socials"></div>
+<!--                <div class="tags">Теги: ориентирование, компас</div>
+                <div><img src="/images/ico-socials.png" alt="socials"></div>-->
             </div>
             <div class="large-6 small-12 columns" style="text-align: center;">
             </div>
@@ -32,38 +51,27 @@ $this->breadcrumbs = array(
 </div>
 <?php 
 if($file->itemCount){
-    $this->widget('zii.widgets.grid.CGridView', array(
-        'id' => 'file-grid',
-        'dataProvider' => $file,
-        'columns' => array(
-            'id',
-            'name',
-            array(
-                'type' => 'raw',
-                'value' => '$data->viewsFile()',
-                'filter' => true,
-                'htmlOptions' => array(
-                    "width" => 128,
-                ),
-            ),
-            array(
-                'type' => 'raw',
-                'value' => '$data->getType()',
-                'filter' => true,
-                'htmlOptions' => array(
-                    "width" => 128,
-                ),
-            ),
-        ),
-    ));
+   echo  $model->getFileForThisEvents();
 }
-if($comments->itemCount){
-        $this->widget('zii.widgets.CListView', array(
-            'dataProvider'=>$comments,
-            'itemView'=>'_viewcomment',
-         ));
-    }
 ?>
+    <div>
+        <?php 
+        if($comments->itemCount){
+                $this->widget('zii.widgets.CListView', array(
+                    'dataProvider'=>$comments,
+        //            'pager'=>array(
+        //                'header'         => '',
+        //                'firstPageLabel' => '&lt;&lt;',
+        //                'prevPageLabel'  => '<img src="images/pagination/left.png">',
+        //                'nextPageLabel'  => '<img src="images/pagination/right.png">',
+        //                'lastPageLabel'  => '&gt;&gt;',
+        //         ),
+//                'template'=>'{pager}{items}{pager}',
+                    'itemView'=>'_viewcomment',
+                 ));
+            }
+        ?>
+    </div>
 <div id="comments-form" class="form">
     <?php
     if (!Yii::app()->user->isGuest) {
