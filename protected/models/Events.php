@@ -132,7 +132,10 @@ class Events extends CActiveRecord
          * @return string
          */
         public function getEventsImage(){    
-            return '<img src="/logo_events/' . $this->logo_path . '"  width="147" height="115" alt="' . $this->logo_title . '">';
+            return ''
+            . '<a class="fancybox th radius" title="' . $this->logo_title . '" href="/logo_events/' . $this->logo_path . '" rel="gallery1">
+                <img width="147" height="115" src="/logo_events/' . $this->logo_path . '"   alt="' . $this->logo_title . '">
+                </a>';
         }
         
         
