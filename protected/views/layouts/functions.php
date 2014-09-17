@@ -56,20 +56,54 @@ function get_quote(){
 
 function get_sliders(){
         $sliders = Sliders::model()->findAll();
-        $images_sliders = '<ul data-orbit>';
-        $headline_sliders = '<div class="orbit-headline">';
-        $i = 0;
+        $images_sliders = '<ul>';
+        
+        $script = '<script type="text/javascript"  src="'.Yii::app()->request->baseUrl.'/js/sliders.js"></script>';
+        $script .= '<script type="text/javascript">
+
+                            $(function() {
+                                $("#slidebox").jCarouselLite({
+                                    vertical: false,
+                                    hoverPause:true,
+                                    btnPrev: ".previous",
+                                    btnNext: ".next",
+                                    visible: 1,
+                                    start: 0,
+                                    scroll: 1,
+                                    circular: true,
+                                    auto:1000,
+                                    speed:500,               
+                                    btnGo:';
+        
+        $script_mass = '[';
+        $headline_sliders = '<div class="next"></div><div class="previous"></div><div class="thumbs">';
+            $i = 0;
             foreach ($sliders as $slider) {
                 $i++;
-               $headline_sliders .= '<a href="#" data-orbit-link="headline-'.$i.'"> --- '.$i.' --- </a>';
-               $images_sliders .= '<li data-orbit-slide="headline-'.$i.'">'; 
-               $images_sliders .= ' <img src="/sliders/' . $slider->path . '" width="640" height="360"/>'; 
-               $images_sliders .= '</li>'; 
+               $script_mass .= '".'.$i.'",';
+               $headline_sliders .= '<a href="#" onClick="" class="'.$i.'">' . $slider->hedline . '</a>';
+               
+               $images_sliders .= '<li><img src="/sliders/' . $slider->path . '" alt="' . $slider->hedline . '" width = "630px" height="300px" /></li>'; 
             }
+            
         $images_sliders .= '</ul>';
+        
         $headline_sliders .= '</div>';
         
-    return $images_sliders . $headline_sliders;
+        $script_mass .= '],';
+        $script .= $script_mass;
+        $script .= 'afterEnd: function(a, to, btnGo) {
+                                            if(btnGo.length <= to){
+                                                to = 0;
+                                            }
+                                            $(".thumbActive").removeClass("thumbActive");
+                                            $(btnGo[to]).addClass("thumbActive");
+                                        }
+                                });
+                            });
+</script>';
+        
+    return $script . $headline_sliders . $images_sliders;
 }
 
 

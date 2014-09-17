@@ -22,7 +22,7 @@
         <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.7.2.min.js" type="text/javascript"></script>
         <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/lib/jquery-1.10.1.min.js"></script>
         <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation.min.js"></script>
-        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendor/jquery.js"></script>
+<!--        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendor/jquery.js"></script>
         <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.js"></script>
         <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.interchange.js"></script>
         <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.abide.js"></script>
@@ -38,7 +38,7 @@
         <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.joyride.js"></script>
         <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.orbit.js"></script>
         <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.section.js"></script>
-        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.topbar.js"></script>
+        <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.topbar.js"></script>-->
         <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/holder.js"></script>
         <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/timers.js"></script>
         <?php echo get_timer(); ?>
@@ -47,7 +47,7 @@
         <!--<title><?php // echo CHtml::encode($this->pageTitle);  ?></title>-->
     </head>
     <body>
-        <div id="header">
+        <div id="header">            
             <div class="header-top">
                 <div class="row">
                     <div class="small-12 columns">
@@ -122,17 +122,22 @@
                 ?>	
             </div>
         </div>
-        <div class="slideshow-holder row">            
-            <div class="slideshow-wrapper large-8 columns">
+        <div class="slideshow-holder row"> 
+            <div class="large-8 columns">
                 <?php
-                        $request = Yii::app()->request->requestUri;
-                        $sliders = Sliders::model()->findAll();
-                        if ($sliders != NULL) {
-                            if ($request == '/' || $request == '/index.php/site/index' || $request == '/index.php' ) {
+                $request = Yii::app()->request->requestUri;
+                $sliders = Sliders::model()->findAll();
+                if ($sliders != NULL) {
+                    if ($request == '/' || $request == '/index.php/site/index' || $request == '/index.php' ) {
+                    ?>
+                        <div id="slidebox">
+                            <?php
                                 echo get_sliders();
-                            }
-                        }
-                ?>
+                            ?>
+                        </div>
+                <?php
+                    }
+                } ?>
             <?php if (isset($this->breadcrumbs)): $this->widget('zii.widgets.CBreadcrumbs', array('links' => $this->breadcrumbs)); endif ?>
             </div>
                 <?php
