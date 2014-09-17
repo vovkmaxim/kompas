@@ -2,7 +2,7 @@
 /* @var $this EventsController */
 /* @var $model Events */
 $this->breadcrumbs = array(
-    'Новость' => array('index'),
+    'Новость(Статья)' => array('index'),
     $model->title,
 );
 ?>
@@ -23,9 +23,6 @@ $this->breadcrumbs = array(
                         });
                 });
 	</script>
-<h1>Новости</h1>
-
-
 <div class="large-12 columns">
     <div id="news-item" class="large-12 small-12 columns">
         <h3><?php echo $model->title; ?></h3>

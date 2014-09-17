@@ -31,6 +31,24 @@
 class Competition extends CActiveRecord
 {
     
+    
+    
+    private $monts = array(
+        "01" => 'января',
+        "02" => 'февраля',
+        "03" => 'марта',
+        "04" => 'апреля',
+        "05" => 'мая',
+        "06" => 'июня',
+        "07" => 'июля',
+        "08" => 'августа',
+        "09" => 'сентября',
+        "10" => 'октября',
+        "11" => 'ноября',
+        "12" => 'декадря',
+    );
+        
+        
     private $numbers = array(
         1 => '01',
         2 => '02',
@@ -451,6 +469,19 @@ class Competition extends CActiveRecord
             } else {
                 return false;
             }    
+        }
+        
+        
+        public function getThisDate(){
+            $start_data1 = explode(' ', $this->start_data);
+            $start_data1 = explode('-', $start_data1[0]);
+            $end_data1 = explode(' ', $this->end_data);
+            $end_data1 = explode('-', $end_data1[0]);
+            $data_str = '';
+            $data_str .= $start_data1[2] . ' ' . $this->monts[$start_data1[1]] . ' ' . $start_data1[0] . '';
+            $data_str .= ' - ' ;
+            $data_str .= $end_data1[2] . ' ' . $this->monts[$end_data1[1]] . ' ' . $end_data1[0] . '';
+           return $data_str;
         }
         
 }

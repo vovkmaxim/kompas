@@ -36,10 +36,3 @@ function get_timer(string) {
                     $(".timerhello p.result .result-minute").text("00");
                     $(".timerhello p.result .result-second").text("00");
                 }	 }
-            
-            function getfrominputs(){
-                string = "11/10/2014 12:00"; 
-                get_timer(string);
-                setInterval(function(){
-                    get_timer(string);
-                },1000);}

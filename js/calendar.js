@@ -218,7 +218,8 @@ fcp.Calendar.prototype.render_day = function (day_number) {
                             // Trening
                             day_flag_link = false;
                             var anchor = document.createElement("a");
-                            anchor.href = "#";
+                            anchor.href = "/index.php/competition/"+competitions[i]['id'];
+//                            anchor.href = "http://o-kompas.local/index.php/competition/"+competitions[i]['id'];
                             anchor.innerHTML = '+1+' +day_number + '+1+'; 
                             anchor.calendar = this;
                             anchor.date = day_number;
@@ -235,7 +236,8 @@ fcp.Calendar.prototype.render_day = function (day_number) {
                             // Competitions
                             day_flag_link = false;
                             var anchor = document.createElement("a");
-                            anchor.href = "#";
+                            anchor.href = "/index.php/competition/"+competitions[i]['id'];
+//                            anchor.href = "http://o-kompas.local/index.php/competition/"+competitions[i]['id'];
                             anchor.innerHTML = '+2+' +day_number + '+2+';
                             anchor.calendar = this;
                             anchor.date = day_number;

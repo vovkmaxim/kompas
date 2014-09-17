@@ -71,3 +71,18 @@ function get_sliders(){
         
     return $images_sliders . $headline_sliders;
 }
+
+
+function get_timer(){
+    $timers = Timers::model()->find('status=:status',array(':status'=> 1));
+    return '<script type="text/javascript">
+            function getfrominputs(){
+                document.getElementById("tile_timers").innerHTML = "'.$timers->titles.'";
+                string = "'. $timers->timer_date .'"; 
+                get_timer(string);
+                setInterval(function(){
+                    get_timer(string);
+                },1000);}
+            </script>
+        ';
+}

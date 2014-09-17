@@ -11,8 +11,7 @@ $this->breadcrumbs = array(
 
 <div class="large-12 columns">
     <div id="news-item" class="large-12 small-12 columns">
-
-        <h3>«<?php echo $model->title . ' (' . $model->start_data . ' - ' . $model->end_data . ')'; ?>»</h3>
+        <h3>«<?php echo $model->title . ' (' . $model->getThisDate() . ')'; ?>»</h3>
         <?php
         if ($file->itemCount) {
             echo $model->getFileForThisCompetition();
@@ -65,11 +64,18 @@ $this->breadcrumbs = array(
                 year_bird = form.elements["year_bird"].value;
                 group_id = form.elements["group_id"].value;
                 rank = form.elements["rank"].value;
-//                check_data = {};
-                check_data = document.getElementById('check_data').value;
+                check_data_element = document.getElementById('check_data');
+                var result_check_data = [];
+                var options = check_data_element && check_data_element.options;
+                var opt;
 
-//                alert(check_data);
-//                console.log(document.getElementById('check_data').value);
+                for (var i=0, iLen=options.length; i<iLen; i++) {
+                    opt = options[i];
+                    if (opt.selected) {
+                      result_check_data.push(opt.value || opt.text);
+                    }
+                }
+                check_data = result_check_data.join(', ');
                 
                 if(check_data == ''){
                     document.getElementById('CompetitionRequest_check_data_error').innerHTML = "Необходимо указать дни участия.";

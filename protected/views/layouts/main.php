@@ -41,6 +41,7 @@
         <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/foundation/foundation.topbar.js"></script>
         <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/holder.js"></script>
         <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/timers.js"></script>
+        <?php echo get_timer(); ?>
         <script type="text/javascript"  src="<?php echo Yii::app()->request->baseUrl; ?>/js/calendar.js"></script>
         <title>Клуб спортивного орієнтування «Компас» м.Харків</title>
         <!--<title><?php // echo CHtml::encode($this->pageTitle);  ?></title>-->
@@ -77,7 +78,7 @@
                         <div class="top-banner small-12 large-6 small-centered large-uncentered columns">
                             <div class="first-my timerhello">
                                 <div class="first-my-content">
-					<p class="titloftimer">До ближайшего события:</p> 
+					<p id="tile_timers" class="titloftimer">До ближайшего события:</p> 
 					<p class="titles">
                                             <span class="dd">дней</span>
                                             <span class="hh">часов</span>
@@ -134,9 +135,17 @@
                 ?>
             <?php if (isset($this->breadcrumbs)): $this->widget('zii.widgets.CBreadcrumbs', array('links' => $this->breadcrumbs)); endif ?>
             </div>
-            <div class="cal large-4 columns">
-                <div id="cal_placeholder"></div> 
-            </div>
+                <?php
+                    $request = Yii::app()->request->requestUri;
+                    if ($request == '/' || $request == '/index.php/site/index' || $request == '/index.php' ) {
+                        ?>
+                            <div class="cal large-4 columns">
+                                <div id="cal_placeholder"></div> 
+                            </div>
+                        <?   
+                    }
+                ?>
+
         </div>
         <div class="row">
             <div id="news-content" class="large-8 small-12 columns">
@@ -153,6 +162,16 @@
                 </div>
             </div>
             <div id="banner-content" class="large-4 small-12 columns">
+                <?php
+                    $request = Yii::app()->request->requestUri;
+                    if ($request != '/' || $request != '/index.php/site/index' || $request != '/index.php' ) {
+                        ?>
+                            <div class="cal large-4 columns">
+                                <div id="cal_placeholder"></div> 
+                            </div>
+                        <?   
+                    }
+                ?>
                 <div class="row">
                     <div class="small-12 columns">
                         <ul class="no-bullet small-block-grid-4 large-block-grid-1">
