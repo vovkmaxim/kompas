@@ -484,4 +484,13 @@ class Competition extends CActiveRecord
            return $data_str;
         }
         
+        public function explodeThisDate($date){
+            $data1 = explode(' ', $date);
+            $data1 = explode('-', $data1[0]);
+            $data_str = '';
+            $data_str .= $data1[2] . ' ' . $this->monts[$data1[1]] . ' ' . $data1[0] . '';
+            
+           return $data_str;
+        }
+        
 }

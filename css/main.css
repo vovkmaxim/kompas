@@ -309,7 +309,7 @@ div.view:hover {
 /*=======*/
         padding: 10px;
 	margin: 10px 0;
-	border: 1px solid #FFDAB9;
+	/*border: 1px solid #FFDAB9;*/
         box-shadow: 0px 1px 11px -2px #ff0300;
         box-shadow: 0px 0px 16px 0px #BEBEBE;
         -webkit-border-radius: 0px;
