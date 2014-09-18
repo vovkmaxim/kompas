@@ -3,13 +3,12 @@
 /* @var $model Banners */
 
 $this->breadcrumbs=array(
-	'Banners'=>array('index'),
-	'Manage',
+	'Банер'=>array('index'),
+	'Управление',
 );
 
 $this->menu=array(
-	array('label'=>'List Banners', 'url'=>array('index')),
-	array('label'=>'Create Banners', 'url'=>array('create')),
+	array('label'=>'Создать', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

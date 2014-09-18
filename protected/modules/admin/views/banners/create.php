@@ -3,8 +3,8 @@
 /* @var $model Banners */
 
 $this->breadcrumbs=array(
-	'Banners'=>array('index'),
-	'Create',
+	'Банер'=>array('index'),
+	'Создать',
 );
 
 $this->menu=array(
@@ -12,6 +12,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Create Banners</h1>
+<h1>Добавить банер</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

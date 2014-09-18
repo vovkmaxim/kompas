@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Banners',
+	'Банер',
 );
 
 $this->menu=array(
-	array('label'=>'Create Banners', 'url'=>array('create')),
-	array('label'=>'Manage Banners', 'url'=>array('admin')),
+	array('label'=>'Создать', 'url'=>array('create')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Banners</h1>
+<h1>Банера</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

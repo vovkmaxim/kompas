@@ -3,16 +3,15 @@
 /* @var $model Banners */
 
 $this->breadcrumbs=array(
-	'Banners'=>array('index'),
-	'Create',
+	'Банер'=>array('index'),
+	'Создать',
 );
 
 $this->menu=array(
-	array('label'=>'List Banners', 'url'=>array('index')),
-	array('label'=>'Manage Banners', 'url'=>array('admin')),
+	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Banners</h1>
+<h1>Создать</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>
