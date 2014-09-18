@@ -1,3 +1,4 @@
+
 <?php /* @var $this Controller */ ?>
 <?php require_once 'functions.php'; ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -75,7 +76,11 @@
                                 <div class="top-email">example@gmail.com</div>
                             </div>
                         </div>
+
                         <div class="top-banner small-12 large-6 small-centered large-uncentered columns">
+                            <?php 
+                                if(get_timer()){
+                            ?>
                             <div class="first-my timerhello">
                                 <div class="first-my-content">
 					<p id="tile_timers" class="titloftimer">До ближайшего события:</p> 
@@ -94,6 +99,9 @@
                                     <div class="clear"></div>
 				</div>
                             </div>
+                             <?php 
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
