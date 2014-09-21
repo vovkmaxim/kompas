@@ -450,7 +450,7 @@ class Competition extends CActiveRecord
                 $array_data = array();
                 
                 if($lenght_data > 1){
-                    for($i = 0; $i < $lenght_data-1; $i++){
+                    for($i = 0; $i < $lenght_data; $i++){
                         $array_data[] = $start_data[0] . '-' . $start_data[1] . '-' . ($start_data[2] + $i);
                     }
                 } else {
