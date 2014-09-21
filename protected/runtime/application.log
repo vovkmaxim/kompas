@@ -968,3 +968,37 @@ Stack trace:
 #12 {main}
 REQUEST_URI=/index.php/events/view/img/favicons/favicon.ico
 ---
+2014/09/21 19:13:35 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in S:\home\localhost\www\o-kompas\kompas\framework\db\CDbConnection.php:382
+Stack trace:
+#0 S:\home\localhost\www\o-kompas\kompas\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 S:\home\localhost\www\o-kompas\kompas\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 S:\home\localhost\www\o-kompas\kompas\framework\base\CModule.php(387): CDbConnection->init()
+#3 S:\home\localhost\www\o-kompas\kompas\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 S:\home\localhost\www\o-kompas\kompas\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 S:\home\localhost\www\o-kompas\kompas\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 S:\home\localhost\www\o-kompas\kompas\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 S:\home\localhost\www\o-kompas\kompas\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 S:\home\localhost\www\o-kompas\kompas\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 S:\home\localhost\www\o-kompas\kompas\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 S:\home\localhost\www\o-kompas\kompas\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 S:\home\localhost\www\o-kompas\kompas\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 S:\home\localhost\www\o-kompas\kompas\framework\zii\widgets\CListView.php(211): CBaseListView->init()
+#13 S:\home\localhost\www\o-kompas\kompas\framework\web\CBaseController.php(147): CListView->init()
+#14 S:\home\localhost\www\o-kompas\kompas\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 S:\home\localhost\www\o-kompas\kompas\protected\views\site\index.php(13): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 S:\home\localhost\www\o-kompas\kompas\framework\web\CBaseController.php(126): require('S:\home\localho...')
+#17 S:\home\localhost\www\o-kompas\kompas\framework\web\CBaseController.php(95): CBaseController->renderInternal('S:\home\localho...', Array, true)
+#18 S:\home\localhost\www\o-kompas\kompas\framework\web\CController.php(869): CBaseController->renderFile('S:\home\localho...', Array, true)
+#19 S:\home\localhost\www\o-kompas\kompas\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#20 S:\home\localhost\www\o-kompas\kompas\protected\controllers\SiteController.php(34): CController->render('index', Array)
+#21 S:\home\localhost\www\o-kompas\kompas\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#22 S:\home\localhost\www\o-kompas\kompas\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#23 S:\home\localhost\www\o-kompas\kompas\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#24 S:\home\localhost\www\o-kompas\kompas\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 S:\home\localhost\www\o-kompas\kompas\framework\web\CWebApplication.php(282): CController->run('')
+#26 S:\home\localhost\www\o-kompas\kompas\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#27 S:\home\localhost\www\o-kompas\kompas\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#28 S:\home\localhost\www\o-kompas\kompas\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/o-kompas/kompas/
+---
