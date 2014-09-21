@@ -35,7 +35,9 @@
                 <p><?php echo CHtml::encode($model->path); ?></p>
             <?php endif; ?>
             <?php echo $form->labelEx($model,'path'); ?>
-            <span class="button7"><?php echo $form->fileField($model,'path'); ?></span>
+            <p>Разрешенные форматы: jpg, jpeg, gif, png</p>
+            <span class="button7"><p>ЗАГРУЗИТЬ КАРТИНКУ</p><?php echo $form->fileField($model,'path'); ?></span>
+            <!--<span class="button7"><?php // echo $form->fileField($model,'path'); ?></span>-->
             <?php echo $form->error($model,'path'); ?>
         </div>    
 

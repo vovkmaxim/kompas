@@ -82,7 +82,7 @@ class Competition extends CActiveRecord
 		return array(
                         array('title, description, type, text, start_data, start_time, end_data, end_time, close_registration_data, close_registration_time, enable_registration_flag,  archive', 'required'),
 			array('enable_registration_flag, archive', 'numerical', 'integerOnly'=>true),
-                        array('logo_desc','file','types'=>'jpg, jpeg, gif, png', 'allowEmpty'=>true,'on'=>'insert,update'),
+                        array('logo_desc','file','types'=>'jpg, jpeg, gif, png, bmp', 'allowEmpty'=>true,'on'=>'insert,update', 'maxSize' => 1009048576),
 			array('type', 'length', 'max'=>10),
 			array('text, create_date, update_date, start_data, start_time, end_data, end_time, close_registration_data, close_registration_time', 'safe'),
 			array('id, title, description, type, logo_desc, text, create_date, update_date, start_data, start_time, end_data, end_time, close_registration_data, close_registration_time, enable_registration_flag, position, archive', 'safe', 'on'=>'search'),
@@ -230,15 +230,23 @@ class Competition extends CActiveRecord
             }
         }
         
-        public function getDataList($name_list, $atribut,$langht,$indexValye){
+        public function getDataList($name_list, $atribut,$langht,$indexValye,$default=false){
             if(!empty($this->$atribut)){
                 $atribut = explode("-",$this->$atribut);
                 $montsList = '<select name="' . $name_list . '" style="width: 50px;" size="1">';
                 $monts = $this->numbers;
                 if($indexValye == "Day"){
-                    $index = $atribut[2];
+                    if($default){
+                        $index = $default;
+                    } else {
+                        $index = $atribut[2];
+                    }                    
                 } elseif($indexValye == "Monts"){
-                    $index = $atribut[1];
+                    if($default){
+                        $index = $default;
+                    } else {
+                        $index = $atribut[1];
+                    } 
                 }
                 for($i = 1; $i <= $langht; $i++){
                     if($monts[$i] == $index){

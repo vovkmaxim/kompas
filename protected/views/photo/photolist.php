@@ -28,10 +28,7 @@ $this->breadcrumbs=array(
 	'dataProvider'=>$dataProvider,
         'pager'=>array(
                 'header'         => '',
-                'firstPageLabel' => '&lt;&lt;',
-                'prevPageLabel'  => '<img src="images/pagination/left.png">',
-                'nextPageLabel'  => '<img src="images/pagination/right.png">',
-                'lastPageLabel'  => '&gt;&gt;',
+                'maxButtonCount' => 20,
             ),
             'template'=>'{pager}{items}{pager}',
         //    'columns'=>$arrayColumns,

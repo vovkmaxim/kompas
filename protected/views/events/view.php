@@ -80,16 +80,16 @@ if($file->itemCount){
             <p>Ваш отзыв:</p>
             <form id="comments-form" method="post" action="/index.php/comments/create">
                 <div class="row">
-                    <input id="Comments_events_id" type="hidden" value="0" name="Comments[events_id]" maxlength="10" size="10">
+                    <input id="Comments_events_id" type="hidden" value="<?php echo $model->id; ?>" name="Comments[events_id]" maxlength="10" size="10">
                 </div>
                 <div class="row">
-                    <input id="Comments_competition_id" type="hidden" value="<?php echo $model->id; ?>" name="Comments[competition_id]" maxlength="10" size="10">
+                    <input id="Comments_competition_id" type="hidden" value="0" name="Comments[competition_id]" maxlength="10" size="10">
                 </div>
                 <div class="row">
                     <input id="Comments_user_id" type="hidden" value="<?php echo Yii::app()->user->id; ?>" name="Comments[user_id]" maxlength="10" size="10">
                 </div>
                 <div class="row">
-                    <input id="Comments_create_date" type="hidden" value="<?php echo date('Y-m-d'); ?>" name="Comments[create_date]">
+                    <input id="Comments_create_date" type="hidden" value="<?php echo date('Y-m-d h:m:s'); ?>" name="Comments[create_date]">
                 </div>
                 <div class="row">
                     <label for="Comments_title">Тема:</label>

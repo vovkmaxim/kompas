@@ -9,17 +9,17 @@
         <div class="row">
             <div class="small-9 columns">
                 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('email')); ?>:</b>
+<!--	<b><?php echo CHtml::encode($data->getAttributeLabel('email')); ?>:</b>
 	<?php echo CHtml::encode($data->email); ?>
-	<br />
+	<br />-->
         <b><?php echo CHtml::encode($data->getAttributeLabel('data_birth')); ?>:</b>
-	<?php echo CHtml::encode($data->data_birth); ?>
+	<?php echo $data->explodeThisDate($data->data_birth); ?>
 	<br />
 
-	
+<!--	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('phone')); ?>:</b>
 	<?php echo CHtml::encode($data->phone); ?>
-	<br />
+	<br />-->
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('sity')); ?>:</b>
 	<?php echo CHtml::encode($data->sity); ?>

@@ -251,11 +251,14 @@ class Competition extends CActiveRecord
         public function getDataList($name_list, $atribut,$langht,$indexValye){
             if(!empty($this->$atribut)){
                 $atribut = explode("-",$this->$atribut);
-                $montsList = '<select name="' . $name_list . '" style="width: 50px;" size="1">';
                 $monts = $this->numbers;
                 if($indexValye == "Day"){
-                    $index = $atribut[2];
+                    $montsList = 'День: <select name="' . $name_list . '" style="width: 50px;" size="1">';
+                     $data = explode(" ",$atribut[2]);
+                     $index = $data;
                 } elseif($indexValye == "Monts"){
+                    $montsList = 'Месяц: <select name="' . $name_list . '" style="width: 50px;" size="1">';
+                
                     $index = $atribut[1];
                 }
                 for($i = 1; $i <= $langht; $i++){
@@ -462,7 +465,8 @@ class Competition extends CActiveRecord
 //                $sring_data .= '<option  selected="selected" value="0"></option>';
                 
                 for($i = 0; $i < $lenght_data; $i++){
-                    $sring_data .= '<option value="'. $array_data[$i] .'">'. $array_data[$i] .'</option>';
+                    $temp = $i+1;
+                    $sring_data .= '<option value="'. $temp .'">'. $array_data[$i] .'</option>';
 //                    $sring_data .= '<input type="checkbox" name="check_data[' . $i . ']" value="' . $array_data[$i] . '">' . $array_data[$i] . '<br>';
                 }
                 return $sring_data;
@@ -489,6 +493,15 @@ class Competition extends CActiveRecord
             $data1 = explode('-', $data1[0]);
             $data_str = '';
             $data_str .= $data1[2] . ' ' . $this->monts[$data1[1]] . ' ' . $data1[0] . '';
+            
+           return $data_str;
+        }
+        
+        public function explodeThisDateTime($date){
+            $data1 = explode(' ', $date);
+            $data1 = explode('-', $data1[1]);
+            $data_str = '';
+            $data_str .= $data1[0] . ':' .$data1[1];
             
            return $data_str;
         }

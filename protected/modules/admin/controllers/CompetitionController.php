@@ -83,7 +83,11 @@ class CompetitionController extends AdminController
 
 		if(isset($_POST['Competition']))
 		{
-                                       
+//                    print_r('<pre>');                 
+//                    print_r($_POST['grop']);                  
+//                    print_r('<pre>');                   
+//                    
+                    
                         $model->type = $_POST['type'];
 			$model->start_data = $_POST['year_start_data'] . '-' . $_POST['monts_start_data'] . '-' . $_POST['day_start_data'];
 			$model->start_time = $_POST['hour_start_time'] . ':00:00';

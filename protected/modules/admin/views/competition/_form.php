@@ -86,6 +86,7 @@
                 
             <?php endif; ?>
             <?php echo $form->labelEx($model,'logo_desc'); ?>
+                 <p>Разрешенные форматы: jpg, jpeg, gif, png, bmp</p>
                 <span class="button7"><p>ЗАГРУЗИТЬ КАРТИНКУ</p><?php echo $form->fileField($model,'logo_desc'); ?></span>
             
             <?php // echo $form->fileField($model,'logo_desc'); ?>
@@ -102,37 +103,40 @@
         <div class="row">
             Задать нужно в формате: гггг-мм-дд (2014-07-12)
             <?php echo $form->labelEx($model,'start_data'); ?>
-            <?php echo $model->getYearInput("year_start_data", "start_data"); ?>
-            <?php echo $model->getDataList("monts_start_data", 'start_data', 12, "Monts");  ?>
-            <?php echo $model->getDataList("day_start_data", 'start_data', 31, "Day");  ?>
-            <?php echo $form->error($model,'start_data'); ?>
-            <?php echo $form->labelEx($model,'start_time'); ?>
-            <?php echo $model->getHourList("hour_start_time",'start_time');  ?>
-            <?php echo $form->error($model,'start_time'); ?>
+            Год: <?php echo $model->getYearInput("year_start_data", "start_data"); ?>
+            Месяц: <?php echo $model->getDataList("monts_start_data", 'start_data', 12, "Monts");  ?>
+            <?php $start_data = explode("-",$model->start_data); $start_data = explode(" ",$start_data[2]);?>
+            День: <?php echo $model->getDataList("day_start_data", 'start_data', 31, "Day",$start_data[0]);  ?>
+            <?php // echo $form->error($model,'start_data'); ?>
+            <?php // echo $form->labelEx($model,'start_time'); ?>
+            Час: <?php echo $model->getHourList("hour_start_time",'start_time');  ?>
+            <?php // echo $form->error($model,'start_time'); ?>
 	</div>
 
 	<div class="row">
             Задать нужно в формате: гггг-мм-дд (2014-07-12)
             <?php echo $form->labelEx($model,'end_data'); ?>
-            <?php echo $model->getYearInput("year_end_data", "end_data"); ?>
-            <?php echo $model->getDataList("monts_end_data", 'end_data', 12, "Monts");  ?>
-            <?php echo $model->getDataList("day_end_data", 'end_data', 31, "Day");  ?>
-            <?php echo $form->error($model,'end_data'); ?>
-            <?php echo $form->labelEx($model,'end_time'); ?>
-	    <?php echo $model->getHourList("hour_end_time", 'end_time');  ?>
-            <?php echo $form->error($model,'end_time'); ?>
+            Год: <?php echo $model->getYearInput("year_end_data", "end_data"); ?>
+            <?php $end_data = explode("-",$model->end_data); $end_data = explode(" ",$end_data[2]);?>
+            Месяц: <?php echo $model->getDataList("monts_end_data", 'end_data', 12, "Monts");  ?>
+            День: <?php echo $model->getDataList("day_end_data", 'end_data', 31, "Day",$end_data[0]);  ?>
+            <?php // echo $form->error($model,'end_data'); ?>
+            <?php // echo $form->labelEx($model,'end_time'); ?>
+	    Час: <?php echo $model->getHourList("hour_end_time", 'end_time');  ?>
+            <?php // echo $form->error($model,'end_time'); ?>
 	</div>
 
 	<div class="row">
             Задать нужно в формате: гггг-мм-дд (2014-07-12)
             <?php echo $form->labelEx($model,'close_registration_data'); ?>
-            <?php echo $model->getYearInput("year_close_registration_data", "close_registration_data"); ?>
-            <?php echo $model->getDataList("monts_close_registration_data", 'close_registration_data', 12, "Monts");  ?>
-            <?php echo $model->getDataList("day_close_registration_data", 'close_registration_data', 31, "Day");  ?>
-            <?php echo $form->error($model,'close_registration_data'); ?>
-            <?php echo $form->labelEx($model,'close_registration_time'); ?>
-            <?php echo $model->getHourList("hour_close_registration_time", 'close_registration_time');  ?>            
-            <?php echo $form->error($model,'close_registration_time'); ?>
+            Год: <?php echo $model->getYearInput("year_close_registration_data", "close_registration_data"); ?>
+            Месяц: <?php echo $model->getDataList("monts_close_registration_data", 'close_registration_data', 12, "Monts");  ?>
+             <?php $close_registration_data = explode("-",$model->close_registration_data); $close_registration_data = explode(" ",$close_registration_data[2]);?>
+            День: <?php echo $model->getDataList("day_close_registration_data", 'close_registration_data', 31, "Day",$close_registration_data[0]);  ?>
+            <?php // echo $form->error($model,'close_registration_data'); ?>
+            <?php // echo $form->labelEx($model,'close_registration_time'); ?>
+            Час: <?php echo $model->getHourList("hour_close_registration_time", 'close_registration_time');  ?>            
+            <?php // echo $form->error($model,'close_registration_time'); ?>
 	</div>
 
 	<div class="row">

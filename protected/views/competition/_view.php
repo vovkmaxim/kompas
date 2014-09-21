@@ -16,7 +16,14 @@
             <div class="small-8 columns">
                 <?php echo CHtml::encode($data->description); ?>
             </div>
-            <div class="more">                
+            <div class="more">       
+                <div class="small-12 dop_in">
+                    <b><?php echo CHtml::encode($data->getAttributeLabel('enable_registration_flag')); ?>:</b>
+                    <?php if($data->enable_registration_flag){ echo 'Да'; } else { echo 'Нет'; } ?></br>
+                    <b>Количество просмотров: <?php echo $data->views; ?></b></br>
+                    <b>Количество комментариев: <?php echo $data->getCommentCount(); ?></b></br>
+                    <b>Количество заявок: <?php echo $data->getCountRequest(); ?></b></br>    
+                </div>
                 <div class="small-12 text-right"><?php echo CHtml::link(CHtml::encode('Детальнее...'), array('view', 'id'=>$data->id)); ?></div>
             </div>
         </div>

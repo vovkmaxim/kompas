@@ -30,7 +30,7 @@ class Sliders extends CActiveRecord
 		return array(
 			array('link, alt, hedline', 'required'),
 			array('link, alt, hedline', 'length', 'max'=>255),
-                        array('path','file','types'=>'jpg, jpeg, gif, png', 'allowEmpty'=>true,'on'=>'insert,update'),
+                        array('path','file','types'=>'jpg, jpeg, gif, png, bmp', 'allowEmpty'=>true,'on'=>'insert,update', 'maxSize' => 1009048576),
 			array('id, link, alt, path, hedline', 'safe', 'on'=>'search'),
 		);
 	}

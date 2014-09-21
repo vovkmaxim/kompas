@@ -43,6 +43,7 @@
                 
             <?php endif; ?>
             <?php echo $form->labelEx($model,'path'); ?>
+            <p>Разрешенные форматы: jpg, jpeg, gif, png, bmp</p>
             <span class="button7"><p>ЗАГРУЗИТЬ КАРТИНКУ</p><?php echo $form->fileField($model,'path'); ?></span>
             <?php echo $form->error($model,'path'); ?>
 	</div>

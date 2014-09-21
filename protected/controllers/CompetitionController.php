@@ -38,7 +38,7 @@ class CompetitionController extends Controller
             $criteria = new CDbCriteria;
             $criteria->condition = 't.competition_id =' . $id;
             $comments = new CActiveDataProvider('Comments', array('criteria' => $criteria));
-            
+            $comments->pagination->pageSize = count(Comments::model()->findAll());
 //            $request = CompetitionRequest::model()->findAll('competition_id=:competition_id',array(':competition_id' => $id));
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
@@ -188,6 +188,7 @@ class CompetitionController extends Controller
             $criteria = new CDbCriteria;
             $criteria->condition = 't.type = 2 AND t.archive = 2';
             $dataProvider=new CActiveDataProvider('Competition', array('criteria' => $criteria));
+            $dataProvider->pagination->pageSize = count(Competition::model()->findAll());
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

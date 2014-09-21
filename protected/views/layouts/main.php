@@ -72,8 +72,8 @@
                                 <a href="#" data-dropdown="calendar" data-options="is_hover:true" class="calendar"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/ico-calendar.png" alt="Календарь" title="Календарь"/></a>
                                 <div id="calendar" class="f-dropdown" data-dropdown-content>
                                 </div>
-                                <div class="top-tell"><span></span>+3(067) 857 75 86</div>
-                                <div class="top-email">example@gmail.com</div>
+                                <div class="top-tell"><span></span>+3(050) 63 44 877</div>
+                                <div class="top-email">dankov_sergey@ukr.net</div>
                             </div>
                         </div>
 
