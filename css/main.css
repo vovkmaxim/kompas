@@ -297,25 +297,25 @@ div.view
 /*/////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////*/
 div.view:hover {
-/*<<<<<<< HEAD*/
-/*    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #FFDAB9;
-    box-shadow: 0px 1px 11px -2px #ff0300;
-    box-shadow: 0px 0px 16px 0px #ff0300;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    border-radius: 0px;*/
-/*=======*/
-        padding: 10px;
-	margin: 10px 0;
-	/*border: 1px solid #FFDAB9;*/
+    /*<<<<<<< HEAD*/
+    /*    padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #FFDAB9;
         box-shadow: 0px 1px 11px -2px #ff0300;
-        box-shadow: 0px 0px 16px 0px #BEBEBE;
+        box-shadow: 0px 0px 16px 0px #ff0300;
         -webkit-border-radius: 0px;
         -moz-border-radius: 0px;
-        border-radius: 0px;
-/*>>>>>>> dev*/
+        border-radius: 0px;*/
+    /*=======*/
+    padding: 10px;
+    margin: 10px 0;
+    /*border: 1px solid #FFDAB9;*/
+    box-shadow: 0px 1px 11px -2px #ff0300;
+    box-shadow: 0px 0px 16px 0px #BEBEBE;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    /*>>>>>>> dev*/
 }
 
 /*/////////////////////////////////////////////////////////////////
@@ -428,12 +428,12 @@ td.calendar-day, td.calendar-day-np { width:120px; padding:5px; border-bottom:1p
 
 
 .first-my{
-/*<<<<<<< HEAD*/
+    /*<<<<<<< HEAD*/
     margin-left: auto;
     margin-right: auto;
-/*=======
-    width: 260px;
->>>>>>> dev*/
+    /*=======
+        width: 260px;
+    >>>>>>> dev*/
     padding: 20px;
     text-align: center;}
 .first-my .result span{
@@ -456,32 +456,32 @@ td.calendar-day, td.calendar-day-np { width:120px; padding:5px; border-bottom:1p
     background: linear-gradient(to bottom, #b2e1ff 0%,#66b6fc 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#b2e1ff", endColorstr="#66b6fc",GradientType=0 ); /* IE6-9 */ }
 .first-my .result {
-/*<<<<<<< HEAD*/
-/*    float: right;*/
-/*=======*/
-/*    float: right;
->>>>>>> dev*/
+    /*<<<<<<< HEAD*/
+    /*    float: right;*/
+    /*=======*/
+    /*    float: right;
+    >>>>>>> dev*/
 }
 .first-my .titles{
     position: relative;
     height: 0;
-/*<<<<<<< HEAD*/
-/*    right: -23px;
-    width: 300px;*/
+    /*<<<<<<< HEAD*/
+    /*    right: -23px;
+        width: 300px;*/
 }
 
 .first-my  p.titles{
     margin: 0px;
-/*=======
-    right: -23px;
-    width: 300px;
->>>>>>> dev*/
+    /*=======
+        right: -23px;
+        width: 300px;
+    >>>>>>> dev*/
 }
 .first-my .titles span{
     font-size: 10px;
     position: relative;
-/*<<<<<<< HEAD*/
-/*    top: 12px;*/
+    /*<<<<<<< HEAD*/
+    /*    top: 12px;*/
 }
 .first-my .titles span.ss{
     position: relative;
@@ -497,7 +497,7 @@ td.calendar-day, td.calendar-day-np { width:120px; padding:5px; border-bottom:1p
     font-size: 27px;
     font-family: calibri;
     margin: 0 auto 15px;
-/*    left: 10px; */
+    /*    left: 10px; */
     position: relative;
     color: #B22222; 
 }
@@ -532,9 +532,9 @@ td.calendar-day, td.calendar-day-np { width:120px; padding:5px; border-bottom:1p
 
 iv.news .more a
 {
-        font-size: 75%;
-        font-style: italic;
-        margin-right: 20px;
+    font-size: 75%;
+    font-style: italic;
+    margin-right: 20px;
 }
 
 div.news li{
@@ -544,19 +544,19 @@ div.news li{
 
 div.news
 {
-	padding: 10px;
-	margin: 10px 0;
+    padding: 10px;
+    margin: 10px 0;
 }
 
 div.news:hover {
-        padding: 10px;
-	margin: 10px 0;
-	/*border: 1px solid #FFDAB9;*/
-        /*box-shadow: 0px 1px 11px -2px #ff0300;*/
-        box-shadow: 0px 0px 16px 0px #BEBEBE;
-        -webkit-border-radius: 0px;
-        -moz-border-radius: 0px;
-        border-radius: 0px;
+    padding: 10px;
+    margin: 10px 0;
+    /*border: 1px solid #FFDAB9;*/
+    /*box-shadow: 0px 1px 11px -2px #ff0300;*/
+    box-shadow: 0px 0px 16px 0px #BEBEBE;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
 }
 
 .title-p{
@@ -567,9 +567,9 @@ div.news:hover {
     font-size: 15pt; /* Размер шрифта в пунктах */ 
 }
 .create-data{
-     text-align: right; 
-     width: 60px; 
-     right: 1px; 
+    text-align: right; 
+    width: 60px; 
+    right: 1px; 
 }
 
 #competition-request-form input{
@@ -601,19 +601,19 @@ div.news:hover {
 }
 
 #competition-request-form .submit {
-	cursor: pointer;
-	border: 1px solid #cecece;
-	background: #f6f6f6;
-	box-shadow: inset 0px 20px 20px #ffffff;
-	width: 120px;
-	height: 40px;
+    cursor: pointer;
+    border: 1px solid #cecece;
+    background: #f6f6f6;
+    box-shadow: inset 0px 20px 20px #ffffff;
+    width: 120px;
+    height: 40px;
 }
 #competition-request-form .submit:hover {
-	box-shadow: inset 0px -20px 20px #ffffff;
+    box-shadow: inset 0px -20px 20px #ffffff;
 }
 #competition-request-form .submit:active {
-	margin-top: 1px;
-	margin-bottom: -1px;
+    margin-top: 1px;
+    margin-bottom: -1px;
 }
 
 
@@ -633,3 +633,73 @@ div.news:hover {
 #slidebox .thumbs a:hover{background:#fff; color:#000;}
 #slidebox .thumbs .thumbActive{background:#fff; color:#000; display:block; margin-left:5px; float:left; font-family:Verdana, Geneva, sans-serif; font-size:9px; text-decoration:none; padding:2px 4px;}
 
+
+
+
+/* begin kalendar*/
+table.calendar, table.calendar caption,thead th {
+    background: #bebebe!important;
+}
+table.calendar, table.calendar caption {
+    border: none!important;
+    text-align: center;
+    font-weight: normal; 
+    font-size: 8pt; 
+    font-family: Verdana, Arial, Helvetica, sans-serif;}
+table.calendar caption,table tr th, table tr td,table.calendar a{
+    color: #fff!important;
+}
+
+table.calendar tbody,table.calendar td.in_month {
+    background:#9c9c9c!important;
+}
+table.calendar caption a{
+    display: none!important;
+}
+table.calendar td.in_month { 
+    font-weight: normal; 
+    font-size: 8pt; 
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    padding:0px!important;
+    border-bottom: 20px solid red!important;
+    border-left: 20px solid transparent!important;
+    border-top: none!important;
+    border-right: none!important;
+    text-align: left!important;
+}
+table.calendar td.in_month a{
+    background: transparent;
+    opacity: 0.5;
+}
+table.calendar td.selected,table.calendar td:hover { 
+    background:#fff!important; 
+    font-weight: normal; 
+    font-size: 8pt; 
+    font-family: Verdana, Arial, Helvetica, sans-serif;}
+table.calendar td.selected a{
+    color:red!important;
+}
+table.calendar td:hover a{
+    color:#000!important;
+}
+table.calendar td a{
+    margin: 0px!important;
+    height: 50%!important;
+}
+table.calendar a {	
+    display: block; 	
+    font-weight: bold; 
+    text-decoration: none; 	
+    color: #0000ff;  
+    text-align: center; 
+    font-weight: normal; 
+    font-size: 8pt; 
+    font-family: Verdana, Arial, Helvetica, sans-serif;}
+table.calendar caption a { 	
+    display: inline;  
+    font-weight: normal; 
+    font-size: 8pt;  
+    color: red;  
+    font-family: Verdana, Arial, Helvetica, sans-serif;}
+
+/* end kalendar*/
