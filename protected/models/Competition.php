@@ -32,7 +32,22 @@ class Competition extends CActiveRecord
 {
     
     
-    
+    private $data_mass = array(
+            1 => array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31),
+            2 => array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28),
+            3 => array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31),
+            4 => array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30),
+            5 => array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31),
+            6 => array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30),
+            7 => array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31),
+            8 => array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31),
+            9 => array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30),
+            10 => array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31),
+            11 => array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30),
+            12 => array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31),
+        );
+
+
     private $monts = array(
         "01" => 'января',
         "02" => 'февраля',
@@ -413,6 +428,42 @@ class Competition extends CActiveRecord
             return $all_names;
         }
         
+        public function getCheckListGroup(){
+            $group = Group::model()->findAll();
+            if($group != NULL){
+                $COUNT_GROUP = count($group);
+                $group_string = '<select class="select-form" id="group_id" name="group_id" 0="">';
+                $group_string .= '<option value="0"></option>';
+                if(!empty($this->Groups)){
+                    for( $i=0; $i < $COUNT_GROUP; $i++ ){
+                        if($this->chekGroupForCompetition($group[$i]->id)){
+                            $group_string .= '<option value="';
+                            $group_string .= $group[$i]->id ;
+                            $group_string .= '">';
+                            $group_string .= $group[$i]->name;
+                            $group_string .= '</option>';
+//                            $group_string .= '<input type="checkbox" name="grop_' . $group[$i]->id . '" value="' . $group[$i]->id . '" checked  >' . $group[$i]->name . '<br>';
+                        }                        
+                    }
+                    $group_string .= '</select> ';
+                    return $group_string;                    
+                } else {                    
+                    for( $i=0; $i < $COUNT_GROUP; $i++ ){
+                            $group_string .= '<option value="';
+                            $group_string .= $group[$i]->id ;
+                            $group_string .= '">';
+                            $group_string .= $group[$i]->name;
+                            $group_string .= '</option>';
+//                        $group_string .= '<input type="checkbox" name="grop_' . $group[$i]->id . '" value="' . $group[$i]->id . '">' . $group[$i]->name . '<br>';
+                    }
+                    $group_string .= '</select> ';
+                    return $group_string;
+                }                
+            } else {
+                return 0;
+            }
+        }
+        
         public function getRanksList(){
             $rank = Rank::model()->findAll();       
             if($rank != NULL){
@@ -437,37 +488,44 @@ class Competition extends CActiveRecord
             }
         }
         
-                
+        
         public function getChekData(){
             $competition_data = Competition::model()->findByPk($this->id);
             if($competition_data != NULL){
-                $datetime1 = new DateTime($competition_data->start_data);
-                $datetime2 = new DateTime($competition_data->end_data);
+                $start_data1 = explode(" ", $competition_data->start_data);
+                $end_data = explode(" ", $competition_data->end_data);
+                $datetime1 = new DateTime($start_data1[0]);
+                $datetime2 = new DateTime($end_data[0]);
                 $interval = $datetime1->diff($datetime2);
-                $lenght_data = $interval->days;
-                $start_data = explode("-", $competition_data->start_data);
+                $lenght_data = ($interval->days) + 1;
+                $start_data = explode("-", $start_data1[0]);
                 $sring_data = '';
                 $array_data = array();
-                
-                if($lenght_data > 1){
-                    for($i = 0; $i < $lenght_data; $i++){
-                        $array_data[] = $start_data[0] . '-' . $start_data[1] . '-' . ($start_data[2] + $i);
-                    }
-                } else {
-                    for($i = 0; $i < $lenght_data; $i++){
-                        $array_data[] = $start_data[0] . '-' . $start_data[1] . '-' . ($start_data[2] + $i);
-                    }
+                $raz = 1 + $this->data_mass[(int)$start_data[1]][(int)$start_data[2]-1] - $this->data_mass[(int)$start_data[1]][0];
+                $day_mont_count = array();
+                $data_mass_count = count($this->data_mass);
+                $mont = (int)$start_data[1];
+                for($i = $mont; $i<=$data_mass_count; $i++){
+                     if(count($day_mont_count) > $lenght_data || count($day_mont_count) == $lenght_data){
+                        break; 
+                     } else {
+                        for($j = $raz; $j<=count($this->data_mass[$mont]); $j++){
+                            $day_mont_count[] = $j;
+                            $array_data[] = $start_data[0] . '-' . $mont. '-' . $j;
+                            if(count($day_mont_count) > $lenght_data || count($day_mont_count) == $lenght_data){
+                                break;
+                            }
+                        }    
+                         $mont = $mont+1;
+                         $raz = 0; 
+                     }                    
                 }
-                
                 $lenght_data = count($array_data);
                 
                  $sring_data = '<select name="check_data[]" maltiple id="check_data" size="7" multiple>';
-//                $sring_data .= '<option  selected="selected" value="0"></option>';
-                
                 for($i = 0; $i < $lenght_data; $i++){
                     $temp = $i+1;
                     $sring_data .= '<option value="'. $temp .'">'. $array_data[$i] .'</option>';
-//                    $sring_data .= '<input type="checkbox" name="check_data[' . $i . ']" value="' . $array_data[$i] . '">' . $array_data[$i] . '<br>';
                 }
                 return $sring_data;
             } else {

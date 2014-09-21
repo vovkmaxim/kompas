@@ -241,7 +241,7 @@ $this->breadcrumbs = array(
                         <div id="CompetitionRequest_year_bird_error" class="errorMessage"></div>
                         <input name="year_bird" type="text" maxlength="4" value="Год рождения" onfocus="if (this.value == 'Год рождения') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'Год рождения'; this.style.color = '#777';}"/>
                         <div id="CompetitionRequest_group_id_error" class="errorMessage"></div>
-                        Укажите группу:  </br><?php echo $model->getAllGroupName(); ?></br>
+                        Укажите группу:  </br><?php echo $model->getCheckListGroup(); ?></br>
                         <div id="CompetitionRequest_rank_error" class="errorMessage"></div>
                         Укажите разряд: </br><?php echo $model->getRanksList(); ?></br>
                         <input name="CompetitionRequest[chip]" id="CompetitionRequest_chip" type="text" maxlength="255" value="ЧИП№" onfocus="if (this.value == 'ЧИП№') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'ЧИП№'; this.style.color = '#777';}"/>
