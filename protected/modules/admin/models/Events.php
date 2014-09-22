@@ -41,7 +41,7 @@ class Events extends CActiveRecord
 		return array(
 			array('type', 'length', 'max'=>10),
 			array('title, description, author, logo_title', 'length', 'max'=>255),
-                        array('logo_path', 'file', 'types'=>'jpg, jpeg, gif, png', 'allowEmpty'=>true,'on'=>'insert,update'),
+                        array('logo_path', 'file', 'types'=>'jpg, jpeg, gif, png, bmp', 'allowEmpty'=>true,'on'=>'insert,update', 'maxSize' => 1009048576),
 			array('text', 'safe'),
 			array('id, type, title, description, author, create_date, update_date, position, text, logo_title, logo_path', 'safe', 'on'=>'search'),
 		);

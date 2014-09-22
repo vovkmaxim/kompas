@@ -8,12 +8,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-        array('label'=>'Создась', 'url'=>array('create')),
+        array('label'=>'Создать', 'url'=>array('create')),
 	array('label'=>'Управление', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View Banners #<?php echo $model->id; ?></h1>
+<h1>Банер №<?php echo $model->id; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

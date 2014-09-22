@@ -8,6 +8,21 @@ $this->breadcrumbs = array(
 );
 ?>
 
+<style type="text/css">
+		.fancybox-custom .fancybox-skin {
+			box-shadow: 0 0 50px #222;
+		}
+	</style>
+        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
+        <script type="text/javascript">
+		$(document).ready(function() {
+                        $(".fancybox").fancybox({
+                                openEffect	: 'none',
+                                closeEffect	: 'none'
+                        });
+                });
+	</script>
+
 
 <div class="large-12 columns">
     <div id="news-item" class="large-12 small-12 columns">
@@ -17,11 +32,14 @@ $this->breadcrumbs = array(
             echo $model->getFileForThisCompetition();
         }
         ?>
-        <span class="date-time"><p>Дата начала: <?php echo $model->start_data; ?>  - время начала: <?php echo $model->start_time; ?></p></span>
-        <span class="date-time"><p>Дата окончания: <?php echo $model->end_data; ?>  - время окончания: <?php echo $model->end_time; ?></p></span>
+        <!--<span class="date-time"><p>Дата начала: <?php echo $model->start_data; ?>  - время начала: <?php echo $model->start_time; ?></p></span>-->
+        <!--<span class="date-time"><p>Дата окончания: <?php echo $model->end_data; ?>  - время окончания: <?php echo $model->end_time; ?></p></span>-->
         <div class="img-content">
+            
             <div class="small-3 large-4 columns">
-<?php echo $model->getLogoImage(); ?>
+                <a class="fancybox th radius"  href="/logo_competition/<?php echo $model->logo_desc; ?>">
+                    <?php echo $model->getLogoImage(); ?>
+                </a>
             </div>
         </div>
         <p><?php echo $model->text; ?></p>
@@ -34,10 +52,10 @@ $this->breadcrumbs = array(
             <!--<div class="large-6 small-12 columns" style="text-align: center;">-->
 
             <!--</div>-->
-            <span class="date-time"><p>Дата создания: </h4><?php echo $model->create_date; ?></p></span>                       
+            <!--<span class="date-time"><p>Дата создания: </h4><?php // echo $model->create_date; ?></p></span>-->                       
             <?php
             if ($model->enable_registration_flag == 1) {
-                echo '<p><span class="date-time">Окончание регистрации: ' . $model->close_registration_data . ' время' . $model->close_registration_data . '</span></p>';
+                echo '<h6>Окончание регистрации: ' . $model->explodeThisDate($model->close_registration_data) .  '</h6>';
                 if (!Yii::app()->user->isGuest) {
                     echo '<p><span class="button1">' . CHtml::link('Подать заявку', array('competitionRequest/application', 'id' => $model->id)) . '</span></P>';
                 } else {
@@ -176,7 +194,7 @@ $this->breadcrumbs = array(
                             year_bird: year_bird,
                             group_id: group_id,
                             rank: rank,
-                            check_data: check_data,
+                            check_data: check_data
                         }),
                         success: function(data) {
                           var obj = jQuery.parseJSON( data );
@@ -186,7 +204,7 @@ $this->breadcrumbs = array(
                                     type: "POST",
                                     url: "/index.php/competition/updatevievs/<?php echo $model->id; ?>",
                                     data: ({
-                                        id: <?php echo $model->id; ?>,
+                                        id: <?php echo $model->id; ?>
                                     }),
                                     success: function(data) {
                                         document.getElementById('vidjet_views').innerHTML = data;
@@ -202,6 +220,14 @@ $this->breadcrumbs = array(
                 return false;
             }
         </script>
+        
+        
+        
+         <?php
+            if ($model->enable_registration_flag == 1) {
+                if (!Yii::app()->user->isGuest) {
+         ?>
+        
             <div class="form-competition">
                 <form id="competition-request-form" method="post" action="/index.php/competitionRequest/addrequest/<?php echo $model->id; ?>" enctype="multipart/form-data">
                     <div class="box1">
@@ -215,7 +241,7 @@ $this->breadcrumbs = array(
                         <div id="CompetitionRequest_year_bird_error" class="errorMessage"></div>
                         <input name="year_bird" type="text" maxlength="4" value="Год рождения" onfocus="if (this.value == 'Год рождения') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'Год рождения'; this.style.color = '#777';}"/>
                         <div id="CompetitionRequest_group_id_error" class="errorMessage"></div>
-                        Укажите группу:  </br><?php echo $model->getAllGroupName(); ?></br>
+                        Укажите группу:  </br><?php echo $model->getCheckListGroup(); ?></br>
                         <div id="CompetitionRequest_rank_error" class="errorMessage"></div>
                         Укажите разряд: </br><?php echo $model->getRanksList(); ?></br>
                         <input name="CompetitionRequest[chip]" id="CompetitionRequest_chip" type="text" maxlength="255" value="ЧИП№" onfocus="if (this.value == 'ЧИП№') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'ЧИП№'; this.style.color = '#777';}"/>
@@ -240,6 +266,12 @@ $this->breadcrumbs = array(
                     
                 </form>
             </div>
+        
+                       
+          <?php
+                }
+            }
+            ?> 
     </div>
 
 
@@ -322,7 +354,7 @@ $this->breadcrumbs = array(
                     <input id="Comments_user_id" type="hidden" value="<?php echo Yii::app()->user->id; ?>" name="Comments[user_id]" maxlength="10" size="10">
                 </div>
                 <div class="row">
-                    <input id="Comments_create_date" type="hidden" value="<?php echo date('Y-m-d'); ?>" name="Comments[create_date]">
+                    <input id="Comments_create_date" type="hidden" value="<?php echo date('Y-m-d h:m:s'); ?>" name="Comments[create_date]">
                 </div>
                 <div class="row">
                     <label for="Comments_title">Тема:</label>

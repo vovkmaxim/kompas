@@ -74,7 +74,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'data_birth'); ?>
+		<label class="required" for="User_data_birth">Дата рождения<span class="required">*</span></label>
+                <p>Формат даты: гггг-мм-дд (1984-01-31)</p>
 		<?php echo $form->textField($model,'data_birth'); ?>
 		<?php echo $form->error($model,'data_birth'); ?>
 	</div>

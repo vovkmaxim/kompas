@@ -33,7 +33,7 @@ class Banners extends CActiveRecord
 		return array(
 			array('name', 'length', 'max'=>255),
 			array('position', 'length', 'max'=>10),
-                        array('path','file','types'=>'jpg, jpeg, gif, png', 'allowEmpty'=>true,'on'=>'insert,update'),
+                        array('path','file','types'=>'jpg, jpeg, gif, png, bmp', 'allowEmpty'=>true,'on'=>'insert,update' , 'maxSize' => 1009048576),
 			array('link', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

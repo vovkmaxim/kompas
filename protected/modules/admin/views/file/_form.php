@@ -29,7 +29,8 @@
                 <p><?php echo CHtml::encode($model->path); ?></p>
             <?php endif; ?>
             <?php echo $form->labelEx($model,'path'); ?>
- <span class="button7"><p>ЗАГРУЗИТЬ КАРТИНКУ</p><?php echo $form->fileField($model,'path'); ?></span>
+                <p>Разрешенные форматы: doc, docx,xls ,xlsx, odt, pdf,jpg, jpeg, gif, png, bmp</p>
+ <span class="button7"><p>ЗАГРУЗИТЬ ФАЙЛ</p><?php echo $form->fileField($model,'path'); ?></span>
            <?php // echo $form->fileField($model,'path'); ?>
             <?php echo $form->error($model,'path'); ?>
         </div>        

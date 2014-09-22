@@ -29,6 +29,7 @@ class PhotoController extends Controller
             $criteria = new CDbCriteria;
             $criteria->condition = 't.group_photo_id = ' . $id;
             $dataProvider=new CActiveDataProvider('Photo', array('criteria' => $criteria));
+            $dataProvider->pagination->pageSize = count(Photo::model()->findAll());
             $this->render('photolist',array(
 			'dataProvider'=>$dataProvider,
             ));

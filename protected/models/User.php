@@ -26,6 +26,23 @@
  */
 class User extends CActiveRecord
 {
+    
+    
+       private $monts = array(
+        "01" => 'января',
+        "02" => 'февраля',
+        "03" => 'марта',
+        "04" => 'апреля',
+        "05" => 'мая',
+        "06" => 'июня',
+        "07" => 'июля',
+        "08" => 'августа',
+        "09" => 'сентября',
+        "10" => 'октября',
+        "11" => 'ноября',
+        "12" => 'декадря',
+        "00" => ' ',
+    );
 	/**
 	 * @return string the associated database table name
 	 */
@@ -43,6 +60,7 @@ class User extends CActiveRecord
 		// will receive user inputs.
 		return array(
                         array('email, username, password, name, lastname, phone, sity, coutry,data_birth', 'required'),
+                        array('data_birth', 'date', 'format'=>'yyyy-M-d'),
 //			array('status, member', 'numerical', 'integerOnly'=>true),
                         array('email', 'email'),
 //                        array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements()),
@@ -139,4 +157,14 @@ class User extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+                
+        public function explodeThisDate($date){
+            $data1 = explode(' ', $date);
+            $data1 = explode('-', $data1[0]);
+            $data_str = '';
+            $data_str .= $data1[2] . ' ' . $this->monts[$data1[1]] . ' ' . $data1[0] . '';
+            
+           return $data_str;
+        }
 }

@@ -3,9 +3,9 @@
 /* @var $model Banners */
 
 $this->breadcrumbs=array(
-	'Banners'=>array('index'),
+	'Банер'=>array('index'),
 	$model->name=>array('view','id'=>$model->id),
-	'Update',
+	'Обновить',
 );
 
 $this->menu=array(
@@ -14,6 +14,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update Banners <?php echo $model->id; ?></h1>
+<h1>Обновить банер</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

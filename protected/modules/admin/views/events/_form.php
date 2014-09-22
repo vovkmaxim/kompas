@@ -78,6 +78,7 @@
                 
             <?php endif; ?>
             <?php echo $form->labelEx($model,'logo_path'); ?>
+                 <p>Разрешенные форматы: jpg, jpeg, gif, png, bmp</p>
             <span class="button7"><p>ЗАГРУЗИТЬ КАРТИНКУ</p><?php echo $form->fileField($model,'logo_path'); ?></span>
             <?php // echo $form->fileField($model,'logo_path'); ?>
             <?php echo $form->error($model,'logo_path'); ?>  
