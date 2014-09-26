@@ -18,7 +18,19 @@ class CompetitionController extends Controller
 			'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
-
+        
+//	public function accessRules()
+//	{
+//		return array(
+//			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+//				'actions'=>array('admin','delete'),
+//				'users'=>array('admin'),
+//			),
+//			array('deny',  // deny all users
+//				'users'=>array('*'),
+//			),
+//		);
+//	}
 
 	/**
 	 * Displays a particular model.
@@ -207,20 +219,8 @@ class CompetitionController extends Controller
 		));
 	}
 
-//	/**
-//	 * Manages all models.
-//	 */
-//	public function actionAdmin()
-//	{
-//		$model=new Competition('search');
-//		$model->unsetAttributes();  // clear any default values
-//		if(isset($_GET['Competition']))
-//			$model->attributes=$_GET['Competition'];
-//
-//		$this->render('admin',array(
-//			'model'=>$model,
-//		));
-//	}
+        
+        
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
@@ -251,4 +251,118 @@ class CompetitionController extends Controller
 			Yii::app()->end();
 		}
 	}
+        
+        
+        public function actionExcel($id){
+            
+            $criteria = new CDbCriteria;
+            $criteria->condition = 't.competition_id =' . $id;
+            
+            $count=CompetitionRequest::model()->count($criteria);
+            
+            $request=new CActiveDataProvider('CompetitionRequest', array(
+                'criteria' => $criteria,
+                    'pagination'=>array(
+                        'pageSize'=>$count,
+                    ),
+                ));
+            
+            
+            $this->widget('application.extensions.EExcelWriter.EExcelWriter', array(
+                'dataProvider' => $request,
+                'title'        => 'qwerrs',
+                'stream'       => true,
+                'fileName'     => 'test.xlsx',
+                'columns' => array(
+                    array(
+                        'name' => 'group_id',
+                        'type' => 'raw',
+                        'value' => '$data->getGroupName()',
+                        'filter' => false,
+                    ),
+                    'name',
+                    'lastname',
+                    'year',
+                    'sity',
+                    'coutry',
+                    'participation_data',
+                    array(
+                        'name' => 'Состояние',
+                        'type' => 'raw',
+                        'value' => '$data->getNameStatusPrint()',
+                        'filter' => false,
+                    ),
+                    array(
+                        'name' => 'Представитель',
+                        'type' => 'raw',
+                        'value' => '$data->getNameUserPrint()',
+                        'filter' => false,
+                    ),
+                ),
+            ));
+
+//            
+//            $id = array();
+//            $pdf = Yii::createComponent('application.extensions.ETcPdf.ETcPdf',
+//            'P', 'cm', 'A4', true, 'UTF-8');
+//
+//        $site_logo = "/core/logo.png";
+//
+//        $pdf->SetHeaderData(PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE);
+//        $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+//        $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+//
+//        $pdf->SetMargins(1, 2, 1);
+//        $pdf->SetHeaderMargin(0.1);
+//        $pdf->SetFooterMargin(1);
+//
+//        $pdf->SetFont("dejavusans", "", 10);
+//
+//        $pdf->AddPage();
+//        $renders_mass = array(
+//                            'id' => 'competition-request-grid',
+//                            'dataProvider' => $request,
+//                            'template' => '{pager}{items}{pager}',
+//                            'columns' => array(
+//                                'id',
+//                                array(
+//                                    'name' => 'group_id',
+//                                    'type' => 'raw',
+//                                    'value' => '$data->getGroupName()',
+//                                    'filter' => false,
+//                                ),
+//                                'name',
+//                                'lastname',
+//                                'year',
+//                                'sity',
+//                                'coutry',
+//                                'participation_data',
+//                                array(
+//                                    'name' => 'Состояние',
+//                                    'type' => 'raw',
+//                                    'value' => '$data->getNameStatus()',
+//                                    'filter' => false,
+//                                ),
+//                                array(
+//                                    'name' => 'Представитель',
+//                                    'type' => 'raw',
+//                                    'value' => '$data->getNameUser()',
+//                                    'filter' => false,
+//                                ),
+//                            ),
+//                        );
+//
+//        $this->layout = '//layouts/empty_backend';
+//        $html = $this->render("/layouts/details_to_print", compact('renders_mass'),true);
+//        
+////        echo $html; 
+//        
+//        $pdf->writeHTML($html, true, false, true, false, '');
+//
+//        $order_ditails_filename = 'offer_details_1.pdf';
+//
+//        $pdf->Output($order_ditails_filename, "I");
+//            $request1 = $this->widget('zii.widgets.grid.CGridView', $renders_mass);
+        }
+        
 }

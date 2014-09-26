@@ -21,20 +21,21 @@ class CompetitionController extends AdminController
 
 
         public function actionExcel(){
+            
             $criteria = new CDbCriteria;
             $criteria->condition = 't.competition_id =' . 4;
-            $request=new CActiveDataProvider('CompetitionRequest', array('criteria' => $criteria));
+            
+            $count=CompetitionRequest::model()->count($criteria);
+            
+            $request=new CActiveDataProvider('CompetitionRequest', array(
+                'criteria' => $criteria,
+                    'pagination'=>array(
+                        'pageSize'=>$count,
+                    ),
+                ));
+            
             $id = array();
-            
-            
-            
-            
-            
-//            $request->setPagination();
-            
-//            $request->
-                    
-        $pdf = Yii::createComponent('application.extensions.ETcPdf.ETcPdf',
+            $pdf = Yii::createComponent('application.extensions.ETcPdf.ETcPdf',
             'P', 'cm', 'A4', true, 'UTF-8');
 
 //        $site_logo = "/core/logo.png";
@@ -94,8 +95,6 @@ class CompetitionController extends AdminController
 
         $pdf->Output($order_ditails_filename, "I");
 //            $request1 = $this->widget('zii.widgets.grid.CGridView', $renders_mass);
-            
-            
         }
         
         

@@ -330,12 +330,26 @@ class CompetitionRequest extends CActiveRecord
             if($this->status == 1){
                 return "<span  style='color:#00FF66'>Aктивирован</span>";
             }
+        }
+        
+        public function getNameStatusPrint(){
+            if($this->status == 0){
+                return "Не активирован";
+            }
             
-            
+            if($this->status == 1){
+                return "Aктивирован";
+            }
         }
         
         //  admin/user/view&id=3
         
+        public function getNameUserPrint(){
+            $user =User::model()->findByPk($this->user_id);
+            if($user != NULL){
+                return $user->name;
+            }
+        }
         public function getNameUser(){
             $user =User::model()->findByPk($this->user_id);
             if($user != NULL){

@@ -220,14 +220,10 @@ $this->breadcrumbs = array(
                 return false;
             }
         </script>
-        
-        
-        
          <?php
             if ($model->enable_registration_flag == 1) {
                 if (!Yii::app()->user->isGuest) {
          ?>
-        
             <div class="form-competition">
                 <form id="competition-request-form" method="post" action="/index.php/competitionRequest/addrequest/<?php echo $model->id; ?>" enctype="multipart/form-data">
                     <div class="box1">
@@ -276,11 +272,6 @@ $this->breadcrumbs = array(
 
 
 </div>
-
-
-
-
-
 <div class="people large-12 small-12 columns">
     <?php if ($request->itemCount) { ?>
         <div class="people-about">Уже заявилось:</div>
@@ -323,6 +314,21 @@ $this->breadcrumbs = array(
         }
         ?>        
     </div>
+        
+    <div>
+        <?php
+
+            if ($request->itemCount) { 
+                if(!Yii::app()->user->isGuest):
+                    if(Yii::app()->user->role == 'administrator' || Yii::app()->user->role == 'manager'):
+                        echo CHtml::link(CHtml::encode('СКАЧАТЬ ТАБЛИЦУ'), array('excel', 'id'=>$model->id));
+                    endif;    
+                endif;    
+            }
+
+        ?>
+    </div>
+        
 </div>
 
 

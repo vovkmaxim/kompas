@@ -245,3 +245,29 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/o-kompas/kompas/index.php/events/favicon.ico
 ---
+2014/09/26 15:14:17 [error] [php] fopen(test.xlsx): failed to open stream: Permission denied (/home/php/public_html/o-kompas/kompas/protected/extensions/EExcelWriter/excelwriter/class.ole_pps_root.php:73)
+Stack trace:
+#0 /home/php/public_html/o-kompas/kompas/protected/extensions/EExcelWriter/excelwriter/class.writeexcel_workbook.inc.php(493): writeexcel_workbookbig->_store_OLE_file()
+#1 /home/php/public_html/o-kompas/kompas/protected/extensions/EExcelWriter/excelwriter/class.writeexcel_workbook.inc.php(119): writeexcel_workbookbig->_store_workbook()
+#2 /home/php/public_html/o-kompas/kompas/protected/extensions/EExcelWriter/EExcelWriter.php(154): writeexcel_workbookbig->close()
+#3 /home/php/public_html/o-kompas/kompas/framework/web/CBaseController.php(173): EExcelWriter->run()
+#4 /home/php/public_html/o-kompas/kompas/protected/controllers/CompetitionController.php(302): CompetitionController->widget()
+#5 unknown(0): CompetitionController->actionExcel()
+#6 /home/php/public_html/o-kompas/kompas/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#7 /home/php/public_html/o-kompas/kompas/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#8 /home/php/public_html/o-kompas/kompas/framework/web/CController.php(308): CInlineAction->runWithParams()
+#9 /home/php/public_html/o-kompas/kompas/framework/web/filters/CFilterChain.php(133): CompetitionController->runAction()
+#10 /home/php/public_html/o-kompas/kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /home/php/public_html/o-kompas/kompas/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#12 /home/php/public_html/o-kompas/kompas/framework/web/filters/CInlineFilter.php(58): CompetitionController->filterAccessControl()
+#13 /home/php/public_html/o-kompas/kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#14 /home/php/public_html/o-kompas/kompas/framework/web/CController.php(291): CFilterChain->run()
+#15 /home/php/public_html/o-kompas/kompas/framework/web/CController.php(265): CompetitionController->runActionWithFilters()
+#16 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(282): CompetitionController->run()
+#17 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#18 /home/php/public_html/o-kompas/kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#19 /home/php/public_html/o-kompas/kompas/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/competition/excel/4
+in /home/php/public_html/o-kompas/kompas/protected/extensions/EExcelWriter/excelwriter/class.ole_pps_root.php (73)
+in /home/php/public_html/o-kompas/kompas/protected/extensions/EExcelWriter/excelwriter/class.writeexcel_workbookbig.inc.php (50)
+in /home/php/public_html/o-kompas/kompas/protected/extensions/EExcelWriter/excelwriter/class.writeexcel_workbook.inc.php (493)
