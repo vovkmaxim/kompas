@@ -128,7 +128,7 @@ fcp.Calendar.prototype.render_heading = function () {
 		this.calendar.prev_month();
 		return false;
 	};
-	prev_month.innerHTML = "пред мес|<br>";
+	prev_month.innerHTML = "<<<    ";
 	prev_month.title = fcp.msg.prev_month;
 	var month_year = document.createTextNode(
 		"\u00a0" + fcp.months[this.selection.getMonth()]
@@ -140,7 +140,7 @@ fcp.Calendar.prototype.render_heading = function () {
 		this.calendar.next_month();
 		return false;
 	};
-	next_month.innerHTML = "<br>|сл мес";
+	next_month.innerHTML = "    >>>";
 	next_month.title = fcp.msg.next_month;
 	var next_year = document.createElement("a");
 	next_year.href = "#";
@@ -151,21 +151,24 @@ fcp.Calendar.prototype.render_heading = function () {
 	};
 	next_year.innerHTML = "|сл год";
 	next_year.title = fcp.msg.next_year;
-	heading.appendChild(prev_year);
+//	heading.appendChild(prev_year);
+	heading.className = "cal-caption";
 	heading.appendChild(document.createTextNode("\u00a0"));
 	heading.appendChild(prev_month);
 	heading.appendChild(month_year);
 	heading.appendChild(next_month);
 	heading.appendChild(document.createTextNode("\u00a0"));
-	heading.appendChild(next_year);
+//	heading.appendChild(next_year);
 	return heading;
 }
 fcp.Calendar.prototype.render_month = function() {
 	var html_month = document.createElement("table");
-	html_month.className = "calendar";
+	html_month.className = "cal-table";
+//	html_month.className = "calendar";
 	html_month.appendChild(this.render_heading());
 	var thead = document.createElement("thead");
 	var tr = document.createElement("tr");
+        tr.className = "cal-body";
 	for (var i = 0; i < fcp.week_days.length; i++) {
 		var th = document.createElement("th");
 		th.innerHTML =  fcp.week_days[i];
@@ -174,6 +177,8 @@ fcp.Calendar.prototype.render_month = function() {
 	thead.appendChild(tr);
 	html_month.appendChild(thead);
 	var tbody = document.createElement("tbody");
+        // cal-body
+        tbody.className = "cal-body";
 	for (var i = 0; i < this.raw_data.length; i++) {
 		tbody.appendChild(this.render_week(this.raw_data[i]));
 	}
@@ -199,15 +204,15 @@ fcp.Calendar.prototype.render_day = function (day_number) {
                         day_flag_link = false;
                         var anchor = document.createElement("a");
                         anchor.href = "#";
-                        anchor.innerHTML = '--' +day_number + '--';
+                        anchor.innerHTML = day_number;
                         anchor.calendar = this;
                         anchor.date = day_number;
                         td.appendChild(anchor);
                         if (day_number == this.selection.getDate()) {
                                 this.selected_cell = td;
-                                td.className = "in_month selected";
+                                td.className = "cal-check-U selected"; //  cal-selected
                         } else {
-                                td.className = "in_month";
+                                td.className = "cal-check-U";
                         }
                     }
                 }
@@ -220,15 +225,15 @@ fcp.Calendar.prototype.render_day = function (day_number) {
                             var anchor = document.createElement("a");
                             anchor.href = "/index.php/competition/"+competitions[i]['id'];
 //                            anchor.href = "http://o-kompas.local/index.php/competition/"+competitions[i]['id'];
-                            anchor.innerHTML = '+1+' +day_number + '+1+'; 
+                            anchor.innerHTML = day_number; 
                             anchor.calendar = this;
                             anchor.date = day_number;
                             td.appendChild(anchor);
                             if (day_number == this.selection.getDate()) {
                                     this.selected_cell = td;
-                                    td.className = "in_month selected";
+                                    td.className = "cal-check-T selected";
                             } else {
-                                    td.className = "in_month";
+                                    td.className = "cal-check-T";
                             }
                             break;
                         } 
@@ -238,24 +243,21 @@ fcp.Calendar.prototype.render_day = function (day_number) {
                             var anchor = document.createElement("a");
                             anchor.href = "/index.php/competition/"+competitions[i]['id'];
 //                            anchor.href = "http://o-kompas.local/index.php/competition/"+competitions[i]['id'];
-                            anchor.innerHTML = '+2+' +day_number + '+2+';
+                            anchor.innerHTML = day_number;
                             anchor.calendar = this;
                             anchor.date = day_number;
                             td.appendChild(anchor);
                             if (day_number == this.selection.getDate()) {
                                     this.selected_cell = td;
-                                    td.className = "in_month selected";
+                                    td.className = "cal-check-S selected";
                             } else {
-                                    td.className = "in_month";
+                                    td.className = "cal-check-S";
                             }
                             break;
                         }
                         
                     }
                 }
-                
-                
-                
                 if(day_flag_link){
                    var anchor = document.createElement("a");
                     anchor.href = "#";
@@ -266,9 +268,9 @@ fcp.Calendar.prototype.render_day = function (day_number) {
                     td.appendChild(anchor);
                     if (day_number == this.selection.getDate()) {
                             this.selected_cell = td;
-                            td.className = "in_month selected";
+                            td.className = " selected";
                     } else {
-                            td.className = "in_month";
+                            td.className = "";
                     } 
                 }		
 	}

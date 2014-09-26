@@ -634,7 +634,7 @@ div.news:hover {
 
 
 /* begin kalendar*/
-table.calendar, table.calendar caption,thead th {
+/*table.calendar, table.calendar caption,thead th {
     background: #bebebe!important;
 }
 table.calendar, table.calendar caption {
@@ -697,6 +697,6 @@ table.calendar caption a {
     font-weight: normal; 
     font-size: 8pt;  
     color: red;  
-    font-family: Verdana, Arial, Helvetica, sans-serif;}
+    font-family: Verdana, Arial, Helvetica, sans-serif;}*/
 
 /* end kalendar*/
