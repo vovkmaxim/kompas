@@ -199,23 +199,23 @@ fcp.Calendar.prototype.render_day = function (day_number) {
                 var day_flag_link = true;
                 var mont = this.selection.getMonth() + 1;
                 
-                for(var i=1; i <= user_day.length; i++){
-                    if(user_day[i]['data_day'] == day_number && user_day[i]['data_mont'] == mont){
-                        day_flag_link = false;
-                        var anchor = document.createElement("a");
-                        anchor.href = "#";
-                        anchor.innerHTML = day_number;
-                        anchor.calendar = this;
-                        anchor.date = day_number;
-                        td.appendChild(anchor);
-                        if (day_number == this.selection.getDate()) {
-                                this.selected_cell = td;
-                                td.className = "cal-check-U selected"; //  cal-selected
-                        } else {
-                                td.className = "cal-check-U";
-                        }
-                    }
-                }
+//                for(var i=1; i <= user_day.length; i++){
+//                    if(user_day[i]['data_day'] == day_number && user_day[i]['data_mont'] == mont){
+//                        day_flag_link = false;
+//                        var anchor = document.createElement("a");
+//                        anchor.href = "#";
+//                        anchor.innerHTML = day_number;
+//                        anchor.calendar = this;
+//                        anchor.date = day_number;
+//                        td.appendChild(anchor);
+//                        if (day_number == this.selection.getDate()) {
+//                                this.selected_cell = td;
+//                                td.className = "cal-check-U selected"; //  cal-selected
+//                        } else {
+//                                td.className = "cal-check-U";
+//                        }
+//                    }
+//                }
                 
                 for(var i=1; i <= competitions.length; i++){
                     if( ( competitions[i]['start_data_day'] == day_number && mont == competitions[i]['start_data_mont'] ) ){// || ( competitions[i]['end_data_day'] == day_number && mont == competitions[i]['end_data_mont'] ) ){
