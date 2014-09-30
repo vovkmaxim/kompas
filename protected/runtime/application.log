@@ -271,3 +271,154 @@ REQUEST_URI=/index.php/competition/excel/4
 in /home/php/public_html/o-kompas/kompas/protected/extensions/EExcelWriter/excelwriter/class.ole_pps_root.php (73)
 in /home/php/public_html/o-kompas/kompas/protected/extensions/EExcelWriter/excelwriter/class.writeexcel_workbookbig.inc.php (50)
 in /home/php/public_html/o-kompas/kompas/protected/extensions/EExcelWriter/excelwriter/class.writeexcel_workbook.inc.php (493)
+2014/09/29 11:37:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/php/public_html/o-kompas/kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/php/public_html/o-kompas/kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('site/img/favico...')
+#3 /home/php/public_html/o-kompas/kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/php/public_html/o-kompas/kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/img/favicons/favicon.ico
+---
+2014/09/29 11:37:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/php/public_html/o-kompas/kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/php/public_html/o-kompas/kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('site/img/favico...')
+#3 /home/php/public_html/o-kompas/kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/php/public_html/o-kompas/kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/img/favicons/favicon.ico
+---
+2014/09/29 11:37:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "favicon.ico".' in /home/php/public_html/o-kompas/kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/php/public_html/o-kompas/kompas/framework/web/CController.php(270): CController->missingAction('favicon.ico')
+#1 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(282): CController->run('favicon.ico')
+#2 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('site/favicon.ic...')
+#3 /home/php/public_html/o-kompas/kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/php/public_html/o-kompas/kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/favicon.ico
+---
+2014/09/30 11:17:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/php/public_html/o-kompas/kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/php/public_html/o-kompas/kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('site/img/favico...')
+#3 /home/php/public_html/o-kompas/kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/php/public_html/o-kompas/kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/img/favicons/favicon.ico
+---
+2014/09/30 11:17:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "favicon.ico".' in /home/php/public_html/o-kompas/kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/php/public_html/o-kompas/kompas/framework/web/CController.php(270): CController->missingAction('favicon.ico')
+#1 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(282): CController->run('favicon.ico')
+#2 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('site/favicon.ic...')
+#3 /home/php/public_html/o-kompas/kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/php/public_html/o-kompas/kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/favicon.ico
+---
+2014/09/30 13:09:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /home/php/public_html/o-kompas/kompas/protected/controllers/CompetitionController.php:236
+Stack trace:
+#0 /home/php/public_html/o-kompas/kompas/protected/controllers/CompetitionController.php(56): CompetitionController->loadModel('8')
+#1 [internal function]: CompetitionController->actionView('8')
+#2 /home/php/public_html/o-kompas/kompas/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(CompetitionController), Array)
+#3 /home/php/public_html/o-kompas/kompas/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(CompetitionController), Object(ReflectionMethod), Array)
+#4 /home/php/public_html/o-kompas/kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/php/public_html/o-kompas/kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/php/public_html/o-kompas/kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/php/public_html/o-kompas/kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/php/public_html/o-kompas/kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/php/public_html/o-kompas/kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/php/public_html/o-kompas/kompas/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/php/public_html/o-kompas/kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(282): CController->run('view')
+#13 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/vie...')
+#14 /home/php/public_html/o-kompas/kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /home/php/public_html/o-kompas/kompas/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/competition/8
+---
+2014/09/30 13:09:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/php/public_html/o-kompas/kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/php/public_html/o-kompas/kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/img...')
+#3 /home/php/public_html/o-kompas/kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/php/public_html/o-kompas/kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/img/favicons/favicon.ico
+---
+2014/09/30 13:09:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "favicon.ico".' in /home/php/public_html/o-kompas/kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/php/public_html/o-kompas/kompas/framework/web/CController.php(270): CController->missingAction('favicon.ico')
+#1 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(282): CController->run('favicon.ico')
+#2 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/fav...')
+#3 /home/php/public_html/o-kompas/kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/php/public_html/o-kompas/kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/favicon.ico
+---
+2014/09/30 13:10:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/php/public_html/o-kompas/kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/php/public_html/o-kompas/kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('site/img/favico...')
+#3 /home/php/public_html/o-kompas/kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/php/public_html/o-kompas/kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/img/favicons/favicon.ico
+---
+2014/09/30 13:10:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "favicon.ico".' in /home/php/public_html/o-kompas/kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/php/public_html/o-kompas/kompas/framework/web/CController.php(270): CController->missingAction('favicon.ico')
+#1 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(282): CController->run('favicon.ico')
+#2 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('site/favicon.ic...')
+#3 /home/php/public_html/o-kompas/kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/php/public_html/o-kompas/kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/favicon.ico
+---
+2014/09/30 13:14:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/php/public_html/o-kompas/kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/php/public_html/o-kompas/kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/img...')
+#3 /home/php/public_html/o-kompas/kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/php/public_html/o-kompas/kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/img/favicons/favicon.ico
+---
+2014/09/30 13:14:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "favicon.ico".' in /home/php/public_html/o-kompas/kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/php/public_html/o-kompas/kompas/framework/web/CController.php(270): CController->missingAction('favicon.ico')
+#1 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(282): CController->run('favicon.ico')
+#2 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/fav...')
+#3 /home/php/public_html/o-kompas/kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/php/public_html/o-kompas/kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/favicon.ico
+---
+2014/09/30 13:15:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "img".' in /home/php/public_html/o-kompas/kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/php/public_html/o-kompas/kompas/framework/web/CController.php(270): CController->missingAction('img')
+#1 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/img...')
+#3 /home/php/public_html/o-kompas/kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/php/public_html/o-kompas/kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/img/favicons/favicon.ico
+---
+2014/09/30 13:15:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "favicon.ico".' in /home/php/public_html/o-kompas/kompas/framework/web/CController.php:483
+Stack trace:
+#0 /home/php/public_html/o-kompas/kompas/framework/web/CController.php(270): CController->missingAction('favicon.ico')
+#1 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(282): CController->run('favicon.ico')
+#2 /home/php/public_html/o-kompas/kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('competition/fav...')
+#3 /home/php/public_html/o-kompas/kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/php/public_html/o-kompas/kompas/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/competition/favicon.ico
+---
