@@ -153,8 +153,9 @@ class EExcelWriter extends CGridView{
         $this->autofitColumns();
         $this->workBook->close();
         if($this->stream){ //output to browser
-            header("Content-Type: application/x-msexcel; name=\"".$this->fileName."\"");
-            header("Content-Disposition: inline; filename=\"".$this->fileName."\"");
+            header("Content-Type: application/x-msexcel; charset=CP1251");
+//            header("Content-Type: application/x-msexcel; charset=utf-8; name=\"".$this->fileName."\"");
+            header("Content-Disposition: inline; charset=utf-8; filename=\"".$this->fileName."\"");
             $fh=fopen($this->fileName, "rb");
             fpassthru($fh);
         }

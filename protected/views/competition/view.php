@@ -57,7 +57,7 @@ $this->breadcrumbs = array(
             if ($model->enable_registration_flag == 1) {
                 echo '<h6>Окончание регистрации: ' . $model->explodeThisDate($model->close_registration_data) .  '</h6>';
                 if (!Yii::app()->user->isGuest) {
-                    echo '<p><span class="button1">' . CHtml::link('Подать заявку', array('competitionRequest/application', 'id' => $model->id)) . '</span></P>';
+                    echo '<p><span class="button1"><a href="#">Подать заявку</a></span></P>';
                 } else {
                     echo '<h6> Для подачи заявки нужно войти в систему! </h6>';
                 }
@@ -65,6 +65,13 @@ $this->breadcrumbs = array(
             ?>   
         </div>
         <script type="text/javascript">
+            
+            $( ".button1" ).click(function() {
+                $( ".form-competition" ).toggle( "slow" );
+            });
+            
+            
+            
             function submmitCompetitionRequest(form){
                 var send_flag = true;
                 competition_id = form.elements["CompetitionRequest[competition_id]"].value;
@@ -224,7 +231,7 @@ $this->breadcrumbs = array(
             if ($model->enable_registration_flag == 1) {
                 if (!Yii::app()->user->isGuest) {
          ?>
-            <div class="form-competition">
+            <div class="form-competition" style="display: none">
                 <form id="competition-request-form" method="post" action="/index.php/competitionRequest/addrequest/<?php echo $model->id; ?>" enctype="multipart/form-data">
                     <div class="box1">
                         <input name="CompetitionRequest[status]" id="CompetitionRequest_status" type="hidden" value="0" maxlength="10" size="10"/>
