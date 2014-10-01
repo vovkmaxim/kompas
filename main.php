@@ -64,10 +64,10 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=kompas',
+			'connectionString' => 'mysql:host=localhost;dbname=o-kompascom',
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => 'root',
+			'username' => 'adminmax',
+			'password' => 'adminmax',
 			'charset' => 'utf8',
 		),
 		
