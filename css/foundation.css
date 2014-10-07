@@ -223,6 +223,9 @@ background: #9c9c9c;
 .cal-body a:hover {
 background: #fafafa;
 }
+.for-cal-a{
+    background: #9c9c9c;
+}
 .cal-off a {
 color: #ccc;
 font-weight: normal;
@@ -4002,6 +4005,12 @@ list-style: none; }
 form.custom .custom.dropdown ul li.selected {
 background: #eeeeee;
 color: black; }
+
+.selected {
+    background:red;
+    /*color: black;*/ 
+}
+
 form.custom .custom.dropdown ul li:hover {
 background-color: #e4e4e4;
 color: black; }

@@ -128,7 +128,7 @@ fcp.Calendar.prototype.render_heading = function () {
 		this.calendar.prev_month();
 		return false;
 	};
-	prev_month.innerHTML = "<<<    ";
+	prev_month.innerHTML = "<";
 	prev_month.title = fcp.msg.prev_month;
 	var month_year = document.createTextNode(
 		"\u00a0" + fcp.months[this.selection.getMonth()]
@@ -140,7 +140,7 @@ fcp.Calendar.prototype.render_heading = function () {
 		this.calendar.next_month();
 		return false;
 	};
-	next_month.innerHTML = "    >>>";
+	next_month.innerHTML = ">";
 	next_month.title = fcp.msg.next_month;
 	var next_year = document.createElement("a");
 	next_year.href = "#";
@@ -268,13 +268,16 @@ fcp.Calendar.prototype.render_day = function (day_number) {
                     td.appendChild(anchor);
                     if (day_number == this.selection.getDate()) {
                             this.selected_cell = td;
-                            td.className = " selected";
+                            td.className = "selected";
                     } else {
-                            td.className = "";
+                            td.className = "selected";
                     } 
-                }		
-	}
-	return td;
+                }
+td.className = "selected";		
+	} else {
+            td.className = "for-cal-a";
+        }
+        return td;
 }
 fcp.Calendar.prototype.onselect = function () {}
 fcp.Calendar.clone_date = function (date_obj) {
