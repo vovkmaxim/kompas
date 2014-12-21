@@ -248,14 +248,14 @@ body
     text-decoration:none;
 }
 
-div.flash-error, div.flash-notice, div.flash-success
+span.flash-error, div.flash-error, div.flash-notice, div.flash-success
 {
-    padding:.8em;
+    padding: 10px;
     margin-bottom:1em;
     border:2px solid #ddd;
 }
 
-div.flash-error
+span.flash-error, div.flash-error
 {
     background:#FBE3E4;
     color:#8a1f11;
@@ -634,11 +634,11 @@ div.news:hover {
     width: 250px;
 }
 .box1 {
-    padding: 5px;
+    padding: 2px;
     float:left;
 }
 .box2 {    
-    padding: 5px;
+    padding: 2px;
     float:right;
 }
 

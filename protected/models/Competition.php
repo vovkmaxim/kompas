@@ -522,10 +522,19 @@ class Competition extends CActiveRecord
                 }
                 $lenght_data = count($array_data);
                 
-                 $sring_data = '<select name="check_data[]" maltiple id="check_data" size="7" multiple>';
-                for($i = 0; $i < $lenght_data; $i++){
-                    $temp = $i+1;
-                    $sring_data .= '<option value="'. $temp .'">'. $array_data[$i] .'</option>';
+                $sring_data = '';
+                if($lenght_data != 0 && $lenght_data > 1){
+                    $sring_data .= '<div class="check_data_div">';
+                    for($i = 0; $i < $lenght_data; $i++){
+                        $temp = $i+1;
+                        $sring_data .= '<input class="check_data" type="checkbox" id="check_data" name ="check_data" value="'. $temp .'">'. $array_data[$i];
+                    }
+                    $sring_data .= '</div>';
+                } elseif ($lenght_data != 0 && $lenght_data == 1) {
+                    for($i = 0; $i < $lenght_data; $i++){
+                            $temp = $i+1;
+                            $sring_data .= '<input class="check_data" type="hidden" id="check_data_hidden" name ="check_data" value="'. $temp .'">';
+                     }
                 }
                 return $sring_data;
             } else {
@@ -536,7 +545,6 @@ class Competition extends CActiveRecord
         
         public function getThisDate(){
             
-            
             $start_data1 = explode(' ', $this->start_data);
             $start_data1 = explode('-', $start_data1[0]);
             
@@ -544,12 +552,6 @@ class Competition extends CActiveRecord
             
             $end_data1 = explode(' ', $this->end_data);
             $end_data1 = explode('-', $end_data1[0]);
-            
-//            print_r('<pre>');
-//            print_r($start_time);
-//            print_r($end_data1);
-//            print_r('<pre>');
-//            die();
             
             $data_str = '';
             if(($start_data1[2] != $end_data1[2]) || ($start_data1[1] != $end_data1[1]) || ($start_data1[0] != $end_data1[0])){

@@ -89,62 +89,84 @@ $this->breadcrumbs = array(
                 year_bird = form.elements["year_bird"].value;
                 group_id = form.elements["group_id"].value;
                 rank = form.elements["rank"].value;
-                check_data_element = document.getElementById('check_data');
+                
+                var check_data_element = [];
+                check_data = '';
+                $('input:checkbox[name=check_data]:checked').each(function() {check_data_element.push($(this).val());});
+                console.log(check_data_element);
                 var result_check_data = [];
-                var options = check_data_element && check_data_element.options;
                 var opt;
-
-                for (var i=0, iLen=options.length; i<iLen; i++) {
-                    opt = options[i];
-                    if (opt.selected) {
-                      result_check_data.push(opt.value || opt.text);
+                if(check_data_element.length > 0){
+                    for (var i=0, iLen=check_data_element.length; i<iLen; i++) {
+                        opt = check_data_element[i];
+                          result_check_data.push(opt);
                     }
+                    check_data = result_check_data.join(', ');
+                } 
+                if(document.getElementById('check_data_hidden') != null){                     
+                    $("#check_data_hidden").each(function() {check_data_element.push($(this).val());});
+                    for (var i=0, iLen=check_data_element.length; i<iLen; i++) {
+                        opt = check_data_element[i];
+                        result_check_data.push(opt);
+                    }
+                    check_data = result_check_data.join(', ');
                 }
-                check_data = result_check_data.join(', ');
+                             
                 
                 if(check_data == ''){
                     document.getElementById('CompetitionRequest_check_data_error').innerHTML = "Необходимо указать дни участия.";
+                    document.getElementById('CompetitionRequest_check_data_error').classList.add("flash-error");
                     send_flag = false;
                 }
                 
                 if(lastname == 'Фамилия'){
                     document.getElementById('CompetitionRequest_lastname_error').innerHTML = "Необходимо заполнить поле «Фамилия».";
+                    document.getElementById('CompetitionRequest_lastname_error').classList.add("flash-error");
                     send_flag = false;
                 }
                 if(coutry == 'Страна'){
                     document.getElementById('CompetitionRequest_coutry_error').innerHTML = "Необходимо заполнить поле «Страна».";
+                    document.getElementById('CompetitionRequest_coutry_error').classList.add("flash-error");
                     send_flag = false;
                 }
                 if(coach == 'Тренер'){
                     document.getElementById('CompetitionRequest_coach_error').innerHTML = "Необходимо заполнить поле «Тренер».";
+                    document.getElementById('CompetitionRequest_coach_error').classList.add("flash-error");
                     send_flag = false;
                 }
                 if(name == 'Ваше имя'){
                     document.getElementById('CompetitionRequest_name_error').innerHTML = "Необходимо заполнить поле «Имя».";
+                    document.getElementById('CompetitionRequest_name_error').classList.add("flash-error");
                     send_flag = false;
                 }
                 if(sity == 'Город'){
                     document.getElementById('CompetitionRequest_sity_error').innerHTML = "Необходимо заполнить поле «Город»."
+                    document.getElementById('CompetitionRequest_sity_error').classList.add("flash-error");
                     send_flag = false;
                 }
                 if(fst == 'ФСТ'){
                     document.getElementById('CompetitionRequest_fst_error').innerHTML = "Необходимо заполнить поле «ФСТ»."
+                    document.getElementById('CompetitionRequest_fst_error').classList.add("flash-error");
                     send_flag = false;
                 }
                 if(group_id == 0){
                     document.getElementById('CompetitionRequest_group_id_error').innerHTML = "Необходимо указать группу. "
+                    document.getElementById('CompetitionRequest_group_id_error').classList.add("flash-error");
                     send_flag = false;
                 }
                 if(rank == 0){
                     document.getElementById('CompetitionRequest_rank_error').innerHTML = "Необходимо указать Ваш «Разряд». "
+                    document.getElementById('CompetitionRequest_rank_error').classList.add("flash-error");
                     send_flag = false;
                 }
                 if(team == "Команда"){
                     document.getElementById('CompetitionRequest_team_error').innerHTML = "Необходимо заполнить поле «Команда»."
+                    document.getElementById('CompetitionRequest_team_error').classList.add("flash-error");
                     send_flag = false;
                 }
                 if(year_bird == "Год рождения"){
                     document.getElementById('CompetitionRequest_year_bird_error').innerHTML = "Необходимо заполнить поле «Год рождения»."
+                    document.getElementById('CompetitionRequest_year_bird_error').classList.add("flash-error");
                     send_flag = false;
                 }
                 
@@ -167,15 +189,37 @@ $this->breadcrumbs = array(
                 } else {
                     CompetitionRequest = [];
                     document.getElementById('CompetitionRequest_lastname_error').innerHTML = "";
+                    document.getElementById("CompetitionRequest_lastname_error").classList.remove("flash-error");
+                    
                     document.getElementById('CompetitionRequest_coutry_error').innerHTML = "";
+                    document.getElementById("CompetitionRequest_coutry_error").classList.remove("flash-error");
+                    
                     document.getElementById('CompetitionRequest_coach_error').innerHTML = "";
+                    document.getElementById("CompetitionRequest_coach_error").classList.remove("flash-error");
+                    
                     document.getElementById('CompetitionRequest_name_error').innerHTML = "";
+                    document.getElementById("CompetitionRequest_name_error").classList.remove("flash-error");
+                    
+                    document.getElementById('CompetitionRequest_check_data_error').innerHTML = "";
+                    document.getElementById('CompetitionRequest_check_data_error').classList.remove("flash-error");
+                    
                     document.getElementById('CompetitionRequest_sity_error').innerHTML = "";
+                    document.getElementById("CompetitionRequest_sity_error").classList.remove("flash-error");
+                    
                     document.getElementById('CompetitionRequest_fst_error').innerHTML = "";
+                    document.getElementById("CompetitionRequest_fst_error").classList.remove("flash-error");
+                    
                     document.getElementById('CompetitionRequest_group_id_error').innerHTML = "";
+                    document.getElementById("CompetitionRequest_group_id_error").classList.remove("flash-error");
+                    
                     document.getElementById('CompetitionRequest_rank_error').innerHTML = "";
+                    document.getElementById("CompetitionRequest_rank_error").classList.remove("flash-error");
+                    
                     document.getElementById('CompetitionRequest_team_error').innerHTML = "";
+                    document.getElementById("CompetitionRequest_team_error").classList.remove("flash-error");
+                    
                     document.getElementById('CompetitionRequest_year_bird_error').innerHTML = "";
+                    document.getElementById("CompetitionRequest_year_bird_error").classList.remove("flash-error");
                     
                     CompetitionRequest = {};
                     CompetitionRequest["lastname"] = lastname;
@@ -232,7 +276,7 @@ $this->breadcrumbs = array(
                 if (!Yii::app()->user->isGuest) {
          ?>
             <div class="form-competition" style="display: none">
-                <form id="competition-request-form" method="post" action="/index.php/competitionRequest/addrequest/<?php echo $model->id; ?>" enctype="multipart/form-data">
+                <form id="competition-request-form" method="post">
                     <div class="box1">
                         <input name="CompetitionRequest[status]" id="CompetitionRequest_status" type="hidden" value="0" maxlength="10" size="10"/>
                         <input name="CompetitionRequest[competition_id]" id="CompetitionRequest_competition_id" type="hidden" value="<?php echo $model->id; ?>" maxlength="10" size="10"/>
@@ -264,8 +308,8 @@ $this->breadcrumbs = array(
                         <?php // echo $model->getChekData();  ?>
                     </div>
                     <div id="CompetitionRequest_check_data_error" class="errorMessage"></div>
-                    <?php echo $model->getChekData();  ?>
-                    <input type="submit" class="submit" onclick="submmitCompetitionRequest(document.getElementById('competition-request-form'));return false;" value="Отправить" />
+                    <?php echo $model->getChekData();  ?>                    
+                    <p><input type="submit" class="submit" onclick="submmitCompetitionRequest(document.getElementById('competition-request-form'));return false;" value="Отправить" /></p>
                     
                 </form>
             </div>

@@ -267,7 +267,6 @@ fcp.Calendar.prototype.render_day = function (day_number) {
                     anchor.innerHTML = '' +day_number + '';
                     anchor.calendar = this;
                     anchor.date = day_number;
-    //		anchor.onclick = fcp.Calendar.handle_select;
                     td.appendChild(anchor);
                     if (day_number == this.selection.getDate()) {
                             this.selected_cell = td;
@@ -279,10 +278,6 @@ fcp.Calendar.prototype.render_day = function (day_number) {
 	} else {
             td.className = "for-cal-a";
         }  
-        
-        console.log(this.selection.getFullYear());
-//        console.log(this.competition_data);
-        
         return td;
 }
 fcp.Calendar.prototype.onselect = function () {}
