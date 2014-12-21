@@ -41,9 +41,9 @@ $this->breadcrumbs=array(
 		<?php echo $form->error($model,'rememberMe'); ?>
 	</div>
 
-	<div class="row ">
+<!--	<div class="row ">
             <a href="/index.php/site/remember">Вспомнить пароль</a>
-	</div>
+	</div>-->
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Вход', array('class'=>"submit")); ?>
