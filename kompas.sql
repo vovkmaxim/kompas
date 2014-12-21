@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `km_competition` (
   `title` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
   `type` int(10) unsigned DEFAULT NULL,
-  `logo_desc` varchar(255) DEFAULT NULL,
+  `logo_path` varchar(255) DEFAULT NULL,
   `text` text,
   `create_date` timestamp NULL DEFAULT NULL,
   `update_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `km_competition` (
 -- Dumping data for table `km_competition`
 --
 
-INSERT INTO `km_competition` (`id`, `title`, `description`, `type`, `logo_desc`, `text`, `create_date`, `update_date`, `start_data`, `start_time`, `end_data`, `end_time`, `close_registration_data`, `close_registration_time`, `enable_registration_flag`, `position`, `archive`, `views`) VALUES
+INSERT INTO `km_competition` (`id`, `title`, `description`, `type`, `logo_path`, `text`, `create_date`, `update_date`, `start_data`, `start_time`, `end_data`, `end_time`, `close_registration_data`, `close_registration_time`, `enable_registration_flag`, `position`, `archive`, `views`) VALUES
 (1, 'Забег на 1500 - 3000 м', 'Тринировка перед неким соривнованием бегом на большие дистанции', 2, '1363141919_sport_kstrim_2084132.jpg', 'здесь типа должен быть полный текст со всеми мелочныни описаниями', '2014-07-26 15:39:00', '2014-09-03 19:49:05', '2014-06-30 21:00:00', '07:00:00', '2014-06-30 21:00:00', '10:00:00', '2014-06-30 21:00:00', '19:00:00', 1, 0, 2, 76),
 (2, 'Проверка сохранения выбора групп', 'Проверка сохранения выбора групп', 1, '343.jpg', 'Проверка сохранения выбора групп', '2014-07-27 12:33:10', '2014-08-26 16:47:57', '2013-12-31 22:00:00', '16:00:00', '2014-11-30 22:00:00', '01:00:00', '2013-12-31 22:00:00', '24:00:00', 2, 0, 2, 4),
 (3, 'Проверка сохранения выбора групп ТЕСТ№2', 'Проверка сохранения выбора групп ТЕСТ№2', 1, '1235243444_nature-20.jpg', 'Проверка сохранения выбора групп ТЕСТ№2', '2014-07-27 13:03:48', '2014-09-02 16:43:49', '2013-12-31 22:00:00', '17:00:00', '2014-01-31 22:00:00', '02:00:00', '2014-01-31 22:00:00', '19:00:00', 2, 0, 2, 1),

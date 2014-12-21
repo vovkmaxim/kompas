@@ -32,7 +32,7 @@ class Comments extends CActiveRecord
         "09" => 'сентября',
         "10" => 'октября',
         "11" => 'ноября',
-        "12" => 'декадря',
+        "12" => 'декабря',
     );
 	/**
 	 * @return string the associated database table name

@@ -20,8 +20,7 @@ class Photo extends CActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
-	public function tableName()
-	{
+	public function tableName(){
 		return 'km_photo';
 	}
 
@@ -30,16 +29,11 @@ class Photo extends CActiveRecord
 	 */
 	public function rules()
 	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
 		return array(
 			array('group_photo_id, user_id', 'required'),
 			array('title, description', 'length', 'max'=>255),
 			array('group_photo_id, user_id', 'length', 'max'=>10),
-//			array('path', 'safe'),
 			array('path','file','types'=>'jpg, jpeg, gif, png', 'allowEmpty'=>true,'on'=>'insert,update'),
-			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
 			array('id, title, description, path, group_photo_id, user_id', 'safe', 'on'=>'search'),
 		);
 	}
@@ -49,8 +43,6 @@ class Photo extends CActiveRecord
 	 */
 	public function relations()
 	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
 		return array(
 			'groupPhoto' => array(self::BELONGS_TO, 'GroupPhoto', 'group_photo_id'),
 			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
@@ -96,7 +88,7 @@ class Photo extends CActiveRecord
 		$criteria->compare('path',$this->path,true);
 		$criteria->compare('group_photo_id',$this->group_photo_id,true);
 		$criteria->compare('user_id',$this->user_id,true);
-
+                $criteria->order = 'id DESC';
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
@@ -115,8 +107,7 @@ class Photo extends CActiveRecord
         
                 
         public function getPhoto(){    
-//            return '<img src="'.Yii::app()->basePath. '/banners/' . $this->id . '_assortiment.jpg"  width="147" height="115" alt="' . $this->name . '">';
-            return '<img src="/photo/' . $this->path . '"  width="147" height="115" alt="' . $this->title . '">';
+            return '<img src="/thumbn/' . $this->path . '"  alt="' . $this->title . '">';
         }
                 
         protected function beforeSave(){
@@ -150,12 +141,20 @@ class Photo extends CActiveRecord
         
         public function getUserName(){
             $user = User::model()->find("id=:user_id", array(":user_id" => $this->user_id));
-            return $user->username;
+            if(is_object($user)){
+                return $user->username;
+            } else {
+                return 'None';
+            }             
         }
         
         public function getGroupPhotoName(){
             $group_photo = GroupPhoto::model()->find("id=:group_photo_id", array(":group_photo_id" => $this->group_photo_id));
-            return $group_photo->title;
+            if(is_object($group_photo)){
+                return $group_photo->title;
+            } else {
+                return 'None';
+            }            
         }
         
         public function getAllGroupPhotoList(){

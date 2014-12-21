@@ -29,7 +29,7 @@
                 <p><?php echo CHtml::encode($model->path); ?></p>
             <?php endif; ?>
             <?php echo $form->labelEx($model,'path'); ?>
-                <p>Разрешенные форматы: doc, docx,xls ,xlsx, odt, pdf,jpg, jpeg, gif, png, bmp</p>
+                <p>Разрешенные форматы: htm, doc, docx,xls ,xlsx, odt, pdf,jpg, jpeg, gif, png, bmp</p>
  <span class="button7"><p>ЗАГРУЗИТЬ ФАЙЛ</p><?php echo $form->fileField($model,'path'); ?></span>
            <?php // echo $form->fileField($model,'path'); ?>
             <?php echo $form->error($model,'path'); ?>

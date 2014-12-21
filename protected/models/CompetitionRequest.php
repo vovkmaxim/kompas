@@ -303,6 +303,14 @@ class CompetitionRequest extends CActiveRecord
             }
         }
         
+        public function getRankName(){
+            $prom_rank = RankHasCompetitionRequest::model()->findAll('competition_request_id=:id',array(':id' => $this->id));
+            if(!empty($prom_rank)){
+                $rank = Rank::model()->findAll('id=:rank_id',array(':rank_id'=>$prom_rank[0]->rank_id));
+                return $rank[0]->name;
+            }
+        }
+        
         public function getGroupName(){
             $group = Group::model()->findByPk($this->group_id);
             if($group != NULL){
@@ -324,11 +332,11 @@ class CompetitionRequest extends CActiveRecord
         
         public function getNameStatus(){
             if($this->status == 0){
-                return "<span  style='color:red'>Не активирован</span>";
+                return "<span  style='color:red'>Ожидает</span>";
             }
             
             if($this->status == 1){
-                return "<span  style='color:#00FF66'>Aктивирован</span>";
+                return "<span  style='color:#00FF66'>Принята</span>";
             }
         }
         
@@ -353,12 +361,13 @@ class CompetitionRequest extends CActiveRecord
         public function getNameUser(){
             $user =User::model()->findByPk($this->user_id);
             if($user != NULL){
-                return CHtml::link($user->name, array('user/view', 'id'=>$user->id));
+                return $user->username;
+//                return CHtml::link($user->name, array('user/view', 'id'=>$user->id));
             }
         }
         
         public function groupDropDownList(){
-            $return_list = '<select name="menu" size="1">';
+            $return_list = '<select name="group_id" size="1">';
             $group_name_list = $this->getAllGroupName();
             foreach ($group_name_list as $k => $value){
                 if($this->group_id){

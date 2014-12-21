@@ -10,19 +10,6 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Создать событие', 'url'=>array('create')),
 );
-
-//Yii::app()->clientScript->registerScript('search', "
-//$('.search-button').click(function(){
-//	$('.search-form').toggle();
-//	return false;
-//});
-//$('.search-form form').submit(function(){
-//	$('#competition-grid').yiiGridView('update', {
-//		data: $(this).serialize()
-//	});
-//	return false;
-//});
-//");
 ?>
 
 <h1>Управление</h1>
@@ -33,6 +20,7 @@ $this->menu=array(
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
+                'position',
 		'title',
 		'description',
                 array(
@@ -47,9 +35,6 @@ $this->menu=array(
                     'value' => '$data->getLogoImage()',
                     'filter' => false,
                 ),
-//		'text',		
-//		'create_date',
-//		'update_date',
                 array(
                     'name' => 'start_data',
                     'type' => 'raw',
@@ -69,7 +54,7 @@ $this->menu=array(
                      'type' => 'raw',
                      'value' => '$data->explodeThisDate($data->close_registration_data)',
                      'filter' => false,
-                    ),
+                    ),                
 //		'close_registration_time',
 //		'enable_registration_flag',
 //		'position',

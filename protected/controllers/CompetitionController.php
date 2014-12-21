@@ -1,5 +1,4 @@
 <?php
-
 class CompetitionController extends Controller
 {
 	/**
@@ -18,19 +17,6 @@ class CompetitionController extends Controller
 			'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
-        
-//	public function accessRules()
-//	{
-//		return array(
-//			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-//				'actions'=>array('admin','delete'),
-//				'users'=>array('admin'),
-//			),
-//			array('deny',  // deny all users
-//				'users'=>array('*'),
-//			),
-//		);
-//	}
 
 	/**
 	 * Displays a particular model.
@@ -41,7 +27,9 @@ class CompetitionController extends Controller
             
             $criteria = new CDbCriteria;
             $criteria->condition = 't.competition_id =' . $id;
+            $criteria->order = 't.group_id';
             $request=new CActiveDataProvider('CompetitionRequest', array('criteria' => $criteria));
+            $request->pagination->pageSize = count(CompetitionRequest::model()->findAll());
             
             $criteria = new CDbCriteria;
             $criteria->condition = 't.competition_id =' . $id;
@@ -86,6 +74,10 @@ class CompetitionController extends Controller
                         $model->user_id = Yii::app()->user->id;
                         
                         if($model->save()){
+                            $rank = new RankHasCompetitionRequest();
+                            $rank->competition_request_id = $model->id;
+                            $rank->rank_id = $_POST['CompetitionRequest']['rank'];
+                            $rank->save();                            
                             $return_mass['success'] = true;
                             $return_mass['message'] = 'Ваша заявка принята на рассмотрение.';
                             echo json_encode($return_mass);
@@ -106,92 +98,45 @@ class CompetitionController extends Controller
                 
                 $criteria = new CDbCriteria;
                 $criteria->condition = 't.competition_id =' . $id;
-                $request = new CActiveDataProvider('CompetitionRequest', array('criteria' => $criteria));
-                
+                $criteria->order = 't.group_id';
+                $request=new CActiveDataProvider('CompetitionRequest', array('criteria' => $criteria));
+                $request->pagination->pageSize = count(CompetitionRequest::model()->findAll());
                 return $this->widget('zii.widgets.grid.CGridView', array(
                                     'id' => 'competition-request-grid',
                                     'dataProvider' => $request,
                                     'template' => '{pager}{items}{pager}',
                                     'columns' => array(
-                                        'id', 
                                         array('name' => 'group_id','type' => 'raw','value' => '$data->getGroupName()','filter' => false,),
-                                        'name',
                                         'lastname',
+                                        'name',
                                         'year',
                                         'sity',
-                                        'coutry',
+                                        'team',
                                         'participation_data',
-                                        array('name' => 'Состояние','type' => 'raw','value' => '$data->getNameStatus()','filter' => false,),
-                                        array('name' => 'Представитель','type' => 'raw','value' => '$data->getNameUser()','filter' => false,),
+                                        array(
+                                            'name' => 'Разряд',
+                                            'type' => 'raw',
+                                            'value' => '$data->getRankName()',
+                                            'filter' => false,
+                                        ),
+                                        array(
+                                            'name' => 'Статус',
+                                            'type' => 'raw',
+                                            'value' => '$data->getNameStatus()',
+                                            'filter' => false,                                            
+                                            ),
+                                        array(
+                                            'name' => 'Представитель',
+                                            'type' => 'raw',
+                                            'value' => '$data->getNameUser()',
+                                            'filter' => false,
+                                            ),
                                     ),
                 ));
                 exit();
             }
         }
         
-        
-//
-//	/**
-//	 * Creates a new model.
-//	 * If creation is successful, the browser will be redirected to the 'view' page.
-//	 */
-//	public function actionCreate()
-//	{
-//		$model=new Competition;
-//
-//		// Uncomment the following line if AJAX validation is needed
-//		// $this->performAjaxValidation($model);
-//
-//		if(isset($_POST['Competition']))
-//		{
-//			$model->attributes=$_POST['Competition'];
-//			if($model->save())
-//				$this->redirect(array('view','id'=>$model->id));
-//		}
-//
-//		$this->render('create',array(
-//			'model'=>$model,
-//		));
-//	}
-//
-//	/**
-//	 * Updates a particular model.
-//	 * If update is successful, the browser will be redirected to the 'view' page.
-//	 * @param integer $id the ID of the model to be updated
-//	 */
-//	public function actionUpdate($id)
-//	{
-//		$model=$this->loadModel($id);
-//
-//		// Uncomment the following line if AJAX validation is needed
-//		// $this->performAjaxValidation($model);
-//
-//		if(isset($_POST['Competition']))
-//		{
-//			$model->attributes=$_POST['Competition'];
-//			if($model->save())
-//				$this->redirect(array('view','id'=>$model->id));
-//		}
-//
-//		$this->render('update',array(
-//			'model'=>$model,
-//		));
-//	}
-//
-//	/**
-//	 * Deletes a particular model.
-//	 * If deletion is successful, the browser will be redirected to the 'admin' page.
-//	 * @param integer $id the ID of the model to be deleted
-//	 */
-//	public function actionDelete($id)
-//	{
-//		$this->loadModel($id)->delete();
-//
-//		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-//		if(!isset($_GET['ajax']))
-//			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-//	}
-
 	/**
 	 * Lists all models.
 	 */
@@ -199,6 +144,7 @@ class CompetitionController extends Controller
 	{
             $criteria = new CDbCriteria;
             $criteria->condition = 't.type = 2 AND t.archive = 2';
+            $criteria->order = 't.position DESC';
             $dataProvider=new CActiveDataProvider('Competition', array('criteria' => $criteria));
             $dataProvider->pagination->pageSize = count(Competition::model()->findAll());
 		$this->render('index',array(
@@ -213,13 +159,12 @@ class CompetitionController extends Controller
 	{
             $criteria = new CDbCriteria;
             $criteria->condition = 't.type = 1 AND t.archive = 2';
+            $criteria->order = 't.position DESC';
             $dataProvider=new CActiveDataProvider('Competition', array('criteria' => $criteria));
 		$this->render('training',array(
 			'dataProvider'=>$dataProvider,
 		));
 	}
-
-        
         
 
 	/**
@@ -255,114 +200,88 @@ class CompetitionController extends Controller
         
         public function actionExcel($id){
             
-            $criteria = new CDbCriteria;
-            $criteria->condition = 't.competition_id =' . $id;
             
-            $count=CompetitionRequest::model()->count($criteria);
+            $CompetitionRequest = CompetitionRequest::model()->findAll('competition_id=:id ORDER BY t.group_id',array(':id'=>$id));
+            $len  = count($CompetitionRequest);
             
-            $request=new CActiveDataProvider('CompetitionRequest', array(
-                'criteria' => $criteria,
-                    'pagination'=>array(
-                        'pageSize'=>$count,
-                    ),
-                ));
+            spl_autoload_unregister(array('YiiBase','autoload'));
+            Yii::import('ext.PHPExcel.Classes.PHPExcel', true);
+            spl_autoload_register(array('YiiBase','autoload')); 
+            
+            $objPHPExcel = new PHPExcel();
+            $objPHPExcel->getProperties()->setCreator("PHP")
+                ->setLastModifiedBy("o-kompas")
+                ->setTitle("Office 2007 XLSX reports-competition")
+                ->setSubject("Office 2007 XLSX reports-competition")
+                ->setDescription("Тестовый файл Office 2007 XLSX, reports-competition PHPExcel.")
+                ->setKeywords("office 2007 openxml php")
+                ->setCategory("reports-competition");
+            $objPHPExcel->getActiveSheet()->setTitle('Демо');
+            $objPHPExcel->setActiveSheetIndex(0)->setCellValue('A1', 'Номер');
+            $objPHPExcel->setActiveSheetIndex(0)->setCellValue('B1', 'Группа');    
+            $objPHPExcel->setActiveSheetIndex(0)->setCellValue('C1', 'Имя');    
+            $objPHPExcel->setActiveSheetIndex(0)->setCellValue('D1', 'Фамилия');    
+            $objPHPExcel->setActiveSheetIndex(0)->setCellValue('E1', 'Год');    
+            $objPHPExcel->setActiveSheetIndex(0)->setCellValue('F1', 'Город');    
+            $objPHPExcel->setActiveSheetIndex(0)->setCellValue('G1', 'Страна');    
+            $objPHPExcel->setActiveSheetIndex(0)->setCellValue('H1', 'Старты');    
+            $objPHPExcel->setActiveSheetIndex(0)->setCellValue('I1', 'Разряд');    
+            $objPHPExcel->setActiveSheetIndex(0)->setCellValue('J1', 'Представитель');    
+ 
+            for($i=0;$i<$len;$i++){
+                $j=$i;
+                $objPHPExcel->setActiveSheetIndex(0)->setCellValue('A'.($i+2), $i+1);
+                $objPHPExcel->setActiveSheetIndex(0)->setCellValue('B'.($i+2), $this->getGroupName($CompetitionRequest[$i]->group_id));
+                $objPHPExcel->setActiveSheetIndex(0)->setCellValue('C'.($i+2), $CompetitionRequest[$i]->lastname); 
+                $objPHPExcel->setActiveSheetIndex(0)->setCellValue('D'.($i+2), $CompetitionRequest[$i]->name);       
+                $objPHPExcel->setActiveSheetIndex(0)->setCellValue('E'.($i+2), $CompetitionRequest[$i]->year);    
+                $objPHPExcel->setActiveSheetIndex(0)->setCellValue('F'.($i+2), $CompetitionRequest[$i]->sity);    
+                $objPHPExcel->setActiveSheetIndex(0)->setCellValue('G'.($i+2), $CompetitionRequest[$i]->coutry);    
+                $objPHPExcel->setActiveSheetIndex(0)->setCellValue('H'.($i+2), $CompetitionRequest[$i]->participation_data);    
+                $objPHPExcel->setActiveSheetIndex(0)->setCellValue('I'.($i+2), $CompetitionRequest[$i]->getRankName());    
+                $objPHPExcel->setActiveSheetIndex(0)->setCellValue('J'.($i+2), $this->getUserName($CompetitionRequest[$i]->user_id));
+//                print_r('<pre>');
+//                print_r($CompetitionRequest[$i]->id);
+//                print_r($CompetitionRequest[$i]->group_id);
+//                print_r($CompetitionRequest[$i]->name);
+//                print_r($CompetitionRequest[$i]->lastname);
+//                print_r($CompetitionRequest[$i]->year);
+//                print_r($CompetitionRequest[$i]->chip);
+//                print_r($CompetitionRequest[$i]->dyusch);
+//                print_r($CompetitionRequest[$i]->sity);
+//                print_r($CompetitionRequest[$i]->coutry);
+//                print_r($CompetitionRequest[$i]->team);
+//                print_r($CompetitionRequest[$i]->coach);
+//                print_r($CompetitionRequest[$i]->fst);
+//                print_r($CompetitionRequest[$i]->participation_data);
+//                print_r($CompetitionRequest[$i]->status);
+//                print_r($CompetitionRequest[$i]->user_id);
+//                print_r('<pre>');
+            }
             
             
-            $this->widget('application.extensions.EExcelWriter.EExcelWriter', array(
-                'dataProvider' => $request,
-                'title'        => 'qwerrs',
-                'stream'       => true,
-                'fileName'     => 'test.xlsx',
-                'columns' => array(
-                    array(
-                        'name' => 'group_id',
-                        'type' => 'raw',
-                        'value' => '$data->getGroupName()',
-                        'filter' => false,
-                    ),
-                    'name',
-                    'lastname',
-                    'year',
-                    'sity',
-                    'coutry',
-                    'participation_data',
-                    array(
-                        'name' => 'Состояние',
-                        'type' => 'raw',
-                        'value' => '$data->getNameStatusPrint()',
-                        'filter' => false,
-                    ),
-                    array(
-                        'name' => 'Представитель',
-                        'type' => 'raw',
-                        'value' => '$data->getNameUserPrint()',
-                        'filter' => false,
-                    ),
-                ),
-            ));
+//            header ( "Expires: Mon, 1 Apr 1974 05:00:00 GMT" );
+//            header ( "Last-Modified: " . gmdate("D,d M YH:i:s") . " GMT" );
+//            header ( "Cache-Control: no-cache, must-revalidate" );
+//            header ( "Pragma: no-cache" );
+//            header ( "Content-type: application/excel" );
+//            header ( "Content-Disposition: attachment; filename=report.xlsx" );
 
-//            
-//            $id = array();
-//            $pdf = Yii::createComponent('application.extensions.ETcPdf.ETcPdf',
-//            'P', 'cm', 'A4', true, 'UTF-8');
-//
-//        $site_logo = "/core/logo.png";
-//
-//        $pdf->SetHeaderData(PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE);
-//        $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
-//        $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
-//
-//        $pdf->SetMargins(1, 2, 1);
-//        $pdf->SetHeaderMargin(0.1);
-//        $pdf->SetFooterMargin(1);
-//
-//        $pdf->SetFont("dejavusans", "", 10);
-//
-//        $pdf->AddPage();
-//        $renders_mass = array(
-//                            'id' => 'competition-request-grid',
-//                            'dataProvider' => $request,
-//                            'template' => '{pager}{items}{pager}',
-//                            'columns' => array(
-//                                'id',
-//                                array(
-//                                    'name' => 'group_id',
-//                                    'type' => 'raw',
-//                                    'value' => '$data->getGroupName()',
-//                                    'filter' => false,
-//                                ),
-//                                'name',
-//                                'lastname',
-//                                'year',
-//                                'sity',
-//                                'coutry',
-//                                'participation_data',
-//                                array(
-//                                    'name' => 'Состояние',
-//                                    'type' => 'raw',
-//                                    'value' => '$data->getNameStatus()',
-//                                    'filter' => false,
-//                                ),
-//                                array(
-//                                    'name' => 'Представитель',
-//                                    'type' => 'raw',
-//                                    'value' => '$data->getNameUser()',
-//                                    'filter' => false,
-//                                ),
-//                            ),
-//                        );
-//
-//        $this->layout = '//layouts/empty_backend';
-//        $html = $this->render("/layouts/details_to_print", compact('renders_mass'),true);
-//        
-////        echo $html; 
-//        
-//        $pdf->writeHTML($html, true, false, true, false, '');
-//
-//        $order_ditails_filename = 'offer_details_1.pdf';
-//
-//        $pdf->Output($order_ditails_filename, "I");
-//            $request1 = $this->widget('zii.widgets.grid.CGridView', $renders_mass);
+            $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
+//            $objWriter->save('php://output');
+            $objWriter->save('xls/report.xlsx');
+            $this->redirect(Yii::app()->request->baseUrl.'/xls/report.xlsx' );
+
+        }
+        
+        private function getGroupName($group_id){
+            $group = Group::model()->find('id=:id',array(':id'=>$group_id));
+            return $group->name;
+        }
+        
+        private function getUserName($user_id){
+            $user = User::model()->find('id=:id',array(':id'=>$user_id));
+            return $user->username;
         }
         
 }

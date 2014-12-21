@@ -1,4 +1,6 @@
-
+//var competition = new Object()
+//console.log(competition);
+//var competition_data = '';
 if (!fcp)
 	var fcp = new Object();
 if (!fcp.msg)
@@ -14,9 +16,10 @@ fcp.msg.prev_year = "пред г";
 fcp.msg.prev_month = "пред м";
 fcp.msg.next_month = "след м";
 fcp.msg.next_year = "след г";
-fcp.Calendar = function(element, show_clock) {
+fcp.Calendar = function(element, show_clock, year) {
 	if (!element.childNodes)
 		throw "HTML element expected";
+	this.competition_data = year;
 	this.element = element;
 	this.selection = new Date();
 	this.show_clock = show_clock;
@@ -219,7 +222,7 @@ fcp.Calendar.prototype.render_day = function (day_number) {
                 
                 for(var i=1; i <= competitions.length; i++){
                     if( ( competitions[i]['start_data_day'] == day_number && mont == competitions[i]['start_data_mont'] ) ){// || ( competitions[i]['end_data_day'] == day_number && mont == competitions[i]['end_data_mont'] ) ){
-                        if(competitions[i]['type'] == 1){
+                        if(competitions[i]['type'] == 1 && this.selection.getFullYear() == competitions[i]['year']){
                             // Trening
                             day_flag_link = false;
                             var anchor = document.createElement("a");
@@ -237,7 +240,7 @@ fcp.Calendar.prototype.render_day = function (day_number) {
                             }
                             break;
                         } 
-                    if(competitions[i]['type'] == 2){
+                    if(competitions[i]['type'] == 2 && this.selection.getFullYear() == competitions[i]['year'] ){
                             // Competitions
                             day_flag_link = false;
                             var anchor = document.createElement("a");
@@ -272,11 +275,14 @@ fcp.Calendar.prototype.render_day = function (day_number) {
                     } else {
                             td.className = "selected";
                     } 
-                }
-td.className = "selected";		
+                }	
 	} else {
             td.className = "for-cal-a";
-        }
+        }  
+        
+        console.log(this.selection.getFullYear());
+//        console.log(this.competition_data);
+        
         return td;
 }
 fcp.Calendar.prototype.onselect = function () {}

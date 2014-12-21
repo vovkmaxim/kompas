@@ -19,6 +19,7 @@ return array(
 		'application.models.*',
 		'application.components.*',
 		'application.extension.*',
+		'ext.imperavi-redactor-widget.ImperaviRedactorWidget',
 	),
 
 	'modules'=>array(
@@ -39,6 +40,10 @@ return array(
 
 	// application components
 	'components'=>array(
+                'email'=>array(
+                    'class'=>'application.extensions.email.Email',
+                    'delivery'=>'php', //Will use the php mailing function.
+                ),
 		'user'=>array(
                         'class' => 'WebUser',
 			// enable cookie-based authentication

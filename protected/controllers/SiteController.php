@@ -8,13 +8,10 @@ class SiteController extends Controller
 	public function actions()
 	{
 		return array(
-			// captcha action renders the CAPTCHA image displayed on the contact page
 			'captcha'=>array(
 				'class'=>'CCaptchaAction',
 				'backColor'=>0xFFFFFF,
 			),
-			// page action renders "static" pages stored under 'protected/views/site/pages'
-			// They can be accessed via: index.php?r=site/page&view=FileName
 			'page'=>array(
 				'class'=>'CViewAction',
 			),
@@ -27,10 +24,15 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-            
-                $dataProvider=new CActiveDataProvider('Events');
-		$this->render('index',array(
+            $criteria = new CDbCriteria;
+            $criteria->condition = 't.status =1';
+            $criteria->order = 't.position DESC';
+            $dataProvider=new CActiveDataProvider('Events', array('criteria' => $criteria));
+         
+            $competition = Competition::model()->findAll('archive=2 ORDER BY position DESC');
+            $this->render('index',array(
 			'dataProvider'=>$dataProvider,
+			'competition'=>$competition,
 		));
 	}
 
@@ -101,5 +103,62 @@ class SiteController extends Controller
 	{
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
+	}
+        
+        
+        /**
+	 * Displays the login page
+	 */
+	public function actionRemember()
+	{
+		$model=new RememberForm;
+		if(isset($_POST['ajax']) && $_POST['ajax']==='remember-form')
+		{
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}
+		if(isset($_POST['RememberForm']))
+		{
+
+                        $to  = "Mary &lt;mary@example.com>, " ;
+                        $to .= "Kelly &lt;kelly@example.com>";
+                        $subject = "Birthday Reminders for August";
+                        $message = '
+                        <html>
+                            <head>
+                                <title>Birthday Reminders for August</title>
+                            </head>
+                            <body>
+                                <p>Here are the birthdays upcoming in August!</p>
+                            </body>
+                        </html>';
+
+                        $headers  = "Content-type: text/html; charset=utf-8 \r\n";
+                        $headers .= "From: Birthday Reminder <birthday@example.com>\r\n";
+                        $headers .= "Bcc: birthday-archive@example.com\r\n";
+                        mail('mvovk90@ukr.net', $subject, $message, $headers); 
+                    
+                    
+                    
+                    
+//			$model->attributes=$_POST['RememberForm'];
+//                        
+//                        $email = Yii::app()->email;
+//                        $email->from = 'mvovk90@mail.ru';
+//                        $email->to = 'mvovk90@ukr.net';
+//                        $email->subject = 'Hello';
+//                        $email->message = 'Hello brother';
+//                        $email->send();
+                        
+//                        print_r('<pre>');
+//                        print_r($email);
+//                        print_r('<pre>');
+                        
+
+                        
+//			if($model->validate() && $model->login())
+//				$this->redirect(Yii::app()->user->returnUrl);
+		}
+		$this->render('remember',array('model'=>$model));
 	}
 }

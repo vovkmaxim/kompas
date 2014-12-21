@@ -100,10 +100,10 @@ class CompetitionRequest extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'competition' => array(self::BELONGS_TO, 'KmCompetition', 'competition_id'),
-			'group' => array(self::BELONGS_TO, 'KmGroup', 'group_id'),
-			'user' => array(self::BELONGS_TO, 'KmUser', 'user_id'),
-			'kmRanks' => array(self::MANY_MANY, 'KmRank', 'km_rank_has_km_competition_request(competition_request_id, rank_id)'),
+			'competition' => array(self::BELONGS_TO, 'Competition', 'competition_id'),
+			'group' => array(self::BELONGS_TO, 'Group', 'group_id'),
+			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
+			'Ranks' => array(self::MANY_MANY, 'RankHasCompetitionRequest', 'km_rank_has_km_competition_request(competition_request_id, rank_id)'),
 		);
 	}
 
@@ -166,7 +166,7 @@ class CompetitionRequest extends CActiveRecord
 		$criteria->compare('participation_data',$this->participation_data,true);
 		$criteria->compare('status',$this->status,true);
 		$criteria->compare('user_id',$this->user_id,true);
-
+                $criteria->order = 'id DESC';
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
@@ -324,11 +324,11 @@ class CompetitionRequest extends CActiveRecord
         
         public function getNameStatus(){
             if($this->status == 0){
-                return "<span  style='color:red'>Не активирован</span>";
+                return "<span  style='color:red'>Ожидает</span>";
             }
             
             if($this->status == 1){
-                return "<span  style='color:#00FF66'>Aктивирован</span>";
+                return "<span  style='color:#00FF66'>Принята</span>";
             }
             
             
@@ -344,10 +344,10 @@ class CompetitionRequest extends CActiveRecord
         }
         
         public function groupDropDownList(){
-            $return_list = '<select name="menu" size="1">';
+            $return_list = '<select name="group_id" size="1">';
             $group_name_list = $this->getAllGroupName();
-            foreach ($group_name_list as $k => $value){
-                if($this->group_id){
+            foreach ($group_name_list as $k => $value){                
+                if($this->group_id == $k){
                     $return_list .= '<option selected="selected" value="' . $k . '">' . $value . '</option>';
                 } else {
                     $return_list .= '<option value="' . $k . '">' . $value . '</option>';
@@ -357,5 +357,12 @@ class CompetitionRequest extends CActiveRecord
             return $return_list;
         }
         
+        public function getRankName(){
+            $prom_rank = RankHasCompetitionRequest::model()->findAll('competition_request_id=:id',array(':id' => $this->id));
+            if(!empty($prom_rank)){
+                $rank = Rank::model()->findAll('id=:rank_id',array(':rank_id'=>$prom_rank[0]->rank_id));
+                return $rank[0]->name;
+            }
+        }
         
 }

@@ -123,6 +123,7 @@ class EventsController extends Controller
 	{
             $criteria = new CDbCriteria;
             $criteria->condition = 't.status != 2 AND t.type !=2';
+            $criteria->order = 't.id DESC';
             $dataProvider=new CActiveDataProvider('Events', array('criteria' => $criteria));            
 		$this->render('news',array(
 			'dataProvider'=>$dataProvider,
@@ -134,6 +135,7 @@ class EventsController extends Controller
 	{
             $criteria = new CDbCriteria;
             $criteria->condition = 't.status = 1 AND t.type =2';
+            $criteria->order = 't.id DESC';
             $dataProvider=new CActiveDataProvider('Events', array('criteria' => $criteria));             
 		$this->render('article',array(
 			'dataProvider'=>$dataProvider,

@@ -8,13 +8,24 @@
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'user-registration-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// See class documentation of CActiveForm for details on this,
-	// you need to use the performAjaxValidation()-method described there.
 	'enableAjaxValidation'=>true,
 )); ?>
-
+         <?php 
+         
+         if(isset($success)&&$success){
+         ?>         
+            <div class="alert alert-success">
+                <span class="label label-success"><strong>Поздравляем!</strong></span>
+                <br>
+                <br>
+                <p><strong>Ваша заявка принята на рассмотрение.</strong></p>
+                <p><strong>Ожидайте подтверждения админом!</strong></p>
+            </div>   
+            <br>
+         <?php
+         }
+         
+         ?>
 	<p class="note">Поля для обезательного заполнения <span class="required">*</span>.</p>
 
 	<?php echo $form->errorSummary($model); ?>

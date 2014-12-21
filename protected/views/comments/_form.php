@@ -39,7 +39,19 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'text'); ?>
-		<?php echo $form->textArea($model,'text',array('rows'=>6, 'cols'=>50)); ?>
+                <?php                 
+                $this->widget('ImperaviRedactorWidget', array(
+                        'model' => $model,
+                        'attribute' => 'text',
+                        'name' => 'text',
+                        'options' => array(
+                                'lang' => 'ru',
+                                'toolbar' => true,
+                                'iframe' => true,
+                                'css' => 'wym.css',
+                        ),
+                     ));                
+                ?>
 		<?php echo $form->error($model,'text'); ?>
 	</div>
 

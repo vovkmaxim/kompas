@@ -83,7 +83,7 @@ class Sliders extends CActiveRecord
 		$criteria->compare('alt',$this->alt,true);
 		$criteria->compare('path',$this->path,true);
 		$criteria->compare('hedline',$this->hedline,true);
-
+                $criteria->order = 'id DESC';
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

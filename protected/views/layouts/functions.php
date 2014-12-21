@@ -38,7 +38,8 @@ function get_competition_day_for_calendar(){
                     " 'end_data_mont':". $end_data[1] .",".
                     " 'end_data_day':". $end_data1[0] .",".
                     " 'type':". $competitions->type .",".
-                    " 'id':". $competitions->id .","
+                    " 'id':". $competitions->id .",".
+                    " 'year':". $start_data[0] .","
                 . "},";
     }
     $competition_day .=    "'length':".$competition_i;
@@ -71,8 +72,8 @@ function get_sliders(){
                                     start: 0,
                                     scroll: 1,
                                     circular: true,
-                                    auto:1000,
-                                    speed:500,               
+                                    auto:5000,
+                                    speed:800,               
                                     btnGo:';
         
         $script_mass = '[';
@@ -83,7 +84,15 @@ function get_sliders(){
                $script_mass .= '".'.$i.'",';
                $headline_sliders .= '<a href="#" onClick="" class="'.$i.'">' . $slider->hedline . '</a>';
                
-               $images_sliders .= '<li><img src="/sliders/' . $slider->path . '" alt="' . $slider->hedline . '" width = "630px" height="300px" /></li>'; 
+               $images_sliders .= '<li>';
+               if(!empty($slider->link)){
+                    $images_sliders .= '<a href="https://'.$slider->link.'" target="_blank">';
+                    $images_sliders .= '<img src="/sliders/' . $slider->path . '" alt="' . $slider->hedline . '" width = "630px" height="300px" />';
+                    $images_sliders .= '</a>'; 
+               } else {
+                    $images_sliders .= '<img src="/sliders/' . $slider->path . '" alt="' . $slider->hedline . '" width = "630px" height="300px" />';  
+               }
+               $images_sliders .= '</li>'; 
             }
             
         $images_sliders .= '</ul>';

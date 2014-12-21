@@ -82,7 +82,7 @@ class Timers extends CActiveRecord
 		$criteria->compare('status',$this->status);
 		$criteria->compare('timer_date',$this->timer_date,true);
 		$criteria->compare('titles',$this->titles,true);
-
+                $criteria->order = 'id DESC';
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

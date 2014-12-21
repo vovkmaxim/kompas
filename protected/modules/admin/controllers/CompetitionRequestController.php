@@ -42,8 +42,15 @@ class CompetitionRequestController extends AdminController
 		$model=$this->loadModel($id);
 
 		if(isset($_POST['CompetitionRequest']))
-		{
+		{                    
+                    
+//                    print_r('<pre>');
+//                    print_r($_POST);
+//                    print_r('<pre>');
+//                    die();
+                    
 			$model->attributes=$_POST['CompetitionRequest'];
+                        $model->group_id = $_POST['group_id'];
                         if($model->save()){
                             if(!empty($_POST['rank'])){
                                 try{

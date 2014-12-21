@@ -29,6 +29,9 @@ $('.search-form form').submit(function(){
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'user-grid',
+        'pager' => array(
+            'pageSize' => 50,
+        ),
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
@@ -58,6 +61,15 @@ $('.search-form form').submit(function(){
                     'name' => 'Role',
                     'type' => 'raw',
                     'value' => '$data->getRoleUserForAdmins()',
+                    'filter' => false,
+                    'htmlOptions' => array(
+                        "width" => 128,
+                    ),
+                ),
+                array(
+                    'name' => 'avatar',
+                    'type' => 'raw',
+                    'value' => '$data->getAvatar()',
                     'filter' => false,
                     'htmlOptions' => array(
                         "width" => 128,

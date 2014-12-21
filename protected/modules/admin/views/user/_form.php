@@ -8,11 +8,11 @@
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'user-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// There is a call to performAjaxValidation() commented in generated controller code.
-	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
+            'htmlOptions' => array(
+                'class' => 'well',
+               'enctype' => 'multipart/form-data',
+           ),
 )); ?>
 
 	<p class="note">Обязательные <span class="required">*</span> поля.</p>
@@ -81,7 +81,8 @@
                 <?php 
                     echo $form->dropDownList($model,'status',
                     array('0' => 'Не актевирован', 
-                          '1' => 'Актевирован', ),
+                          '1' => 'Активирован', ),
+                    array('class'=>"btn btn-info", 'data-toggle'=>"dropdown"),
                     array('0' => 'Не актевирован', ));            
                 ?>
 		<?php // echo $form->textField($model,'status'); ?>
@@ -94,6 +95,7 @@
                     echo $form->dropDownList($model,'member',
                     array('0' => 'Не член клуба', 
                           '1' => 'Член клуба', ),
+                    array('class'=>"btn btn-info", 'data-toggle'=>"dropdown"),
                     array('0' => 'Не член клуба', ));            
                 ?>
 		<?php echo $form->error($model,'member'); ?>
@@ -109,9 +111,20 @@
                 ?>
 		<?php echo $form->error($model,'member'); ?>
 	</div>
+        	
+         <div class="field">
+            <?php if($model->avatar): ?>
+                <p><?php echo $model->getAvatar(); ?></p>
+            <?php endif; ?>
+            <?php // echo $form->labelEx($model,'path'); ?>
+                <p>Разрешенные форматы: jpg, jpeg, gif, png</p>
+                <input id="ytPhoto_path" type="hidden" name="avatar" value="">
+                <input class="btn btn-info" id="Photo_path" type="file" name="avatar" style="width: 275px">
+            <?php  echo $form->error($model,'avatar'); ?>
+        </div> 
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'СОЗДАТЬ' : 'СОХРАНИТЬ'); ?>
+		<input class="btn btn-primary" type="submit" value="<?php if($model->isNewRecord){echo 'СОЗДАТЬ';} else { echo 'СОХРАНИТЬ';} ?>" />
 	</div>
 
 <?php $this->endWidget(); ?>

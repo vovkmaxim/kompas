@@ -38,6 +38,15 @@ $('.search-form form').submit(function(){
 		'name',
 		'description',
 		'path',
+                array(
+                    'name' => 'logo',
+                    'type' => 'raw',
+                    'value' => '$data->getImage()',
+                    'filter' => true,
+                    'htmlOptions' => array(
+                        "width" => 128,
+                    ),
+                ),
 		array(
 			'class'=>'CButtonColumn',
                         'htmlOptions' => array(

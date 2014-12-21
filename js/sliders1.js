@@ -1,6 +1,6 @@
 (function ($) {
-var hwSlideSpeed = 700;
-var hwTimeOut = 3000;
+var hwSlideSpeed = 7000;
+var hwTimeOut = 5000;
 var hwNeedLinks = true;
 
 $(document).ready(function(e) {

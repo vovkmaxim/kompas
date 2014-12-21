@@ -13,7 +13,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>Просмотр пользоватля</h1>
+<h1>Просмотр пользователя</h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
@@ -28,7 +28,5 @@ $this->menu=array(
 		'sity',
 		'coutry',
 		'club',
-//		'status',
-//		'member',
 	),
 )); ?>

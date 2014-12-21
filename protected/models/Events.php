@@ -36,7 +36,7 @@ class Events extends CActiveRecord
         "09" => 'сентября',
         "10" => 'октября',
         "11" => 'ноября',
-        "12" => 'декадря',
+        "12" => 'декабря',
     );
         
 	/**
@@ -151,7 +151,7 @@ class Events extends CActiveRecord
         public function getEventsImage(){    
             return ''
             . '<a class="fancybox th radius" title="' . $this->logo_title . '" href="/logo_events/' . $this->logo_path . '" rel="gallery1">
-                <img width="147" height="115" src="/logo_events/' . $this->logo_path . '"   alt="' . $this->logo_title . '">
+                <img width="147" height="115" src="/logo_events/thromb/' . $this->logo_path . '"   alt="' . $this->logo_title . '">
                 </a>';
         }
         

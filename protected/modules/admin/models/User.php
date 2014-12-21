@@ -16,6 +16,7 @@
  * @property string $club
  * @property integer $status
  * @property integer $member
+ * @property string $avatar
  * @property integer $role
  *
  * The followings are the available model relations:
@@ -45,10 +46,6 @@ class User extends CActiveRecord
 			array('status, member', 'numerical', 'integerOnly'=>true),
 			array('email, username, name, lastname, phone, sity, coutry, club', 'length', 'max'=>255),
 			array('data_birth,role', 'safe'),
-//			array('email', 'email'),
-			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
-//			array('id, email, username, password, name, lastname, data_birth, phone, sity, coutry, club, status, member',  'required'),
 			array('id, email, username, name, lastname, data_birth, phone, sity, coutry, club, status, member', 'safe', 'on'=>'search'),
 		);
 	}
@@ -118,6 +115,7 @@ class User extends CActiveRecord
 			'status' => 'Status',
 			'member' => 'Member',
 			'role' => 'Role',
+			'avatar' => 'Avatar',
 		);
 	}
 
@@ -151,6 +149,8 @@ class User extends CActiveRecord
 		$criteria->compare('club',$this->club,true);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('member',$this->member);
+		$criteria->compare('avatar',$this->avatar);
+		$criteria->order = 'id DESC';
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -185,6 +185,14 @@ class User extends CActiveRecord
                 return "<h4><span  style='color:#00FF66'>Член клуба</span></h4>";
             } else {
                 return "<span style='color:red'>Не член клуба</span>";
+            }
+        }
+        
+        public function getAvatar(){
+            if(!empty($this->avatar)){
+                return '<img width="147" height="115" alt="logo" src="/thumbn_avatar/'. $this->avatar . '">';
+            } else {
+                return 'Аватар отсутствует';
             }
         }
                 

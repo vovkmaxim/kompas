@@ -4,11 +4,31 @@
 ?>
 
 <div class="view">
+    <table class='comments-table'>
+        <tr class="danie_com">
+            <td class="comments-table-name">
+                <h3>
+                    <?php
+                        try {
+                            $user = User::model()->findByAttributes(array('id' => $data->user_id));
+                            echo $user->lastname . ' ' . $user->name;
+                        } catch (Exception $e) {
 
-	<span class="date-time"><p><?php echo $data->explodeThisDate($data->create_date). ', ' . $data->explodeThisDateTime($data->create_date); ?></p></span>
-	<?php echo CHtml::encode($data->title); ?>
-	<br />
-	<b>Текст:</b>
-	<?php echo CHtml::encode($data->text); ?>
-	<br />
+                        }
+                    ?>
+                </h3>
+            </td>
+            <td class="comments-table-date">
+                <?php
+                echo $data->explodeThisDate($data->create_date) . ', ' . $data->explodeThisDateTime($data->create_date);
+                ?>
+            </td>
+        </tr>
+        <tr class="tema_com">
+            <td colspan="2"><h4><?php echo CHtml::encode($data->title); ?></h4></td>
+       </tr>
+        <tr class="com_com">
+            <td colspan="2" ><?php echo $data->text; ?></td>             	
+        </tr>
+    </table>    
 </div>

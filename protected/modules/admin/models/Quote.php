@@ -85,7 +85,7 @@ class Quote extends CActiveRecord
 		$criteria->compare('author_quote',$this->author_quote,true);
 		$criteria->compare('create_date',$this->create_date,true);
 		$criteria->compare('update_date',$this->update_date,true);
-
+                $criteria->order = 'id DESC';
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

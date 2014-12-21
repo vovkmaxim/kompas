@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
+//		'id',
 		array(
                     'name' => 'competition_id',
                     'type' => 'raw',
@@ -39,8 +39,8 @@ $('.search-form form').submit(function(){
                     'value' => '$data->getGroupName()',
                     'filter' => false,
                 ),
-		'name',
 		'lastname',
+		'name',
 		'year',		
 		'chip',
 		'dyusch',

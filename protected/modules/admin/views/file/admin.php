@@ -11,21 +11,9 @@ $this->menu=array(
 	array('label'=>'Добавить', 'url'=>array('create')),
 );
 
-Yii::app()->clientScript->registerScript('search', "
-$('.search-button').click(function(){
-	$('.search-form').toggle();
-	return false;
-});
-$('.search-form form').submit(function(){
-	$('#file-grid').yiiGridView('update', {
-		data: $(this).serialize()
-	});
-	return false;
-});
-");
 ?>
 
-<h1>Управлене файлами</h1>
+<h1>Управление файлами</h1>
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'file-grid',
 	'dataProvider'=>$model->search(),

@@ -7,6 +7,8 @@ class UserController extends AdminController
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
+	public $thumbn_avatar='thumbn_avatar/';
+	public $avatar='avatar/';
 
 	/**
 	 * @return array action filters
@@ -19,33 +21,7 @@ class UserController extends AdminController
 		);
 	}
 
-	/**
-	 * Specifies the access control rules.
-	 * This method is used by the 'accessControl' filter.
-	 * @return array access control rules
-	 */
-//	public function accessRules()
-//	{
-//		return array(
-//			array('allow',  // allow all users to perform 'index' and 'view' actions
-//				'actions'=>array('index','view','registration'),
-//				'users'=>array('*'),
-//			),
-//			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-//				'actions'=>array('create','update'),
-//				'users'=>array('@'),
-//			),
-//			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-//				'actions'=>array('admin','delete'),
-//				'users'=>array('@'),
-//			),
-//			array('deny',  // deny all users
-//				'users'=>array('*'),
-//			),
-//		);
-//	}
-
-	/**
+        /**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
@@ -63,10 +39,6 @@ class UserController extends AdminController
 	public function actionCreate()
 	{
 		$model=new User;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
 		if(isset($_POST['User']))
 		{
 			$model->attributes=$_POST['User'];
@@ -88,7 +60,6 @@ class UserController extends AdminController
                             $this->redirect(array('view','id'=>$model->id));
                         }
 		}
-
 		$this->render('create',array(
 			'model'=>$model,
 		));
@@ -102,15 +73,28 @@ class UserController extends AdminController
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
 		if(isset($_POST['User']))
 		{
-			$model->attributes=$_POST['User'];
+                     $model->attributes=$_POST['User'];
 			if($model->save()){
-                            $model->save();
+                            
+                            if(isset($_FILES) && !empty($_FILES) && !empty($_FILES['avatar']['tmp_name']) && !empty($_FILES['avatar']['name']) ){                           
+                                if(!empty($model->avatar)){
+                                    @unlink($this->avatar.$model->avatar);
+                                    @unlink($this->thumbn_avatar.$model->avatar);
+                                }                             
+                                $temp_filename = explode(".", $_FILES['avatar']['name']);
+                                $filename = $temp_filename[0] . '.' . $temp_filename[1];
+                                $source = $_FILES['avatar']['tmp_name'];
+                                $target = $this->avatar . $filename;
+                                move_uploaded_file($source, $target);
+                                $this->img_resize($target, $this->thumbn_avatar . $filename, 147, 115, '0xFFFFFF', 100);
+                                @mkdir($this->thumbn_avatar . $filename, 0777);
+                                @mkdir($target, 0777);
+                                $model->avatar = $filename;
+                                $model->save();
+                            }
+                            
                             if(isset($_POST['Role']['role']) && !empty($_POST['Role']['role'])){
                                 $delete_role = KmRoleHasKmUser::model()->findAll("user_id=:user_id",array(":user_id" => $model->id));
                                 foreach ($delete_role as $delete){
@@ -143,7 +127,13 @@ class UserController extends AdminController
             if(Yii::app()->user->getRole() !== "administrator"){
                 throw new CHttpException(404,'У вас нет ПРАВ на это действие! Обратитесь к администратору.');
             } else {
-                $this->loadModel($id)->delete();
+                $model = $this->loadModel($id);
+                if(!empty($model->avatar)){
+                    @unlink($this->avatar.$model->avatar);
+                    @unlink($this->thumbn_avatar.$model->avatar);
+                } 
+                
+                $model->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
@@ -167,8 +157,8 @@ class UserController extends AdminController
 	 * Manages all models.
 	 */
 	public function actionAdmin()
-	{
-		$model=new User('search');
+	{       
+                $model=new User('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['User']))
 			$model->attributes=$_GET['User'];
@@ -252,4 +242,45 @@ class UserController extends AdminController
             }
             $this->render('registration',array('model'=>$model));
         }
+                   
+        public function img_resize($src, $dest, $width, $height, $rgb = 0xFFFFFF, $quality = 100) {  
+	    if (!file_exists($src)) {  
+	        return false;  
+	    }  
+	    $size = getimagesize($src);   
+	    if ($size === false) {  
+	        return false;  
+	    }   
+	    $format = strtolower(substr($size['mime'], strpos($size['mime'], '/') + 1));  
+	    $icfunc = 'imagecreatefrom'.$format;  
+	    if (!function_exists($icfunc)) {  
+	        return false;  
+	    }   
+	    $x_ratio = $width  / $size[0];  
+	    $y_ratio = $height / $size[1]; 
+	    if ($height == 0) {   
+	        $y_ratio = $x_ratio;  
+	        $height  = $y_ratio * $size[1];   
+	    } elseif ($width == 0) {   
+	        $x_ratio = $y_ratio;  
+	        $width   = $x_ratio * $size[0];   
+	    }   
+	    $ratio       = min($x_ratio, $y_ratio);  
+	    $use_x_ratio = ($x_ratio == $ratio);   
+	    $new_width   = $use_x_ratio  ? $width  : floor($size[0] * $ratio);  
+	    $new_height  = !$use_x_ratio ? $height : floor($size[1] * $ratio);  
+	    $new_left    = $use_x_ratio  ? 0 : floor(($width - $new_width)   / 2);  
+	    $new_top     = !$use_x_ratio ? 0 : floor(($height - $new_height) / 2);  
+	    $isrc  = $icfunc($src);  
+	    $idest = imagecreatetruecolor($width, $height);   
+	    imagefill($idest, 0, 0, $rgb);   
+	    imagecopyresampled($idest, $isrc, $new_left, $new_top, 0, 0, $new_width, $new_height, $size[0], $size[1]);  
+            imagejpeg($idest, $dest, $quality); 
+	    imagedestroy($isrc);  
+	    imagedestroy($idest);   
+	    return true;  
+        }
+            
+        
+        
 }

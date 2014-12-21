@@ -202,12 +202,12 @@ class writeexcel_worksheet extends writeexcel_biffwriter {
 function _initialize() {
 
     # Open tmp file for storing Worksheet data.
-    $this->_tmpfilename=tempnam($this->_tempdir, "php_writeexcel");
-    $fh=fopen($this->_tmpfilename, "w+b");
+    @$this->_tmpfilename=tempnam($this->_tempdir, "php_writeexcel");
+    @$fh=fopen($this->_tmpfilename, "w+b");
 
     if ($fh) {
         # Store filehandle
-        $this->_filehandle = $fh;
+        @$this->_filehandle = $fh;
     } else {
         # If tempfile() failed store data in memory
         $this->_using_tmpfile = 0;

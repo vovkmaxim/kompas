@@ -38,11 +38,7 @@ class UserController extends Controller
 	public function actionCreate()
 	{
 		$model=new User;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['User']))
+                if(isset($_POST['User']))
 		{
 			$model->attributes=$_POST['User'];
 			if($model->save())
@@ -99,26 +95,12 @@ class UserController extends Controller
 	{
             $criteria = new CDbCriteria;
             $criteria->condition = 't.status = 1 AND t.member =1';
+            $criteria->order = 't.lastname ';
             $dataProvider=new CActiveDataProvider('User', array('criteria' => $criteria));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
 	}
-
-	/**
-	 * Manages all models.
-	 */
-//	public function actionAdmin()
-//	{
-//		$model=new User('search');
-//		$model->unsetAttributes();  // clear any default values
-//		if(isset($_GET['User']))
-//			$model->attributes=$_GET['User'];
-//
-//		$this->render('admin',array(
-//			'model'=>$model,
-//		));
-//	}
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
@@ -150,31 +132,25 @@ class UserController extends Controller
         
         public function actionRegistration()
         {
+            $success = FALSE;
             $model=new User('register');
-
-            // uncomment the following code to enable ajax-based validation
-            
             if(isset($_POST['ajax']) && $_POST['ajax']==='user-registration-form')
             {
                 echo CActiveForm::validate($model);
                 Yii::app()->end();
             }
-            
-
             if(isset($_POST['User']))
             {
                 $user = new User();
                 $model->attributes=$_POST['User'];
-                
-                
                 if($model->validate())
                 {
                     if(User::model()->count("username = :login",array(':login' => $model->username))){
                         $model->addError('username','Это имя уже используется!');
-                        $this->render('registration',array('model'=>$model));
-                        
+                        $this->render('registration',array('model'=>$model));   
                     }else{
                         $user->status = 0;
+                        $user->avatar = '';
                         $user->member = 0;
                         $user->email  = $model->email;
                         $user->username = $model->username;
@@ -186,15 +162,14 @@ class UserController extends Controller
                         $user->coutry = $model->coutry;
                         $user->club   = $model->club;
                         $user->data_birth = $model->data_birth;
-                        $user->save(false);
-                        $this->render('registration',array('model'=>$model));
+//                        $user->save(false);
+                        if($user->save(false)){
+                            $success = TRUE;
+                        }                        
+                        //$this->render('registration',array('model'=>$model,'success'=>true));
                     }
-                    
-                    
-                    // form inputs are valid, do something here
-//                    return;
                 }
             }
-            $this->render('registration',array('model'=>$model));
+            $this->render('registration',array('model'=>$model,'success'=>$success));
         }
 }

@@ -48,8 +48,8 @@ class Group extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'kmCompetitions' => array(self::MANY_MANY, 'KmCompetition', 'km_competition_group_refs(km_group_id, km_competition_id)'),
-			'kmCompetitionRequests' => array(self::HAS_MANY, 'KmCompetitionRequest', 'group_id'),
+			'Competitions' => array(self::MANY_MANY, 'Competition', 'km_competition_group_refs(km_group_id, km_competition_id)'),
+			'CompetitionRequests' => array(self::HAS_MANY, 'CompetitionRequest', 'group_id'),
 		);
 	}
 
@@ -88,7 +88,7 @@ class Group extends CActiveRecord
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('parent_id',$this->parent_id);
-
+                $criteria->order = 'id DESC';
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

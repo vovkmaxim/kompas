@@ -37,7 +37,7 @@ class File extends CActiveRecord
 			array('name', 'length', 'max'=>255),
 			array('events_id, competition_id', 'length', 'max'=>10),
 //			array('path', 'safe'),
-                        array('path','file','types'=>'doc, docx,xls ,xlsx, odt, pdf,jpg, jpeg, gif, png, bmp',
+                        array('path','file','types'=>'htm, doc, docx, xls, xlsx, odt, pdf, jpg, jpeg, gif, png, bmp',
                                 'allowEmpty'=>true,'on'=>'insert,update', 'maxSize' => 1009048576),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -97,7 +97,7 @@ class File extends CActiveRecord
 		$criteria->compare('type',$this->type);
 		$criteria->compare('events_id',$this->events_id,true);
 		$criteria->compare('competition_id',$this->competition_id,true);
-
+                $criteria->order = 'id DESC';
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

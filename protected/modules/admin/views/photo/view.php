@@ -13,7 +13,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>Просмотр фото</h1>
+<h1 class="brand" >Просмотр фото</h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

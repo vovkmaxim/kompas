@@ -31,18 +31,11 @@ $this->breadcrumbs = array(
             <div class="small-3 large-4 columns">
                         <?php echo $model->getEventsImage(); ?>
             </div>
-            <!--<img src="/logo_events/<?php echo $model->logo_path; ?>" alt="<?php echo $model->logo_title; ?>"/>-->
-<!--            <div id="footer">
-                <span class="date-time"> КРАТКОЕ ОПИСАНИЕ:</span></br>
-                <span class="date-time"><?php echo CHtml::encode($model->description); ?></span></br>
-            </div>-->
         </div>
         </br>
-        <p><?php echo CHtml::encode($model->text); ?></p>
+        <p><?php echo $model->text; ?></p>
         <div class="row">
             <div class="large-6 small-12 columns">
-<!--                <div class="tags">Теги: ориентирование, компас</div>
-                <div><img src="/images/ico-socials.png" alt="socials"></div>-->
             </div>
             <div class="large-6 small-12 columns" style="text-align: center;">
             </div>
@@ -59,14 +52,6 @@ if($file->itemCount){
         if($comments->itemCount){
                 $this->widget('zii.widgets.CListView', array(
                     'dataProvider'=>$comments,
-        //            'pager'=>array(
-        //                'header'         => '',
-        //                'firstPageLabel' => '&lt;&lt;',
-        //                'prevPageLabel'  => '<img src="images/pagination/left.png">',
-        //                'nextPageLabel'  => '<img src="images/pagination/right.png">',
-        //                'lastPageLabel'  => '&gt;&gt;',
-        //         ),
-//                'template'=>'{pager}{items}{pager}',
                     'itemView'=>'_viewcomment',
                  ));
             }
@@ -97,8 +82,21 @@ if($file->itemCount){
                 </div>
                 <div class="row">
                     <label for="Comments_text">Текст:</label>
-                    <textarea id="Comments_text" name="Comments[text]" cols="50" rows="6"></textarea>
-                </div>
+                     <?php                 
+                        $this->widget('ImperaviRedactorWidget', array(
+                                'model' => '',
+                                'attribute' => 'text',
+                                'name' => 'Comments[text]',
+                                'id' => 'Comments_text',
+                                'options' => array(
+                                        'lang' => 'ru',
+                                        'toolbar' => true,
+                                        'iframe' => true,
+                                        'css' => 'wym.css',
+                                ),
+                             ));            
+                     ?>
+                 </div>
                 <div class="row buttons">
                     <input class="button8" type="submit" value="Отправить" />
                 </div>

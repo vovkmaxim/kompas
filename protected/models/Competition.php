@@ -60,7 +60,7 @@ class Competition extends CActiveRecord
         "09" => 'сентября',
         "10" => 'октября',
         "11" => 'ноября',
-        "12" => 'декадря',
+        "12" => 'декабря',
     );
         
         
@@ -180,7 +180,7 @@ class Competition extends CActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
-
+//                $criteria->limit = 5;
 		$criteria->compare('id',$this->id,true);
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('description',$this->description,true);
@@ -198,7 +198,7 @@ class Competition extends CActiveRecord
 		$criteria->compare('enable_registration_flag',$this->enable_registration_flag);
 		$criteria->compare('position',$this->position,true);
 		$criteria->compare('archive',$this->archive);
-
+                $criteria->order = 'position DESC';
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
@@ -375,7 +375,7 @@ class Competition extends CActiveRecord
         public function getLogoImage(){
             
             if(!empty($this->logo_desc)){
-                return '<img width="147" height="115" alt="logo" src="/logo_competition/'. $this->logo_desc . '">';
+                return '<img width="147" height="115" alt="logo" src="/logo_competition/thromb/'. $this->logo_desc . '">';
             } else {
                 return 'Логотип отсутствует';
             }
@@ -535,14 +535,30 @@ class Competition extends CActiveRecord
         
         
         public function getThisDate(){
+            
+            
             $start_data1 = explode(' ', $this->start_data);
             $start_data1 = explode('-', $start_data1[0]);
+            
+            $start_time = explode(':', $this->start_time);
+            
             $end_data1 = explode(' ', $this->end_data);
             $end_data1 = explode('-', $end_data1[0]);
+            
+//            print_r('<pre>');
+//            print_r($start_time);
+//            print_r($end_data1);
+//            print_r('<pre>');
+//            die();
+            
             $data_str = '';
-            $data_str .= $start_data1[2] . ' ' . $this->monts[$start_data1[1]] . ' ' . $start_data1[0] . '';
-            $data_str .= ' - ' ;
-            $data_str .= $end_data1[2] . ' ' . $this->monts[$end_data1[1]] . ' ' . $end_data1[0] . '';
+            if(($start_data1[2] != $end_data1[2]) || ($start_data1[1] != $end_data1[1]) || ($start_data1[0] != $end_data1[0])){
+                $data_str .= $start_data1[2] . ' ' . $this->monts[$start_data1[1]] . ' ' . $start_data1[0] . '';
+                $data_str .= ' - ' ;
+                $data_str .= $end_data1[2] . ' ' . $this->monts[$end_data1[1]] . ' ' . $end_data1[0] . '';
+            } else {
+               $data_str .= $start_data1[2] . ' ' . $this->monts[$start_data1[1]] . ' ' . $start_data1[0] . ' в ' . $start_time[0] .':'. $start_time[1]; 
+            }
            return $data_str;
         }
         
@@ -556,11 +572,9 @@ class Competition extends CActiveRecord
         }
         
         public function explodeThisDateTime($date){
-            $data1 = explode(' ', $date);
-            $data1 = explode('-', $data1[1]);
+            $data = explode(':', $date);
             $data_str = '';
-            $data_str .= $data1[0] . ':' .$data1[1];
-            
+            $data_str .= $data[0] . ':' .$data[1];            
            return $data_str;
         }
         

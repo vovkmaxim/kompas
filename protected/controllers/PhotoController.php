@@ -104,7 +104,12 @@ class PhotoController extends Controller
 	 */
 	public function actionGalery()
 	{
-		$dataProvider=new CActiveDataProvider('GroupPhoto');
+                $GroupPhoto = GroupPhoto::model()->findAll();
+		$dataProvider=new CActiveDataProvider('GroupPhoto', array(
+                            'pagination'=>array(
+                                'pageSize'=>2000,
+                            ),
+                        ));
 		$this->render('group',array(
 			'dataProvider'=>$dataProvider,
 		));

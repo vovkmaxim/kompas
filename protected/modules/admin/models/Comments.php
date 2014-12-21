@@ -96,7 +96,7 @@ class Comments extends CActiveRecord
 		$criteria->compare('create_date',$this->create_date,true);
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('text',$this->text,true);
-
+                $criteria->order = 'id DESC';
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

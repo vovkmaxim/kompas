@@ -15,6 +15,7 @@
  * @property string $sity
  * @property string $coutry
  * @property string $club
+ * @property string $avatar
  * @property integer $status
  * @property integer $member
  *
@@ -40,7 +41,7 @@ class User extends CActiveRecord
         "09" => 'сентября',
         "10" => 'октября',
         "11" => 'ноября',
-        "12" => 'декадря',
+        "12" => 'декабря',
         "00" => ' ',
     );
 	/**
@@ -106,6 +107,7 @@ class User extends CActiveRecord
 			'club' => 'Спортивный клуб',
 			'status' => 'Status',
 			'member' => 'Member',
+                        'avatar' => 'Avatar',
 //                        'verifyCode'=>'Verification Code',
 		);
 	}
@@ -141,7 +143,7 @@ class User extends CActiveRecord
 		$criteria->compare('club',$this->club,true);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('member',$this->member);
-
+                $criteria->compare('avatar',$this->avatar);
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
@@ -167,4 +169,13 @@ class User extends CActiveRecord
             
            return $data_str;
         }
+        
+         
+        public function getAvatar(){
+            if(!empty($this->avatar)){
+                 return '<a class="fancybox th radius" rel="gallery1" href="/avatar/'. $this->avatar . '"><img width="147" height="115"  src="/thumbn_avatar/'. $this->avatar . '" alt="avatar" /></a> ';
+            }
+            return NULL;
+        }
+        
 }

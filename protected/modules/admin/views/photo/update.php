@@ -14,6 +14,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Обновить фото</h1>
+<h1 class="brand">Обновить фото</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -34,16 +34,15 @@ class EventsController extends AdminController
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
 	public function actionCreate()
-	{
+	{           
 		$model=new Events;
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-		if(isset($_POST['Events']))
-		{
+		if(isset($_POST['Events'])){
 			$model->attributes=$_POST['Events'];
                         $model->type = $_POST['type']; 
                         $model->status = $_POST['status'];
                         if($model->save()){
+                            $model->position = $model->id;
+                            $model->save();
                                 return $this->actionAdmin();
                         }
 				
@@ -67,11 +66,11 @@ class EventsController extends AdminController
 			$model->attributes=$_POST['Events'];
                         $model->type = $_POST['type'];
                         $model->status = $_POST['status'];
+                        $model->position = $_POST['Events']['position'];
 			if($model->save()){
                             return $this->actionAdmin();
                         }
 		}
-
 		$this->render('update',array(
 			'model'=>$model,
 		));

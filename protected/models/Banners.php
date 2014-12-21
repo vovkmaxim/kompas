@@ -73,6 +73,7 @@ class Banners extends CActiveRecord {
         $criteria->compare('position', $this->position, true);
         $criteria->compare('link', $this->link, true);
         $criteria->compare('path', $this->path, true);
+        $criteria->order = 'id DESC';
         return new CActiveDataProvider($this, array(
                     'criteria' => $criteria,
                 ));
@@ -95,7 +96,7 @@ class Banners extends CActiveRecord {
             foreach ($banners as $banner) {
                 $return_string_images .= '
                 <li><a target="_blank" class="th radius" href="' . $banner->link . '">
-                <img src="/banners/' . $banner->path . '"
+                <img src="/banners/thromb/' . $banner->path . '"
                 alt="' . $banner->name . '">
                 </a></li>
 ';

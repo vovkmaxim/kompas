@@ -8,25 +8,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	//array('label'=>'List GroupPhoto', 'url'=>array('index')),
 	array('label'=>'Создать', 'url'=>array('create')),
 );
 
-Yii::app()->clientScript->registerScript('search', "
-$('.search-button').click(function(){
-	$('.search-form').toggle();
-	return false;
-});
-$('.search-form form').submit(function(){
-	$('#group-photo-grid').yiiGridView('update', {
-		data: $(this).serialize()
-	});
-	return false;
-});
-");
 ?>
 
-<h1>Управление грыппами фотографий</h1>
+<h1>Управление группами фотографий</h1>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'group-photo-grid',

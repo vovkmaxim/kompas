@@ -45,17 +45,17 @@ $this->breadcrumbs = array(
         <p><?php echo $model->text; ?></p>
         <div id="mymap" class="large-12 small-12 columns"></div>
         <div class="row">
-            <div class="large-6 small-12 columns">
+            <!--<div class="large-6 small-12 columns">-->
                 <!--<div class="tags">Теги: ориентирование, компас</div>-->
                 <!--<div><img src="/images/ico-socials.png" alt="socials"></div>-->
-            </div>
+            <!--</div>-->
             <!--<div class="large-6 small-12 columns" style="text-align: center;">-->
 
             <!--</div>-->
             <!--<span class="date-time"><p>Дата создания: </h4><?php // echo $model->create_date; ?></p></span>-->                       
             <?php
             if ($model->enable_registration_flag == 1) {
-                echo '<h6>Окончание регистрации: ' . $model->explodeThisDate($model->close_registration_data) .  '</h6>';
+                echo '<h6>Окончание регистрации: ' . $model->explodeThisDate($model->close_registration_data) . ' до ' . $model->explodeThisDateTime($model->close_registration_time).  '</h6>';
                 if (!Yii::app()->user->isGuest) {
                     echo '<p><span class="button1"><a href="#">Подать заявку</a></span></P>';
                 } else {
@@ -237,10 +237,10 @@ $this->breadcrumbs = array(
                         <input name="CompetitionRequest[status]" id="CompetitionRequest_status" type="hidden" value="0" maxlength="10" size="10"/>
                         <input name="CompetitionRequest[competition_id]" id="CompetitionRequest_competition_id" type="hidden" value="<?php echo $model->id; ?>" maxlength="10" size="10"/>
                         <input name="CompetitionRequest[user_id]" id="CompetitionRequest_user_id" type="hidden" value="<?php echo Yii::app()->user->id; ?>" maxlength="10" size="10"/>
-                        <div id="CompetitionRequest_name_error" class="errorMessage"></div>
-                        <input name="CompetitionRequest[name]" id="CompetitionRequest_name" type="text"maxlength="255" value="Ваше имя" onfocus="if (this.value == 'Ваше имя') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'Ваше имя'; this.style.color = '#777';}" />
                         <div id="CompetitionRequest_lastname_error" class="errorMessage"></div>
                         <input name="CompetitionRequest[lastname]" id="CompetitionRequest_lastname" type="text" maxlength="255" size="60" value="Фамилия" onfocus="if (this.value == 'Фамилия') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'Фамилия'; this.style.color = '#777';}"/>
+                        <div id="CompetitionRequest_name_error" class="errorMessage"></div>
+                        <input name="CompetitionRequest[name]" id="CompetitionRequest_name" type="text"maxlength="255" value="Ваше имя" onfocus="if (this.value == 'Ваше имя') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'Ваше имя'; this.style.color = '#777';}" />
                         <div id="CompetitionRequest_year_bird_error" class="errorMessage"></div>
                         <input name="year_bird" type="text" maxlength="4" value="Год рождения" onfocus="if (this.value == 'Год рождения') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'Год рождения'; this.style.color = '#777';}"/>
                         <div id="CompetitionRequest_group_id_error" class="errorMessage"></div>
@@ -288,24 +288,28 @@ $this->breadcrumbs = array(
         if ($request->itemCount) {
             $this->widget('zii.widgets.grid.CGridView', array(
                 'id' => 'competition-request-grid',
-                'dataProvider' => $request,
-                'template' => '{pager}{items}{pager}',
+                'dataProvider' => $request,   
                 'columns' => array(
-                    'id',
                     array(
                         'name' => 'group_id',
                         'type' => 'raw',
                         'value' => '$data->getGroupName()',
                         'filter' => false,
                     ),
-                    'name',
                     'lastname',
+                    'name',                    
                     'year',
                     'sity',
-                    'coutry',
+                    'team',
                     'participation_data',
                     array(
-                        'name' => 'Состояние',
+                        'name' => 'Разряд',
+                        'type' => 'raw',
+                        'value' => '$data->getRankName()',
+                        'filter' => false,
+                    ),
+                    array(
+                        'name' => 'Статус',
                         'type' => 'raw',
                         'value' => '$data->getNameStatus()',
                         'filter' => false,
@@ -315,7 +319,7 @@ $this->breadcrumbs = array(
                         'type' => 'raw',
                         'value' => '$data->getNameUser()',
                         'filter' => false,
-                    ),
+                    )   
                 ),
             ));
         }
@@ -325,7 +329,7 @@ $this->breadcrumbs = array(
     <div>
         <?php
 
-            if ($request->itemCount) { 
+            if ($request->itemCount) {   
                 if(!Yii::app()->user->isGuest):
                     if(Yii::app()->user->role == 'administrator' || Yii::app()->user->role == 'manager'):
                         echo CHtml::link(CHtml::encode('СКАЧАТЬ ТАБЛИЦУ'), array('excel', 'id'=>$model->id));
@@ -375,7 +379,20 @@ $this->breadcrumbs = array(
                 </div>
                 <div class="row">
                     <label for="Comments_text">Текст:</label>
-                    <textarea id="Comments_text" name="Comments[text]" cols="50" rows="6"></textarea>
+                     <?php                 
+                        $this->widget('ImperaviRedactorWidget', array(
+                                'model' => '',
+                                'attribute' => 'text',
+                                'name' => 'Comments[text]',
+                                'id' => 'Comments_text',
+                                'options' => array(
+                                        'lang' => 'ru',
+                                        'toolbar' => true,
+                                        'iframe' => true,
+                                        'css' => 'wym.css',
+                                ),
+                             ));            
+                     ?>
                 </div>
                 <div class="row buttons">
                     <input class="button8" type="submit" value="Отправить" />
