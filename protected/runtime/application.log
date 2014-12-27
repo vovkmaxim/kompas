@@ -4104,3 +4104,9 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/index.php/link/images/favicon.ico
 ---
+2014/12/27 14:29:55 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_desc" класса "Competition".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (176)
+in /home/max/public_html/o-kompas/index.php (13)
+2014/12/27 14:29:55 [warning] [application] Не удалось присвоить небезопасный атрибут "position" класса "Competition".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/CompetitionController.php (176)
+in /home/max/public_html/o-kompas/index.php (13)

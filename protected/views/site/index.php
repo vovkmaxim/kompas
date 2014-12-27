@@ -25,7 +25,7 @@ $this->pageTitle=Yii::app()->name;
                
             </div>
             <div class="small-8 columns">
-                <?php echo CHtml::encode($data->description); ?>
+                <?php echo $data->description; ?>
             </div>
             <div class="more">       
                 <div class="small-12 dop_in">

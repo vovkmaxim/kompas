@@ -415,7 +415,7 @@ $this->breadcrumbs = array(
                     <input id="Comments_user_id" type="hidden" value="<?php echo Yii::app()->user->id; ?>" name="Comments[user_id]" maxlength="10" size="10">
                 </div>
                 <div class="row">
-                    <input id="Comments_create_date" type="hidden" value="<?php echo date('Y-m-d h:m:s'); ?>" name="Comments[create_date]">
+                    <input id="Comments_create_date" type="hidden" value="<?php echo date('Y-m-d H:i:s'); ?>" name="Comments[create_date]">
                 </div>
                 <div class="row">
                     <label for="Comments_title">Тема:</label>
