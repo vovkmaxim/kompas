@@ -254,7 +254,11 @@ span.flash-error, div.flash-error, div.flash-notice, div.flash-success
     margin-bottom:1em;
     border:2px solid #ddd;
 }
-
+.check_data{
+    width: 15px!important;
+    height: 15px!important;
+    margin: 13px 10px 10px!important;
+}
 span.flash-error, div.flash-error
 {
     background:#FBE3E4;
@@ -633,13 +637,22 @@ div.news:hover {
     color: #777;
     width: 250px;
 }
+.check_data_div{
+    clear: both;
+}
+.check_data_div span{
+    position: relative;
+    bottom: 3px;
+}
 .box1 {
     padding: 2px;
     float:left;
+    width:50%;
 }
 .box2 {    
     padding: 2px;
     float:right;
+    width: 50%;
 }
 
 #competition-request-form .submit {

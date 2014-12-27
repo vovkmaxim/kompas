@@ -522,20 +522,19 @@ class Competition extends CActiveRecord
                 }
                 $lenght_data = count($array_data);
                 
-                $sring_data = '';
+                $sring_data = '<div class="check_data_div">';
                 if($lenght_data != 0 && $lenght_data > 1){
-                    $sring_data .= '<div class="check_data_div">';
                     for($i = 0; $i < $lenght_data; $i++){
                         $temp = $i+1;
-                        $sring_data .= '<input class="check_data" type="checkbox" id="check_data" name ="check_data" value="'. $temp .'">'. $array_data[$i];
+                        $sring_data .= '<input class="check_data" type="checkbox" id="check_data" name ="check_data" value="'. $temp .'"><span>'. $array_data[$i].'</span>';
                     }
-                    $sring_data .= '</div>';
                 } elseif ($lenght_data != 0 && $lenght_data == 1) {
                     for($i = 0; $i < $lenght_data; $i++){
                             $temp = $i+1;
                             $sring_data .= '<input class="check_data" type="hidden" id="check_data_hidden" name ="check_data" value="'. $temp .'">';
                      }
                 }
+                $sring_data .= '</div>';
                 return $sring_data;
             } else {
                 return false;
