@@ -21,12 +21,13 @@
  * @property integer $enable_registration_flag
  * @property string $position
  * @property integer $archive
+ * @property integer $confirmation
  *
  * The followings are the available model relations:
- * @property KmComments[] $kmComments
- * @property KmGroup[] $kmGroups
- * @property KmCompetitionRequest[] $kmCompetitionRequests
- * @property KmFile[] $kmFiles
+ * @property Comments[] $Comments
+ * @property Group[] $Groups
+ * @property CompetitionRequest[] $CompetitionRequests
+ * @property File[] $Files
  */
 class Competition extends CActiveRecord
 {
@@ -118,7 +119,7 @@ class Competition extends CActiveRecord
                         array('logo_desc','file','types'=>'jpg, jpeg, gif, png', 'allowEmpty'=>true,'on'=>'insert,update'),
 			array('type', 'length', 'max'=>10),
 			array('text, create_date, update_date, start_data, start_time, end_data, end_time, close_registration_data, close_registration_time', 'safe'),
-			array('id, title, description, type, logo_desc, text, create_date, update_date, start_data, start_time, end_data, end_time, close_registration_data, close_registration_time, enable_registration_flag, position, archive', 'safe', 'on'=>'search'),
+			array('id, title, description, type, logo_desc, text, create_date, update_date, start_data, start_time, end_data, end_time, close_registration_data, close_registration_time, enable_registration_flag, position, archive, confirmation', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -160,6 +161,7 @@ class Competition extends CActiveRecord
 			'enable_registration_flag' => 'Онлайн регистрация заявок',
 			'position' => 'Позиция',
 			'archive' => 'В архив событий',
+                    	'confirmation' => 'Подтверждать заявки админом',
 		);
 	}
 
@@ -577,6 +579,32 @@ class Competition extends CActiveRecord
             $data_str = '';
             $data_str .= $data[0] . ':' .$data[1];            
            return $data_str;
+        }
+        
+        public function enableRegisterCompetition(){    
+            $close_registration_data_array = explode(' ', $this->close_registration_data);
+            $close_registration_data_array = explode('-', $close_registration_data_array[0]);
+            
+            $close_registration_time = explode(':', $this->close_registration_time);
+            
+            $today_data = date('Y-m-d H:i:s');
+            $today_data = explode(' ', $today_data);
+            $today = explode('-', $today_data[0]);
+            $today_time = explode(':', $today_data[1]);
+            if($close_registration_data_array[0] < $today[0]){
+                return false;
+            }
+            if($close_registration_data_array[1] < $today[1]){
+                return false;
+            }
+            if($close_registration_data_array[2] < $today[2]){
+                return false;
+            } elseif($close_registration_data_array[2] == $today[2]){
+                if($close_registration_time[0] < $today_time[0]){
+                    return false;
+                }
+            }            
+            return true;
         }
         
 }

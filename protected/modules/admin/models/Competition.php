@@ -21,12 +21,13 @@
  * @property integer $enable_registration_flag
  * @property string $position
  * @property integer $archive
+ * @property integer $confirmation
  *
  * The followings are the available model relations:
- * @property KmComments[] $kmComments
- * @property KmGroup[] $kmGroups
- * @property KmCompetitionRequest[] $kmCompetitionRequests
- * @property KmFile[] $kmFiles
+ * @property Comments[] $Comments
+ * @property Group[] $Groups
+ * @property CompetitionRequest[] $CompetitionRequests
+ * @property File[] $Files
  */
 class Competition extends CActiveRecord
 {
@@ -102,7 +103,7 @@ class Competition extends CActiveRecord
                         array('logo_desc','file','types'=>'jpg, jpeg, gif, png, bmp', 'allowEmpty'=>true,'on'=>'insert,update', 'maxSize' => 1009048576),
 			array('type', 'length', 'max'=>10),
 			array('text, create_date, update_date, start_data, start_time, end_data, end_time, close_registration_data, close_registration_time', 'safe'),
-			array('id, title, description, type, logo_desc, text, create_date, update_date, start_data, start_time, end_data, end_time, close_registration_data, close_registration_time, enable_registration_flag, position, archive', 'safe', 'on'=>'search'),
+			array('id, title, description, type, logo_desc, text, create_date, update_date, start_data, start_time, end_data, end_time, close_registration_data, close_registration_time, enable_registration_flag, position, archive, confirmation', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -144,6 +145,7 @@ class Competition extends CActiveRecord
 			'enable_registration_flag' => 'Онлайн регистрация заявок',
 			'position' => 'Position',
 			'archive' => 'В архив событий',
+			'confirmation' => 'Подтверждать заявки админом',
 		);
 	}
 
@@ -182,6 +184,7 @@ class Competition extends CActiveRecord
 		$criteria->compare('enable_registration_flag',$this->enable_registration_flag);
 		$criteria->compare('position',$this->position,true);
 		$criteria->compare('archive',$this->archive);
+		$criteria->compare('confirmation',$this->confirmation);
                 $criteria->order = 't.position DESC';
 
 		return new CActiveDataProvider($this, array(

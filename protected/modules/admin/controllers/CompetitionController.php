@@ -172,7 +172,11 @@ class CompetitionController extends AdminController
                         $model->enable_registration_flag = $_POST['enable_registration_flag'];
 			$model->archive = $_POST['archive'];
                         $model->position = $_POST['Competition']['position'];
-//			$model->position = 0;
+                        $model->confirmation = $_POST['confirmation'];
+//                        print_r('<pre>');
+//                        print_r($_POST);
+//                        print_r('</pre>');
+//                        die();
 			$model->attributes=$_POST['Competition'];
 			if($model->save()){
                             $this->setCompetitionGroupRefs($model->id);

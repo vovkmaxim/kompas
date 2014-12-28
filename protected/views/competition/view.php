@@ -45,21 +45,17 @@ $this->breadcrumbs = array(
         <p><?php echo $model->text; ?></p>
         <div id="mymap" class="large-12 small-12 columns"></div>
         <div class="row">
-            <!--<div class="large-6 small-12 columns">-->
-                <!--<div class="tags">Теги: ориентирование, компас</div>-->
-                <!--<div><img src="/images/ico-socials.png" alt="socials"></div>-->
-            <!--</div>-->
-            <!--<div class="large-6 small-12 columns" style="text-align: center;">-->
-
-            <!--</div>-->
-            <!--<span class="date-time"><p>Дата создания: </h4><?php // echo $model->create_date; ?></p></span>-->                       
             <?php
             if ($model->enable_registration_flag == 1) {
-                echo '<h6>Окончание регистрации: ' . $model->explodeThisDate($model->close_registration_data) . ' до ' . $model->explodeThisDateTime($model->close_registration_time).  '</h6>';
-                if (!Yii::app()->user->isGuest) {
-                    echo '<p><span class="button1"><a href="#">Подать заявку</a></span></P>';
+                if ($model->enableRegisterCompetition()){
+                    echo '<h6>Окончание регистрации: ' . $model->explodeThisDate($model->close_registration_data) . ' до ' . $model->explodeThisDateTime($model->close_registration_time).  '</h6>';
+                    if (!Yii::app()->user->isGuest) {
+                        echo '<p><span class="button1"><a href="#">Подать заявку</a></span></P>';
+                    } else {
+                        echo '<h6> Для подачи заявки нужно войти в систему! </h6>';
+                    }
                 } else {
-                    echo '<h6> Для подачи заявки нужно войти в систему! </h6>';
+                    echo '<h6> Регистрация заявок закончена! </h6>';
                 }
             }
             ?>   
@@ -93,7 +89,6 @@ $this->breadcrumbs = array(
                 var check_data_element = [];
                 check_data = '';
                 $('input:checkbox[name=check_data]:checked').each(function() {check_data_element.push($(this).val());});
-                console.log(check_data_element);
                 var result_check_data = [];
                 var opt;
                 if(check_data_element.length > 0){
@@ -222,6 +217,7 @@ $this->breadcrumbs = array(
                     document.getElementById("CompetitionRequest_year_bird_error").classList.remove("flash-error");
                     
                     CompetitionRequest = {};
+                    CompetitionRequest["confirmation"] = <?php echo $model->confirmation; ?>;
                     CompetitionRequest["lastname"] = lastname;
                     CompetitionRequest["user_id"] = user_id;
                     CompetitionRequest["coutry"] = coutry;
@@ -271,7 +267,7 @@ $this->breadcrumbs = array(
                 return false;
             }
         </script>
-         <?php
+         <?php         
             if ($model->enable_registration_flag == 1) {
                 if (!Yii::app()->user->isGuest) {
          ?>
@@ -305,7 +301,6 @@ $this->breadcrumbs = array(
                         <input name="CompetitionRequest[coach]" id="CompetitionRequest_coach" type="text" maxlength="255" value="Тренер" onfocus="if (this.value == 'Тренер') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'Тренер'; this.style.color = '#777';}"/>
                         <div id="CompetitionRequest_fst_error" class="errorMessage"></div>
                         <input name="CompetitionRequest[fst]" id="CompetitionRequest_fst" type="text" maxlength="255" value="ФСТ" onfocus="if (this.value == 'ФСТ') {this.value = ''; this.style.color = '#000';}" onblur="if (this.value == '') {this.value = 'ФСТ'; this.style.color = '#777';}"/>
-                        <?php // echo $model->getChekData();  ?>
                     </div>
                     <div id="CompetitionRequest_check_data_error" class="errorMessage"></div>
                     <?php echo $model->getChekData();  ?>                    
@@ -313,8 +308,6 @@ $this->breadcrumbs = array(
                     
                 </form>
             </div>
-        
-                       
           <?php
                 }
             }
@@ -328,44 +321,40 @@ $this->breadcrumbs = array(
         <div class="people-about">Уже заявилось:</div>
     <?php } ?>
     <div id='vidjet_views'>        
-        <?php
+        <?php           
         if ($request->itemCount) {
-            $this->widget('zii.widgets.grid.CGridView', array(
-                'id' => 'competition-request-grid',
-                'dataProvider' => $request,   
-                'columns' => array(
-                    array(
+            $_widget_array = array();
+            $_widget_array['id'] = 'competition-request-grid';
+            $_widget_array['dataProvider'] = $request;
+            $_widget_array['columns'] = array();
+            array_push($_widget_array['columns'], array(
                         'name' => 'group_id',
                         'type' => 'raw',
                         'value' => '$data->getGroupName()',
                         'filter' => false,
-                    ),
-                    'lastname',
-                    'name',                    
-                    'year',
-                    'sity',
-                    'team',
-                    'participation_data',
-                    array(
+                        ));
+             array_push($_widget_array['columns'],'lastname','name','year','sity', 'team','participation_data');
+             array_push($_widget_array['columns'],array(
                         'name' => 'Разряд',
                         'type' => 'raw',
                         'value' => '$data->getRankName()',
                         'filter' => false,
-                    ),
-                    array(
-                        'name' => 'Статус',
-                        'type' => 'raw',
-                        'value' => '$data->getNameStatus()',
-                        'filter' => false,
-                    ),
-                    array(
+                        ));
+             if($model->confirmation != 2){
+                array_push($_widget_array['columns'],array(
+                           'name' => 'Статус',
+                           'type' => 'raw',
+                           'value' => '$data->getNameStatus()',
+                           'filter' => false,
+                           ));
+             }
+             array_push($_widget_array['columns'],array(
                         'name' => 'Представитель',
                         'type' => 'raw',
                         'value' => '$data->getNameUser()',
                         'filter' => false,
-                    )   
-                ),
-            ));
+                        ));
+            $this->widget('zii.widgets.grid.CGridView', $_widget_array);
         }
         ?>        
     </div>

@@ -253,9 +253,7 @@
                         <option  value="1"> Да </option>
                         <option  value="2"> Нет </option>
                     </select>
-                    <?php
-                }
-                ?>
+                <?php } ?>
 		<?php echo $form->error($model,'archive'); ?>
 	</div>
         <div class="row">
@@ -270,6 +268,38 @@
             </p>
 
         </div>
+        <div class="row">
+		<?php echo $form->labelEx($model,'confirmation'); ?>
+		<?php             
+                if(!empty($model->confirmation)){
+                    ?>
+                    <select name="confirmation" size="1">
+                            <?php
+                        if($model->confirmation == 1){
+                            ?>
+                            <option selected="selected" value="1"> Да </option>
+                            <option value="2"> Нет </option>
+                            <?php
+
+                        } elseif($model->confirmation == 2){
+                            ?>
+                            <option  value="1"> Да </option>
+                            <option selected="selected" value="2"> Нет </option>
+                            <?php
+                        }
+                        ?>
+                     </select>       
+                        <?php
+
+                    } else {
+                        ?>
+                        <select name="confirmation" size="1">
+                            <option selected="selected"  value="1"> Да </option>
+                            <option  value="2"> Нет </option>
+                        </select>
+                <?php } ?>
+		<?php echo $form->error($model,'confirmation'); ?>
+	</div>
 	<div class="row buttons">
             <input class="knopka" type="submit" value="<?php if($model->isNewRecord){echo 'СОЗДАТЬ';} else { echo 'СОХРАНИТЬ';} ?>" />
 	</div>

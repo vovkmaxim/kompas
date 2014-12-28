@@ -50,7 +50,7 @@ class CompetitionController extends Controller
         
         /**
          * 
-         * @param type $id
+         * @param type $id  
          */        
         public function actionaddrequest($id){
             if(Yii::app()->request->isAjaxRequest){                
@@ -69,8 +69,15 @@ class CompetitionController extends Controller
 			$model->team = $_POST['CompetitionRequest']['team'];
 			$model->coach = $_POST['CompetitionRequest']['coach'];
 			$model->fst = $_POST['CompetitionRequest']['fst'];
-                        $model->participation_data = $_POST['check_data'];
-                        $model->status = 0;
+                        $model->participation_data = $_POST['check_data'];                        
+                        $confirmation = $_POST['CompetitionRequest']['confirmation'];
+                        if($confirmation == 1){
+                            $model->status = 0;
+                        } elseif($confirmation == 2) {
+                            $model->status = 1;
+                        } else {
+                            $model->status = 0;
+                        }
                         $model->user_id = Yii::app()->user->id;
                         
                         if($model->save()){
@@ -79,7 +86,13 @@ class CompetitionController extends Controller
                             $rank->rank_id = $_POST['CompetitionRequest']['rank'];
                             $rank->save();                            
                             $return_mass['success'] = true;
-                            $return_mass['message'] = 'Ваша заявка принята на рассмотрение.';
+                            if($confirmation == 1){
+                                $return_mass['message'] = 'Ваша заявка принята на рассмотрение.';
+                            }  elseif($confirmation == 2)  {
+                                $return_mass['message'] = 'Ваша заявка принята.';
+                            } else {
+                                $return_mass['message'] = 'Ваша заявка принята на рассмотрение.';
+                            }
                             echo json_encode($return_mass);
                             exit();
                         } else {
