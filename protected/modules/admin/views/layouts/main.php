@@ -6,13 +6,8 @@
 	<meta name="language" content="en" />
         <link rel="icon" href="img/favicons/favicon.ico" type="image/x-icon" />
         <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/foundation.css"/>
-	<!-- blueprint CSS framework -->
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
-	<!--[if lt IE 8]>
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
-	<![endif]-->
-
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css.map" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.min.css" />
@@ -30,7 +25,6 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
         <title>Клуб спортивного орієнтування «Компас» м.Харків</title>
-	<!--<title><?php // echo CHtml::encode($this->pageTitle); ?></title>-->
 </head>
 
 <body>
@@ -42,28 +36,35 @@
 	</div> header -->
 
 	<div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Выйти ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-                                array('label'=>'Слайдер', 'url'=>array('sliders/index')),
-                                array('label'=>'Таймер', 'url'=>array('timers/index')),
-                                array('label'=>'Банера', 'url'=>array('banners/index')),
-                                array('label'=>'Ссылки', 'url'=>array('link/index')),
-                                array('label'=>'Цитаты(Высказывания)', 'url'=>array('quote/index')),
-                                array('label'=>'Группы', 'url'=>array('group/index')),
-                                array('label'=>'Пользователи', 'url'=>array('user/index')),
-                                array('label'=>'Роли', 'url'=>array('role/index')),
-                                array('label'=>'Разряды', 'url'=>array('rank/index')),
-                                array('label'=>'Группа для фото', 'url'=>array('groupPhoto/index')),
-                                array('label'=>'Новости(Статьи)', 'url'=>array('events/index')),
-                                array('label'=>'Соревнования(Тренировки)', 'url'=>array('competition/index')),
-                                array('label'=>'Файлы', 'url'=>array('file/index')),
-                                array('label'=>'Фото', 'url'=>array('photo/index')),
-                                array('label'=>'Заявки на соревнования(тренировки)', 'url'=>array('competitionRequest/index')),
-                                array('label'=>'Комментарии', 'url'=>array('comments/index')),
-			),
-		)); ?>
+		<?php 
+                
+                $mainmenu = array();
+                $mainmenu['items'] = array();
+                 array_push($mainmenu['items'], array('label'=>'Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest));
+                 array_push($mainmenu['items'], array('label'=>'Выйти ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest));
+                 if(Yii::app()->user->role != 'moderator'){
+                    array_push($mainmenu['items'], array('label'=>'Слайдер', 'url'=>array('sliders/index')));
+                    array_push($mainmenu['items'], array('label'=>'Таймер', 'url'=>array('timers/index')));
+                    array_push($mainmenu['items'], array('label'=>'Банера', 'url'=>array('banners/index')));
+                    array_push($mainmenu['items'], array('label'=>'Ссылки', 'url'=>array('link/index')));
+                    array_push($mainmenu['items'], array('label'=>'Цитаты(Высказывания)', 'url'=>array('quote/index')));
+                    array_push($mainmenu['items'], array('label'=>'Группы', 'url'=>array('group/index')));
+                    array_push($mainmenu['items'], array('label'=>'Пользователи', 'url'=>array('user/index')));
+                    array_push($mainmenu['items'], array('label'=>'Роли', 'url'=>array('role/index')));
+                    array_push($mainmenu['items'], array('label'=>'Разряды', 'url'=>array('rank/index')));
+                 }
+                 array_push($mainmenu['items'], array('label'=>'Группа для фото', 'url'=>array('groupPhoto/index')));
+                 array_push($mainmenu['items'], array('label'=>'Новости(Статьи)', 'url'=>array('events/index')));
+                 array_push($mainmenu['items'], array('label'=>'Соревнования(Тренировки)', 'url'=>array('competition/index')));
+                 array_push($mainmenu['items'], array('label'=>'Файлы', 'url'=>array('file/index')));
+                 array_push($mainmenu['items'], array('label'=>'Фото', 'url'=>array('photo/index')));
+                 if(Yii::app()->user->role != 'moderator'){
+                    array_push($mainmenu['items'], array('label'=>'Заявки на соревнования(тренировки)', 'url'=>array('competitionRequest/index')));
+                    array_push($mainmenu['items'], array('label'=>'Комментарии', 'url'=>array('comments/index')));
+                 }
+                 $this->widget('zii.widgets.CMenu',$mainmenu);
+
+                ?>
 	</div><!-- mainmenu -->
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(

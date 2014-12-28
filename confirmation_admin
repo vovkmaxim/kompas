@@ -1,1 +1,3 @@
 ALTER TABLE `km_competition` ADD `confirmation` INT( 1 ) NOT NULL AFTER `views` ;
+ALTER TABLE `km_competition` ADD `user_id` INT( 11 ) NOT NULL AFTER `confirmation`;
+ALTER TABLE `km_events` ADD `user_id` INT( 11 ) NOT NULL AFTER `views`;

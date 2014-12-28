@@ -16,6 +16,7 @@
  * @property string $logo_title
  * @property string $logo_path
  * @property string $status
+ * @property integer $user_id
  *
  * The followings are the available model relations:
  * @property KmComments[] $kmComments
@@ -75,6 +76,7 @@ class Events extends CActiveRecord
 			'logo_title' => 'Заголовок логотипа',
 			'logo_path' => 'Логотип',
 			'status' => 'Статус',
+                    	'user_id' => 'Пользователь',
 		);
 	}
 
@@ -108,6 +110,10 @@ class Events extends CActiveRecord
 		$criteria->compare('logo_title',$this->logo_title,true);
 		$criteria->compare('logo_path',$this->logo_path,true);
 		$criteria->compare('status',$this->status,true);
+                if(Yii::app()->user->role == 'moderator'){
+                    $criteria->condition = ' user_id = :user_id ';
+                    $criteria->params = array(':user_id'=>Yii::app()->user->id);
+                }
                 $criteria->order = 't.position DESC';
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

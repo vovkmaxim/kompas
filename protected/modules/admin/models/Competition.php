@@ -22,6 +22,7 @@
  * @property string $position
  * @property integer $archive
  * @property integer $confirmation
+ * @property integer $user_id
  *
  * The followings are the available model relations:
  * @property Comments[] $Comments
@@ -146,6 +147,7 @@ class Competition extends CActiveRecord
 			'position' => 'Position',
 			'archive' => 'В архив событий',
 			'confirmation' => 'Подтверждать заявки админом',
+			'user_id' => 'Пользователь',
 		);
 	}
 
@@ -161,7 +163,7 @@ class Competition extends CActiveRecord
 	 * @return CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
 	 */
-	public function search()
+	public function search($user_id = NULL)
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
@@ -185,6 +187,11 @@ class Competition extends CActiveRecord
 		$criteria->compare('position',$this->position,true);
 		$criteria->compare('archive',$this->archive);
 		$criteria->compare('confirmation',$this->confirmation);
+		$criteria->compare('user_id',$this->user_id);
+                if(Yii::app()->user->role == 'moderator'){
+                    $criteria->condition = ' user_id = :user_id ';
+                    $criteria->params = array(':user_id'=>Yii::app()->user->id);
+                }
                 $criteria->order = 't.position DESC';
 
 		return new CActiveDataProvider($this, array(
