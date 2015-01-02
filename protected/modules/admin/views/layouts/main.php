@@ -63,7 +63,7 @@
                     array_push($mainmenu['items'], array('label'=>'Комментарии', 'url'=>array('comments/index')));
                  }
                  $this->widget('zii.widgets.CMenu',$mainmenu);
-
+                 
                 ?>
 	</div><!-- mainmenu -->
 	<?php if(isset($this->breadcrumbs)):?>

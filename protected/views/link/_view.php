@@ -8,8 +8,8 @@
             <a class="th radius" href="#"><?php echo $data->getImage(); ?></a>
         </div>
         <div class="small-9 columns links">
-            <h3><?php echo CHtml::encode($data->name); ?></h3>
-            <p><?php echo CHtml::encode($data->description); ?></p>
+            <h3><?php echo $data->name; ?></h3>
+            <p><?php echo $data->description; ?></p>
             <a href="<?php echo CHtml::encode($data->path); ?>" ><?php echo CHtml::encode($data->path); ?></a>
         </div>
     </div>
