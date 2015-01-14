@@ -119,40 +119,26 @@ class SiteController extends Controller
 		}
 		if(isset($_POST['RememberForm']))
 		{
-
-                        $to  = "Mary &lt;mary@example.com>, " ;
-                        $to .= "Kelly &lt;kelly@example.com>";
-                        $subject = "Birthday Reminders for August";
-                        $message = '
-                        <html>
-                            <head>
-                                <title>Birthday Reminders for August</title>
-                            </head>
-                            <body>
-                                <p>Here are the birthdays upcoming in August!</p>
-                            </body>
-                        </html>';
-
-                        $headers  = "Content-type: text/html; charset=utf-8 \r\n";
-                        $headers .= "From: Birthday Reminder <birthday@example.com>\r\n";
-                        $headers .= "Bcc: birthday-archive@example.com\r\n";
-                        mail('mvovk90@ukr.net', $subject, $message, $headers); 
                     
-                    
-                    
-                    
-//			$model->attributes=$_POST['RememberForm'];
-//                        
-//                        $email = Yii::app()->email;
-//                        $email->from = 'mvovk90@mail.ru';
-//                        $email->to = 'mvovk90@ukr.net';
-//                        $email->subject = 'Hello';
-//                        $email->message = 'Hello brother';
-//                        $email->send();
+			$model->attributes=$_POST['RememberForm'];
                         
-//                        print_r('<pre>');
-//                        print_r($email);
-//                        print_r('<pre>');
+                        $mail=Yii::app()->Smtpmail;
+                        $mail->IsSMTP();
+                        $mail->SetFrom('mvovk90@gmail.com', 'ТЕСТ');
+                        $mail->Subject = 'TEST';
+                        $mail->MsgHTML('<h1>TEST MESSAGE!!!</h1>');
+                        $mail->AddAddress('mvovk90@mail.ru', "");
+                        if(!$mail->Send()) {
+                            echo "Mailer Error: " . $mail->ErrorInfo;
+                        }else {
+                            echo "Message sent!";
+                        }
+                        
+                        $email = Yii::app()->email;
+                        $email->to = 'mvovk90@mail.ru';
+                        $email->subject = 'Hello';
+                        $email->message = 'Hello bro';
+                        $email->send();
                         
 
                         

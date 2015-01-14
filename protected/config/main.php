@@ -40,6 +40,15 @@ return array(
 
 	// application components
 	'components'=>array(
+                'Smtpmail'=>array(
+                    'class'=>'application.extensions.smtpmail.PHPMailer',
+                    'Host'=>"smtp.gmail.com",
+                    'Username'=>'mvovk90@gmail.com',
+                    'Password'=>'maximas90@ukr.net',
+                    'Mailer'=>'smtp',
+                    'Port'=>465,
+                    'SMTPAuth'=>true, 
+                ),
                 'email'=>array(
                     'class'=>'application.extensions.email.Email',
                     'delivery'=>'php', //Will use the php mailing function.
