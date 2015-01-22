@@ -108,44 +108,54 @@ class CompetitionController extends Controller
         
         public function actionUpdatevievs($id){
             if(Yii::app()->request->isAjaxRequest){ 
-                
+                $model = Competition::model()->find("id=:competition_id", array(':competition_id'=>$id));
+                $model->confirmation;
                 $criteria = new CDbCriteria;
                 $criteria->condition = 't.competition_id =' . $id;
                 $criteria->order = 't.group_id';
                 $request=new CActiveDataProvider('CompetitionRequest', array('criteria' => $criteria));
                 $request->pagination->pageSize = count(CompetitionRequest::model()->findAll());
-                return $this->widget('zii.widgets.grid.CGridView', array(
-                                    'id' => 'competition-request-grid',
-                                    'dataProvider' => $request,
-                                    'template' => '{pager}{items}{pager}',
-                                    'columns' => array(
-                                        array('name' => 'group_id','type' => 'raw','value' => '$data->getGroupName()','filter' => false,),
-                                        'lastname',
-                                        'name',
-                                        'year',
-                                        'sity',
-                                        'team',
-                                        'participation_data',
-                                        array(
+                
+                $widget_array = array();
+                $widget_array['id'] = 'competition-request-grid';
+                $widget_array['dataProvider'] = $request;
+                $widget_array['template'] = '{pager}{items}{pager}';
+                
+                $widget_array['columns'] = array();
+                array_push($widget_array['columns'], array(
+                                            'name' => 'group_id',
+                                            'type' => 'raw',
+                                            'value' => '$data->getGroupName()',
+                                            'filter' => false,
+                                        ));
+                array_push($widget_array['columns'], 'lastname');
+                array_push($widget_array['columns'], 'name');
+                array_push($widget_array['columns'], 'year');
+                array_push($widget_array['columns'], 'sity');
+                array_push($widget_array['columns'], 'team');
+                array_push($widget_array['columns'], 'participation_data');
+                array_push($widget_array['columns'], array(
                                             'name' => 'Разряд',
                                             'type' => 'raw',
                                             'value' => '$data->getRankName()',
                                             'filter' => false,
-                                        ),
-                                        array(
+                                        ));
+                if($model->confirmation == 1){
+                    array_push($widget_array['columns'], array(
                                             'name' => 'Статус',
                                             'type' => 'raw',
                                             'value' => '$data->getNameStatus()',
                                             'filter' => false,                                            
-                                            ),
-                                        array(
+                                            ));
+                }
+                array_push($widget_array['columns'], array(
                                             'name' => 'Представитель',
                                             'type' => 'raw',
                                             'value' => '$data->getNameUser()',
                                             'filter' => false,
-                                            ),
-                                    ),
-                ));
+                                            ));
+
+                return $this->widget('zii.widgets.grid.CGridView', $widget_array);
                 exit();
             }
         }
