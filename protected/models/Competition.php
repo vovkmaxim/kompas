@@ -584,7 +584,6 @@ class Competition extends CActiveRecord
         public function enableRegisterCompetition(){    
             $close_registration_data_array = explode(' ', $this->close_registration_data);
             $close_registration_data_array = explode('-', $close_registration_data_array[0]);
-            
             $close_registration_time = explode(':', $this->close_registration_time);
             
             $today_data = date('Y-m-d H:i:s');
@@ -600,7 +599,7 @@ class Competition extends CActiveRecord
             if($close_registration_data_array[2] < $today[2]){
                 return false;
             } elseif($close_registration_data_array[2] == $today[2]){
-                if($close_registration_time[0] < $today_time[0]){
+                if($close_registration_time[0] <= $today_time[0]){
                     return false;
                 }
             }            
