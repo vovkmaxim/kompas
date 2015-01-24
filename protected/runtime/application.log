@@ -5666,3 +5666,81 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/index.php/admin/competitionRequest/img/favicons/favicon.ico
 ---
+2015/01/22 20:21:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /home/max/public_html/o-kompas/protected/modules/admin/controllers/UserController.php:182
+Stack trace:
+#0 /home/max/public_html/o-kompas/protected/modules/admin/controllers/UserController.php(75): UserController->loadModel('img')
+#1 [internal function]: UserController->actionUpdate('img')
+#2 /home/max/public_html/o-kompas/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(UserController), Array)
+#3 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(UserController), Object(ReflectionMethod), Array)
+#4 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('update')
+#13 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/user/upda...')
+#14 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/admin/user/update/id/img/favicons/favicon.ico
+---
+2015/01/22 20:21:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /home/max/public_html/o-kompas/protected/modules/admin/controllers/UserController.php:182
+Stack trace:
+#0 /home/max/public_html/o-kompas/protected/modules/admin/controllers/UserController.php(31): UserController->loadModel('img')
+#1 [internal function]: UserController->actionView('img')
+#2 /home/max/public_html/o-kompas/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(UserController), Array)
+#3 /home/max/public_html/o-kompas/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(UserController), Object(ReflectionMethod), Array)
+#4 /home/max/public_html/o-kompas/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/max/public_html/o-kompas/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/max/public_html/o-kompas/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/max/public_html/o-kompas/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/max/public_html/o-kompas/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/max/public_html/o-kompas/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/max/public_html/o-kompas/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(282): CController->run('view')
+#13 /home/max/public_html/o-kompas/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/user/view...')
+#14 /home/max/public_html/o-kompas/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /home/max/public_html/o-kompas/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/admin/user/view/id/img/favicons/favicon.ico
+---
+2015/01/22 20:23:01 [warning] [application] Не удалось присвоить небезопасный атрибут "position" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (40)
+in /home/max/public_html/o-kompas/index.php (13)
+2015/01/22 20:23:01 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (40)
+in /home/max/public_html/o-kompas/index.php (13)
+2015/01/22 20:23:22 [warning] [application] Не удалось присвоить небезопасный атрибут "position" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (40)
+in /home/max/public_html/o-kompas/index.php (13)
+2015/01/22 20:23:22 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (40)
+in /home/max/public_html/o-kompas/index.php (13)
+2015/01/22 20:23:32 [warning] [application] Не удалось присвоить небезопасный атрибут "position" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (66)
+in /home/max/public_html/o-kompas/index.php (13)
+2015/01/22 20:23:32 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (66)
+in /home/max/public_html/o-kompas/index.php (13)
+2015/01/23 22:35:23 [warning] [application] Не удалось присвоить небезопасный атрибут "position" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (40)
+in /home/max/public_html/o-kompas/index.php (13)
+2015/01/23 22:35:23 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (40)
+in /home/max/public_html/o-kompas/index.php (13)
+2015/01/24 13:31:15 [warning] [application] Не удалось присвоить небезопасный атрибут "position" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (40)
+in /home/max/public_html/o-kompas/index.php (13)
+2015/01/24 13:31:15 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (40)
+in /home/max/public_html/o-kompas/index.php (13)
+2015/01/24 13:31:50 [warning] [application] Не удалось присвоить небезопасный атрибут "position" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (67)
+in /home/max/public_html/o-kompas/index.php (13)
+2015/01/24 13:31:50 [warning] [application] Не удалось присвоить небезопасный атрибут "logo_path" класса "Events".
+in /home/max/public_html/o-kompas/protected/modules/admin/controllers/EventsController.php (67)
+in /home/max/public_html/o-kompas/index.php (13)

@@ -40,6 +40,7 @@ class EventsController extends AdminController
 			$model->attributes=$_POST['Events'];
                         $model->type = $_POST['type']; 
                         $model->status = $_POST['status'];
+                        $model->user_id = Yii::app()->user->id;
                         if($model->save()){
                             $model->position = $model->id;
                             $model->save();
