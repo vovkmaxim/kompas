@@ -594,15 +594,22 @@ class Competition extends CActiveRecord
                 return false;
             }
             if($close_registration_data_array[1] < $today[1]){
-                return false;
-            }
-            if($close_registration_data_array[2] < $today[2]){
-                return false;
-            } elseif($close_registration_data_array[2] == $today[2]){
-                if($close_registration_time[0] <= $today_time[0]){
+                if($close_registration_data_array[2] < $today[2]){
                     return false;
-                }
-            }            
+                } elseif($close_registration_data_array[2] == $today[2]){
+                    if($close_registration_time[0] <= $today_time[0]){
+                        return false;
+                    }
+                }  
+            } elseif ($close_registration_data_array[1] == $today[1]) {
+                if($close_registration_data_array[2] < $today[2]){
+                    return false;
+                } elseif($close_registration_data_array[2] == $today[2]){
+                    if($close_registration_time[0] <= $today_time[0]){
+                        return false;
+                    }
+                } 
+            }                      
             return true;
         }
         

@@ -86,7 +86,7 @@ function get_sliders(){
                
                $images_sliders .= '<li>';
                if(!empty($slider->link)){
-                    $images_sliders .= '<a href="https://'.$slider->link.'" target="_blank">';
+                    $images_sliders .= '<a href="http://'.$slider->link.'" target="_blank">';
                     $images_sliders .= '<img src="/sliders/' . $slider->path . '" alt="' . $slider->hedline . '" width = "630px" height="300px" />';
                     $images_sliders .= '</a>'; 
                } else {

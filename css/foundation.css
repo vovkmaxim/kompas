@@ -87,6 +87,10 @@ select {
     min-height: 107px;
     background: url("../images/header-bckg.jpg") repeat;
 }
+
+#vidjet_views{
+    word-break: break-all;
+}
 #header .header-top {min-height: 108px; background: url("../images/header-top.png") repeat-x top center, url("../images/header-bottom.png") repeat-x bottom center;}
 #header .logo #logo1 {margin: -15px 10px 0 -60px;}
 #header .logo, #header .top-banner {margin-top: 15px;margin-bottom: 15px;}
